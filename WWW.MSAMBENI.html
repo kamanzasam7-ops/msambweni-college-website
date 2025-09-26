@@ -1,0 +1,2179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Msambweni Technical & Vocational College</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family: Arial, sans-serif; line-height:1.6; color:#333; scroll-behavior: smooth; }
+
+  /* Header */
+  header {
+    background:#2c7be5;
+    color:#fff;
+    padding:15px 20px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    position:sticky;
+    top:0;
+    z-index:1000;
+  }
+  .header-left, .header-right { width:60px; height:60px; }
+  .header-left img, .header-right img { width:100%; height:auto; }
+  .header-center { flex:1; text-align:center; font-size:20px; font-weight:bold; }
+
+  nav ul { display:flex; list-style:none; justify-content:center; flex-wrap:wrap; margin-top:10px; width:100%; }
+  nav ul li { margin:5px 15px; }
+  nav ul li a { color:#fff; text-decoration:none; font-weight:bold; }
+  nav ul li a:hover { text-decoration:underline; }
+
+  /* Hero */
+  .hero { background:url('college-hero.jpg') center/cover no-repeat; height:70vh; display:flex; align-items:center; justify-content:center; color:#fff; text-align:center; }
+  .hero-content h2 { font-size:40px; margin-bottom:10px; text-shadow:2px 2px 4px rgba(0,0,0,0.5);}
+  .hero-content p { font-size:18px; margin-bottom:20px; text-shadow:1px 1px 3px rgba(0,0,0,0.5); }
+
+  .btn { display:inline-block; padding:12px 25px; background:#ffcc00; color:#333; text-decoration:none; border-radius:8px; font-weight:bold; cursor:pointer; }
+  .btn:hover { background:#e6b800; }
+
+  section { padding:60px 20px; }
+  section h2 { font-size:28px; margin-bottom:20px; text-align:center; color:#2c7be5; }
+  section p, section ul { max-width:800px; margin:auto; margin-bottom:20px; text-align:center; }
+  section ul li { margin-bottom:10px; }
+
+  .departments-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:20px; margin-top:30px; }
+  .dept-card { background:#f0f2f5; padding:30px; text-align:center; font-weight:bold; border-radius:10px; box-shadow:0 4px 6px rgba(0,0,0,0.1); transition:transform 0.3s; }
+  .dept-card:hover { transform:translateY(-5px); }
+
+  footer { background:#333; color:#fff; text-align:center; padding:20px; }
+  footer a { color:#ffcc00; text-decoration:none; margin:0 5px; }
+  footer a:hover { text-decoration:underline; }
+
+  /* Center Admission Section */
+  #admissions { display:flex; flex-direction:column; align-items:center; justify-content:center; }
+  #admissions form { width:100%; max-width:600px; margin-bottom:30px; display:flex; flex-direction:column; gap:15px; }
+  #admissions table { width:100%; max-width:800px; border-collapse:collapse; margin-bottom:20px; }
+  #admissions table, th, td { border:1px solid #333; }
+  th, td { padding:10px; text-align:center; }
+  th { background:#2c7be5; color:#fff; }
+
+  input, select, textarea { padding:10px; border-radius:6px; border:1px solid #ccc; width:100%; }
+  input[type="submit"], button { background:#2c7be5; color:#fff; border:none; cursor:pointer; padding:12px; border-radius:8px; font-weight:bold; }
+  input[type="submit"]:hover, button:hover { background:#1a5bbf; }
+
+  .portal-card { max-width:700px; margin:30px auto; background:#fff; padding:25px; border-radius:15px; box-shadow:0 8px 20px rgba(0,0,0,0.15); }
+  .tabs { display:flex; justify-content:space-around; margin-bottom:20px; }
+  .tab-btn { padding:10px 20px; border:none; background:#f0f2f5; cursor:pointer; border-radius:8px; font-weight:bold; transition:0.3s; }
+  .tab-btn.active { background:#2c7be5; color:#fff; }
+  .portal-form { display:flex; flex-direction:column; gap:15px; }
+  .file-cards { display:flex; flex-wrap:wrap; gap:15px; justify-content:center; margin-top:15px; }
+  .file-card { background:#f0f4f8; padding:15px; border-radius:12px; width:200px; text-align:center; box-shadow:0 4px 10px rgba(0,0,0,0.1); transition:0.3s; }
+  .file-card:hover { transform:translateY(-5px); box-shadow:0 6px 15px rgba(0,0,0,0.2); }
+
+  @media(max-width:768px){
+    header { flex-direction:column; align-items:center; }
+    nav ul { flex-direction:column; margin-top:10px; }
+    nav ul li { margin:10px 0; }
+    .hero-content h2 { font-size:28px; }
+    .hero-content p { font-size:16px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<header>
+  <div class="header-left"><img src="logo.jpg" alt="Left Logo"></div>
+  <div class="header-center">Msambweni Technical & Vocational College</div>
+  <div class="header-right"><img src="logo.jpg" alt="Right Logo"></div>
+  <nav>
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#departments">Departments</a></li>
+      <li><a href="#admissions">Admissions</a></li>
+      <li><a href="#news">News</a></li>
+      <li><a href="#finance portal">finance portal</a></li>
+      <li><a href="#staff-portal">Staff Portal</a></li>
+    </ul>
+  </nav>
+</header>
+
+<!-- Hero -->
+<section id="home" class="hero">
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <h1>Msambweni Technical & Vocational College</h1>
+    <h2>Empowering Students for a Brighter Future</h2>
+    <p>Providing top-quality technical and vocational education in ICT, Business, Engineering, Hospitality, Agriculture, Fashion, and more.</p>
+    <a href="#admissions" class="btn">Apply Now</a>
+
+    <!-- Info Cards -->
+    <div class="hero-cards">
+      <div class="hero-card">
+        <span>📍</span>
+        <p>Location: Msambweni, Kwale County</p>
+      </div>
+      <div class="hero-card">
+        <span>📚</span>
+        <p>Courses: ICT, Business, Engineering, Hospitality, Agriculture, Fashion & Cosmetology</p>
+      </div>
+      <div class="hero-card">
+        <span>🗓️</span>
+        <p>Admissions Open: 1st Sept - 30th Nov 2025</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+/* Hero Section */
+.hero {
+  position: relative;
+  background: url('college-hero.jpg') center/cover no-repeat;
+  height: 85vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #fff;
+  overflow: hidden;
+}
+
+.hero-overlay {
+  position: absolute;
+  top:0; left:0; width:100%; height:100%;
+  background: linear-gradient(135deg, rgba(44,123,229,0.8), rgba(77,163,255,0.8));
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 900px;
+  padding: 20px;
+}
+
+.hero-content h1 {
+  font-size: 36px;
+  margin-bottom: 15px;
+  text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+  animation: fadeInDown 1s ease forwards;
+}
+
+.hero-content h2 {
+  font-size: 28px;
+  margin-bottom: 15px;
+  text-shadow: 2px 2px 5px rgba(0,0,0,0.4);
+  color: #ffeb3b;
+  animation: fadeInDown 1.2s ease forwards;
+}
+
+.hero-content p {
+  font-size: 16px;
+  margin-bottom: 15px;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+  animation: fadeIn 1.4s ease forwards;
+}
+
+.hero .btn {
+  display: inline-block;
+  padding: 15px 30px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #fff;
+  background: linear-gradient(90deg, #ff7e5f, #feb47b);
+  border-radius: 12px;
+  text-decoration: none;
+  margin-top: 15px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  transition: 0.3s;
+  animation: fadeInUp 1.6s ease forwards;
+}
+
+.hero .btn:hover {
+  background: linear-gradient(90deg, #ff6a3c, #ffb15c);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+}
+
+/* Hero Info Cards */
+.hero-cards {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 30px;
+  flex-wrap: wrap;
+}
+
+.hero-card {
+  background: rgba(255,255,255,0.15);
+  padding: 15px 20px;
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+  color: #fff;
+  min-width: 220px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  transition: transform 0.3s, box-shadow 0.3s;
+  animation: fadeIn 1.8s ease forwards;
+}
+
+.hero-card span {
+  font-size: 28px;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.hero-card p {
+  font-size: 14px;
+  margin: 0;
+}
+
+.hero-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInDown {
+  0% { opacity: 0; transform: translateY(-20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInUp {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@media(max-width:768px){
+  .hero-content h1 { font-size: 28px; }
+  .hero-content h2 { font-size: 22px; }
+  .hero-content p { font-size: 14px; }
+  .hero .btn { font-size: 16px; padding: 12px 25px; }
+  .hero-cards { flex-direction: column; gap: 15px; }
+}
+</style>
+
+
+
+<!-- Social Media Links -->
+<div class="hero-socials">
+  <a href="https://epaper.peopledaily.digital/html5/reader/production/default.aspx?pubname=People%20Daily&edid=95caa9b6-2777-4353-8668-a67915ea752d&pnum=5" target="_blank" class="social-btn">👍people daily</a>
+  <a href="<!-- Social Media Links -->
+<div class="hero-socials">
+  <a href="https://www.facebook.com/share/v/1FMM4x4nqn/" target="_blank" class="social-btn">👍 Facebook</a>
+  <a href="https://youtu.be/vbJVuYkpyOg?si=x0hPpyEeXdPJdDcS" target="_blank" class="social-btn">▶ YouTube</a>
+<a href="https://mtvc.netlify.app/" target="_blank" class="social-btn">▶WEBSITE</a>
+<a href="https://students.kuccps.net/" target="_blank" class="social-btn">▶KUCCPS</a>
+<a href="https://www.helb.co.ke/" target="_blank" class="social-btn">▶HELB</a>
+<a href="https://www.tvetcdacc.go.ke/" target="_blank" class="social-btn">▶CDACC</a>
+</div>
+
+<style>
+.hero-socials {
+  margin-top: 25px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.social-btn {
+  background: linear-gradient(90deg, #4267B2, #23345C); /* Facebook blue */
+  color: #fff;
+  padding: 12px 20px;
+  border-radius: 10px;
+  font-weight: bold;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.social-btn:nth-child(2) {
+  background: linear-gradient(90deg, #FF0000, #C4302B); /* YouTube red */
+}
+
+.social-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+}
+</style>
+
+<style>
+.hero-socials {
+  margin-top: 25px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.social-btn {
+  background: linear-gradient(90deg, #4267B2, #23345C); /* Facebook blue */
+  color: #fff;
+  padding: 12px 20px;
+  border-radius: 10px;
+  font-weight: bold;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.social-btn:nth-child(2) {
+  background: linear-gradient(90deg, #FF0000, #C4302B); /* YouTube red */
+}
+
+.social-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+}
+</style>
+
+
+<!-- About Section -->
+<section id="about" class="about-section">
+  <div class="about-content">
+    <h2>🌟 About Us</h2>
+    <p>
+      <strong>Msambweni Technical & Vocational College (MTVC)</strong> is dedicated to providing 
+      high-quality technical and vocational education. Our mission is to empower students with 
+      diverse skills, innovation, and knowledge to excel in today’s workforce and beyond.  
+      We focus on practical training, modern technology, and industry-relevant programs.
+    </p>
+  </div>
+
+  <!-- Image Slider -->
+  <div class="slider">
+    <div class="slides">
+      <img src="adm.jpg" alt="School Image 1">
+      <img src="beut.jpg" alt="School Image 2">
+      <img src="bil.jpg" alt="School Image 3">
+      <img src="beach.jpg" alt="School Image 4">
+<img src="com.jpg" alt="School Image 1">
+      <img src="po6.jpg" alt="School Image 2">
+      <img src="po15.jpg" alt="School Image 3">
+      <img src="po18.jpg" alt="School Image 4">
+<img src="po17.jpg" alt="School Image 1">
+      <img src="po9.jpg" alt="School Image 2">
+      <img src="orie.jpg" alt="School Image 3">
+      <img src="pri.jpg" alt="School Image 4">
+
+    </div>
+    <!-- Navigation Buttons -->
+    <button class="prev" onclick="moveSlide(-1)">❮</button>
+    <button class="next" onclick="moveSlide(1)">❯</button>
+  </div>
+</section>
+
+<!-- CSS -->
+<style>
+  /* About Section */
+  .about-section {
+    background: linear-gradient(135deg, #a1c4fd, #c2e9fb);
+    padding: 60px 20px;
+    border-radius: 20px;
+    text-align: center;
+    color: #1a237e;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+    margin: 40px auto;
+    max-width: 1200px;
+  }
+
+  .about-section h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: #0d47a1;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+  }
+
+  .about-section p {
+    font-size: 18px;
+    line-height: 1.7;
+    max-width: 900px;
+    margin: 0 auto 40px auto;
+    color: #0c2d57;
+  }
+
+  /* Slider Container */
+  .slider {
+    position: relative;
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+  }
+
+  /* Slides */
+  .slides {
+    display: flex;
+    transition: transform 0.8s ease-in-out;
+  }
+
+  .slides img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 15px;
+  }
+
+  /* Buttons */
+  .prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0,0,0,0.6);
+    color: white;
+    border: none;
+    padding: 15px;
+    cursor: pointer;
+    border-radius: 50%;
+    font-size: 22px;
+  }
+
+  .prev:hover, .next:hover {
+    background: rgba(0,0,0,0.9);
+  }
+
+  .prev { left: 10px; }
+  .next { right: 10px; }
+</style>
+
+<!-- JavaScript -->
+<script>
+  let slideIndex = 0;
+  const slides = document.querySelector(".slides");
+  const totalSlides = document.querySelectorAll(".slides img").length;
+
+  function showSlide(index) {
+    if (index >= totalSlides) slideIndex = 0;
+    if (index < 0) slideIndex = totalSlides - 1;
+    slides.style.transform = `translateX(${-slideIndex * 100}%)`;
+  }
+
+  function moveSlide(step) {
+    slideIndex += step;
+    showSlide(slideIndex);
+  }
+
+  // Auto-slide every 5 seconds
+  setInterval(() => {
+    moveSlide(1);
+  }, 5000);
+</script>
+
+
+<!-- Departments -->
+<section id="departments">
+  <h2>Our Departments</h2>
+  <div class="departments-grid">
+    <!-- Department 1 -->
+    <div class="dept-card">
+      <img src="po15.jpg" alt="ICT Department">
+      <h3>ICT</h3>
+      <p>Offering Computer Science, Networking & Cybersecurity courses.</p>
+      <a href="docs/ict-brochure.pdf" download class="download-btn">Download Brochure</a>
+    </div>
+
+    <!-- Department 2 -->
+    <div class="dept-card">
+      <img src="gra.jpg" alt="Business Studies">
+      <h3>Business Studies</h3>
+      <p>Specialized in Accounting, HRM, and Entrepreneurship.</p>
+      <a href="docs/business-brochure.pdf" download class="download-btn">Download Brochure</a>
+    </div>
+
+    <!-- Department 3 -->
+    <div class="dept-card">
+      <img src="mec.jpg" alt="Mechanical Engineering">
+      <h3>Mechanical Engineering</h3>
+      <p>Focus on Automotive, Plant Mechanics & Production.</p>
+      <a href="docs/mechanical.pdf" download class="download-btn">Download Curriculum</a>
+    </div>
+
+    <!-- Department 4 -->
+    <div class="dept-card">
+      <img src="elct.jpg" alt="Electrical Engineering">
+      <h3>Electrical & Electronics</h3>
+      <p>Courses in Power, Installation, and Electronics Technology.</p>
+      <a href="docs/electrical.pdf" download class="download-btn">Download Details</a>
+    </div>
+
+    <!-- Department 5 -->
+    <div class="dept-card">
+      <img src="build.jpg" alt="Building & Civil Engineering">
+      <h3>Building & Civil Engineering</h3>
+      <p>Training in Masonry, Plumbing & Construction Works.</p>
+      <a href="docs/building.pdf" download class="download-btn">Download PDF</a>
+    </div>
+
+    <!-- Department 6 -->
+    <div class="dept-card">
+      <img src="food1.jpg" alt="Hospitality & Tourism">
+      <h3>Hospitality & Tourism</h3>
+      <p>Specialized in Culinary Arts, Tourism & Hotel Management.</p>
+      <a href="docs/hospitality.pdf" download class="download-btn">Download Brochure</a>
+    </div>
+
+    <!-- Department 7 -->
+    <div class="dept-card">
+      <img src="po18.jpg" alt="Agriculture Department">
+      <h3>PLUMBING</h3>
+      <p>Programs in plumbing.</p>
+      <a href="docs/agriculture.pdf" download class="download-btn">Download Details</a>
+    </div>
+
+    <!-- Department 8 -->
+    <div class="dept-card">
+      <img src="beut.jpg" alt="Fashion & Cosmetology">
+      <h3>Fashion & Cosmetology</h3>
+      <p>Creative courses in Fashion Design, Hairdressing & Beauty.</p>
+      <a href="docs/fashion.pdf" download class="download-btn">Download PDF</a>
+    </div>
+  </div>
+</section>
+
+<!-- CSS -->
+<style>
+#departments {
+  padding: 60px 20px;
+  background: linear-gradient(135deg, #e0f7fa, #fff);
+  text-align: center;
+}
+#departments h2 {
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+  color: #333;
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+.departments-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 25px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.dept-card {
+  background: #fff;
+  border-radius: 15px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.dept-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+.dept-card h3 {
+  margin: 15px 0 10px;
+  font-size: 1.3rem;
+  color: #00796b;
+}
+.dept-card p {
+  font-size: 0.95rem;
+  padding: 0 15px 15px;
+  color: #555;
+}
+.download-btn {
+  display: inline-block;
+  background: #ff5722;
+  color: white;
+  padding: 10px 20px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.3s;
+}
+.download-btn:hover {
+  background: #e64a19;
+}
+.dept-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.2);
+}
+</style>
+
+
+
+
+<!-- Admissions -->
+<section id="admissions" class="admissions-section">
+  <h2>🎓 Online Admission Portal</h2>
+  <p>Fill the form to apply and view admitted students instantly.</p>
+
+  <!-- Admission Form -->
+  <form id="admissionForm" class="colorful-form">
+    <input type="text" name="admissionNumber" placeholder="Admission Number" required>
+    <input type="text" name="fullname" placeholder="Full Name" required>
+    <input type="text" name="idNumber" placeholder="ID Number" required>
+
+    <select name="department" required>
+      <option value="">Select Department</option>
+      <option>ICT</option>
+      <option>Business Studies</option>
+      <option>Mechanical Engineering</option>
+      <option>Electrical & Electronics Engineering</option>
+      <option>Building & Civil Engineering</option>
+      <option>Hospitality & Tourism</option>
+      <option>Agriculture & Environment</option>
+      <option>Fashion & Cosmetology</option>
+      <option>Library & Info Services</option>
+      <option>Entrepreneurship & Innovation</option>
+    </select>
+
+    <select name="year" required></select>
+    <input type="email" name="email" placeholder="Email" required>
+    <input type="tel" name="phone" placeholder="Phone Number" required>
+    <textarea name="additional" placeholder="Additional Information"></textarea>
+    <input type="submit" value="Submit Application">
+  </form>
+
+  <!-- Search & Filter -->
+  <div class="filter-box">
+    <input type="text" id="searchInput" placeholder="🔍 Search student..." onkeyup="searchTable()">
+
+    <select id="filterDept" onchange="filterTable()">
+      <option value="">All Departments</option>
+      <option>ICT</option>
+      <option>Business Studies</option>
+      <option>Mechanical Engineering</option>
+      <option>Electrical & Electronics Engineering</option>
+      <option>Building & Civil Engineering</option>
+      <option>Hospitality & Tourism</option>
+      <option>Agriculture & Environment</option>
+      <option>Fashion & Cosmetology</option>
+      <option>Library & Info Services</option>
+      <option>Entrepreneurship & Innovation</option>
+    </select>
+
+    <select id="filterYear" onchange="filterTable()">
+      <option value="">All Years</option>
+    </select>
+  </div>
+
+  <!-- Table -->
+  <table id="admittedTable">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Admission No</th>
+        <th>Full Name</th>
+        <th>ID Number</th>
+        <th>Department</th>
+        <th>Year</th>
+        <th>Email</th>
+        <th>Phone</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+
+  <!-- Action Buttons -->
+  <div class="btn-container">
+    <button class="btn download" onclick="downloadAdmissions()">📄 Word</button>
+    <button class="btn excel" onclick="downloadExcel()">📊 Excel</button>
+    <button class="btn print" onclick="printAdmissions()">🖨️ Print</button>
+  </div>
+</section>
+
+<!-- SheetJS library for Excel export -->
+<script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+
+<script>
+  let admissionForm = document.getElementById("admissionForm");
+  let admittedTable = document.querySelector("#admittedTable tbody");
+  let yearSelect = admissionForm.year;
+  let filterYear = document.getElementById("filterYear");
+  let editingRow = null;
+  let studentCounter = 0;
+
+  // Populate year dropdowns
+  let currentYear = new Date().getFullYear();
+  for (let y = currentYear; y >= 2000; y--) {
+    let option1 = document.createElement("option");
+    option1.value = y;
+    option1.textContent = y;
+    yearSelect.appendChild(option1);
+
+    let option2 = option1.cloneNode(true);
+    filterYear.appendChild(option2);
+  }
+
+  // Submit form
+  admissionForm.addEventListener("submit", function (e) {
+    e.preventDefault();
+    let formData = new FormData(admissionForm);
+
+    if (editingRow) {
+      let cells = editingRow.getElementsByTagName("td");
+      cells[1].innerText = formData.get("admissionNumber");
+      cells[2].innerText = formData.get("fullname");
+      cells[3].innerText = formData.get("idNumber");
+      cells[4].innerText = formData.get("department");
+      cells[5].innerText = formData.get("year");
+      cells[6].innerText = formData.get("email");
+      cells[7].innerText = formData.get("phone");
+      editingRow = null;
+    } else {
+      studentCounter++;
+      let row = admittedTable.insertRow();
+      row.innerHTML = `
+        <td>${studentCounter}</td>
+        <td>${formData.get("admissionNumber")}</td>
+        <td>${formData.get("fullname")}</td>
+        <td>${formData.get("idNumber")}</td>
+        <td>${formData.get("department")}</td>
+        <td>${formData.get("year")}</td>
+        <td>${formData.get("email")}</td>
+        <td>${formData.get("phone")}</td>
+        <td>
+          <button class="action-btn edit" onclick="editRow(this)">✏️ Edit</button>
+          <button class="action-btn delete" onclick="deleteRow(this)">🗑️ Delete</button>
+        </td>
+      `;
+    }
+
+    admissionForm.reset();
+  });
+
+  function editRow(button) {
+    let row = button.parentNode.parentNode;
+    let cells = row.getElementsByTagName("td");
+    admissionForm.admissionNumber.value = cells[1].innerText;
+    admissionForm.fullname.value = cells[2].innerText;
+    admissionForm.idNumber.value = cells[3].innerText;
+    admissionForm.department.value = cells[4].innerText;
+    admissionForm.year.value = cells[5].innerText;
+    admissionForm.email.value = cells[6].innerText;
+    admissionForm.phone.value = cells[7].innerText;
+    editingRow = row;
+  }
+
+  function deleteRow(button) {
+    if (confirm("Are you sure you want to delete this record?")) {
+      let row = button.parentNode.parentNode;
+      row.remove();
+    }
+  }
+
+  function searchTable() {
+    filterTable(); // reuse filter function
+  }
+
+  function filterTable() {
+    let search = document.getElementById("searchInput").value.toLowerCase();
+    let dept = document.getElementById("filterDept").value;
+    let year = document.getElementById("filterYear").value;
+    let rows = admittedTable.getElementsByTagName("tr");
+
+    for (let i = 0; i < rows.length; i++) {
+      let cells = rows[i].getElementsByTagName("td");
+      if (cells.length > 0) {
+        let matchSearch = Array.from(cells).some((cell, index) => 
+          index < 8 && cell.innerText.toLowerCase().includes(search)
+        );
+        let matchDept = dept === "" || cells[4].innerText === dept;
+        let matchYear = year === "" || cells[5].innerText === year;
+        rows[i].style.display = (matchSearch && matchDept && matchYear) ? "" : "none";
+      }
+    }
+  }
+
+  function printAdmissions() {
+    let printContents = document.getElementById("admittedTable").outerHTML;
+    let newWindow = window.open("", "", "width=900,height=600");
+    newWindow.document.write("<html><head><title>Print Admissions</title>");
+    newWindow.document.write("<style>table{border-collapse:collapse;width:100%;}th,td{border:1px solid #000;padding:6px;text-align:left;}</style>");
+    newWindow.document.write("</head><body>");
+    newWindow.document.write("<h2>Admitted Students List</h2>");
+    newWindow.document.write(printContents);
+    newWindow.document.write("</body></html>");
+    newWindow.document.close();
+    newWindow.print();
+  }
+
+  function downloadAdmissions() {
+    let table = document.getElementById("admittedTable").outerHTML;
+    let now = new Date();
+    let formattedDate = now.toLocaleDateString("en-GB");
+    let formattedTime = now.toLocaleTimeString("en-GB");
+
+    let html = `
+      <html xmlns:o='urn:schemas-microsoft-com:office:office'
+      xmlns:w='urn:schemas-microsoft-com:office:word'
+      xmlns='http://www.w3.org/TR/REC-html40'>
+      <head><meta charset='utf-8'><title>Admissions List</title>
+      <style>
+        table {border-collapse: collapse; width: 100%;}
+        th, td {border: 1px solid black; padding: 6px; text-align: left;}
+        th {background-color: #0073e6; color: white;}
+      </style>
+      </head><body>
+      <h1 style="text-align:center;color:#0073e6;">MSAMBWENI TVC</h1>
+      <h3 style="text-align:center;font-style:italic;">"Empowering Students for a Brighter Future"</h3>
+      <p>Generated on: ${formattedDate} at ${formattedTime}</p>
+      <h2 style="text-align:center;">Admissions List</h2>
+      ${table}
+      </body></html>`;
+
+    let url = 'data:application/vnd.ms-word;charset=utf-8,' + encodeURIComponent(html);
+    let link = document.createElement("a");
+    link.href = url;
+    link.download = "Admissions_List.doc";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  }
+
+  function downloadExcel() {
+    let table = document.getElementById("admittedTable");
+    let wb = XLSX.utils.table_to_book(table, { sheet: "Admissions" });
+    XLSX.writeFile(wb, "Admissions_List.xlsx");
+  }
+</script>
+
+<style>
+  .admissions-section {
+    background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+    padding: 40px 20px;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    text-align: center;
+  }
+  .colorful-form {
+    max-width: 700px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .filter-box {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 20px auto;
+    flex-wrap: wrap;
+  }
+  .filter-box input, .filter-box select {
+    padding: 10px;
+    border-radius: 8px;
+    border: 2px solid #0073e6;
+    font-size: 15px;
+  }
+  #admittedTable {
+    width: 100%;
+    margin: 30px auto;
+    border-collapse: collapse;
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  #admittedTable th {
+    background: linear-gradient(90deg, #0073e6, #00c6ff);
+    color: white;
+    padding: 10px;
+  }
+  #admittedTable td {
+    padding: 8px;
+    border-bottom: 1px solid #ddd;
+  }
+  .btn-container {
+    margin-top: 20px;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+  }
+  .btn { padding: 10px 20px; border-radius: 8px; font-weight: bold; color: #fff; cursor: pointer; border: none; }
+  .btn.download { background: #0073e6; }
+  .btn.excel { background: #28a745; }
+  .btn.print { background: #ff9800; }
+  .action-btn { padding: 4px 10px; border: none; border-radius: 6px; cursor: pointer; font-size: 13px; }
+  .edit { background: #ffc107; color: #222; }
+  .delete { background: #dc3545; color: #fff; }
+</style>
+
+<!-- Centered Finance Portal Title -->
+<div style="display:flex; justify-content:center; align-items:center; height:100vh; background:#f4f6f9;">
+  <h1 style="font-family:Arial, sans-serif; font-size:3rem; color:#004080; text-align:center; font-weight:bold;">
+    Finance Portal
+  </h1>
+</div>
+
+
+<!-- Top Navigation -->
+<nav style="width:100%; background:linear-gradient(90deg,#0d47a1,#1976d2); padding:15px 0; text-align:center; box-shadow:0 4px 10px rgba(0,0,0,0.2); position:sticky; top:0; z-index:100;">
+  <button onclick="showSection('paymentsSection')" style="margin:0 15px; padding:10px 20px; border:none; border-radius:8px; background:#42a5f5; color:white; font-weight:bold; cursor:pointer; transition:0.3s;">💰 Payments</button>
+  <button onclick="showSection('expensesSection')" style="margin:0 15px; padding:10px 20px; border:none; border-radius:8px; background:#66bb6a; color:white; font-weight:bold; cursor:pointer; transition:0.3s;">📊 Expenses</button>
+  <button onclick="showSection('reportsSection')" style="margin:0 15px; padding:10px 20px; border:none; border-radius:8px; background:#ffb74d; color:white; font-weight:bold; cursor:pointer; transition:0.3s;">📑 Reports</button>
+</nav>
+
+<!-- Main Content Centered -->
+<div style="max-width:800px; margin:40px auto;">
+
+  <!-- Payments Section -->
+  <section id="paymentsSection" style="display:none; background:white; padding:25px; border-radius:15px; box-shadow:0 8px 25px rgba(0,0,0,0.1); margin-bottom:30px;">
+    <h2 style="text-align:center; color:#0d47a1;">💰 Record Payment</h2>
+    <form id="paymentForm">
+      <input type="text" id="studentName" placeholder="Student Name" required style="width:100%; padding:12px; margin-bottom:15px; border-radius:8px; border:1px solid #ccc;">
+      <input type="number" id="paymentAmount" placeholder="Amount" required style="width:100%; padding:12px; margin-bottom:15px; border-radius:8px; border:1px solid #ccc;">
+      <select id="paymentMethod" required style="width:100%; padding:12px; margin-bottom:15px; border-radius:8px; border:1px solid #ccc;">
+        <option value="">Select Method</option>
+        <option value="Cash">Cash</option>
+        <option value="Bank">Bank</option>
+        <option value="Mobile Money">Mobile Money</option>
+      </select>
+      <button type="submit" style="width:100%; padding:12px; background:linear-gradient(90deg,#42a5f5,#478ed1); color:white; border:none; border-radius:8px; font-weight:bold; cursor:pointer; transition:0.3s;">Add Payment</button>
+    </form>
+  </section>
+
+  <!-- Expenses Section -->
+  <section id="expensesSection" style="display:none; background:white; padding:25px; border-radius:15px; box-shadow:0 8px 25px rgba(0,0,0,0.1); margin-bottom:30px;">
+    <h2 style="text-align:center; color:#388e3c;">📊 Record Expense</h2>
+    <form id="expenseForm">
+      <input type="text" id="expenseCategory" placeholder="Category" required style="width:100%; padding:12px; margin-bottom:15px; border-radius:8px; border:1px solid #ccc;">
+      <input type="text" id="expenseDescription" placeholder="Description" required style="width:100%; padding:12px; margin-bottom:15px; border-radius:8px; border:1px solid #ccc;">
+      <input type="number" id="expenseAmount" placeholder="Amount" required style="width:100%; padding:12px; margin-bottom:15px; border-radius:8px; border:1px solid #ccc;">
+      <button type="submit" style="width:100%; padding:12px; background:linear-gradient(90deg,#66bb6a,#388e3c); color:white; border:none; border-radius:8px; font-weight:bold; cursor:pointer; transition:0.3s;">Add Expense</button>
+    </form>
+  </section>
+
+  <!-- Reports Section -->
+  <section id="reportsSection" style="display:none; background:white; padding:25px; border-radius:15px; box-shadow:0 8px 25px rgba(0,0,0,0.1); margin-bottom:30px;">
+    <h2 style="text-align:center; color:#f57c00;">📑 Reports</h2>
+    <div style="text-align:center; margin-bottom:15px;">
+      <button onclick="downloadPayments()" style="margin:5px; padding:10px 20px; background:linear-gradient(90deg,#ffb74d,#ffa726); color:white; font-weight:bold; border:none; border-radius:8px; cursor:pointer;">Download Payments</button>
+      <button onclick="downloadStudents()" style="margin:5px; padding:10px 20px; background:linear-gradient(90deg,#ffb74d,#ffa726); color:white; font-weight:bold; border:none; border-radius:8px; cursor:pointer;">Paid Students List</button>
+    </div>
+
+    <h3 style="color:#0d47a1;">Payments</h3>
+    <table id="paymentsTable" style="width:100%; border-collapse:collapse; border-radius:12px; overflow:hidden; margin-bottom:20px;">
+      <thead><tr style="background:#42a5f5; color:white;"><th>Student</th><th>Amount</th><th>Method</th><th>Date</th></tr></thead>
+      <tbody></tbody>
+    </table>
+
+    <h3 style="color:#388e3c;">Expenses</h3>
+    <table id="expensesTable" style="width:100%; border-collapse:collapse; border-radius:12px; overflow:hidden;">
+      <thead><tr style="background:#66bb6a; color:white;"><th>Category</th><th>Description</th><th>Amount</th><th>Date</th></tr></thead>
+      <tbody></tbody>
+    </table>
+  </section>
+
+</div>
+
+<script>
+function showSection(id){
+  ['paymentsSection','expensesSection','reportsSection'].forEach(sec=>document.getElementById(sec).style.display='none');
+  document.getElementById(id).style.display='block';
+}
+
+// LocalStorage functions
+function savePayment(student,amount,method){
+  let payments=JSON.parse(localStorage.getItem('payments')||'[]');
+  payments.push({student,amount,method,date:new Date().toLocaleDateString()});
+  localStorage.setItem('payments',JSON.stringify(payments));
+  loadPayments();
+}
+
+function saveExpense(category,description,amount){
+  let expenses=JSON.parse(localStorage.getItem('expenses')||'[]');
+  expenses.push({category,description,amount,date:new Date().toLocaleDateString()});
+  localStorage.setItem('expenses',JSON.stringify(expenses));
+  loadExpenses();
+}
+
+function loadPayments(){
+  let payments=JSON.parse(localStorage.getItem('payments')||'[]');
+  let tbody=document.querySelector('#paymentsTable tbody'); tbody.innerHTML='';
+  payments.forEach(p=>tbody.innerHTML+=`<tr><td>${p.student}</td><td>${p.amount}</td><td>${p.method}</td><td>${p.date}</td></tr>`);
+}
+
+function loadExpenses(){
+  let expenses=JSON.parse(localStorage.getItem('expenses')||'[]');
+  let tbody=document.querySelector('#expensesTable tbody'); tbody.innerHTML='';
+  expenses.forEach(e=>tbody.innerHTML+=`<tr><td>${e.category}</td><td>${e.description}</td><td>${e.amount}</td><td>${e.date}</td></tr>`);
+}
+
+document.getElementById('paymentForm').addEventListener('submit',e=>{
+  e.preventDefault();
+  savePayment(document.getElementById('studentName').value,
+              document.getElementById('paymentAmount').value,
+              document.getElementById('paymentMethod').value);
+  e.target.reset();
+});
+
+document.getElementById('expenseForm').addEventListener('submit',e=>{
+  e.preventDefault();
+  saveExpense(document.getElementById('expenseCategory').value,
+              document.getElementById('expenseDescription').value,
+              document.getElementById('expenseAmount').value);
+  e.target.reset();
+});
+
+// Download functions
+function downloadPayments(){
+  let payments=JSON.parse(localStorage.getItem('payments')||'[]');
+  let content="<h2>Payments Report</h2><table border='1'><tr><th>Student</th><th>Amount</th><th>Method</th><th>Date</th></tr>";
+  payments.forEach(p=>content+=`<tr><td>${p.student}</td><td>${p.amount}</td><td>${p.method}</td><td>${p.date}</td></tr>`); content+="</table>";
+  let blob=new Blob([content],{type:'application/msword'}); let link=document.createElement('a'); link.href=URL.createObjectURL(blob); link.download='payments.doc'; link.click();
+}
+
+function downloadStudents(){
+  let payments=JSON.parse(localStorage.getItem('payments')||'[]'); let students=[...new Set(payments.map(p=>p.student))];
+  let content="<h2>Paid Students List</h2><ul>"; students.forEach(s=>content+=`<li>${s}</li>`); content+="</ul>";
+  let blob=new Blob([content],{type:'application/msword'}); let link=document.createElement('a'); link.href=URL.createObjectURL(blob); link.download='paid_students.doc'; link.click();
+}
+
+// Initial load
+loadPayments(); loadExpenses();
+</script>
+
+
+<!-- Msambweni Technical and Vocational College Student Portal -->
+<section id="student-portal">
+  <h2>🎓 MTVC STUDENT PORTAL</h2>
+  <p class="vision">Vision: To empower students with knowledge and skills for a better future.</p>
+
+  <div class="portal-card" id="portal-card">
+    <div class="tabs">
+      <button class="tab-btn active" onclick="openTab(event,'signup')">Sign Up</button>
+      <button class="tab-btn" onclick="openTab(event,'login')">Login</button>
+      <button class="tab-btn" onclick="openTab(event,'reset')">Reset Password</button>
+    </div>
+
+    <!-- Sign Up -->
+    <div id="signup" class="portal-form">
+      <input type="text" placeholder="Full Name" id="signup-name" required>
+      <input type="text" placeholder="Student ID" id="signup-id" required>
+      <input type="text" placeholder="Username" id="signup-username" required>
+      <input type="password" placeholder="Password" id="signup-password" required>
+      <button class="action-btn" onclick="studentSignup()">Create Account</button>
+    </div>
+
+    <!-- Login -->
+    <div id="login" class="portal-form" style="display:none;">
+      <input type="text" placeholder="Username" id="login-username" required>
+      <input type="password" placeholder="Password" id="login-password" required>
+      <button class="action-btn" onclick="studentLogin()">Login</button>
+    </div>
+
+    <!-- Reset Password -->
+    <div id="reset" class="portal-form" style="display:none;">
+      <input type="text" placeholder="Username" id="reset-username" required>
+      <input type="password" placeholder="New Password" id="reset-password" required>
+      <button class="action-btn" onclick="resetPassword()">Reset Password</button>
+    </div>
+  </div>
+</section>
+
+<!-- Student Profile Section -->
+<div id="student-profile" style="display:none; text-align:center; margin:40px auto; max-width:700px;">
+  <h2>🎓 Student Profile</h2>
+  <p><b>Full Name:</b> <span id="profile-name"></span></p>
+  <p><b>Student ID:</b> <span id="profile-id"></span></p>
+  <p><b>Username:</b> <span id="profile-username"></span></p>
+
+  <h3>📚 Courses</h3>
+  <ul id="profile-courses">
+    <li>DSW1203 - Introduction to community development</li>
+    <li>DSW1204 -social work theory and practice </li>
+    <li>DSW1205 - development economics</li>
+<li>DSW1206 - entreprenuership</li>
+    <li>DSW1207 - community based organizations</li>
+    <li>DSW1204 - community capacity building and partnerships</li>
+
+  </ul>
+
+  <h3>📊 My Results</h3>
+  <table class="data-table" id="resultsTable" border="1" cellspacing="0" cellpadding="6" style="margin:0 auto; border-collapse:collapse;">
+    <thead style="background:#004080; color:#fff;">
+      <tr><th>Course Code</th><th>Grade</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>DSW1203</td><td>A</td></tr>
+      <tr><td>DSW1204</td><td>B+</td></tr>
+      <tr><td>DSW1205</td><td>A-</td></tr>
+<tr><td>DSW1206</td><td>A</td></tr>
+      <tr><td>DSW1207</td><td>B+</td></tr>
+      <tr><td>DSW1208</td><td>A-</td></tr>
+    </tbody>
+  </table>
+
+  <!-- Download Button -->
+  <br>
+  <button class="action-btn" onclick="downloadResults()">⬇ Download Results in Word</button>
+</div>
+
+<!-- Styles -->
+<style>
+#student-portal {
+  text-align: center;
+  margin: 40px auto;
+  max-width: 500px;
+  font-family: "Segoe UI", sans-serif;
+}
+.vision {
+  font-size: 14px;
+  font-style: italic;
+  color: #444;
+  margin-bottom: 20px;
+}
+.portal-card {
+  background: #fff;
+  border-radius: 15px;
+  padding: 25px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+.tabs {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+.tab-btn {
+  background: #eee;
+  border: none;
+  padding: 12px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+  font-weight: bold;
+}
+.tab-btn.active, .tab-btn:hover {
+  background: #004080;
+  color: #fff;
+}
+.portal-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.portal-form input {
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 14px;
+}
+.action-btn {
+  background: #004080;
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+}
+.action-btn:hover {
+  background: #0066cc;
+}
+.data-table {
+  width: 80%;
+}
+</style>
+
+<!-- Script -->
+<script>
+// Switch between tabs
+function openTab(evt, tabId) {
+  document.querySelectorAll(".portal-form").forEach(f => f.style.display="none");
+  document.getElementById(tabId).style.display="flex";
+  document.querySelectorAll(".tab-btn").forEach(btn => btn.classList.remove("active"));
+  evt.target.classList.add("active");
+}
+
+// SIGN UP
+function studentSignup() {
+  let name = document.getElementById("signup-name").value;
+  let id = document.getElementById("signup-id").value;
+  let username = document.getElementById("signup-username").value;
+  let password = document.getElementById("signup-password").value;
+
+  if (!name || !id || !username || !password) {
+    alert("Please fill all fields!");
+    return;
+  }
+
+  let users = JSON.parse(localStorage.getItem("students")) || [];
+
+  if (users.find(u => u.username === username)) {
+    alert("Username already exists!");
+    return;
+  }
+
+  users.push({ name, id, username, password });
+  localStorage.setItem("students", JSON.stringify(users));
+  alert("Account created successfully! You can now login.");
+}
+
+// LOGIN
+function studentLogin() {
+  let username = document.getElementById("login-username").value;
+  let password = document.getElementById("login-password").value;
+
+  let users = JSON.parse(localStorage.getItem("students")) || [];
+  let user = users.find(u => u.username === username && u.password === password);
+
+  if (user) {
+    document.getElementById("portal-card").style.display = "none";
+    document.getElementById("student-portal").style.display = "none";
+    document.getElementById("student-profile").style.display = "block";
+
+    document.getElementById("profile-name").textContent = user.name;
+    document.getElementById("profile-id").textContent = user.id;
+    document.getElementById("profile-username").textContent = user.username;
+  } else {
+    alert("Invalid username or password!");
+  }
+}
+
+// RESET PASSWORD
+function resetPassword() {
+  let username = document.getElementById("reset-username").value;
+  let newPassword = document.getElementById("reset-password").value;
+
+  let users = JSON.parse(localStorage.getItem("students")) || [];
+  let user = users.find(u => u.username === username);
+
+  if (!user) {
+    alert("User not found!");
+    return;
+  }
+
+  user.password = newPassword;
+  localStorage.setItem("students", JSON.stringify(users));
+  alert("Password reset successful! You can now login.");
+}
+
+// DOWNLOAD RESULTS IN WORD
+function downloadResults() {
+  let name = document.getElementById("profile-name").textContent;
+  let id = document.getElementById("profile-id").textContent;
+  let username = document.getElementById("profile-username").textContent;
+
+  let resultsTable = document.getElementById("resultsTable").outerHTML;
+
+  let content = `
+    <html>
+      <head>
+        <meta charset="UTF-8">
+        <title>Results Slip</title>
+        <style>
+          body { font-family: Arial, sans-serif; }
+          h2, h3 { text-align:center; }
+          table { width:100%; border-collapse: collapse; margin-top:20px; }
+          th, td { border:1px solid #333; padding:8px; text-align:center; }
+          th { background:#004080; color:white; }
+          .footer { margin-top:40px; text-align:right; font-style:italic; }
+        </style>
+      </head>
+      <body>
+        <div style="text-align:center;">
+          <h2>Msambweni Technical & Vocational College</h2>
+          <h4>"Empowering Skills for the Future"</h4>
+          <hr>
+        </div>
+
+        <h3>Official Student Results Slip</h3>
+        <p><b>Full Name:</b> ${name}</p>
+        <p><b>Student ID:</b> ${id}</p>
+        <p><b>Username:</b> ${username}</p>
+
+        ${resultsTable}
+
+        <div class="footer">
+          <p>Generated on: ${new Date().toLocaleString()}</p>
+          <br><br>
+          <p>__________________________<br>
+          Registrar’s Signature</p>
+        </div>
+      </body>
+    </html>
+  `;
+
+  let blob = new Blob(['\ufeff', content], { type: 'application/msword' });
+  let url = URL.createObjectURL(blob);
+
+  let link = document.createElement("a");
+  link.href = url;
+  link.download = `Results_${id}.doc`;
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+}
+</script>
+
+
+
+
+
+<!-- School Hero Image -->
+<section id="hero">
+  <img src="po15.jpg" alt="School Campus" class="hero-img">
+</section>
+
+
+<!-- News & Announcements with Bubbles + Sparkles + Parallax -->
+<section id="news">
+  <h2>📢 News & Announcements</h2>
+  
+  <ul>
+    <li class="news-item">
+      <img src="logo.jpg" alt="Calendar" class="thumb">
+      New semester begins on 1st October 2025
+    </li>
+    <li class="news-item">
+      <img src="logo.jpg" alt="Application" class="thumb">
+      Applications for new students are now open
+    </li>
+    <li class="news-item">
+      <img src="logo.jpg" alt="Celebration" class="thumb">
+      College open day scheduled for 20th September 2025
+    </li>
+  </ul>
+
+  <div class="nav-buttons">
+  <div class="nav-card">
+    <img src="spo.JPEG" alt="Sports" class="nav-img">
+    <h3>⚽ Sports</h3>
+    <p>All sports events, tournaments, and college competitions. Join your team and stay active!</p>
+  </div>
+
+  <div class="nav-card">
+    <img src="knec.PNG" alt="Exams" class="nav-img">
+    <h3>📚 Exams</h3>
+    <p>Check exam schedules, results, and guidelines. Stay prepared and track your academic progress.</p>
+  </div>
+
+  <div class="nav-card">
+    <img src="cul.JPEG" alt="Cultural Days" class="nav-img">
+    <h3>🎭 Cultural Days</h3>
+    <p>Participate in cultural events, performances, and exhibitions celebrating diversity at college.</p>
+  </div>
+
+  <div class="nav-card">
+    <img src="beach1.jpg" alt="Activities" class="nav-img">
+    <h3>🎉 Activities</h3>
+    <p>Explore clubs, events, and extracurricular activities to engage with the college community.</p>
+  </div>
+</div>
+
+<style>
+.nav-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 40px;
+}
+
+/* ---------- Card ---------- */
+.nav-card {
+  background: linear-gradient(145deg, #ffffff, #e6f0ff);
+  border-radius: 20px;
+  padding: 25px 20px;
+  width: 240px;
+  text-align: center;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+  transition: all 0.5s ease;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.nav-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(60deg, rgba(255,105,180,0.2), rgba(102,187,106,0.2), rgba(33,150,243,0.2), rgba(255,152,0,0.2));
+  background-size: 300% 300%;
+  transform: rotate(25deg);
+  z-index: 0;
+}
+
+.nav-card:hover::before {
+  transform: rotate(45deg) scale(1.05);
+}
+
+.nav-card:hover {
+  transform: translateY(-10px) scale(1.05);
+  box-shadow: 0 18px 40px rgba(0,0,0,0.22);
+  background: linear-gradient(145deg, #ffffff, #e6f0ff);
+  z-index: 1;
+}
+
+/* ---------- Image ---------- */
+.nav-img {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 15px;
+  margin-bottom: 15px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  position: relative;
+  z-index: 2;
+}
+
+.nav-card:hover .nav-img {
+  transform: scale(1.15);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+}
+
+/* ---------- Title ---------- */
+.nav-card h3 {
+  font-size: 1.35rem;
+  margin-bottom: 10px;
+  color: #1a1a1a;
+  font-weight: 700;
+  position: relative;
+  z-index: 2;
+}
+
+/* ---------- Description ---------- */
+.nav-card p {
+  font-size: 0.95rem;
+  color: #555;
+  line-height: 1.5;
+  position: relative;
+  z-index: 2;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1000px) {
+  .nav-card {
+    width: 200px;
+    padding: 20px 15px;
+  }
+
+  .nav-card h3 {
+    font-size: 1.2rem;
+  }
+
+  .nav-card p {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 700px) {
+  .nav-buttons {
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+  }
+
+  .nav-card {
+    width: 90%;
+    max-width: 300px;
+  }
+}
+</style>
+
+<script>
+// ---------- Scroll-based gradient parallax ----------
+const cards = document.querySelectorAll('.nav-card');
+
+window.addEventListener('scroll', () => {
+  let scrollY = window.scrollY;
+
+  cards.forEach((card, index) => {
+    const speed = (index + 1) * 0.3; // each card moves at slightly different speed
+    card.style.setProperty('--scroll-offset', `${scrollY * speed}px`);
+    card.querySelector('::before'); // For reference, but we will use transform in JS
+    const overlay = card.querySelector(':before');
+    card.style.backgroundPosition = `calc(50% + ${scrollY*0.1}px) calc(50% + ${scrollY*0.1}px)`;
+  });
+});
+</script>
+
+  <!-- Floating Bubbles & Sparkles -->
+  <div class="bubbles">
+    <span style="--i:11;"></span>
+    <span style="--i:15;"></span>
+    <span style="--i:20;"></span>
+    <span style="--i:25;"></span>
+    <span style="--i:18;"></span>
+    <span style="--i:12;"></span>
+    <span style="--i:22;"></span>
+  </div>
+  <div class="sparkles">
+    <span style="--s:8;"></span>
+    <span style="--s:12;"></span>
+    <span style="--s:6;"></span>
+    <span style="--s:10;"></span>
+    <span style="--s:14;"></span>
+  </div>
+</section>
+
+<style>
+/* ---------- Section Container ---------- */
+#news {
+  position: relative;
+  padding: 60px 20px;
+  max-width: 900px;
+  margin: 60px auto;
+  border-radius: 25px;
+  overflow: hidden;
+  text-align: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #fdfbfb, #ebf0f7);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+}
+
+/* ---------- Floating Bubbles ---------- */
+.bubbles span {
+  position: absolute;
+  bottom: -50px;
+  width: 15px;
+  height: 15px;
+  background: rgba(255, 105, 180, 0.2);
+  border-radius: 50%;
+  animation: rise 15s linear infinite;
+  left: calc(var(--i) * 5%);
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.bubbles span:nth-child(2) { width: 20px; height: 20px; background: rgba(102, 187, 106, 0.2); animation-duration: 12s; }
+.bubbles span:nth-child(3) { width: 18px; height: 18px; background: rgba(33, 150, 243, 0.2); animation-duration: 17s; }
+.bubbles span:nth-child(4) { width: 22px; height: 22px; background: rgba(255, 152, 0, 0.2); animation-duration: 14s; }
+.bubbles span:nth-child(5) { width: 16px; height: 16px; background: rgba(156, 39, 176, 0.2); animation-duration: 16s; }
+.bubbles span:nth-child(6) { width: 20px; height: 20px; background: rgba(255, 193, 7, 0.2); animation-duration: 13s; }
+.bubbles span:nth-child(7) { width: 18px; height: 18px; background: rgba(0, 188, 212, 0.2); animation-duration: 15s; }
+
+@keyframes rise {
+  0% { transform: translateY(0) scale(1); opacity: 0.7; }
+  50% { transform: translateY(-200px) scale(1.2); opacity: 0.9; }
+  100% { transform: translateY(-400px) scale(0.8); opacity: 0; }
+}
+
+/* ---------- Glowing Sparkles ---------- */
+.sparkles span {
+  position: absolute;
+  width: calc(var(--s) * 1px);
+  height: calc(var(--s) * 1px);
+  background: white;
+  border-radius: 50%;
+  top: calc(10% + var(--s) * 2px);
+  left: calc(20% + var(--s) * 3px);
+  box-shadow: 0 0 10px rgba(255,255,255,0.8);
+  animation: sparkle 5s linear infinite alternate;
+}
+
+.sparkles span:nth-child(2) { animation-delay: 1s; }
+.sparkles span:nth-child(3) { animation-delay: 2s; }
+.sparkles span:nth-child(4) { animation-delay: 3s; }
+.sparkles span:nth-child(5) { animation-delay: 4s; }
+
+@keyframes sparkle {
+  0% { transform: translate(0,0) scale(1); opacity: 0.8; }
+  50% { transform: translate(50px,-50px) scale(1.5); opacity: 1; }
+  100% { transform: translate(-30px,-80px) scale(1); opacity: 0; }
+}
+
+/* ---------- Interactive Bubble Effect on Hover ---------- */
+.news-item:hover ~ .bubbles span,
+.nav-item:hover ~ .bubbles span {
+  transform: translateY(-450px) scale(1.5) !important;
+  opacity: 1 !important;
+  animation-duration: 8s !important;
+}
+
+/* ---------- Section Heading ---------- */
+#news h2 {
+  font-size: 2.6rem;
+  color: #333;
+  margin-bottom: 40px;
+  font-weight: 900;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+  position: relative;
+  z-index: 2;
+}
+
+/* ---------- News Items ---------- */
+#news ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 auto 35px auto;
+  max-width: 700px;
+  position: relative;
+  z-index: 2;
+}
+
+.news-item {
+  background: rgba(255, 255, 255, 0.95);
+  margin: 18px 0;
+  padding: 18px 22px;
+  border-radius: 20px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+  font-size: 1.15rem;
+  color: #444;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeUp 0.8s forwards;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+}
+
+.news-item:nth-child(1) { animation-delay: 0.2s; }
+.news-item:nth-child(2) { animation-delay: 0.4s; }
+.news-item:nth-child(3) { animation-delay: 0.6s; }
+
+.news-item:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.25);
+  background: rgba(255,255,255,1);
+}
+
+/* ---------- Thumbnails ---------- */
+.thumb {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 12px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.thumb:hover {
+  transform: scale(1.25) rotate(3deg);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.25);
+}
+
+/* ---------- Navigation Buttons ---------- */
+.nav-buttons {
+  margin-top: 35px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  position: relative;
+  z-index: 2;
+}
+
+.nav-item {
+  background: linear-gradient(135deg, #ff6a00, #ee0979);
+  color: white;
+  padding: 14px 28px;
+  border-radius: 20px;
+  border: none;
+  font-weight: bold;
+  font-size: 1.05rem;
+  cursor: pointer;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeUp 0.8s forwards;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+}
+
+.nav-item:nth-child(1) { animation-delay: 0.8s; }
+.nav-item:nth-child(2) { animation-delay: 1s; }
+.nav-item:nth-child(3) { animation-delay: 1.2s; }
+.nav-item:nth-child(4) { animation-delay: 1.4s; }
+
+.nav-item:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 12px 35px rgba(0,0,0,0.3);
+  background: linear-gradient(135deg, #ee0979, #ff6a00);
+}
+
+/* ---------- Animation Keyframes ---------- */
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+</style>
+
+<!-- ---------- Parallax JS ---------- -->
+<script>
+const bubbles = document.querySelectorAll('.bubbles span');
+const sparkles = document.querySelectorAll('.sparkles span');
+
+window.addEventListener('scroll', () => {
+  let scroll = window.scrollY;
+
+  bubbles.forEach((bubble, i) => {
+    bubble.style.transform = `translateY(${-scroll*0.1 - i*20}px) scale(1)`;
+  });
+
+  sparkles.forEach((sparkle, i) => {
+    sparkle.style.transform = `translate(${i*5}px, ${-scroll*0.15 - i*10}px) scale(1)`;
+  });
+});
+</script>
+
+
+
+
+<!-- Staff Portal -->
+<section id="staff-portal">
+  <h2>Staff Portal - Msambweni Technical & Vocational College</h2>
+  <p><em>Vision:</em> To empower staff with tools for growth, collaboration, and accountability.</p>
+
+  <div class="portal-card" id="portal-card">
+    <div class="tabs">
+      <button class="tab-btn active" onclick="openTab(event,'signup')">Sign Up</button>
+      <button class="tab-btn" onclick="openTab(event,'login')">Login</button>
+      <button class="tab-btn" onclick="openTab(event,'files')">Files</button>
+      <button class="tab-btn" onclick="openTab(event,'leave')">Leave Application</button>
+      <button class="tab-btn" onclick="openTab(event,'dashboard')">Dashboard</button>
+    </div>
+
+    <!-- Sign Up -->
+    <div id="signup" class="portal-form">
+      <input type="text" placeholder="Full Name" id="signup-name" required>
+      <input type="text" placeholder="Staff ID" id="signup-id" required>
+      <input type="text" placeholder="Username" id="signup-username" required>
+      <input type="password" placeholder="Password" id="signup-password" required>
+      <button class="action-btn" onclick="staffSignup()">Create Account</button>
+    </div>
+
+    <!-- Login -->
+    <div id="login" class="portal-form" style="display:none;">
+      <input type="text" placeholder="Username" id="staff-username" required>
+      <input type="password" placeholder="Password" id="staff-password" required>
+      <button class="action-btn" onclick="staffLogin(event)">Login</button>
+    </div>
+
+    <!-- Dashboard -->
+    <div id="dashboard" class="portal-form" style="display:none;">
+      <h3 id="welcomeMessage"></h3>
+      <p>Use the quick links below:</p>
+      <div class="dashboard-links">
+        <button onclick="openTab(event,'files')">📂 Access Files</button>
+        <button onclick="openTab(event,'leave')">📝 Apply for Leave</button>
+        <button onclick="logout(event)">🚪 Logout</button>
+      </div>
+    </div>
+
+    <!-- Files -->
+    <div id="files" class="portal-form" style="display:none;">
+      <div class="file-cards">
+        <div class="file-card"><a href="scm.pdf" download>SCM.pdf</a></div>
+        <div class="file-card"><a href="wep.docx" download>Work Ethics Learning Plan.docx</a></div>
+        <div class="file-card"><a href="cblp.docx" download>Community Based Learning Plan.docx</a></div>
+        <div class="file-card"><a href="hblp.docx" download>Home Based Learning Plan.docx</a></div>
+        <div class="file-card"><a href="timetable.docx" download>Exam Timetable.docx</a></div>
+        <div class="file-card"><a href="students.xlsx" download>Student List.xlsx</a></div>
+      </div>
+    </div>
+
+    <!-- Leave Application -->
+    <div id="leave" class="portal-form" style="display:none;">
+      <form id="leaveForm">
+        <input type="text" name="staffName" placeholder="Full Name" required>
+        <input type="text" name="staffID" placeholder="Staff ID" required>
+        <input type="text" name="department" placeholder="Department" required>
+        <input type="email" name="email" placeholder="Email Address" required>
+        <input type="tel" name="phone" placeholder="Phone Number" required>
+        
+        <label>Leave Type:</label>
+        <select name="leaveType" required>
+          <option value="">-- Select Leave Type --</option>
+          <option>Annual Leave</option>
+          <option>Sick Leave</option>
+          <option>Maternity Leave</option>
+          <option>Paternity Leave</option>
+          <option>Emergency Leave</option>
+          <option>Other</option>
+        </select>
+
+        <label>Start Date:</label>
+        <input type="date" name="startDate" required>
+        <label>End Date:</label>
+        <input type="date" name="endDate" required>
+
+        <textarea name="reason" placeholder="Reason for Leave" required></textarea>
+        <button type="submit" class="action-btn">Submit & Download Leave Form</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- Styles -->
+<style>
+#staff-portal {
+  text-align: center;
+  margin: 40px auto;
+  max-width: 900px;
+  font-family: Arial, sans-serif;
+}
+.portal-card {
+  background: #fff;
+  border-radius: 15px;
+  padding: 25px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+}
+.tabs {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+.tab-btn {
+  background: #eee;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+  font-weight: bold;
+}
+.tab-btn.active, .tab-btn:hover {
+  background: #004080;
+  color: #fff;
+}
+.portal-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.portal-form input, .portal-form select, .portal-form textarea {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 14px;
+  width: 100%;
+}
+.portal-form textarea {
+  min-height: 100px;
+}
+.action-btn {
+  background: #004080;
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+}
+.action-btn:hover {
+  background: #0066cc;
+}
+.file-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
+  gap: 15px;
+}
+.file-card {
+  background: #f4f6f9;
+  padding: 15px;
+  border-radius: 10px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.file-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+}
+.file-card a {
+  text-decoration: none;
+  color: #004080;
+  font-weight: bold;
+}
+.dashboard-links button {
+  margin: 5px;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 8px;
+  background: #eee;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+}
+.dashboard-links button:hover {
+  background: #004080;
+  color: #fff;
+}
+</style>
+
+<!-- Script -->
+<script>
+// Tab switching
+function openTab(evt, tabId) {
+  document.querySelectorAll(".portal-form").forEach(f => f.style.display="none");
+  document.getElementById(tabId).style.display="flex";
+  document.querySelectorAll(".tab-btn").forEach(btn => btn.classList.remove("active"));
+  evt.target.classList.add("active");
+
+  if(tabId === "dashboard"){
+    let user = JSON.parse(localStorage.getItem("loggedInUser"));
+    document.getElementById("welcomeMessage").innerText = user ? 
+      `Welcome, ${user.name} (${user.username})` : "Please login first.";
+  }
+}
+
+// Sign Up
+function staffSignup() {
+  let name = document.getElementById("signup-name").value;
+  let id = document.getElementById("signup-id").value;
+  let username = document.getElementById("signup-username").value;
+  let password = document.getElementById("signup-password").value;
+
+  if(!name || !id || !username || !password){
+    alert("Please fill all fields.");
+    return;
+  }
+
+  let staffUsers = JSON.parse(localStorage.getItem("staffUsers")) || [];
+  if(staffUsers.some(u => u.username === username)){
+    alert("Username already exists!");
+    return;
+  }
+
+  staffUsers.push({name, id, username, password});
+  localStorage.setItem("staffUsers", JSON.stringify(staffUsers));
+  alert("Account created successfully!");
+
+  document.getElementById("signup-name").value = "";
+  document.getElementById("signup-id").value = "";
+  document.getElementById("signup-username").value = "";
+  document.getElementById("signup-password").value = "";
+}
+
+// Login
+function staffLogin(evt){
+  let username = document.getElementById("staff-username").value;
+  let password = document.getElementById("staff-password").value;
+
+  let staffUsers = JSON.parse(localStorage.getItem("staffUsers")) || [];
+  let user = staffUsers.find(u => u.username === username && u.password === password);
+
+  if(user){
+    localStorage.setItem("loggedInUser", JSON.stringify(user));
+    alert("Login successful!");
+    openTab(evt, "dashboard");
+  } else {
+    alert("Invalid credentials.");
+  }
+}
+
+// Logout
+function logout(evt){
+  localStorage.removeItem("loggedInUser");
+  alert("You have been logged out.");
+  openTab(evt, "login");
+}
+
+// Leave Form Submission
+document.getElementById("leaveForm").addEventListener("submit", function(e){
+  e.preventDefault();
+  let formData = new FormData(this);
+
+  let content = `
+Leave Application Form
+
+Full Name: ${formData.get("staffName")}
+Staff ID: ${formData.get("staffID")}
+Department: ${formData.get("department")}
+Email: ${formData.get("email")}
+Phone: ${formData.get("phone")}
+Leave Type: ${formData.get("leaveType")}
+Start Date: ${formData.get("startDate")}
+End Date: ${formData.get("endDate")}
+Reason: ${formData.get("reason")}
+
+__________________________
+Signature of Staff
+Date: ${new Date().toLocaleDateString()}
+`;
+
+  let blob = new Blob([content], { type: "application/msword" });
+  let link = document.createElement("a");
+  link.href = URL.createObjectURL(blob);
+  link.download = "Leave_Application.doc";
+  link.click();
+  alert("Leave form submitted and downloaded!");
+  this.reset();
+});
+</script>
+
+
+
+
+
+
+
+ <!-- Footer -->
+<footer class="footer">
+  <div class="footer-container">
+    
+    <!-- About -->
+    <div class="footer-section">
+      <h3>About MTVC</h3>
+      <p>Msambweni Technical & Vocational College is dedicated to providing high-quality technical and vocational education, preparing students for innovation, self-reliance, and leadership.</p>
+    </div>
+
+    <!-- Quick Links -->
+    <div class="footer-section">
+      <h3>Quick Links</h3>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#admissions">Admissions</a></li>
+        <li><a href="#departments">Departments</a></li>
+        <li><a href="#news">News</a></li>
+      </ul>
+    </div>
+
+    <!-- External Links -->
+    <div class="footer-section">
+      <h3>External Links</h3>
+      <ul>
+        <li><a href="https://kuccps.net" target="_blank">KUCCPS</a></li>
+        <li><a href="https://www.helb.co.ke" target="_blank">HELB</a></li>
+        <li><a href="https://www.tveta.go.ke" target="_blank">TVETA</a></li>
+        <li><a href="https://www.tveta.go.ke/cdacc" target="_blank">CDACC</a></li>
+      </ul>
+    </div>
+
+    <!-- Contact -->
+    <div class="footer-section">
+      <h3>Contact Us</h3>
+      <p>Email: info@msambwenitvc.ac.ke</p>
+      <p>Phone: +254 700 123 456</p>
+      <p>Location: Msambweni, Kwale County, Kenya</p>
+      <div class="social-icons">
+        <a href="https://www.facebook.com/share/v/1FMM4x4nqn/" target="_blank" class="social-btn">👍 Facebook</a>
+  <a href="https://youtu.be/vbJVuYkpyOg?si=x0hPpyEeXdPJdDcS" target="_blank" class="social-btn">▶ YouTube</a>
+<a href="https://students.kuccps.net/" target="_blank" class="social-btn">▶KUCCPS</a>
+<a href="https://www.helb.co.ke/" target="_blank" class="social-btn">▶HELB</a>
+<a href="https://www.tvetcdacc.go.ke/" target="_blank" class="social-btn">▶CDACC</a>
+
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Bottom -->
+  <div class="footer-bottom">
+    <p>&copy; 2025 Msambweni Technical & Vocational College. All Rights Reserved.</p>
+  </div>
+
+  <!-- Back to Top -->
+  <button id="backToTop" onclick="scrollToTop()">↑ Top</button>
+</footer>
+
+<!-- Footer CSS -->
+<style>
+.footer {
+  background: linear-gradient(135deg, #1a3d7c, #2c7be5);
+  color: #fff;
+  padding: 50px 20px 20px;
+  font-family: Arial, sans-serif;
+  margin-top: 50px;
+}
+.footer-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.footer-section h3 {
+  font-size: 1.3rem;
+  margin-bottom: 15px;
+  border-bottom: 2px solid #ffcc00;
+  display: inline-block;
+  padding-bottom: 5px;
+}
+.footer-section p, .footer-section ul {
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+}
+.footer-section ul li {
+  margin: 8px 0;
+}
+.footer-section ul li a {
+  color: #ffeb99;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.3s;
+}
+.footer-section ul li a:hover {
+  color: #fff;
+  text-shadow: 0 0 8px #ffcc00, 0 0 12px #2c7be5;
+}
+.social-icons {
+  margin-top: 15px;
+}
+.social-icons a img {
+  width: 28px;
+  height: 28px;
+  margin-right: 12px;
+  transition: transform 0.3s, filter 0.3s;
+}
+.social-icons a img:hover {
+  transform: scale(1.2);
+  filter: drop-shadow(0 0 6px #ffcc00);
+}
+#backToTop {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #ffcc00;
+  color: #333;
+  border: none;
+  border-radius: 50px;
+  padding: 12px 20px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+  display: none;
+}
+#backToTop:hover {
+  background: #e6b800;
+  color: #fff;
+  box-shadow: 0 0 10px #ffcc00;
+}
+.footer-bottom {
+  text-align: center;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255,255,255,0.3);
+  margin-top: 20px;
+  font-size: 0.9rem;
+  color: #ddd;
+}
+</style>
+
+<!-- Back to Top Script -->
+<script>
+function scrollToTop() {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+window.onscroll = function () {
+  let btn = document.getElementById("backToTop");
+  if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+    btn.style.display = "block";
+  } else {
+    btn.style.display = "none";
+  }
+};
+</script>
+</body>
+</html>
