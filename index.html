@@ -353,20 +353,23 @@
     </p>
   </div>
 
-  <!-- Image Breakup Slider -->
+  <!-- 3D Shattering Image Slider -->
 <div class="slider" id="slider">
-  <img src="adm.jpg" alt="School Image 1" class="active">
-  <img src="beut.jpg" alt="School Image 2">
-  <img src="bil.jpg" alt="School Image 3">
-  <img src="beach.jpg" alt="School Image 4">
-  <img src="com.jpg" alt="School Image 5">
-  <img src="po6.jpg" alt="School Image 6">
-  <img src="po15.jpg" alt="School Image 7">
-  <img src="po18.jpg" alt="School Image 8">
-  <img src="po17.jpg" alt="School Image 9">
-  <img src="po9.jpg" alt="School Image 10">
-  <img src="orie.jpg" alt="School Image 11">
-  <img src="pri.jpg" alt="School Image 12">
+  <div class="slide" data-caption="Welcome to MTVC">
+    <img src="adm.jpg" alt="School Image 1" class="active">
+  </div>
+  <div class="slide" data-caption="Empowering Students Every Day">
+    <img src="beut.jpg" alt="School Image 2">
+  </div>
+  <div class="slide" data-caption="Innovative Learning Spaces">
+    <img src="bil.jpg" alt="School Image 3">
+  </div>
+  <div class="slide" data-caption="Community Engagement">
+    <img src="beach.jpg" alt="School Image 4">
+  </div>
+
+  <button class="prev" onclick="manualSlide(-1)">❮</button>
+  <button class="next" onclick="manualSlide(1)">❯</button>
 </div>
 
 <style>
@@ -379,82 +382,138 @@
   overflow: hidden;
   border-radius: 15px;
   box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  perspective: 1000px; /* For 3D effect */
 }
 #slider img {
   position: absolute;
-  top: 0;
-  left: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
+  top: 0;
+  left: 0;
   opacity: 0;
-  transform: scale(1);
-  transition: opacity 1s ease, transform 1s ease;
+  transition: opacity 0.5s ease;
 }
-#slider img.active {
+#slider img.active { opacity: 1; }
+
+.slide-caption {
+  position: absolute;
+  bottom: -50px;
+  left: 20px;
+  color: #fff;
+  font-size: 24px;
+  font-weight: bold;
+  text-shadow: 2px 2px 6px rgba(0,0,0,0.7);
+  opacity: 0;
+  transition: all 0.8s ease;
+}
+.slide-caption.active {
   opacity: 1;
+  bottom: 20px;
 }
+
 .breakup-piece {
   position: absolute;
   overflow: hidden;
-  transform: scale(1);
+  transform-origin: center;
+  pointer-events: none;
+  backface-visibility: hidden; /* Enable 3D rotation */
 }
+.prev, .next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.5);
+  color: #fff;
+  border: none;
+  font-size: 24px;
+  padding: 12px;
+  cursor: pointer;
+  border-radius: 50%;
+  z-index: 10;
+  transition: 0.3s;
+}
+.prev:hover, .next:hover { background: rgba(0,0,0,0.8); }
+.prev { left: 10px; }
+.next { right: 10px; }
 </style>
 
 <script>
-let sliderImages = document.querySelectorAll("#slider img");
+let slides = document.querySelectorAll("#slider .slide");
 let currentIndex = 0;
+let slideInterval = setInterval(showNextImage, 5000);
 
-function nextImage() {
-  let current = sliderImages[currentIndex];
-  currentIndex = (currentIndex + 1) % sliderImages.length;
-  let next = sliderImages[currentIndex];
-
-  // Trigger breakup effect on current image
-  breakupEffect(current);
-
-  // Show next image after breakup
-  setTimeout(() => {
-    sliderImages.forEach(img => img.classList.remove("active"));
-    next.classList.add("active");
-  }, 1000);
+function showNextImage() { slideTransition(1); }
+function manualSlide(direction) {
+  clearInterval(slideInterval);
+  slideTransition(direction);
+  slideInterval = setInterval(showNextImage, 5000);
 }
 
-// Breakup effect function
-function breakupEffect(image) {
-  let pieces = 6;
-  let width = image.clientWidth / pieces;
-  let height = image.clientHeight / pieces;
+function slideTransition(direction) {
+  let currentSlide = slides[currentIndex];
+  currentIndex = (currentIndex + direction + slides.length) % slides.length;
+  let nextSlide = slides[currentIndex];
+
+  let currentImg = currentSlide.querySelector("img");
+
+  breakup3D(currentImg, () => {
+    slides.forEach(slide => {
+      slide.querySelector("img").classList.remove("active");
+      if(slide.querySelector(".slide-caption")) slide.querySelector(".slide-caption").remove();
+    });
+
+    let nextImg = nextSlide.querySelector("img");
+    nextImg.classList.add("active");
+
+    let captionDiv = document.createElement("div");
+    captionDiv.className = "slide-caption";
+    captionDiv.innerText = nextSlide.dataset.caption;
+    nextSlide.appendChild(captionDiv);
+    void captionDiv.offsetWidth;
+    captionDiv.classList.add("active");
+  });
+}
+
+// 3D Breakup Animation
+function breakup3D(image, callback) {
+  const pieces = 8;
+  const imgWidth = image.clientWidth;
+  const imgHeight = image.clientHeight;
+  const pieceWidth = imgWidth / pieces;
+  const pieceHeight = imgHeight / pieces;
 
   for (let i = 0; i < pieces; i++) {
     for (let j = 0; j < pieces; j++) {
       let piece = document.createElement("div");
-      piece.classList.add("breakup-piece");
-      piece.style.width = width + "px";
-      piece.style.height = height + "px";
-      piece.style.left = width * i + "px";
-      piece.style.top = height * j + "px";
+      piece.className = "breakup-piece";
+      piece.style.width = pieceWidth + "px";
+      piece.style.height = pieceHeight + "px";
+      piece.style.left = i * pieceWidth + "px";
+      piece.style.top = j * pieceHeight + "px";
       piece.style.backgroundImage = `url(${image.src})`;
-      piece.style.backgroundPosition = `-${width*i}px -${height*j}px`;
-      piece.style.transition = `all 1s ease`;
+      piece.style.backgroundPosition = `-${i*pieceWidth}px -${j*pieceHeight}px`;
+      piece.style.transition = `all 1s ease-out`;
       document.getElementById("slider").appendChild(piece);
 
-      // Animate piece
+      let delay = (i + j) * 100;
       setTimeout(() => {
-        piece.style.transform = `translate(${(Math.random()-0.5)*100}px, ${(Math.random()-0.5)*100}px) rotate(${(Math.random()-0.5)*60}deg)`;
+        const xMove = (Math.random() - 0.5) * 400;
+        const yMove = (Math.random() - 0.5) * 400 + 100;
+        const rotationX = (Math.random() - 0.5) * 720;
+        const rotationY = (Math.random() - 0.5) * 720;
+        const rotationZ = (Math.random() - 0.5) * 720;
+        piece.style.transform = `translate(${xMove}px, ${yMove}px) rotateX(${rotationX}deg) rotateY(${rotationY}deg) rotateZ(${rotationZ}deg) scale(0.5)`;
         piece.style.opacity = 0;
-      }, 50);
+      }, delay);
 
-      // Remove piece after animation
-      setTimeout(() => piece.remove(), 1000);
+      setTimeout(() => piece.remove(), 1500 + delay);
     }
   }
+
+  setTimeout(callback, 1500 + pieces*pieces*10);
 }
-
-// Auto-run every 5 seconds
-setInterval(nextImage, 5000);
 </script>
-
 
 <!-- Departments -->
 <section id="departments">
@@ -2027,6 +2086,7 @@ window.onscroll = function () {
 </script>
 </body>
 </html>
+
 
 
 
