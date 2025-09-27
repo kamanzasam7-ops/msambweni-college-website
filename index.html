@@ -353,125 +353,106 @@
     </p>
   </div>
 
-  <!-- Image Slider -->
-  <div class="slider">
-    <div class="slides">
-      <img src="adm.jpg" alt="School Image 1">
-      <img src="beut.jpg" alt="School Image 2">
-      <img src="bil.jpg" alt="School Image 3">
-      <img src="beach.jpg" alt="School Image 4">
-<img src="com.jpg" alt="School Image 1">
-      <img src="po6.jpg" alt="School Image 2">
-      <img src="po15.jpg" alt="School Image 3">
-      <img src="po18.jpg" alt="School Image 4">
-<img src="po17.jpg" alt="School Image 1">
-      <img src="po9.jpg" alt="School Image 2">
-      <img src="orie.jpg" alt="School Image 3">
-      <img src="pri.jpg" alt="School Image 4">
+  <!-- Image Breakup Slider -->
+<div class="slider" id="slider">
+  <img src="adm.jpg" alt="School Image 1" class="active">
+  <img src="beut.jpg" alt="School Image 2">
+  <img src="bil.jpg" alt="School Image 3">
+  <img src="beach.jpg" alt="School Image 4">
+  <img src="com.jpg" alt="School Image 5">
+  <img src="po6.jpg" alt="School Image 6">
+  <img src="po15.jpg" alt="School Image 7">
+  <img src="po18.jpg" alt="School Image 8">
+  <img src="po17.jpg" alt="School Image 9">
+  <img src="po9.jpg" alt="School Image 10">
+  <img src="orie.jpg" alt="School Image 11">
+  <img src="pri.jpg" alt="School Image 12">
+</div>
 
-    </div>
-    <!-- Navigation Buttons -->
-    <button class="prev" onclick="moveSlide(-1)">❮</button>
-    <button class="next" onclick="moveSlide(1)">❯</button>
-  </div>
-</section>
-
-<!-- CSS -->
 <style>
-  /* About Section */
-  .about-section {
-    background: linear-gradient(135deg, #a1c4fd, #c2e9fb);
-    padding: 60px 20px;
-    border-radius: 20px;
-    text-align: center;
-    color: #1a237e;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
-    margin: 40px auto;
-    max-width: 1200px;
-  }
-
-  .about-section h2 {
-    font-size: 36px;
-    margin-bottom: 20px;
-    color: #0d47a1;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
-  }
-
-  .about-section p {
-    font-size: 18px;
-    line-height: 1.7;
-    max-width: 900px;
-    margin: 0 auto 40px auto;
-    color: #0c2d57;
-  }
-
-  /* Slider Container */
-  .slider {
-    position: relative;
-    width: 100%;
-    max-width: 1000px;
-    margin: 0 auto;
-    overflow: hidden;
-    border-radius: 15px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-  }
-
-  /* Slides */
-  .slides {
-    display: flex;
-    transition: transform 0.8s ease-in-out;
-  }
-
-  .slides img {
-    width: 100%;
-    height: 400px;
-    object-fit: cover;
-    border-radius: 15px;
-  }
-
-  /* Buttons */
-  .prev, .next {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: rgba(0,0,0,0.6);
-    color: white;
-    border: none;
-    padding: 15px;
-    cursor: pointer;
-    border-radius: 50%;
-    font-size: 22px;
-  }
-
-  .prev:hover, .next:hover {
-    background: rgba(0,0,0,0.9);
-  }
-
-  .prev { left: 10px; }
-  .next { right: 10px; }
+#slider {
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+  height: 500px;
+  margin: 40px auto;
+  overflow: hidden;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+#slider img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transform: scale(1);
+  transition: opacity 1s ease, transform 1s ease;
+}
+#slider img.active {
+  opacity: 1;
+}
+.breakup-piece {
+  position: absolute;
+  overflow: hidden;
+  transform: scale(1);
+}
 </style>
 
-<!-- JavaScript -->
 <script>
-  let slideIndex = 0;
-  const slides = document.querySelector(".slides");
-  const totalSlides = document.querySelectorAll(".slides img").length;
+let sliderImages = document.querySelectorAll("#slider img");
+let currentIndex = 0;
 
-  function showSlide(index) {
-    if (index >= totalSlides) slideIndex = 0;
-    if (index < 0) slideIndex = totalSlides - 1;
-    slides.style.transform = `translateX(${-slideIndex * 100}%)`;
+function nextImage() {
+  let current = sliderImages[currentIndex];
+  currentIndex = (currentIndex + 1) % sliderImages.length;
+  let next = sliderImages[currentIndex];
+
+  // Trigger breakup effect on current image
+  breakupEffect(current);
+
+  // Show next image after breakup
+  setTimeout(() => {
+    sliderImages.forEach(img => img.classList.remove("active"));
+    next.classList.add("active");
+  }, 1000);
+}
+
+// Breakup effect function
+function breakupEffect(image) {
+  let pieces = 6;
+  let width = image.clientWidth / pieces;
+  let height = image.clientHeight / pieces;
+
+  for (let i = 0; i < pieces; i++) {
+    for (let j = 0; j < pieces; j++) {
+      let piece = document.createElement("div");
+      piece.classList.add("breakup-piece");
+      piece.style.width = width + "px";
+      piece.style.height = height + "px";
+      piece.style.left = width * i + "px";
+      piece.style.top = height * j + "px";
+      piece.style.backgroundImage = `url(${image.src})`;
+      piece.style.backgroundPosition = `-${width*i}px -${height*j}px`;
+      piece.style.transition = `all 1s ease`;
+      document.getElementById("slider").appendChild(piece);
+
+      // Animate piece
+      setTimeout(() => {
+        piece.style.transform = `translate(${(Math.random()-0.5)*100}px, ${(Math.random()-0.5)*100}px) rotate(${(Math.random()-0.5)*60}deg)`;
+        piece.style.opacity = 0;
+      }, 50);
+
+      // Remove piece after animation
+      setTimeout(() => piece.remove(), 1000);
+    }
   }
+}
 
-  function moveSlide(step) {
-    slideIndex += step;
-    showSlide(slideIndex);
-  }
-
-  // Auto-slide every 5 seconds
-  setInterval(() => {
-    moveSlide(1);
-  }, 5000);
+// Auto-run every 5 seconds
+setInterval(nextImage, 5000);
 </script>
 
 
@@ -2046,6 +2027,7 @@ window.onscroll = function () {
 </script>
 </body>
 </html>
+
 
 
 
