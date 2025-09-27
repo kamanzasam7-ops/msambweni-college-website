@@ -1059,20 +1059,24 @@ function downloadStudents(){
 }
 </script>
 
-<!-- Msambweni Technical and Vocational College Student Portal -->
-<section id="student-portal">
-  <h2>🎓 MTVC STUDENT PORTAL</h2>
-  <p class="vision">Vision: To empower students with knowledge and skills for a better future.</p>
 
-  <div class="portal-card" id="portal-card">
-    <div class="tabs">
+
+
+ <!-- Msambweni Technical & Vocational College Student Portal -->
+<section id="student-portal" style="font-family:'Segoe UI',sans-serif; max-width:900px; margin:40px auto;">
+  <h2 style="text-align:center; margin-bottom:15px;">🎓 MTVC STUDENT PORTAL</h2>
+  <p style="text-align:center; font-style:italic; color:#444; margin-bottom:25px;">Vision: To empower students with knowledge and skills for a better future.</p>
+
+  <div class="portal-card" id="portal-card" style="background:#fff; border-radius:15px; padding:25px; box-shadow:0 8px 25px rgba(0,0,0,0.15); transition: all 0.4s;">
+    <!-- Tabs -->
+    <div class="tabs" style="display:flex; justify-content:center; gap:10px; margin-bottom:20px;">
       <button class="tab-btn active" onclick="openTab(event,'signup')">Sign Up</button>
       <button class="tab-btn" onclick="openTab(event,'login')">Login</button>
       <button class="tab-btn" onclick="openTab(event,'reset')">Reset Password</button>
     </div>
 
     <!-- Sign Up -->
-    <div id="signup" class="portal-form">
+    <div id="signup" class="portal-form" style="display:flex; flex-direction:column; gap:12px;">
       <input type="text" placeholder="Full Name" id="signup-name" required>
       <input type="text" placeholder="Student ID" id="signup-id" required>
       <input type="text" placeholder="Username" id="signup-username" required>
@@ -1081,14 +1085,14 @@ function downloadStudents(){
     </div>
 
     <!-- Login -->
-    <div id="login" class="portal-form" style="display:none;">
+    <div id="login" class="portal-form" style="display:none; flex-direction:column; gap:12px;">
       <input type="text" placeholder="Username" id="login-username" required>
       <input type="password" placeholder="Password" id="login-password" required>
       <button class="action-btn" onclick="studentLogin()">Login</button>
     </div>
 
     <!-- Reset Password -->
-    <div id="reset" class="portal-form" style="display:none;">
+    <div id="reset" class="portal-form" style="display:none; flex-direction:column; gap:12px;">
       <input type="text" placeholder="Username" id="reset-username" required>
       <input type="password" placeholder="New Password" id="reset-password" required>
       <button class="action-btn" onclick="resetPassword()">Reset Password</button>
@@ -1097,245 +1101,171 @@ function downloadStudents(){
 </section>
 
 <!-- Student Profile Section -->
-<div id="student-profile" style="display:none; text-align:center; margin:40px auto; max-width:700px;">
-  <h2>🎓 Student Profile</h2>
-  <p><b>Full Name:</b> <span id="profile-name"></span></p>
-  <p><b>Student ID:</b> <span id="profile-id"></span></p>
-  <p><b>Username:</b> <span id="profile-username"></span></p>
+<div id="student-profile" style="display:none; margin:40px auto; font-family:'Segoe UI', sans-serif;">
+  <h2 style="text-align:center; margin-bottom:25px;">🎓 Student Profile</h2>
 
-  <h3>📚 Courses</h3>
-  <ul id="profile-courses">
-    <li>DSW1203 - Introduction to community development</li>
-    <li>DSW1204 -social work theory and practice </li>
-    <li>DSW1205 - development economics</li>
-<li>DSW1206 - entreprenuership</li>
-    <li>DSW1207 - community based organizations</li>
-    <li>DSW1204 - community capacity building and partnerships</li>
+  <!-- Info Card -->
+  <div class="card info-card">
+    <h3>👤 Student Info</h3>
+    <p><b>Full Name:</b> <span id="profile-name"></span></p>
+    <p><b>Student ID:</b> <span id="profile-id"></span></p>
+    <p><b>Username:</b> <span id="profile-username"></span></p>
+  </div>
 
-  </ul>
+  <!-- Courses Card -->
+  <div class="card courses-card">
+    <h3>📚 Courses</h3>
+    <ul id="profile-courses">
+      <li>DSW1203 - Introduction to Community Development</li>
+      <li>DSW1204 - Social Work Theory and Practice</li>
+      <li>DSW1205 - Development Economics</li>
+      <li>DSW1206 - Entrepreneurship</li>
+      <li>DSW1207 - Community Based Organizations</li>
+      <li>DSW1208 - Community Capacity Building and Partnerships</li>
+    </ul>
+  </div>
 
-  <h3>📊 My Results</h3>
-  <table class="data-table" id="resultsTable" border="1" cellspacing="0" cellpadding="6" style="margin:0 auto; border-collapse:collapse;">
-    <thead style="background:#004080; color:#fff;">
-      <tr><th>Course Code</th><th>Grade</th></tr>
-    </thead>
-    <tbody>
-      <tr><td>DSW1203</td><td>A</td></tr>
-      <tr><td>DSW1204</td><td>B+</td></tr>
-      <tr><td>DSW1205</td><td>A-</td></tr>
-<tr><td>DSW1206</td><td>A</td></tr>
-      <tr><td>DSW1207</td><td>B+</td></tr>
-      <tr><td>DSW1208</td><td>A-</td></tr>
-    </tbody>
-  </table>
+  <!-- Results Card -->
+  <div class="card results-card">
+    <h3>📊 My Results</h3>
+    <table class="data-table" id="resultsTable">
+      <thead>
+        <tr><th>Course Code</th><th>Grade</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>DSW1203</td><td>A</td></tr>
+        <tr><td>DSW1204</td><td>B+</td></tr>
+        <tr><td>DSW1205</td><td>A-</td></tr>
+        <tr><td>DSW1206</td><td>A</td></tr>
+        <tr><td>DSW1207</td><td>B+</td></tr>
+        <tr><td>DSW1208</td><td>A-</td></tr>
+      </tbody>
+    </table>
+  </div>
 
-  <!-- Download Button -->
-  <br>
-  <button class="action-btn" onclick="downloadResults()">⬇ Download Results in Word</button>
+  <!-- Chart Card -->
+  <div class="card chart-card">
+    <h3>📈 Course Progress</h3>
+    <canvas id="courseChart" style="height:300px;"></canvas>
+  </div>
+
+  <div style="text-align:center; margin-top:20px;">
+    <button class="action-btn" onclick="downloadResults()">⬇ Download Results in Word</button>
+  </div>
 </div>
 
 <!-- Styles -->
 <style>
-#student-portal {
-  text-align: center;
-  margin: 40px auto;
-  max-width: 500px;
-  font-family: "Segoe UI", sans-serif;
-}
-.vision {
-  font-size: 14px;
-  font-style: italic;
-  color: #444;
-  margin-bottom: 20px;
-}
-.portal-card {
-  background: #fff;
-  border-radius: 15px;
-  padding: 25px;
-  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
-}
-.tabs {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  margin-bottom: 20px;
-}
-.tab-btn {
-  background: #eee;
-  border: none;
-  padding: 12px 18px;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: 0.3s;
-  font-weight: bold;
-}
-.tab-btn.active, .tab-btn:hover {
-  background: #004080;
-  color: #fff;
-}
-.portal-form {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-.portal-form input {
-  padding: 12px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  font-size: 14px;
-}
-.action-btn {
-  background: #004080;
-  color: white;
-  padding: 12px;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  font-weight: bold;
-  transition: 0.3s;
-}
-.action-btn:hover {
-  background: #0066cc;
-}
-.data-table {
-  width: 80%;
-}
+.portal-card input {padding:12px; border:1px solid #ccc; border-radius:8px;}
+.action-btn {background:#004080; color:#fff; padding:12px; border:none; border-radius:8px; font-weight:bold; cursor:pointer; transition:0.3s;}
+.action-btn:hover {background:#0066cc;}
+.tab-btn {background:#eee; border:none; padding:12px 18px; border-radius:8px; cursor:pointer; font-weight:bold;}
+.tab-btn.active, .tab-btn:hover {background:#004080; color:#fff;}
+.card {background:#fff; border-radius:15px; padding:20px; margin-bottom:25px; box-shadow:0 8px 20px rgba(0,0,0,0.1); transition:0.3s;}
+.card:hover {transform:translateY(-5px); box-shadow:0 12px 25px rgba(0,0,0,0.15);}
+.results-card table {width:100%; border-collapse:collapse; text-align:center;}
+.results-card th, .results-card td {border:1px solid #004080; padding:8px;}
+.results-card th {background:#004080; color:#fff;}
+.courses-card ul {list-style:disc; padding-left:20px;}
+.courses-card li {margin-bottom:6px;}
+@media(max-width:768px){#student-portal, #student-profile{margin:20px 15px;}.card{padding:15px;}}
 </style>
 
-<!-- Script -->
+<!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
-// Switch between tabs
-function openTab(evt, tabId) {
-  document.querySelectorAll(".portal-form").forEach(f => f.style.display="none");
-  document.getElementById(tabId).style.display="flex";
-  document.querySelectorAll(".tab-btn").forEach(btn => btn.classList.remove("active"));
+// Switch Tabs
+function openTab(evt, tabId){
+  document.querySelectorAll(".portal-form").forEach(f=>f.style.display='none');
+  document.getElementById(tabId).style.display='flex';
+  document.querySelectorAll(".tab-btn").forEach(btn=>btn.classList.remove("active"));
   evt.target.classList.add("active");
 }
 
-// SIGN UP
-function studentSignup() {
-  let name = document.getElementById("signup-name").value;
-  let id = document.getElementById("signup-id").value;
-  let username = document.getElementById("signup-username").value;
-  let password = document.getElementById("signup-password").value;
-
-  if (!name || !id || !username || !password) {
-    alert("Please fill all fields!");
-    return;
-  }
-
-  let users = JSON.parse(localStorage.getItem("students")) || [];
-
-  if (users.find(u => u.username === username)) {
-    alert("Username already exists!");
-    return;
-  }
-
-  users.push({ name, id, username, password });
-  localStorage.setItem("students", JSON.stringify(users));
-  alert("Account created successfully! You can now login.");
+// SIGNUP
+function studentSignup(){
+  let name=document.getElementById("signup-name").value.trim();
+  let id=document.getElementById("signup-id").value.trim();
+  let username=document.getElementById("signup-username").value.trim();
+  let password=document.getElementById("signup-password").value.trim();
+  if(!name||!id||!username||!password){alert("Please fill all fields!"); return;}
+  let users=JSON.parse(localStorage.getItem("students"))||[];
+  if(users.some(u=>u.username===username)){alert("Username exists!"); return;}
+  users.push({name,id,username,password});
+  localStorage.setItem("students",JSON.stringify(users));
+  alert("Account created! You can now login.");
+  document.getElementById("signup-name").value="";
+  document.getElementById("signup-id").value="";
+  document.getElementById("signup-username").value="";
+  document.getElementById("signup-password").value="";
 }
 
 // LOGIN
-function studentLogin() {
-  let username = document.getElementById("login-username").value;
-  let password = document.getElementById("login-password").value;
-
-  let users = JSON.parse(localStorage.getItem("students")) || [];
-  let user = users.find(u => u.username === username && u.password === password);
-
-  if (user) {
-    document.getElementById("portal-card").style.display = "none";
-    document.getElementById("student-portal").style.display = "none";
-    document.getElementById("student-profile").style.display = "block";
-
-    document.getElementById("profile-name").textContent = user.name;
-    document.getElementById("profile-id").textContent = user.id;
-    document.getElementById("profile-username").textContent = user.username;
-  } else {
-    alert("Invalid username or password!");
-  }
+function studentLogin(){
+  let username=document.getElementById("login-username").value.trim();
+  let password=document.getElementById("login-password").value.trim();
+  let users=JSON.parse(localStorage.getItem("students"))||[];
+  let user=users.find(u=>u.username===username && u.password===password);
+  if(!user){alert("Invalid username or password!"); return;}
+  document.getElementById("student-portal").style.display="none";
+  document.getElementById("student-profile").style.display="block";
+  document.getElementById("profile-name").textContent=user.name;
+  document.getElementById("profile-id").textContent=user.id;
+  document.getElementById("profile-username").textContent=user.username;
+  renderCourseChart();
 }
 
 // RESET PASSWORD
-function resetPassword() {
-  let username = document.getElementById("reset-username").value;
-  let newPassword = document.getElementById("reset-password").value;
-
-  let users = JSON.parse(localStorage.getItem("students")) || [];
-  let user = users.find(u => u.username === username);
-
-  if (!user) {
-    alert("User not found!");
-    return;
-  }
-
-  user.password = newPassword;
-  localStorage.setItem("students", JSON.stringify(users));
+function resetPassword(){
+  let username=document.getElementById("reset-username").value.trim();
+  let newPassword=document.getElementById("reset-password").value.trim();
+  if(!username||!newPassword){alert("Please fill all fields!"); return;}
+  let users=JSON.parse(localStorage.getItem("students"))||[];
+  let user=users.find(u=>u.username===username);
+  if(!user){alert("User not found!"); return;}
+  user.password=newPassword;
+  localStorage.setItem("students",JSON.stringify(users));
   alert("Password reset successful! You can now login.");
 }
 
-// DOWNLOAD RESULTS IN WORD
-function downloadResults() {
-  let name = document.getElementById("profile-name").textContent;
-  let id = document.getElementById("profile-id").textContent;
-  let username = document.getElementById("profile-username").textContent;
-
-  let resultsTable = document.getElementById("resultsTable").outerHTML;
-
-  let content = `
-    <html>
-      <head>
-        <meta charset="UTF-8">
-        <title>Results Slip</title>
-        <style>
-          body { font-family: Arial, sans-serif; }
-          h2, h3 { text-align:center; }
-          table { width:100%; border-collapse: collapse; margin-top:20px; }
-          th, td { border:1px solid #333; padding:8px; text-align:center; }
-          th { background:#004080; color:white; }
-          .footer { margin-top:40px; text-align:right; font-style:italic; }
-        </style>
-      </head>
-      <body>
-        <div style="text-align:center;">
-          <h2>Msambweni Technical & Vocational College</h2>
-          <h4>"Empowering Skills for the Future"</h4>
-          <hr>
-        </div>
-
-        <h3>Official Student Results Slip</h3>
-        <p><b>Full Name:</b> ${name}</p>
-        <p><b>Student ID:</b> ${id}</p>
-        <p><b>Username:</b> ${username}</p>
-
-        ${resultsTable}
-
-        <div class="footer">
-          <p>Generated on: ${new Date().toLocaleString()}</p>
-          <br><br>
-          <p>__________________________<br>
-          Registrar’s Signature</p>
-        </div>
-      </body>
-    </html>
-  `;
-
-  let blob = new Blob(['\ufeff', content], { type: 'application/msword' });
-  let url = URL.createObjectURL(blob);
-
-  let link = document.createElement("a");
-  link.href = url;
-  link.download = `Results_${id}.doc`;
+// DOWNLOAD RESULTS
+function downloadResults(){
+  let name=document.getElementById("profile-name").textContent;
+  let id=document.getElementById("profile-id").textContent;
+  let username=document.getElementById("profile-username").textContent;
+  let resultsTable=document.getElementById("resultsTable").outerHTML;
+  let content=`<html><head><meta charset="UTF-8"><title>Results Slip</title>
+  <style>body{font-family:Arial,sans-serif;}h2,h3{text-align:center;}table{width:100%;border-collapse:collapse;margin-top:20px;}th,td{border:1px solid #333;padding:8px;text-align:center;}th{background:#004080;color:#fff;}.footer{text-align:right;margin-top:40px;font-style:italic;}</style>
+  </head><body>
+  <div style="text-align:center;"><h2>Msambweni Technical & Vocational College</h2><h4>"Empowering Skills for the Future"</h4><hr></div>
+  <h3>Official Student Results Slip</h3><p><b>Full Name:</b> ${name}</p><p><b>Student ID:</b> ${id}</p><p><b>Username:</b> ${username}</p>
+  ${resultsTable}
+  <div class="footer"><p>Generated on: ${new Date().toLocaleString()}</p><br><p>__________________________<br>Registrar’s Signature</p></div>
+  </body></html>`;
+  let blob=new Blob(['\ufeff',content],{type:'application/msword'});
+  let url=URL.createObjectURL(blob);
+  let link=document.createElement("a");
+  link.href=url;
+  link.download=`Results_${id}.doc`;
   document.body.appendChild(link);
   link.click();
   document.body.removeChild(link);
 }
+
+// Render Chart
+function renderCourseChart(){
+  const ctx=document.getElementById('courseChart').getContext('2d');
+  const gradeMap={'A+':12,'A':10,'A-':9,'B+':8,'B':7,'B-':6,'C+':5,'C':4,'C-':3,'D':2,'E':1};
+  const courses=['DSW1203','DSW1204','DSW1205','DSW1206','DSW1207','DSW1208'];
+  const grades=['A','B+','A-','A','B+','A-'];
+  const data=grades.map(g=>gradeMap[g]||0);
+  new Chart(ctx,{
+    type:'bar',
+    data:{labels:courses,datasets:[{label:'Course Progress',data:data,backgroundColor:'#004080',borderRadius:6}]},
+    options:{responsive:true,plugins:{legend:{display:false},tooltip:{enabled:true}},scales:{y:{beginAtZero:true,max:12,ticks:{stepSize:2}}}}
+  });
+}
 </script>
-
-
-
-
 
 <!-- School Hero Image -->
 <section id="hero">
@@ -2191,4 +2121,5 @@ window.onscroll = function () {
 </script>
 </body>
 </html>
+
 
