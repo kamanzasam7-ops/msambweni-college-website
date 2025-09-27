@@ -1669,295 +1669,220 @@ window.addEventListener('scroll', () => {
 
 
 
-
 <!-- Staff Portal -->
 <section id="staff-portal">
   <h2>Staff Portal - Msambweni Technical & Vocational College</h2>
-  <p><em>Vision:</em> To empower staff with tools for growth, collaboration, and accountability.</p>
+  <p><em>Vision:</em> Empower staff with tools for growth, collaboration, and accountability.</p>
 
-  <div class="portal-card" id="portal-card">
+  <div class="portal-card">
     <div class="tabs">
       <button class="tab-btn active" onclick="openTab(event,'signup')">Sign Up</button>
       <button class="tab-btn" onclick="openTab(event,'login')">Login</button>
-      <button class="tab-btn" onclick="openTab(event,'files')">Files</button>
-      <button class="tab-btn" onclick="openTab(event,'leave')">Leave Application</button>
       <button class="tab-btn" onclick="openTab(event,'dashboard')">Dashboard</button>
     </div>
 
     <!-- Sign Up -->
     <div id="signup" class="portal-form">
-      <input type="text" placeholder="Full Name" id="signup-name" required>
-      <input type="text" placeholder="Staff ID" id="signup-id" required>
-      <input type="text" placeholder="Username" id="signup-username" required>
-      <input type="password" placeholder="Password" id="signup-password" required>
+      <input type="text" placeholder="Full Name" id="signupFullName" required>
+      <input type="text" placeholder="Staff ID" id="signupStaffID" required>
+      <input type="text" placeholder="Username" id="signupUsername" required>
+      <input type="password" placeholder="Password" id="signupPassword" required>
       <button class="action-btn" onclick="staffSignup()">Create Account</button>
     </div>
 
     <!-- Login -->
     <div id="login" class="portal-form" style="display:none;">
-      <input type="text" placeholder="Username" id="staff-username" required>
-      <input type="password" placeholder="Password" id="staff-password" required>
+      <input type="text" placeholder="Username" id="loginUsername" required>
+      <input type="password" placeholder="Password" id="loginPassword" required>
       <button class="action-btn" onclick="staffLogin(event)">Login</button>
     </div>
 
     <!-- Dashboard -->
-    <div id="dashboard" class="portal-form" style="display:none;">
+    <div id="dashboard" class="portal-form" style="display:none; flex-direction: column;">
       <h3 id="welcomeMessage"></h3>
-      <p>Use the quick links below:</p>
-      <div class="dashboard-links">
-        <button onclick="openTab(event,'files')">📂 Access Files</button>
-        <button onclick="openTab(event,'leave')">📝 Apply for Leave</button>
+      <div class="dashboard-modules">
+        <button onclick="showModule('profileModule')">👤 Profile Management</button>
+        <button onclick="showModule('attendanceModule')">🗓 Attendance</button>
+        <button onclick="showModule('timetableModule')">📋 Timetable & Scheduling</button>
+        <button onclick="showModule('documentsModule')">📂 Documents & Resources</button>
+        <button onclick="showModule('payrollModule')">💰 Payroll & Finance</button>
+        <button onclick="showModule('reportsModule')">📊 Reports & Analytics</button>
+        <button onclick="showModule('academicModule')">🎓 Academic System</button>
         <button onclick="logout(event)">🚪 Logout</button>
       </div>
-    </div>
 
-    <!-- Files -->
-    <div id="files" class="portal-form" style="display:none;">
-      <div class="file-cards">
-        <div class="file-card"><a href="scm.pdf" download>SCM.pdf</a></div>
-        <div class="file-card"><a href="wep.docx" download>Work Ethics Learning Plan.docx</a></div>
-        <div class="file-card"><a href="cblp.docx" download>Community Based Learning Plan.docx</a></div>
-        <div class="file-card"><a href="hblp.docx" download>Home Based Learning Plan.docx</a></div>
-        <div class="file-card"><a href="timetable.docx" download>Exam Timetable.docx</a></div>
-        <div class="file-card"><a href="students.xlsx" download>Student List.xlsx</a></div>
+      <!-- Modules -->
+      <div id="modulesContainer">
+        <!-- Profile -->
+        <div id="profileModule" class="module" style="display:none;">
+          <h4>Staff Profile</h4>
+          <p><b>Name:</b> <span id="profileName"></span></p>
+          <p><b>Staff ID:</b> <span id="profileID"></span></p>
+          <p><b>Username:</b> <span id="profileUsername"></span></p>
+        </div>
+
+        <!-- Attendance -->
+        <div id="attendanceModule" class="module" style="display:none;">
+          <h4>Attendance Records</h4>
+          <button onclick="addAttendance()">➕ Add Attendance</button>
+          <ul id="attendanceList"></ul>
+        </div>
+
+        <!-- Timetable -->
+        <div id="timetableModule" class="module" style="display:none;">
+          <h4>Timetable & Scheduling</h4>
+          <button onclick="addTimetable()">➕ Add Schedule</button>
+          <ul id="timetableList"></ul>
+        </div>
+
+        <!-- Documents -->
+        <div id="documentsModule" class="module" style="display:none;">
+          <h4>Documents & Resources</h4>
+          <button onclick="addDocument()">➕ Add Document</button>
+          <ul id="documentList"></ul>
+        </div>
+
+        <!-- Payroll -->
+        <div id="payrollModule" class="module" style="display:none;">
+          <h4>Payroll & Finance</h4>
+          <button onclick="addPayroll()">➕ Add Payroll Entry</button>
+          <ul id="payrollList"></ul>
+        </div>
+
+        <!-- Reports -->
+        <div id="reportsModule" class="module" style="display:none;">
+          <h4>Reports & Analytics</h4>
+          <button onclick="addReport()">➕ Add Report</button>
+          <ul id="reportList"></ul>
+        </div>
+
+        <!-- Academic -->
+        <div id="academicModule" class="module" style="display:none;">
+          <h4>Academic System Integration</h4>
+          <button onclick="addAcademic()">➕ Add Academic Entry</button>
+          <ul id="academicList"></ul>
+        </div>
       </div>
-    </div>
-
-    <!-- Leave Application -->
-    <div id="leave" class="portal-form" style="display:none;">
-      <form id="leaveForm">
-        <input type="text" name="staffName" placeholder="Full Name" required>
-        <input type="text" name="staffID" placeholder="Staff ID" required>
-        <input type="text" name="department" placeholder="Department" required>
-        <input type="email" name="email" placeholder="Email Address" required>
-        <input type="tel" name="phone" placeholder="Phone Number" required>
-        
-        <label>Leave Type:</label>
-        <select name="leaveType" required>
-          <option value="">-- Select Leave Type --</option>
-          <option>Annual Leave</option>
-          <option>Sick Leave</option>
-          <option>Maternity Leave</option>
-          <option>Paternity Leave</option>
-          <option>Emergency Leave</option>
-          <option>Other</option>
-        </select>
-
-        <label>Start Date:</label>
-        <input type="date" name="startDate" required>
-        <label>End Date:</label>
-        <input type="date" name="endDate" required>
-
-        <textarea name="reason" placeholder="Reason for Leave" required></textarea>
-        <button type="submit" class="action-btn">Submit & Download Leave Form</button>
-      </form>
     </div>
   </div>
 </section>
 
-<!-- Styles -->
 <style>
-#staff-portal {
-  text-align: center;
-  margin: 40px auto;
-  max-width: 900px;
-  font-family: Arial, sans-serif;
-}
-.portal-card {
-  background: #fff;
-  border-radius: 15px;
-  padding: 25px;
-  box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-}
-.tabs {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-bottom: 20px;
-}
-.tab-btn {
-  background: #eee;
-  border: none;
-  padding: 12px 20px;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: 0.3s;
-  font-weight: bold;
-}
-.tab-btn.active, .tab-btn:hover {
-  background: #004080;
-  color: #fff;
-}
-.portal-form {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-.portal-form input, .portal-form select, .portal-form textarea {
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  font-size: 14px;
-  width: 100%;
-}
-.portal-form textarea {
-  min-height: 100px;
-}
-.action-btn {
-  background: #004080;
-  color: white;
-  padding: 12px;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  font-weight: bold;
-  transition: 0.3s;
-}
-.action-btn:hover {
-  background: #0066cc;
-}
-.file-cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
-  gap: 15px;
-}
-.file-card {
-  background: #f4f6f9;
-  padding: 15px;
-  border-radius: 10px;
-  transition: transform 0.3s, box-shadow 0.3s;
-}
-.file-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
-}
-.file-card a {
-  text-decoration: none;
-  color: #004080;
-  font-weight: bold;
-}
-.dashboard-links button {
-  margin: 5px;
-  padding: 12px 20px;
-  border: none;
-  border-radius: 8px;
-  background: #eee;
-  cursor: pointer;
-  font-weight: bold;
-  transition: 0.3s;
-}
-.dashboard-links button:hover {
-  background: #004080;
-  color: #fff;
-}
+#staff-portal { text-align:center; margin:40px auto; max-width:900px; font-family: Arial,sans-serif; }
+.portal-card { background:#fff; border-radius:15px; padding:25px; box-shadow:0 8px 25px rgba(0,0,0,0.1); }
+.tabs { display:flex; justify-content:center; flex-wrap:wrap; gap:10px; margin-bottom:20px; }
+.tab-btn { background:#eee; border:none; padding:12px 20px; border-radius:8px; cursor:pointer; font-weight:bold; transition:0.3s; }
+.tab-btn.active,.tab-btn:hover { background:#004080; color:#fff; }
+.portal-form { display:flex; flex-direction:column; gap:12px; }
+.portal-form input, .portal-form select, .portal-form textarea { padding:10px; border:1px solid #ccc; border-radius:8px; font-size:14px; width:100%; }
+.action-btn { background:#004080; color:white; padding:12px; border:none; border-radius:8px; cursor:pointer; font-weight:bold; transition:0.3s; }
+.action-btn:hover { background:#0066cc; }
+.dashboard-modules button { margin:5px; padding:10px 16px; border:none; border-radius:8px; background:#eee; cursor:pointer; font-weight:bold; transition:0.3s; }
+.dashboard-modules button:hover { background:#004080; color:#fff; }
+.module { margin-top:20px; text-align:left; }
+.module ul { list-style:none; padding:0; }
+.module ul li { background:#f0f0f0; margin:5px 0; padding:8px; border-radius:6px; display:flex; justify-content:space-between; }
+.module ul li button { background:red; color:white; border:none; border-radius:5px; cursor:pointer; padding:2px 6px; }
 </style>
 
-<!-- Script -->
 <script>
-// Tab switching
-function openTab(evt, tabId) {
-  document.querySelectorAll(".portal-form").forEach(f => f.style.display="none");
-  document.getElementById(tabId).style.display="flex";
-  document.querySelectorAll(".tab-btn").forEach(btn => btn.classList.remove("active"));
-  evt.target.classList.add("active");
+document.addEventListener("DOMContentLoaded", function(){
 
-  if(tabId === "dashboard"){
-    let user = JSON.parse(localStorage.getItem("loggedInUser"));
-    document.getElementById("welcomeMessage").innerText = user ? 
-      `Welcome, ${user.name} (${user.username})` : "Please login first.";
-  }
-}
+  function saveToStorage(key, data){ localStorage.setItem(key, JSON.stringify(data)); }
+  function loadFromStorage(key){ return JSON.parse(localStorage.getItem(key)) || []; }
 
-// Sign Up
-function staffSignup() {
-  let name = document.getElementById("signup-name").value;
-  let id = document.getElementById("signup-id").value;
-  let username = document.getElementById("signup-username").value;
-  let password = document.getElementById("signup-password").value;
-
-  if(!name || !id || !username || !password){
-    alert("Please fill all fields.");
-    return;
+  // Tab Switching
+  window.openTab = function(evt, tabId){
+    document.querySelectorAll(".portal-form").forEach(f=>f.style.display="none");
+    document.getElementById(tabId).style.display="flex";
+    document.querySelectorAll(".tab-btn").forEach(btn=>btn.classList.remove("active"));
+    evt.target.classList.add("active");
+    if(tabId==="dashboard"){ renderDashboard(); }
   }
 
-  let staffUsers = JSON.parse(localStorage.getItem("staffUsers")) || [];
-  if(staffUsers.some(u => u.username === username)){
-    alert("Username already exists!");
-    return;
+  // Signup
+  window.staffSignup = function(){
+    let name = document.getElementById("signupFullName").value.trim();
+    let id = document.getElementById("signupStaffID").value.trim();
+    let username = document.getElementById("signupUsername").value.trim();
+    let password = document.getElementById("signupPassword").value.trim();
+    if(!name||!id||!username||!password){ alert("Fill all fields."); return; }
+    let users = loadFromStorage("staffUsers");
+    if(users.some(u=>u.username===username)){ alert("Username exists!"); return; }
+    users.push({name,id,username,password}); saveToStorage("staffUsers",users);
+    alert("Account created successfully!");
+    document.getElementById("signupFullName").value="";
+    document.getElementById("signupStaffID").value="";
+    document.getElementById("signupUsername").value="";
+    document.getElementById("signupPassword").value="";
   }
 
-  staffUsers.push({name, id, username, password});
-  localStorage.setItem("staffUsers", JSON.stringify(staffUsers));
-  alert("Account created successfully!");
-
-  document.getElementById("signup-name").value = "";
-  document.getElementById("signup-id").value = "";
-  document.getElementById("signup-username").value = "";
-  document.getElementById("signup-password").value = "";
-}
-
-// Login
-function staffLogin(evt){
-  let username = document.getElementById("staff-username").value;
-  let password = document.getElementById("staff-password").value;
-
-  let staffUsers = JSON.parse(localStorage.getItem("staffUsers")) || [];
-  let user = staffUsers.find(u => u.username === username && u.password === password);
-
-  if(user){
-    localStorage.setItem("loggedInUser", JSON.stringify(user));
+  // Login
+  window.staffLogin = function(evt){
+    let username=document.getElementById("loginUsername").value.trim();
+    let password=document.getElementById("loginPassword").value.trim();
+    let users=loadFromStorage("staffUsers");
+    let user=users.find(u=>u.username===username && u.password===password);
+    if(!user){ alert("Invalid credentials!"); return; }
+    localStorage.setItem("loggedInUser",JSON.stringify(user));
     alert("Login successful!");
-    openTab(evt, "dashboard");
-  } else {
-    alert("Invalid credentials.");
+    document.getElementById("loginUsername").value=""; document.getElementById("loginPassword").value="";
+    openTab(evt,"dashboard");
   }
-}
 
-// Logout
-function logout(evt){
-  localStorage.removeItem("loggedInUser");
-  alert("You have been logged out.");
-  openTab(evt, "login");
-}
+  // Logout
+  window.logout = function(evt){
+    localStorage.removeItem("loggedInUser");
+    alert("Logged out successfully.");
+    openTab(evt,"login");
+  }
 
-// Leave Form Submission
-document.getElementById("leaveForm").addEventListener("submit", function(e){
-  e.preventDefault();
-  let formData = new FormData(this);
+  // Render Dashboard
+  function renderDashboard(){
+    let user = JSON.parse(localStorage.getItem("loggedInUser"));
+    if(!user){ alert("Please login first!"); return; }
+    document.getElementById("welcomeMessage").innerText=`Welcome, ${user.name} (${user.username})`;
+    document.getElementById("profileName").innerText=user.name;
+    document.getElementById("profileID").innerText=user.id;
+    document.getElementById("profileUsername").innerText=user.username;
+  }
 
-  let content = `
-Leave Application Form
+  // Module Helpers
+  function renderList(key,listId){ 
+    let items=loadFromStorage(key); 
+    let ul=document.getElementById(listId); ul.innerHTML=""; 
+    items.forEach((item,index)=>{ 
+      let li=document.createElement("li"); 
+      li.innerHTML=`${item} <button onclick="deleteItem('${key}',${index},'${listId}')">❌</button>`; 
+      ul.appendChild(li); 
+    });
+  }
 
-Full Name: ${formData.get("staffName")}
-Staff ID: ${formData.get("staffID")}
-Department: ${formData.get("department")}
-Email: ${formData.get("email")}
-Phone: ${formData.get("phone")}
-Leave Type: ${formData.get("leaveType")}
-Start Date: ${formData.get("startDate")}
-End Date: ${formData.get("endDate")}
-Reason: ${formData.get("reason")}
+  window.deleteItem=function(key,index,listId){ 
+    let items=loadFromStorage(key); items.splice(index,1); saveToStorage(key,items); renderList(key,listId); 
+  }
 
-__________________________
-Signature of Staff
-Date: ${new Date().toLocaleDateString()}
-`;
+  window.showModule=function(moduleId){
+    document.querySelectorAll(".module").forEach(m=>m.style.display="none");
+    document.getElementById(moduleId).style.display="block";
+    // Render lists
+    if(moduleId==="attendanceModule") renderList("attendanceList","attendanceList");
+    if(moduleId==="timetableModule") renderList("timetableList","timetableList");
+    if(moduleId==="documentsModule") renderList("documentList","documentList");
+    if(moduleId==="payrollModule") renderList("payrollList","payrollList");
+    if(moduleId==="reportsModule") renderList("reportList","reportList");
+    if(moduleId==="academicModule") renderList("academicList","academicList");
+  }
 
-  let blob = new Blob([content], { type: "application/msword" });
-  let link = document.createElement("a");
-  link.href = URL.createObjectURL(blob);
-  link.download = "Leave_Application.doc";
-  link.click();
-  alert("Leave form submitted and downloaded!");
-  this.reset();
+  window.addAttendance=function(){ let val=prompt("Enter attendance info:"); if(val){ let arr=loadFromStorage("attendanceList"); arr.push(val); saveToStorage("attendanceList",arr); renderList("attendanceList","attendanceList"); } }
+  window.addTimetable=function(){ let val=prompt("Enter timetable entry:"); if(val){ let arr=loadFromStorage("timetableList"); arr.push(val); saveToStorage("timetableList",arr); renderList("timetableList","timetableList"); } }
+  window.addDocument=function(){ let val=prompt("Enter document/resource name:"); if(val){ let arr=loadFromStorage("documentList"); arr.push(val); saveToStorage("documentList",arr); renderList("documentList","documentList"); } }
+  window.addPayroll=function(){ let val=prompt("Enter payroll info:"); if(val){ let arr=loadFromStorage("payrollList"); arr.push(val); saveToStorage("payrollList",arr); renderList("payrollList","payrollList"); } }
+  window.addReport=function(){ let val=prompt("Enter report info:"); if(val){ let arr=loadFromStorage("reportList"); arr.push(val); saveToStorage("reportList",arr); renderList("reportList","reportList"); } }
+  window.addAcademic=function(){ let val=prompt("Enter academic system info:"); if(val){ let arr=loadFromStorage("academicList"); arr.push(val); saveToStorage("academicList",arr); renderList("academicList","academicList"); } }
+
 });
 </script>
-
-
-
-
-
 
 
  <!-- Footer -->
@@ -2121,5 +2046,6 @@ window.onscroll = function () {
 </script>
 </body>
 </html>
+
 
 
