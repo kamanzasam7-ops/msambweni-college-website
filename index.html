@@ -2,2158 +2,940 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Msambweni Technical & Vocational College</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Msambweni TVC | Official Portal</title>
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        /* ===== CSS VARIABLES ===== */
-        :root {
-            --primary: #0d47a1;
-            --primary-dark: #06162f;
-            --secondary: #2e7d32;
-            --secondary-dark: #1b5e20;
-            --accent: #ff9800;
-            --warning: #ff5722;
-            --light: #f2f5f9;
-            --dark: #121212;
-            --text: #333;
-            --white: #ffffff;
-            --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            --radius: 8px;
-            --transition: all 0.3s ease;
-        }
-
+        /* ... (all existing styles, unchanged) ... */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Segoe UI', Roboto, sans-serif;
         }
 
         body {
-            background-color: var(--light);
-            color: var(--text);
+            background: #f0f4f8 url('gra.jpg') fixed center/cover;
             line-height: 1.6;
         }
 
-        body.dark-mode {
-            background-color: var(--dark);
-            color: #eee;
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-color: rgba(255, 255, 255, 0.88);
+            z-index: -1;
         }
 
         html {
             scroll-behavior: smooth;
         }
 
-        .container {
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        section {
-            padding: 80px 0;
-        }
-
-        /* ===== BUTTONS ===== */
-        .btn {
-            display: inline-block;
-            padding: 12px 24px;
-            background-color: var(--secondary);
+        /* ----- HEADER (sticky) ----- */
+        header {
+            background-color: #003366;
             color: white;
-            border: none;
-            border-radius: var(--radius);
-            text-decoration: none;
-            font-weight: 600;
-            cursor: pointer;
-            transition: var(--transition);
-            text-align: center;
-            font-size: 16px;
-        }
-
-        .btn:hover {
-            background-color: var(--secondary-dark);
-            transform: translateY(-2px);
-            box-shadow: var(--shadow);
-        }
-
-        .btn-primary {
-            background-color: var(--primary);
-        }
-
-        .btn-primary:hover {
-            background-color: #1565c0;
-        }
-
-        .btn-outline {
-            background-color: transparent;
-            border: 2px solid var(--primary);
-            color: var(--primary);
-        }
-
-        .btn-outline:hover {
-            background-color: var(--primary);
-            color: white;
-        }
-
-        .btn-warning {
-            background-color: var(--warning);
-        }
-
-        .btn-warning:hover {
-            background-color: #e64a19;
-        }
-
-        .btn-small {
-            padding: 8px 16px;
-            font-size: 14px;
-        }
-
-        /* ===== HEADER WITH DUAL LOGOS ===== */
-        .top-bar {
-            background-color: var(--primary-dark);
-            color: white;
-            padding: 8px 0;
-            font-size: 14px;
-        }
-
-        .top-bar .container {
+            padding: 0.8rem 2rem;
             display: flex;
+            align-items: center;
             justify-content: space-between;
-            align-items: center;
             flex-wrap: wrap;
-        }
-
-        .top-bar-contact span {
-            margin-right: 20px;
-            display: inline-flex;
-            align-items: center;
-            gap: 5px;
-        }
-
-        .top-bar-social a {
-            color: white;
-            margin-left: 15px;
-            font-size: 16px;
-            transition: var(--transition);
-        }
-
-        .top-bar-social a:hover {
-            color: var(--accent);
-        }
-
-        .main-header {
-            background-color: var(--white);
-            box-shadow: var(--shadow);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
             position: sticky;
             top: 0;
             z-index: 1000;
         }
 
-        .main-header .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px 20px;
-        }
-
-        /* Left Logo */
-        .logo-left {
+        .logo-area {
             display: flex;
             align-items: center;
-            gap: 15px;
+            gap: 1rem;
         }
 
-        .logo-img {
+        .logo-area img {
+            width: 70px;
             height: 70px;
-            width: auto;
-            object-fit: contain;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #ffaa00;
         }
 
-        .logo-text {
+        .college-title h1 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        .college-title p {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            font-style: italic;
+        }
+
+        /* ----- BANNER BUTTONS (nav links) with active response and proper links ----- */
+        .nav-links {
+            display: flex;
+            gap: 0.3rem;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            padding: 0.6rem 1.2rem;
+            font-weight: 500;
+            border-radius: 30px;
+            transition: all 0.2s ease;
+            font-size: 1rem;
+            cursor: pointer;
+            user-select: none;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .nav-links a:hover {
+            background-color: #ffaa00;
+            color: #003366;
+            transform: scale(1.05);
+        }
+
+        .nav-links a:active {
+            background-color: #ffcc66;
+            transform: scale(0.98);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+
+        /* ----- MAIN CONTAINER ----- */
+        .container {
+            max-width: 1300px;
+            margin: 2rem auto;
+            padding: 0 1.5rem;
+        }
+
+        /* About section (home) */
+        #about {
+            scroll-margin-top: 100px;
+        }
+
+        .welcome {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .welcome h2 {
+            font-size: 2.5rem;
+            color: #003366;
+            border-bottom: 4px solid #ffaa00;
+            display: inline-block;
+            padding-bottom: 0.5rem;
+        }
+
+        /* ----- NEWS SECTION (countdown fixed) ----- */
+        #news {
+            scroll-margin-top: 100px;
+            background: rgba(255,255,255,0.7);
+            backdrop-filter: blur(3px);
+            border-radius: 40px;
+            padding: 2rem;
+            margin: 3rem 0;
+            box-shadow: 0 8px 20px rgba(0,51,102,0.1);
+        }
+
+        .news-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .news-header h2 {
+            font-size: 2.2rem;
+            color: #003366;
+            border-left: 6px solid #ffaa00;
+            padding-left: 1.2rem;
+        }
+
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+            gap: 1.5rem;
+        }
+
+        .news-item {
+            background: white;
+            border-radius: 24px;
+            padding: 1.5rem;
+            box-shadow: 0 5px 12px rgba(0,0,0,0.05);
+        }
+
+        .news-item h3 {
+            color: #003366;
+            margin-bottom: 0.5rem;
+        }
+
+        .news-item p {
+            color: #1e3a5f;
+        }
+
+        /* Countdown clock styling */
+        .countdown-container {
+            background: #003366;
+            color: white;
+            border-radius: 50px;
+            padding: 1rem 2rem;
+            margin-top: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+
+        .countdown-title {
+            font-size: 1.4rem;
+            font-weight: 600;
+        }
+
+        .countdown-timer {
+            display: flex;
+            gap: 1.5rem;
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: #ffaa00;
+            color: #003366;
+            padding: 0.5rem 1.5rem;
+            border-radius: 40px;
+        }
+
+        .countdown-timer span {
+            min-width: 60px;
+            text-align: center;
+        }
+
+        .countdown-timer small {
+            font-size: 1rem;
+            display: block;
+            font-weight: 400;
+            color: #003366;
+            opacity: 0.8;
+        }
+
+        /* ----- DEPARTMENT CARDS (photo above each, PDF download links, no gallery) ----- */
+        #blogs {
+            scroll-margin-top: 100px;
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(2px);
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 12px 28px rgba(0,51,102,0.2);
+            transition: 0.25s;
             display: flex;
             flex-direction: column;
+            border: 1px solid rgba(255,255,255,0.6);
         }
 
-        .logo-text h1 {
+        .card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 30px rgba(0,51,102,0.3);
+        }
+
+        .card .dept-photo {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            border-bottom: 4px solid #ffaa00;
+            background-color: #ccc;
+        }
+
+        .card-content {
+            padding: 1.2rem 1.2rem 0.8rem;
+        }
+
+        .card h3 {
+            color: #003366;
             font-size: 1.5rem;
-            color: var(--primary);
-            line-height: 1.2;
+            margin-bottom: 0.75rem;
+        }
+
+        .card h3 a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .card h3 a:hover {
+            color: #ffaa00;
+        }
+
+        .card p {
+            color: #1a2b3c;
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+            text-align: justify;
+        }
+
+        /* PDF Download link / button */
+        .download-link {
+            display: inline-block;
+            background: #e6eef9;
+            color: #003366;
+            padding: 0.5rem 1.2rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 500;
+            margin: 0.5rem 0 0.8rem;
+            transition: 0.2s;
+            border: 1px solid #b0c4de;
+        }
+
+        .download-link i {
+            margin-right: 0.3rem;
+            color: #ffaa00;
+        }
+
+        .download-link:hover {
+            background: #ffaa00;
+            color: white;
+            border-color: #ffaa00;
+        }
+
+        .download-link:hover i {
+            color: white;
+        }
+
+        /* ----- STUDENT PORTAL SECTION (with logo) ----- */
+        #portal {
+            scroll-margin-top: 100px;
+        }
+
+        .portal-section {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(4px);
+            border-radius: 40px;
+            padding: 2rem 2rem 2.5rem;
+            margin: 3rem 0;
+            box-shadow: 0 20px 30px rgba(0, 51, 102, 0.2);
+            border: 1px solid rgba(255,255,255,0.8);
+        }
+
+        .portal-header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 1.8rem;
+            flex-wrap: wrap;
+        }
+
+        .portal-header img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #ffaa00;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .portal-header h2 {
+            font-size: 2.4rem;
+            color: #003366;
+            position: relative;
             margin: 0;
         }
 
-        .logo-text span {
-            color: var(--secondary);
-            font-size: 1.2rem;
+        .portal-header h2:after {
+            content: "";
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: #ffaa00;
+            margin: 0.5rem auto 0;
+            border-radius: 4px;
         }
 
-        /* Center Navigation */
-        .nav-menu {
+        .portal-tabs {
             display: flex;
-            gap: 25px;
-            align-items: center;
+            justify-content: center;
+            gap: 0.8rem;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
         }
 
-        .nav-menu a {
-            text-decoration: none;
-            color: var(--text);
+        .tab-btn {
+            background: transparent;
+            border: 2px solid #003366;
+            color: #003366;
+            padding: 0.8rem 2rem;
+            font-size: 1.1rem;
             font-weight: 600;
-            position: relative;
-            padding: 5px 0;
-            font-size: 16px;
-        }
-
-        .nav-menu a:hover {
-            color: var(--primary);
-        }
-
-        .nav-menu a::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background-color: var(--primary);
-            transition: var(--transition);
-        }
-
-        .nav-menu a:hover::after {
-            width: 100%;
-        }
-
-        /* Right Logo */
-        .logo-right {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .right-logo-text {
-            text-align: right;
-            font-weight: bold;
-            color: var(--primary);
-            font-size: 14px;
-        }
-
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            font-size: 24px;
-            color: var(--primary);
+            border-radius: 40px;
             cursor: pointer;
+            transition: 0.25s;
+            min-width: 160px;
         }
 
-        /* ===== HERO SECTION ===== */
-        .hero {
-            position: relative;
-            height: 70vh;
-            margin-top: 20px;
-            overflow: hidden;
-            border-radius: var(--radius);
-        }
-
-        .hero-slide {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            background-size: cover;
-            background-position: center;
-            opacity: 0;
-            transition: opacity 1s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .hero-slide.active {
-            opacity: 1;
-        }
-
-        .hero-overlay {
-            background: linear-gradient(rgba(13, 71, 161, 0.85), rgba(13, 71, 161, 0.95));
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
+        .tab-btn.active {
+            background: #003366;
             color: white;
-            padding: 40px;
+            border-color: #ffaa00;
         }
 
-        .hero h2 {
-            font-size: 3rem;
-            margin-bottom: 20px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        .tab-btn:hover {
+            background: #ffaa00;
+            border-color: #ffaa00;
+            color: #003366;
         }
 
-        .hero p {
-            font-size: 1.2rem;
-            max-width: 700px;
-            margin-bottom: 30px;
-            line-height: 1.8;
-        }
-
-        .hero-controls {
-            position: absolute;
-            width: 100%;
-            top: 50%;
-            transform: translateY(-50%);
-            display: flex;
-            justify-content: space-between;
-            padding: 0 20px;
-            z-index: 10;
-        }
-
-        .hero-arrow {
-            background-color: rgba(255, 255, 255, 0.2);
-            color: white;
-            border: none;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            font-size: 1.5rem;
-            cursor: pointer;
-            transition: var(--transition);
-        }
-
-        .hero-arrow:hover {
-            background-color: rgba(255, 255, 255, 0.4);
-        }
-
-        .hero-dots {
-            position: absolute;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            gap: 10px;
-        }
-
-        .hero-dot {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background-color: rgba(255, 255, 255, 0.5);
-            cursor: pointer;
-            transition: var(--transition);
-        }
-
-        .hero-dot.active {
-            background-color: white;
-            transform: scale(1.2);
-        }
-
-        /* ===== STUDENT PORTAL ===== */
-        .portal-section {
-            background-color: var(--white);
-            padding: 60px 0;
-            border-radius: var(--radius);
-            margin: 40px 0;
-        }
-
-        body.dark-mode .portal-section {
-            background-color: #1e1e1e;
-        }
-
-        .portal-container {
+        .portal-forms {
             max-width: 500px;
             margin: 0 auto;
-            padding: 40px;
-            background-color: var(--light);
-            border-radius: var(--radius);
-            box-shadow: var(--shadow);
+            background: white;
+            padding: 2rem;
+            border-radius: 32px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
         }
 
-        body.dark-mode .portal-container {
-            background-color: #2a2a2a;
+        .form {
+            display: none;
+            animation: fade 0.3s ease;
         }
 
-        .portal-title {
-            text-align: center;
-            margin-bottom: 30px;
-            color: var(--primary);
-            font-size: 1.8rem;
+        .form.active-form {
+            display: block;
         }
 
-        .form-tabs {
-            display: flex;
-            margin-bottom: 30px;
-            border-bottom: 2px solid #ddd;
+        @keyframes fade {
+            from { opacity: 0.3; transform: translateY(6px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
-        body.dark-mode .form-tabs {
-            border-bottom-color: #444;
-        }
-
-        .form-tab {
-            flex: 1;
-            padding: 15px;
-            text-align: center;
-            background: none;
-            border: none;
-            font-size: 16px;
-            font-weight: 600;
-            color: var(--text-light);
-            cursor: pointer;
-            transition: var(--transition);
-            border-bottom: 3px solid transparent;
-        }
-
-        body.dark-mode .form-tab {
-            color: #aaa;
-        }
-
-        .form-tab.active {
-            color: var(--primary);
-            border-bottom-color: var(--primary);
-        }
-
-        body.dark-mode .form-tab.active {
-            color: var(--accent);
-            border-bottom-color: var(--accent);
+        .form h3 {
+            color: #003366;
+            margin-bottom: 1.5rem;
+            font-size: 1.6rem;
+            border-left: 6px solid #ffaa00;
+            padding-left: 1rem;
         }
 
         .form-group {
-            margin-bottom: 20px;
+            margin-bottom: 1.2rem;
         }
 
         .form-group label {
             display: block;
-            margin-bottom: 8px;
-            font-weight: 600;
-            color: var(--text);
-            font-size: 14px;
+            font-weight: 500;
+            color: #1e3a5f;
+            margin-bottom: 0.3rem;
         }
 
-        body.dark-mode .form-group label {
-            color: #eee;
-        }
-
-        .form-control {
+        .form-group input {
             width: 100%;
-            padding: 14px 15px;
-            border: 1px solid #ddd;
-            border-radius: var(--radius);
-            font-size: 16px;
-            transition: var(--transition);
-            background-color: var(--white);
+            padding: 0.9rem 1.2rem;
+            border: 1px solid #b0c4de;
+            border-radius: 50px;
+            font-size: 1rem;
+            transition: 0.2s;
         }
 
-        body.dark-mode .form-control {
-            background-color: #333;
-            border-color: #555;
-            color: #eee;
-        }
-
-        .form-control:focus {
+        .form-group input:focus {
+            border-color: #ffaa00;
             outline: none;
-            border-color: var(--primary);
-            box-shadow: 0 0 0 3px rgba(13, 71, 161, 0.2);
+            box-shadow: 0 0 0 3px rgba(255,170,0,0.2);
+        }
+
+        .btn-submit {
+            background: #003366;
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            font-size: 1.2rem;
+            font-weight: 600;
+            border-radius: 50px;
+            width: 100%;
+            cursor: pointer;
+            transition: 0.2s;
+            margin-top: 1rem;
+        }
+
+        .btn-submit:hover {
+            background: #ffaa00;
+            color: #003366;
         }
 
         .form-footer {
-            margin-top: 20px;
+            margin-top: 1.5rem;
             text-align: center;
-            font-size: 14px;
+            font-size: 0.95rem;
+            color: #2c4c7c;
         }
 
         .form-footer a {
-            color: var(--primary);
+            color: #ffaa00;
+            font-weight: 600;
             text-decoration: none;
-            font-weight: 500;
+            cursor: pointer;
         }
 
         .form-footer a:hover {
             text-decoration: underline;
         }
 
-        .form-message {
-            padding: 12px;
-            border-radius: var(--radius);
-            margin-bottom: 20px;
-            display: none;
+        /* ----- FOOTER (links at the bottom) ----- */
+        #contact {
+            scroll-margin-top: 100px;
         }
 
-        .form-message.success {
-            background-color: rgba(46, 125, 50, 0.1);
-            color: var(--secondary);
-            border: 1px solid rgba(46, 125, 50, 0.3);
-        }
-
-        .form-message.error {
-            background-color: rgba(255, 87, 34, 0.1);
-            color: var(--warning);
-            border: 1px solid rgba(255, 87, 34, 0.3);
-        }
-
-        /* ===== STUDENT DASHBOARD ===== */
-        .dashboard {
-            display: none;
-            padding: 40px 0;
-        }
-
-        .dashboard-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 30px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid #ddd;
-        }
-
-        body.dark-mode .dashboard-header {
-            border-bottom-color: #444;
-        }
-
-        .dashboard-welcome h2 {
-            color: var(--primary);
-            margin-bottom: 5px;
-        }
-
-        .dashboard-welcome p {
-            color: var(--text-light);
-        }
-
-        body.dark-mode .dashboard-welcome p {
-            color: #aaa;
-        }
-
-        .dashboard-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
-            margin-bottom: 40px;
-        }
-
-        .dashboard-card {
-            background-color: var(--white);
-            border-radius: var(--radius);
-            padding: 25px;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-            height: 100%;
-        }
-
-        body.dark-mode .dashboard-card {
-            background-color: #1e1e1e;
-        }
-
-        .dashboard-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-        }
-
-        .dashboard-card h3 {
-            color: var(--primary);
-            margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 1.3rem;
-            border-bottom: 2px solid var(--light);
-            padding-bottom: 10px;
-        }
-
-        body.dark-mode .dashboard-card h3 {
-            border-bottom-color: #333;
-        }
-
-        .dashboard-card h3 i {
-            color: var(--secondary);
-        }
-
-        .file-list {
-            list-style: none;
-        }
-
-        .file-list li {
-            padding: 12px 0;
-            border-bottom: 1px solid #eee;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        body.dark-mode .file-list li {
-            border-bottom-color: #333;
-        }
-
-        .file-list li:last-child {
-            border-bottom: none;
-        }
-
-        .file-info {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .file-icon {
-            width: 40px;
-            height: 40px;
-            background-color: var(--light);
-            border-radius: 6px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--warning);
-        }
-
-        body.dark-mode .file-icon {
-            background-color: #2a2a2a;
-        }
-
-        .file-details h4 {
-            font-size: 14px;
-            margin-bottom: 3px;
-            color: var(--text);
-        }
-
-        body.dark-mode .file-details h4 {
-            color: #eee;
-        }
-
-        .file-details p {
-            font-size: 12px;
-            color: var(--text-light);
-        }
-
-        .file-actions a {
-            color: var(--primary);
-            text-decoration: none;
-            font-weight: 600;
-            padding: 6px 12px;
-            border-radius: 4px;
-            border: 1px solid var(--primary);
-            transition: var(--transition);
-            font-size: 14px;
-        }
-
-        .file-actions a:hover {
-            background-color: var(--primary);
-            color: white;
-        }
-
-        /* ===== ACADEMIC INFO ===== */
-        .academic-info {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
-            margin-bottom: 25px;
-        }
-
-        .info-item {
-            background-color: var(--light);
-            padding: 15px;
-            border-radius: var(--radius);
-            border-left: 4px solid var(--primary);
-        }
-
-        body.dark-mode .info-item {
-            background-color: #2a2a2a;
-        }
-
-        .info-item h4 {
-            color: var(--text-light);
-            font-size: 12px;
-            margin-bottom: 5px;
-            text-transform: uppercase;
-        }
-
-        .info-item p {
-            font-weight: 600;
-            font-size: 14px;
-        }
-
-        /* ===== TIMETABLE ===== */
-        .timetable {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 15px;
-        }
-
-        .timetable th {
-            background-color: var(--primary);
-            color: white;
-            padding: 12px;
-            text-align: left;
-            font-weight: 600;
-        }
-
-        .timetable td {
-            padding: 12px;
-            border-bottom: 1px solid #eee;
-        }
-
-        body.dark-mode .timetable td {
-            border-bottom-color: #333;
-        }
-
-        .timetable tr:hover {
-            background-color: var(--light);
-        }
-
-        body.dark-mode .timetable tr:hover {
-            background-color: #2a2a2a;
-        }
-
-        /* ===== DEPARTMENTS SECTION ===== */
-        .section-title {
-            text-align: center;
-            margin-bottom: 50px;
-            color: var(--primary);
-            position: relative;
-            font-size: 2.2rem;
-        }
-
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -15px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100px;
-            height: 4px;
-            background-color: var(--accent);
-            border-radius: 2px;
-        }
-
-        .dept-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 30px;
-        }
-
-        .dept-card {
-            background-color: var(--white);
-            border-radius: var(--radius);
-            overflow: hidden;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-        }
-
-        body.dark-mode .dept-card {
-            background-color: #1e1e1e;
-        }
-
-        .dept-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
-        }
-
-        .dept-image {
-            height: 200px;
-            width: 100%;
-            overflow: hidden;
-        }
-
-        .dept-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: var(--transition);
-        }
-
-        .dept-card:hover .dept-image img {
-            transform: scale(1.05);
-        }
-
-        .dept-header {
-            padding: 25px 25px 15px;
-            border-bottom: 1px solid #eee;
-        }
-
-        body.dark-mode .dept-header {
-            border-bottom-color: #333;
-        }
-
-        .dept-header h3 {
-            color: var(--primary);
-            margin-bottom: 10px;
-            font-size: 1.5rem;
-        }
-
-        .dept-header p {
-            color: var(--text-light);
-            font-size: 14px;
-        }
-
-        .dept-files {
-            padding: 20px;
-        }
-
-        .file-category {
-            margin-bottom: 25px;
-        }
-
-        .file-category h4 {
-            color: var(--secondary);
-            margin-bottom: 15px;
-            font-size: 1.1rem;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .category-files {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 10px;
-        }
-
-        .file-link {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            padding: 12px 15px;
-            background-color: var(--light);
-            border-radius: var(--radius);
-            text-decoration: none;
-            color: var(--text);
-            transition: var(--transition);
-            border: 1px solid #eee;
-        }
-
-        body.dark-mode .file-link {
-            background-color: #2a2a2a;
-            border-color: #333;
-            color: #eee;
-        }
-
-        .file-link:hover {
-            background-color: var(--primary);
-            color: white;
-            transform: translateX(5px);
-        }
-
-        .file-link:hover .file-icon-small {
-            color: white;
-        }
-
-        .file-icon-small {
-            color: var(--warning);
-            font-size: 18px;
-        }
-
-        /* ===== FOOTER ===== */
         footer {
-            background-color: var(--primary-dark);
-            color: white;
-            padding: 60px 0 20px;
-            margin-top: 60px;
+            background-color: #002244;
+            color: #e0e0e0;
+            padding: 2.5rem 2rem 1.5rem;
+            margin-top: 3rem;
+            border-top: 5px solid #ffaa00;
         }
 
-        .footer-grid {
+        .footer-content {
+            max-width: 1300px;
+            margin: 0 auto;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-            margin-bottom: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
         }
 
-        .footer-col h3 {
+        .footer-section h4 {
             color: white;
-            margin-bottom: 25px;
-            position: relative;
-            padding-bottom: 10px;
-            font-size: 1.4rem;
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            border-left: 4px solid #ffaa00;
+            padding-left: 0.8rem;
         }
 
-        .footer-col h3::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 50px;
-            height: 2px;
-            background-color: var(--accent);
-        }
-
-        .footer-links {
+        .footer-section ul {
             list-style: none;
         }
 
-        .footer-links li {
-            margin-bottom: 12px;
+        .footer-section ul li {
+            margin-bottom: 0.6rem;
         }
 
-        .footer-links a {
-            color: rgba(255, 255, 255, 0.8);
+        .footer-section ul li a {
+            color: #cccccc;
             text-decoration: none;
-            transition: var(--transition);
-            display: flex;
-            align-items: center;
-            gap: 8px;
+            transition: 0.2s;
         }
 
-        .footer-links a:hover {
-            color: var(--accent);
+        .footer-section ul li a:hover {
+            color: #ffaa00;
             padding-left: 5px;
         }
 
-        .footer-contact li {
-            display: flex;
-            align-items: flex-start;
-            margin-bottom: 15px;
-            color: rgba(255, 255, 255, 0.8);
+        .footer-section i {
+            width: 25px;
+            color: #ffaa00;
         }
 
-        .footer-contact i {
-            margin-right: 10px;
-            color: var(--accent);
-            margin-top: 5px;
-            min-width: 20px;
-        }
-
-        .footer-bottom {
+        .social-links a {
+            display: inline-block;
+            background: #003366;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
             text-align: center;
-            padding-top: 20px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            color: rgba(255, 255, 255, 0.6);
-            font-size: 14px;
+            line-height: 40px;
+            margin-right: 0.5rem;
+            transition: 0.3s;
         }
 
-        /* ===== UTILITY CLASSES ===== */
-        .hidden {
-            display: none !important;
+        .social-links a:hover {
+            background-color: #ffaa00;
+            color: #002244;
+            transform: scale(1.1);
         }
 
-        .text-center {
+        .copyright {
             text-align: center;
+            border-top: 1px solid #224466;
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            color: #a0b8d0;
         }
 
-        .mb-3 {
-            margin-bottom: 1rem;
-        }
-
-        .mt-3 {
-            margin-top: 1rem;
-        }
-
-        /* ===== RESPONSIVE DESIGN ===== */
-        @media (max-width: 992px) {
-            .nav-menu {
-                display: none;
-                position: fixed;
-                top: 0;
-                right: -100%;
-                width: 280px;
-                height: 100vh;
-                background-color: var(--white);
-                box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
-                padding: 80px 30px 30px;
-                transition: var(--transition);
-                z-index: 999;
+        @media (max-width: 700px) {
+            header {
                 flex-direction: column;
-                gap: 20px;
-            }
-
-            body.dark-mode .nav-menu {
-                background-color: #1e1e1e;
-            }
-
-            .nav-menu.active {
-                right: 0;
-            }
-
-            .mobile-menu-btn {
-                display: block;
-            }
-
-            .hero h2 {
-                font-size: 2.2rem;
-            }
-
-            .hero p {
-                font-size: 1rem;
-            }
-
-            .section-title {
-                font-size: 1.8rem;
-            }
-
-            .logo-right {
-                display: none;
-            }
-
-            .dept-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .hero {
-                height: 60vh;
-            }
-
-            .hero h2 {
-                font-size: 1.8rem;
-            }
-
-            .dashboard-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .top-bar .container {
-                flex-direction: column;
-                gap: 10px;
                 text-align: center;
             }
-
-            .top-bar-contact span {
-                margin-right: 10px;
-                margin-left: 10px;
+            .college-title h1 {
+                font-size: 1.4rem;
             }
-
-            .portal-container {
-                padding: 30px 20px;
+            .portal-header h2 {
+                font-size: 1.8rem;
             }
-
-            .academic-info {
-                grid-template-columns: 1fr;
+            .portal-tabs .tab-btn {
+                min-width: 130px;
+                padding: 0.6rem 1rem;
+            }
+            .countdown-timer {
+                font-size: 1.2rem;
+                gap: 0.5rem;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Top Bar -->
-    <div class="top-bar">
-        <div class="container">
-            <div class="top-bar-contact">
-                <span><i class="fas fa-clock"></i> Mon-Fri: 8:00 AM - 5:00 PM</span>
-                <span><i class="fas fa-phone"></i> +254 712 345 678</span>
+
+<!-- HEADER with functional navigation links -->
+<header>
+    <div class="logo-area">
+        <img src="logo.jpg" alt="Msambweni College Logo" onerror="this.src='https://via.placeholder.com/70?text=Logo'">
+        <div class="college-title">
+            <h1>MSAMBWENI TECHNICAL <br><span style="font-size: 1.2rem;">AND VOCATIONAL COLLEGE</span></h1>
+            <p>Hands‑on skills · Innovation · Excellence</p>
+        </div>
+    </div>
+    <div class="nav-links">
+        <a href="#home">Home</a>
+        <a href="#contact">Contacts</a>
+        <a href="#news">News</a>
+        <a href="#about">About</a>
+        <a href="#blogs">Blogs</a>
+        <a href="#portal">Login</a>
+    </div>
+</header>
+
+<!-- MAIN CONTENT -->
+<div class="container" id="home">
+    <!-- About section (home) -->
+    <div id="about" class="welcome">
+        <h2>About Msambweni TVC</h2>
+        <p style="margin-top: 1rem; background: rgba(255,255,255,0.6); padding: 1rem 2rem; border-radius: 50px; display: inline-block; max-width: 800px;">
+            Msambweni Technical and Vocational College is a centre of excellence offering hands‑on training in ICT, Electrical, Plumbing, and other technical fields. We prepare students for industry with modern workshops and experienced lecturers.
+        </p>
+    </div>
+
+    <!-- NEWS SECTION with countdown clock (15 days from now) -->
+    <section id="news">
+        <div class="news-header">
+            <i class="fas fa-newspaper" style="font-size: 3rem; color: #003366;"></i>
+            <h2>Campus News</h2>
+        </div>
+        <div class="news-grid">
+            <div class="news-item">
+                <h3>🎓 Application for May intake</h3>
+                <p>Applications are now open for the May 2025 intake. Deadline: 15 days from today.</p>
             </div>
-            <div class="top-bar-social">
-                <a href="#"><i class="fab fa-facebook-f"></i></a>
-                <a href="#"><i class="fab fa-twitter"></i></a>
-                <a href="#"><i class="fab fa-youtube"></i></a>
-                <a href="#"><i class="fab fa-whatsapp"></i></a>
+            <div class="news-item">
+                <h3>🔧 Electrical workshop upgrade</h3>
+                <p>New equipment installed in the electrical engineering lab – thanks to partners.</p>
+            </div>
+            <div class="news-item">
+                <h3>🌳 Tree planting day success</h3>
+                <p>Students planted 500 trees along the campus boundary. Well done!</p>
+            </div>
+        </div>
+
+        <!-- Countdown clock for deadline - always 15 days from now -->
+        <div class="countdown-container">
+            <div class="countdown-title">
+                <i class="fas fa-hourglass-half"></i> Deadline countdown (15 days):
+            </div>
+            <div class="countdown-timer" id="countdownTimer">
+                <span id="days">00</span><small>days</small>
+                <span id="hours">00</span><small>hrs</small>
+                <span id="minutes">00</span><small>min</small>
+                <span id="seconds">00</span><small>sec</small>
+            </div>
+        </div>
+    </section>
+
+    <!-- DEPARTMENT CARDS (Blogs / departments) with PDF download links (photo gallery removed) -->
+    <div id="blogs">
+        <h2 style="color: #003366; font-size: 2.2rem; margin-bottom: 1rem; border-left: 6px solid #ffaa00; padding-left: 1rem;">Our Departments & Activities</h2>
+    </div>
+    <div class="cards-grid">
+        <!-- ICT Department (updated with actual PDF link) -->
+        <div class="card">
+            <img class="dept-photo" src="com.jpg" alt="ICT Department" onerror="this.src='https://via.placeholder.com/400x220?text=ICT+Lab'">
+            <div class="card-content">
+                <h3><a href="#">COMMUNICATION & INFORMATION TECHNOLOGY</a></h3>
+                <p>ICT (information and communications technology) is the infrastructure and components that enable modern computing. Among the goals of IC technologies, tools and systems is to improve the way humans create, process and share data or information with each other.</p>
+                <!-- PDF Download link - now points to ICT.pdf -->
+                <a href="ICT.pdf" class="download-link" download><i class="fas fa-file-pdf"></i> Download Brochure (PDF)</a>
+            </div>
+        </div>
+
+        <!-- ELECTRICAL DEPARTMENT -->
+        <div class="card">
+            <img class="dept-photo" src="elect.jpg" alt="Electrical Department" onerror="this.src='https://via.placeholder.com/400x220?text=Electrical+Workshop'">
+            <div class="card-content">
+                <h3><a href="#">ELECTRICAL DEPARTMENT</a></h3>
+                <p>Students enrolled in the Electrical Engineering program gain skills in electrical installation, troubleshooting, maintenance, and instrumentation. They learn to diagnose faults, maintain equipment, and master measurement & control of electrical quantities in residential, commercial, and industrial settings.</p>
+                <a href="#" class="download-link" onclick="alert('Downloading Electrical brochure (PDF)'); return false;"><i class="fas fa-file-pdf"></i> Download Brochure (PDF)</a>
+            </div>
+        </div>
+
+        <!-- PLUMBING DEPARTMENT -->
+        <div class="card">
+            <img class="dept-photo" src="plumb.jpg" alt="Plumbing Department" onerror="this.src='https://via.placeholder.com/400x220?text=Plumbing+Training'">
+            <div class="card-content">
+                <h3><a href="#">PLUMBING</a></h3>
+                <p>The Diploma in Plumbing equips students with advanced knowledge in water supply, drainage systems, pipe fitting, sanitary installations, and safety standards. It includes modern technologies like renewable energy systems and building codes, preparing professionals for real-world challenges.</p>
+                <a href="#" class="download-link" onclick="alert('Downloading Plumbing brochure (PDF)'); return false;"><i class="fas fa-file-pdf"></i> Download Brochure (PDF)</a>
+            </div>
+        </div>
+
+        <!-- TREE PLANTING DAY (activity) -->
+        <div class="card">
+            <img class="dept-photo" src="aaa.jpg" alt="Tree planting event" onerror="this.src='https://via.placeholder.com/400x220?text=Tree+Planting'">
+            <div class="card-content">
+                <h3><a href="#">TREE PLANTING DAY</a></h3>
+                <p>This is a simple, safe, and effective way of protecting people against harmful diseases, before they come into contact — and a step toward a greener, healthier campus community. Join our environmental conservation efforts.</p>
+                <a href="#" class="download-link" onclick="alert('Downloading event report (PDF)'); return false;"><i class="fas fa-file-pdf"></i> Download Report (PDF)</a>
             </div>
         </div>
     </div>
 
-    <!-- Main Header with Dual Logos -->
-    <header class="main-header">
-        <div class="container">
-            <!-- Left Logo -->
-            <div class="logo-left">
-                <img src="logo.jpg" alt="MTVC Logo" class="logo-img" onerror="this.src='https://via.placeholder.com/70x70/0d47a1/ffffff?text=MTVC'">
-                <div class="logo-text">
-                    <h1>MSAMBWENI</h1>
-                    <span>TECHNICAL & VOCATIONAL COLLEGE</span>
-                </div>
-            </div>
-            
-            <!-- Center Navigation -->
-            <nav class="nav-menu" id="navMenu">
-                <a href="#home"><i class="fas fa-home"></i> Home</a>
-                <a href="#departments"><i class="fas fa-building"></i> Departments</a>
-                <a href="#portal"><i class="fas fa-user-graduate"></i> Student Portal</a>
-                <a href="#contact"><i class="fas fa-phone"></i> Contact</a>
-            </nav>
-            
-            <!-- Right Logo -->
-            <div class="logo-right">
-                <img src="knec.png" alt="Government Logo" class="logo-img" onerror="this.src='https://via.placeholder.com/70x70/2e7d32/ffffff?text=TVET'">
-                <div class="right-logo-text">
-                    <div>TVET Authority</div>
-                    <div>Government of Kenya</div>
-                </div>
-            </div>
-            
-            <button class="mobile-menu-btn" id="mobileMenuBtn">
-                <i class="fas fa-bars"></i>
-            </button>
+    <!-- STUDENT PORTAL SECTION with school logo -->
+    <section id="portal" class="portal-section">
+        <div class="portal-header">
+            <img src="logo.jpg" alt="Msambweni TVC Logo" onerror="this.src='https://via.placeholder.com/80?text=Logo'">
+            <h2>Student Portal</h2>
         </div>
-    </header>
 
-    <!-- Hero Section -->
-    <section class="hero" id="home">
-        <div class="hero-slide active" style="background-image: url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80');">
-            <div class="hero-overlay">
-                <h2>Empowering Futures Through Technical Education</h2>
-                <p>Msambweni TVC provides industry-relevant skills training to prepare students for employment, entrepreneurship, and innovation in today's competitive world.</p>
-                <a href="#portal" class="btn btn-primary">Access Student Portal</a>
-            </div>
+        <!-- Tab buttons -->
+        <div class="portal-tabs">
+            <button class="tab-btn active" id="tab-login">Login</button>
+            <button class="tab-btn" id="tab-register">Create Account</button>
+            <button class="tab-btn" id="tab-reset">Reset Password</button>
         </div>
-        <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1541339907198-e08756dedf3f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80');">
-            <div class="hero-overlay">
-                <h2>State-of-the-Art Training Facilities</h2>
-                <p>Modern workshops, computer labs, and specialized equipment to enhance practical learning experience.</p>
-                <a href="#departments" class="btn btn-primary">Explore Departments</a>
-            </div>
-        </div>
-        <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1523580494863-6f3031224c94?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80');">
-            <div class="hero-overlay">
-                <h2>Industry Partnerships & Job Placement</h2>
-                <p>Strong collaborations with industry leaders ensuring relevant curriculum and employment opportunities for graduates.</p>
-                <a href="#portal" class="btn btn-primary">Student Login</a>
-            </div>
-        </div>
-        
-        <div class="hero-controls">
-            <button class="hero-arrow" id="prevSlide"><i class="fas fa-chevron-left"></i></button>
-            <button class="hero-arrow" id="nextSlide"><i class="fas fa-chevron-right"></i></button>
-        </div>
-        
-        <div class="hero-dots">
-            <div class="hero-dot active"></div>
-            <div class="hero-dot"></div>
-            <div class="hero-dot"></div>
-        </div>
-    </section>
 
-    <!-- Student Portal Section -->
-    <section class="portal-section" id="portal">
-        <div class="container">
-            <h2 class="section-title">Student Portal</h2>
-            <div class="portal-container">
-                <div class="form-tabs">
-                    <button class="form-tab active" data-tab="login">Login</button>
-                    <button class="form-tab" data-tab="register">Register</button>
-                    <button class="form-tab" data-tab="forgot">Forgot Password</button>
-                </div>
-                
-                <!-- Login Form -->
-                <form id="loginForm" class="portal-form active">
-                    <div class="form-message" id="loginMessage"></div>
-                    
+        <!-- Forms container -->
+        <div class="portal-forms">
+            <!-- Login Form -->
+            <div id="login-form" class="form active-form">
+                <h3>Login</h3>
+                <form>
                     <div class="form-group">
-                        <label for="loginEmail">Student ID / Email</label>
-                        <input type="text" id="loginEmail" class="form-control" placeholder="Enter your student ID or email" required>
+                        <label><i class="far fa-envelope"></i> Email / Registration No.</label>
+                        <input type="text" placeholder="your@email.com or ADM001">
                     </div>
-                    
                     <div class="form-group">
-                        <label for="loginPassword">Password</label>
-                        <input type="password" id="loginPassword" class="form-control" placeholder="Enter your password" required>
+                        <label><i class="fas fa-lock"></i> Password</label>
+                        <input type="password" placeholder="••••••••">
                     </div>
-                    
-                    <div class="form-group">
-                        <label>
-                            <input type="checkbox" id="rememberMe"> Remember me
-                        </label>
-                    </div>
-                    
-                    <button type="submit" class="btn btn-primary" style="width: 100%;">Login to Dashboard</button>
-                    
+                    <button type="button" class="btn-submit">Sign In</button>
                     <div class="form-footer">
-                        <p>New student? <a href="#" class="switch-tab" data-tab="register">Create account</a></p>
+                        <a href="#" id="forgot-link">Forgot password?</a> · <a href="#" id="register-link">Create account</a>
                     </div>
                 </form>
-                
-                <!-- Registration Form -->
-                <form id="registerForm" class="portal-form">
-                    <div class="form-message" id="registerMessage"></div>
-                    
+            </div>
+
+            <!-- Register Form -->
+            <div id="register-form" class="form">
+                <h3>Create Account</h3>
+                <form>
                     <div class="form-group">
-                        <label for="regFullName">Full Name</label>
-                        <input type="text" id="regFullName" class="form-control" placeholder="Enter your full name" required>
+                        <label>Full Name</label>
+                        <input type="text" placeholder="John Mwambweni">
                     </div>
-                    
                     <div class="form-group">
-                        <label for="regEmail">Email Address</label>
-                        <input type="email" id="regEmail" class="form-control" placeholder="Enter your email" required>
+                        <label>Email address</label>
+                        <input type="email" placeholder="student@msambwenitvc.ac.ke">
                     </div>
-                    
                     <div class="form-group">
-                        <label for="regStudentId">Student ID</label>
-                        <input type="text" id="regStudentId" class="form-control" placeholder="Enter your student ID (e.g., MTVC/2024/001)" required>
+                        <label>Registration Number</label>
+                        <input type="text" placeholder="TVC/2026/001">
                     </div>
-                    
                     <div class="form-group">
-                        <label for="regDepartment">Department</label>
-                        <select id="regDepartment" class="form-control" required>
-                            <option value="">Select Department</option>
-                            <option value="ict">Information & Communication Technology</option>
-                            <option value="engineering">Engineering Department</option>
-                            <option value="business">Business Studies</option>
-                            <option value="hospitality">Hospitality & Tourism</option>
-                            <option value="beauty">Beauty & Therapy</option>
-                            <option value="fashion">Fashion & Design</option>
-                        </select>
+                        <label>Password</label>
+                        <input type="password" placeholder="Min. 8 characters">
                     </div>
-                    
                     <div class="form-group">
-                        <label for="regPassword">Password</label>
-                        <input type="password" id="regPassword" class="form-control" placeholder="Create a password" required>
-                        <small style="color: #666; font-size: 12px;">Must be at least 8 characters with letters and numbers</small>
+                        <label>Confirm Password</label>
+                        <input type="password" placeholder="re-enter password">
                     </div>
-                    
-                    <div class="form-group">
-                        <label for="regConfirmPassword">Confirm Password</label>
-                        <input type="password" id="regConfirmPassword" class="form-control" placeholder="Confirm your password" required>
-                    </div>
-                    
-                    <button type="submit" class="btn btn-primary" style="width: 100%;">Create Account</button>
-                    
+                    <button type="button" class="btn-submit">Register</button>
                     <div class="form-footer">
-                        <p>Already have an account? <a href="#" class="switch-tab" data-tab="login">Login here</a></p>
+                        Already have an account? <a href="#" id="login-link">Login</a>
                     </div>
                 </form>
-                
-                <!-- Forgot Password Form -->
-                <form id="forgotForm" class="portal-form">
-                    <div class="form-message" id="forgotMessage"></div>
-                    
+            </div>
+
+            <!-- Reset Password Form -->
+            <div id="reset-form" class="form">
+                <h3>Reset Password</h3>
+                <form>
                     <div class="form-group">
-                        <label for="forgotEmail">Email Address or Student ID</label>
-                        <input type="text" id="forgotEmail" class="form-control" placeholder="Enter your email or student ID" required>
+                        <label>Email or Registration No.</label>
+                        <input type="text" placeholder="Enter your email or reg number">
                     </div>
-                    
                     <div class="form-group">
-                        <label for="forgotNationalId">National ID Number</label>
-                        <input type="text" id="forgotNationalId" class="form-control" placeholder="Enter your national ID" required>
-                        <small style="color: #666; font-size: 12px;">For identity verification</small>
+                        <label>New Password</label>
+                        <input type="password" placeholder="new password">
                     </div>
-                    
-                    <button type="submit" class="btn btn-warning" style="width: 100%;">Reset Password</button>
-                    
+                    <div class="form-group">
+                        <label>Confirm New Password</label>
+                        <input type="password" placeholder="re-enter new password">
+                    </div>
+                    <button type="button" class="btn-submit">Reset Password</button>
                     <div class="form-footer">
-                        <p>Remember your password? <a href="#" class="switch-tab" data-tab="login">Login here</a></p>
+                        <a href="#" id="back-to-login">Back to Login</a>
                     </div>
                 </form>
             </div>
         </div>
     </section>
+</div>
 
-    <!-- Student Dashboard (Initially Hidden) -->
-    <section class="dashboard container" id="dashboard">
-        <div class="dashboard-header">
-            <div class="dashboard-welcome">
-                <h2>Welcome, <span id="studentName">Student</span></h2>
-                <p><i class="fas fa-id-card"></i> Student ID: <span id="dashboardStudentId">MTVC/2024/001</span> | 
-                   <i class="fas fa-building"></i> Department: <span id="dashboardDept">ICT</span> | 
-                   <i class="fas fa-calendar"></i> Semester: <span id="dashboardSemester">2, 2024</span></p>
-            </div>
-            <div>
-                <button class="btn btn-outline" id="logoutBtn"><i class="fas fa-sign-out-alt"></i> Logout</button>
+<!-- FOOTER (contact section) -->
+<footer id="contact">
+    <div class="footer-content">
+        <div class="footer-section">
+            <h4>Quick Links</h4>
+            <ul>
+                <li><a href="#portal">Student Portal</a></li>
+                <li><a href="#">E-Learning</a></li>
+                <li><a href="#">Library</a></li>
+                <li><a href="#">Timetable</a></li>
+                <li><a href="#">Exam Results</a></li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h4>Our Departments</h4>
+            <ul>
+                <li><a href="#">ICT & Computing</a></li>
+                <li><a href="#">Electrical Engineering</a></li>
+                <li><a href="#">Plumbing & Water Tech</a></li>
+                <li><a href="#">Building & Construction</a></li>
+                <li><a href="#">Business Studies</a></li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h4>Contact & Info</h4>
+            <ul>
+                <li><i class="fas fa-map-marker-alt"></i> Msambweni, Kwale County</li>
+                <li><i class="fas fa-phone-alt"></i> +254 712 345 678</li>
+                <li><i class="fas fa-envelope"></i> info@msambwenitvc.ac.ke</li>
+                <li><i class="fas fa-clock"></i> Mon-Fri: 8am - 5pm</li>
+            </ul>
+            <div class="social-links" style="margin-top: 1rem;">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
             </div>
         </div>
-        
-        <!-- Academic Information -->
-        <div class="dashboard-card">
-            <h3><i class="fas fa-info-circle"></i> Academic Information</h3>
-            <div class="academic-info">
-                <div class="info-item">
-                    <h4>Student Status</h4>
-                    <p id="studentStatus">Active</p>
-                </div>
-                <div class="info-item">
-                    <h4>Current GPA</h4>
-                    <p id="studentGPA">3.75</p>
-                </div>
-                <div class="info-item">
-                    <h4>Credits Completed</h4>
-                    <p id="creditsCompleted">45/120</p>
-                </div>
-                <div class="info-item">
-                    <h4>Next Exam Date</h4>
-                    <p id="nextExam">May 15, 2024</p>
-                </div>
-            </div>
+        <div class="footer-section">
+            <h4>Downloads</h4>
+            <ul>
+                <li><a href="#">Prospectus 2025</a></li>
+                <li><a href="#">Application Form</a></li>
+                <li><a href="#">Fee Structure</a></li>
+                <li><a href="#">Academic Calendar</a></li>
+                <li><a href="#">Internship opportunities</a></li>
+            </ul>
         </div>
-        
-        <div class="dashboard-grid">
-            <!-- Academic Documents -->
-            <div class="dashboard-card">
-                <h3><i class="fas fa-file-certificate"></i> Academic Documents</h3>
-                <ul class="file-list">
-                    <li>
-                        <div class="file-info">
-                            <div class="file-icon">
-                                <i class="fas fa-file-pdf"></i>
-                            </div>
-                            <div class="file-details">
-                                <h4>Academic Transcript</h4>
-                                <p>PDF • 2.4 MB • Updated: Jan 2024</p>
-                            </div>
-                        </div>
-                        <div class="file-actions">
-                            <a href="#" class="download-btn" data-file="transcript.pdf"><i class="fas fa-download"></i> Download</a>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="file-info">
-                            <div class="file-icon">
-                                <i class="fas fa-file-invoice-dollar"></i>
-                            </div>
-                            <div class="file-details">
-                                <h4>Fee Statement</h4>
-                                <p>PDF • 1.1 MB • Current Semester</p>
-                            </div>
-                        </div>
-                        <div class="file-actions">
-                            <a href="#" class="download-btn" data-file="fee-statement.pdf"><i class="fas fa-download"></i> Download</a>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="file-info">
-                            <div class="file-icon">
-                                <i class="fas fa-file-alt"></i>
-                            </div>
-                            <div class="file-details">
-                                <h4>Course Registration</h4>
-                                <p>PDF • 890 KB • Semester 2, 2024</p>
-                            </div>
-                        </div>
-                        <div class="file-actions">
-                            <a href="#" class="download-btn" data-file="course-registration.pdf"><i class="fas fa-download"></i> Download</a>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="file-info">
-                            <div class="file-icon">
-                                <i class="fas fa-clipboard-check"></i>
-                            </div>
-                            <div class="file-details">
-                                <h4>Exam Card</h4>
-                                <p>PDF • 560 KB • May 2024 Exams</p>
-                            </div>
-                        </div>
-                        <div class="file-actions">
-                            <a href="#" class="download-btn" data-file="exam-card.pdf"><i class="fas fa-download"></i> Download</a>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-            
-            <!-- Class Timetable -->
-            <div class="dashboard-card">
-                <h3><i class="fas fa-calendar-alt"></i> Weekly Timetable</h3>
-                <table class="timetable">
-                    <thead>
-                        <tr>
-                            <th>Day</th>
-                            <th>Time</th>
-                            <th>Course</th>
-                            <th>Venue</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Monday</td>
-                            <td>8:00 - 10:00</td>
-                            <td>Software Engineering</td>
-                            <td>Lab 3</td>
-                        </tr>
-                        <tr>
-                            <td>Tuesday</td>
-                            <td>10:00 - 12:00</td>
-                            <td>Database Systems</td>
-                            <td>Room 205</td>
-                        </tr>
-                        <tr>
-                            <td>Wednesday</td>
-                            <td>8:00 - 10:00</td>
-                            <td>Web Development</td>
-                            <td>Lab 1</td>
-                        </tr>
-                        <tr>
-                            <td>Thursday</td>
-                            <td>2:00 - 4:00</td>
-                            <td>Networking</td>
-                            <td>Lab 2</td>
-                        </tr>
-                        <tr>
-                            <td>Friday</td>
-                            <td>10:00 - 12:00</td>
-                            <td>Project Management</td>
-                            <td>Room 210</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            
-            <!-- Results & Grades -->
-            <div class="dashboard-card">
-                <h3><i class="fas fa-chart-line"></i> Recent Results</h3>
-                <ul class="file-list">
-                    <li>
-                        <div class="file-info">
-                            <div class="file-icon">
-                                <i class="fas fa-award"></i>
-                            </div>
-                            <div class="file-details">
-                                <h4>Semester 1, 2024 Results</h4>
-                                <p>GPA: 3.75 • Released: Feb 15, 2024</p>
-                            </div>
-                        </div>
-                        <div class="file-actions">
-                            <a href="#" class="download-btn" data-file="results-sem1.pdf"><i class="fas fa-eye"></i> View</a>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="file-info">
-                            <div class="file-icon">
-                                <i class="fas fa-clipboard-list"></i>
-                            </div>
-                            <div class="file-details">
-                                <h4>Assignment Scores</h4>
-                                <p>All subjects • Updated Weekly</p>
-                            </div>
-                        </div>
-                        <div class="file-actions">
-                            <a href="#" class="download-btn" data-file="assignments.pdf"><i class="fas fa-download"></i> View</a>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="file-info">
-                            <div class="file-icon">
-                                <i class="fas fa-percentage"></i>
-                            </div>
-                            <div class="file-details">
-                                <h4>Attendance Report</h4>
-                                <p>95% Attendance • Semester 2</p>
-                            </div>
-                        </div>
-                        <div class="file-actions">
-                            <a href="#" class="download-btn" data-file="attendance.pdf"><i class="fas fa-download"></i> Download</a>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="file-info">
-                            <div class="file-icon">
-                                <i class="fas fa-book"></i>
-                            </div>
-                            <div class="file-details">
-                                <h4>Course Materials</h4>
-                                <p>All subjects • Complete Set</p>
-                            </div>
-                        </div>
-                        <div class="file-actions">
-                            <a href="#" class="download-btn" data-file="materials.zip"><i class="fas fa-download"></i> Download</a>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        
-        <!-- Quick Actions -->
-        <div class="dashboard-card">
-            <h3><i class="fas fa-bolt"></i> Quick Actions</h3>
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 15px; margin-top: 20px;">
-                <a href="#" class="btn btn-outline btn-small"><i class="fas fa-edit"></i> Update Profile</a>
-                <a href="#" class="btn btn-outline btn-small"><i class="fas fa-print"></i> Print Documents</a>
-                <a href="#" class="btn btn-outline btn-small"><i class="fas fa-envelope"></i> Contact Lecturer</a>
-                <a href="#" class="btn btn-outline btn-small"><i class="fas fa-question-circle"></i> Help Desk</a>
-                <a href="#" class="btn btn-outline btn-small"><i class="fas fa-book"></i> Library Access</a>
-                <a href="#" class="btn btn-outline btn-small"><i class="fas fa-calendar-plus"></i> Events</a>
-            </div>
-        </div>
-    </section>
+    </div>
+    <div class="copyright">
+        &copy; 2025 Msambweni Technical and Vocational College. All rights reserved.
+    </div>
+</footer>
 
-    <!-- Departments Section -->
-    <section class="departments container" id="departments">
-        <h2 class="section-title">Academic Departments</h2>
-        <div class="dept-grid">
-            <!-- ICT Department -->
-            <div class="dept-card">
-                <div class="dept-image">
-                    <img src="https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="ICT Department">
-                </div>
-                <div class="dept-header">
-                    <h3><i class="fas fa-laptop-code"></i> Information & Communication Technology</h3>
-                    <p>Offering courses in Software Development, Networking, Cybersecurity, and Digital Literacy</p>
-                </div>
-                <div class="dept-files">
-                    <div class="file-category">
-                        <h4><i class="fas fa-file-pdf"></i> Course Materials</h4>
-                        <div class="category-files">
-                            <a href="#" class="file-link download-btn" data-file="ict-course-outline.pdf">
-                                <i class="fas fa-file-alt file-icon-small"></i> Course Outline
-                            </a>
-                            <a href="#" class="file-link download-btn" data-file="ict-syllabus.pdf">
-                                <i class="fas fa-book file-icon-small"></i> Syllabus
-                            </a>
-                            <a href="#" class="file-link download-btn" data-file="ict-module-guide.pdf">
-                                <i class="fas fa-map file-icon-small"></i> Module Guide
-                            </a>
-                        </div>
-                    </div>
-                    
-                    <div class="file-category">
-                        <h4><i class="fas fa-book-open"></i> Learning Resources</h4>
-                        <div class="category-files">
-                            <a href="#" class="file-link download-btn" data-file="ict-lecture-notes.pdf">
-                                <i class="fas fa-book file-icon-small"></i> Lecture Notes
-                            </a>
-                            <a href="#" class="file-link download-btn" data-file="ict-practical-manual.pdf">
-                                <i class="fas fa-flask file-icon-small"></i> Practical Manual
-                            </a>
-                            <a href="#" class="file-link download-btn" data-file="ict-reference-books.pdf">
-                                <i class="fas fa-book-medical file-icon-small"></i> Reference Books
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+<!-- JavaScript for countdown (15 days from now) and portal tabs -->
+<script>
+    // Countdown Timer - always 15 days from current moment
+    function getTargetDate() {
+        const target = new Date();
+        target.setDate(target.getDate() + 15);
+        target.setHours(23, 59, 59, 999); // end of the 15th day
+        return target.getTime();
+    }
 
-            <!-- Engineering Department -->
-            <div class="dept-card">
-                <div class="dept-image">
-                    <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Engineering Department">
-                </div>
-                <div class="dept-header">
-                    <h3><i class="fas fa-cogs"></i> Engineering Department</h3>
-                    <p>Electrical, Mechanical, and Civil Engineering programs with hands-on workshop training</p>
-                </div>
-                <div class="dept-files">
-                    <div class="file-category">
-                        <h4><i class="fas fa-file-pdf"></i> Course Materials</h4>
-                        <div class="category-files">
-                            <a href="#" class="file-link download-btn" data-file="engineering-course-outline.pdf">
-                                <i class="fas fa-file-alt file-icon-small"></i> Course Outline
-                            </a>
-                            <a href="#" class="file-link download-btn" data-file="engineering-syllabus.pdf">
-                                <i class="fas fa-book file-icon-small"></i> Syllabus
-                            </a>
-                            <a href="#" class="file-link download-btn" data-file="engineering-module-guide.pdf">
-                                <i class="fas fa-map file-icon-small"></i> Module Guide
-                            </a>
-                        </div>
-                    </div>
-                    
-                    <div class="file-category">
-                        <h4><i class="fas fa-tools"></i> Workshop Manuals</h4>
-                        <div class="category-files">
-                            <a href="#" class="file-link download-btn" data-file="engineering-workshop-manual.pdf">
-                                <i class="fas fa-wrench file-icon-small"></i> Workshop Manual
-                            </a>
-                            <a href="#" class="file-link download-btn" data-file="engineering-safety-guide.pdf">
-                                <i class="fas fa-shield-alt file-icon-small"></i> Safety Guide
-                            </a>
-                            <a href="#" class="file-link download-btn" data-file="engineering-equipment-guide.pdf">
-                                <i class="fas fa-toolbox file-icon-small"></i> Equipment Guide
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    let targetTime = getTargetDate();
 
-            <!-- Business Department -->
-            <div class="dept-card">
-                <div class="dept-image">
-                    <img src="https://images.unsplash.com/photo-1551836026-d5c2c5af78e4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Business Department">
-                </div>
-                <div class="dept-header">
-                    <h3><i class="fas fa-chart-line"></i> Business Studies</h3>
-                    <p>Business Management, Accounting, Procurement, and Entrepreneurship programs</p>
-                </div>
-                <div class="dept-files">
-                    <div class="file-category">
-                        <h4><i class="fas fa-file-pdf"></i> Course Materials</h4>
-                        <div class="category-files">
-                            <a href="#" class="file-link download-btn" data-file="business-course-outline.pdf">
-                                <i class="fas fa-file-alt file-icon-small"></i> Course Outline
-                            </a>
-                            <a href="#" class="file-link download-btn" data-file="business-syllabus.pdf">
-                                <i class="fas fa-book file-icon-small"></i> Syllabus
-                            </a>
-                            <a href="#" class="file-link download-btn" data-file="business-module-guide.pdf">
-                                <i class="fas fa-map file-icon-small"></i> Module Guide
-                            </a>
-                        </div>
-                    </div>
-                    
-                    <div class="file-category">
-                        <h4><i class="fas fa-book-open"></i> Learning Resources</h4>
-                        <div class="category-files">
-                            <a href="#" class="file-link download-btn" data-file="business-lecture-notes.pdf">
-                                <i class="fas fa-book file-icon-small"></i> Lecture Notes
-                            </a>
-                            <a href="#" class="file-link download-btn" data-file="business-case-studies.pdf">
-                                <i class="fas fa-briefcase file-icon-small"></i> Case Studies
-                            </a>
-                            <a href="#" class="file-link download-btn" data-file="business-reference-books.pdf">
-                                <i class="fas fa-book-medical file-icon-small"></i> Reference Books
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    function updateCountdown() {
+        const now = new Date().getTime();
+        let distance = targetTime - now;
 
-            <!-- Hospitality Department -->
-            <div class="dept-card">
-                <div class="dept-image">
-                    <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Hospitality Department">
-                </div>
-                <div class="dept-header">
-                    <h3><i class="fas fa-utensils"></i> Hospitality & Tourism</h3>
-                    <p>Food Production, Housekeeping, Front Office Operations, and Tour Guiding courses</p>
-                </div>
-                <div class="dept-files">
-                    <div class="file-category">
-                        <h4><i class="fas fa-file-pdf"></i> Course Materials</h4>
-                        <div class="category-files">
-                            <a href="#" class="file-link download-btn" data-file="hospitality-course-outline.pdf">
-                                <i class="fas fa-file-alt file-icon-small"></i> Course Outline
-                            </a>
-                            <a href="#" class="file-link download-btn" data-file="hospitality-syllabus.pdf">
-                                <i class="fas fa-book file-icon-small"></i> Syllabus
-                            </a>
-                            <a href="#" class="file-link download-btn" data-file="hospitality-module-guide.pdf">
-                                <i class="fas fa-map file-icon-small"></i> Module Guide
-                            </a>
-                        </div>
-                    </div>
-                    
-                    <div class="file-category">
-                        <h4><i class="fas fa-utensil-spoon"></i> Food & Beverage</h4>
-                        <div class="category-files">
-                            <a href="#" class="file-link download-btn" data-file="hospitality-recipes.pdf">
-                                <i class="fas fa-utensils file-icon-small"></i> Recipe Book
-                            </a>
-                            <a href="#" class="file-link download-btn" data-file="hospitality-menu-planning.pdf">
-                                <i class="fas fa-clipboard-list file-icon-small"></i> Menu Planning
-                            </a>
-                            <a href="#" class="file-link download-btn" data-file="hospitality-food-safety.pdf">
-                                <i class="fas fa-shield-alt file-icon-small"></i> Food Safety
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer id="contact">
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-col">
-                    <h3>Contact Information</h3>
-                    <ul class="footer-contact">
-                        <li><i class="fas fa-map-marker-alt"></i> Msambweni, Kwale County, Kenya</li>
-                        <li><i class="fas fa-phone"></i> +254 712 345 678</li>
-                        <li><i class="fas fa-envelope"></i> info@msambwenitvc.ac.ke</li>
-                        <li><i class="fas fa-clock"></i> Mon-Fri: 8:00 AM - 5:00 PM</li>
-                        <li><i class="fas fa-map-pin"></i> P.O. Box 123-80403, Msambweni</li>
-                    </ul>
-                </div>
-                
-                <div class="footer-col">
-                    <h3>Quick Links</h3>
-                    <ul class="footer-links">
-                        <li><a href="#home"><i class="fas fa-home"></i> Home</a></li>
-                        <li><a href="#departments"><i class="fas fa-building"></i> Departments</a></li>
-                        <li><a href="#portal"><i class="fas fa-user-graduate"></i> Student Portal</a></li>
-                        <li><a href="#"><i class="fas fa-file-alt"></i> Admissions</a></li>
-                        <li><a href="#"><i class="fas fa-download"></i> Downloads</a></li>
-                        <li><a href="#"><i class="fas fa-newspaper"></i> News & Events</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-col">
-                    <h3>About MTVC</h3>
-                    <p style="color: rgba(255,255,255,0.8); line-height: 1.8; margin-bottom: 20px;">
-                        Msambweni Technical & Vocational College is committed to providing quality technical education and training to empower youth with employable skills for national development.
-                    </p>
-                    <div style="margin-top: 20px;">
-                        <button class="btn btn-outline" id="darkModeToggle">
-                            <i class="fas fa-moon"></i> Dark Mode
-                        </button>
-                        <button class="btn btn-small" id="backToTop" style="margin-left: 10px;">
-                            <i class="fas fa-arrow-up"></i> Top
-                        </button>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="footer-bottom">
-                <p>&copy; 2024 Msambweni Technical & Vocational College. All rights reserved.</p>
-                <p style="margin-top: 10px;">Prepared by ICT Department | TVET Authority Accredited</p>
-            </div>
-        </div>
-    </footer>
-
-    <script>
-        // ===== DOM Elements =====
-        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-        const navMenu = document.getElementById('navMenu');
-        const darkModeToggle = document.getElementById('darkModeToggle');
-        const backToTop = document.getElementById('backToTop');
-        const logoutBtn = document.getElementById('logoutBtn');
-        const prevSlide = document.getElementById('prevSlide');
-        const nextSlide = document.getElementById('nextSlide');
-        const heroSlides = document.querySelectorAll('.hero-slide');
-        const heroDots = document.querySelectorAll('.hero-dot');
-        
-        // Portal elements
-        const formTabs = document.querySelectorAll('.form-tab');
-        const portalForms = document.querySelectorAll('.portal-form');
-        const switchTabLinks = document.querySelectorAll('.switch-tab');
-        const loginForm = document.getElementById('loginForm');
-        const registerForm = document.getElementById('registerForm');
-        const forgotForm = document.getElementById('forgotForm');
-        const dashboard = document.getElementById('dashboard');
-        const portalSection = document.getElementById('portal');
-
-        // ===== Mobile Menu Toggle =====
-        mobileMenuBtn.addEventListener('click', () => {
-            navMenu.classList.toggle('active');
-            mobileMenuBtn.innerHTML = navMenu.classList.contains('active') 
-                ? '<i class="fas fa-times"></i>' 
-                : '<i class="fas fa-bars"></i>';
-        });
-
-        // Close mobile menu when clicking outside
-        document.addEventListener('click', (e) => {
-            if (!navMenu.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
-                navMenu.classList.remove('active');
-                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
-            }
-        });
-
-        // ===== Hero Slider =====
-        let currentSlide = 0;
-        
-        function showSlide(n) {
-            heroSlides.forEach(slide => slide.classList.remove('active'));
-            heroDots.forEach(dot => dot.classList.remove('active'));
-            
-            currentSlide = (n + heroSlides.length) % heroSlides.length;
-            
-            heroSlides[currentSlide].classList.add('active');
-            heroDots[currentSlide].classList.add('active');
-        }
-        
-        // Auto slide every 5 seconds
-        let slideInterval = setInterval(() => {
-            showSlide(currentSlide + 1);
-        }, 5000);
-        
-        // Manual controls
-        prevSlide.addEventListener('click', () => {
-            clearInterval(slideInterval);
-            showSlide(currentSlide - 1);
-            slideInterval = setInterval(() => showSlide(currentSlide + 1), 5000);
-        });
-        
-        nextSlide.addEventListener('click', () => {
-            clearInterval(slideInterval);
-            showSlide(currentSlide + 1);
-            slideInterval = setInterval(() => showSlide(currentSlide + 1), 5000);
-        });
-        
-        // Dot controls
-        heroDots.forEach((dot, index) => {
-            dot.addEventListener('click', () => {
-                clearInterval(slideInterval);
-                showSlide(index);
-                slideInterval = setInterval(() => showSlide(currentSlide + 1), 5000);
-            });
-        });
-
-        // ===== Portal Tab Switching =====
-        formTabs.forEach(tab => {
-            tab.addEventListener('click', () => {
-                const tabId = tab.getAttribute('data-tab');
-                
-                // Update active tab
-                formTabs.forEach(t => t.classList.remove('active'));
-                tab.classList.add('active');
-                
-                // Show corresponding form
-                portalForms.forEach(form => {
-                    form.classList.remove('active');
-                    if (form.id === tabId + 'Form') {
-                        form.classList.add('active');
-                    }
-                });
-            });
-        });
-
-        // Switch tab links
-        switchTabLinks.forEach(link => {
-            link.addEventListener('click', (e) => {
-                e.preventDefault();
-                const tabId = link.getAttribute('data-tab');
-                
-                // Find and click the corresponding tab
-                formTabs.forEach(tab => {
-                    if (tab.getAttribute('data-tab') === tabId) {
-                        tab.click();
-                    }
-                });
-            });
-        });
-
-        // ===== User Registration =====
-        registerForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            
-            const fullName = document.getElementById('regFullName').value;
-            const email = document.getElementById('regEmail').value;
-            const studentId = document.getElementById('regStudentId').value;
-            const department = document.getElementById('regDepartment').value;
-            const password = document.getElementById('regPassword').value;
-            const confirmPassword = document.getElementById('regConfirmPassword').value;
-            
-            const messageDiv = document.getElementById('registerMessage');
-            
-            // Validation
-            if (password !== confirmPassword) {
-                showMessage(messageDiv, 'Passwords do not match!', 'error');
-                return;
-            }
-            
-            if (password.length < 8) {
-                showMessage(messageDiv, 'Password must be at least 8 characters long!', 'error');
-                return;
-            }
-            
-            // Save user to localStorage
-            const users = JSON.parse(localStorage.getItem('mtvc_users')) || [];
-            
-            // Check if user already exists
-            if (users.find(user => user.email === email || user.studentId === studentId)) {
-                showMessage(messageDiv, 'User with this email or student ID already exists!', 'error');
-                return;
-            }
-            
-            // Add new user
-            const newUser = {
-                id: Date.now(),
-                fullName,
-                email,
-                studentId,
-                department,
-                password, // Note: In production, this should be hashed
-                status: 'Active',
-                gpa: '3.75',
-                credits: '45/120',
-                semester: '2, 2024',
-                nextExam: 'May 15, 2024',
-                registeredAt: new Date().toISOString()
-            };
-            
-            users.push(newUser);
-            localStorage.setItem('mtvc_users', JSON.stringify(users));
-            
-            // Show success message and switch to login
-            showMessage(messageDiv, 'Account created successfully! You can now login.', 'success');
-            
-            // Clear form
-            registerForm.reset();
-            
-            // Switch to login tab after 2 seconds
-            setTimeout(() => {
-                formTabs.forEach(tab => {
-                    if (tab.getAttribute('data-tab') === 'login') {
-                        tab.click();
-                    }
-                });
-            }, 2000);
-        });
-
-        // ===== User Login =====
-        loginForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            
-            const email = document.getElementById('loginEmail').value;
-            const password = document.getElementById('loginPassword').value;
-            const rememberMe = document.getElementById('rememberMe').checked;
-            
-            const messageDiv = document.getElementById('loginMessage');
-            
-            // Get users from localStorage
-            const users = JSON.parse(localStorage.getItem('mtvc_users')) || [];
-            
-            // Find user
-            const user = users.find(u => 
-                (u.email === email || u.studentId === email) && u.password === password
-            );
-            
-            if (user) {
-                // Login successful
-                showMessage(messageDiv, 'Login successful! Redirecting...', 'success');
-                
-                // Save session
-                localStorage.setItem('mtvc_current_user', JSON.stringify(user));
-                if (rememberMe) {
-                    localStorage.setItem('mtvc_remember_me', 'true');
-                }
-                
-                // Update dashboard with user data
-                document.getElementById('studentName').textContent = user.fullName;
-                document.getElementById('dashboardStudentId').textContent = user.studentId;
-                document.getElementById('dashboardDept').textContent = getDepartmentName(user.department);
-                document.getElementById('dashboardSemester').textContent = user.semester || '2, 2024';
-                document.getElementById('studentStatus').textContent = user.status || 'Active';
-                document.getElementById('studentGPA').textContent = user.gpa || '3.75';
-                document.getElementById('creditsCompleted').textContent = user.credits || '45/120';
-                document.getElementById('nextExam').textContent = user.nextExam || 'May 15, 2024';
-                
-                // Hide portal, show dashboard
-                portalSection.style.display = 'none';
-                dashboard.style.display = 'block';
-                
-                // Scroll to dashboard
-                dashboard.scrollIntoView({ behavior: 'smooth' });
-                
-            } else {
-                showMessage(messageDiv, 'Invalid email/student ID or password!', 'error');
-            }
-        });
-
-        // Helper function to get department name
-        function getDepartmentName(deptCode) {
-            const deptMap = {
-                'ict': 'Information & Communication Technology',
-                'engineering': 'Engineering Department',
-                'business': 'Business Studies',
-                'hospitality': 'Hospitality & Tourism',
-                'beauty': 'Beauty & Therapy',
-                'fashion': 'Fashion & Design'
-            };
-            return deptMap[deptCode] || deptCode;
+        // If target passed, reset to new 15 days from now (so it never stops)
+        if (distance < 0) {
+            targetTime = getTargetDate();
+            distance = targetTime - now;
         }
 
-        // ===== Forgot Password =====
-        forgotForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            
-            const email = document.getElementById('forgotEmail').value;
-            const nationalId = document.getElementById('forgotNationalId').value;
-            
-            const messageDiv = document.getElementById('forgotMessage');
-            
-            // Get users from localStorage
-            const users = JSON.parse(localStorage.getItem('mtvc_users')) || [];
-            
-            // Find user (simulated verification)
-            const user = users.find(u => u.email === email || u.studentId === email);
-            
-            if (user) {
-                // In a real app, you would send a reset email
-                showMessage(messageDiv, 'Password reset instructions sent to your email!', 'success');
-                forgotForm.reset();
-                
-                // Switch to login after 3 seconds
-                setTimeout(() => {
-                    formTabs.forEach(tab => {
-                        if (tab.getAttribute('data-tab') === 'login') {
-                            tab.click();
-                        }
-                    });
-                }, 3000);
-            } else {
-                showMessage(messageDiv, 'No account found with that email/student ID!', 'error');
-            }
-        });
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-        // ===== Logout =====
-        logoutBtn.addEventListener('click', () => {
-            // Clear session
-            localStorage.removeItem('mtvc_current_user');
-            
-            // Show portal, hide dashboard
-            portalSection.style.display = 'block';
-            dashboard.style.display = 'none';
-            
-            // Reset login form
-            loginForm.reset();
-            
-            // Switch to login tab
-            formTabs.forEach(tab => {
-                if (tab.getAttribute('data-tab') === 'login') {
-                    tab.click();
-                }
-            });
-            
-            // Scroll to portal
-            portalSection.scrollIntoView({ behavior: 'smooth' });
-        });
+        document.getElementById('days').innerText = days < 10 ? "0" + days : days;
+        document.getElementById('hours').innerText = hours < 10 ? "0" + hours : hours;
+        document.getElementById('minutes').innerText = minutes < 10 ? "0" + minutes : minutes;
+        document.getElementById('seconds').innerText = seconds < 10 ? "0" + seconds : seconds;
+    }
 
-        // ===== Check if user is already logged in =====
-        window.addEventListener('load', () => {
-            const currentUser = localStorage.getItem('mtvc_current_user');
-            
-            if (currentUser) {
-                const user = JSON.parse(currentUser);
-                
-                // Update dashboard with user data
-                document.getElementById('studentName').textContent = user.fullName;
-                document.getElementById('dashboardStudentId').textContent = user.studentId;
-                document.getElementById('dashboardDept').textContent = getDepartmentName(user.department);
-                document.getElementById('dashboardSemester').textContent = user.semester || '2, 2024';
-                document.getElementById('studentStatus').textContent = user.status || 'Active';
-                document.getElementById('studentGPA').textContent = user.gpa || '3.75';
-                document.getElementById('creditsCompleted').textContent = user.credits || '45/120';
-                document.getElementById('nextExam').textContent = user.nextExam || 'May 15, 2024';
-                
-                // Hide portal, show dashboard
-                portalSection.style.display = 'none';
-                dashboard.style.display = 'block';
-            }
-        });
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
 
-        // ===== Dark Mode Toggle =====
-        darkModeToggle.addEventListener('click', () => {
-            document.body.classList.toggle('dark-mode');
-            const isDarkMode = document.body.classList.contains('dark-mode');
-            darkModeToggle.innerHTML = isDarkMode 
-                ? '<i class="fas fa-sun"></i> Light Mode' 
-                : '<i class="fas fa-moon"></i> Dark Mode';
-            
-            localStorage.setItem('mtvc_dark_mode', isDarkMode);
-        });
-
-        // Load dark mode preference
-        if (localStorage.getItem('mtvc_dark_mode') === 'true') {
-            document.body.classList.add('dark-mode');
-            darkModeToggle.innerHTML = '<i class="fas fa-sun"></i> Light Mode';
+    // Portal tab switching (unchanged)
+    (function() {
+        const tabLogin = document.getElementById('tab-login');
+        const tabRegister = document.getElementById('tab-register');
+        const tabReset = document.getElementById('tab-reset');
+        const formLogin = document.getElementById('login-form');
+        const formRegister = document.getElementById('register-form');
+        const formReset = document.getElementById('reset-form');
+        
+        function deactivateAll() {
+            [tabLogin, tabRegister, tabReset].forEach(t => t.classList.remove('active'));
+            [formLogin, formRegister, formReset].forEach(f => f.classList.remove('active-form'));
         }
 
-        // ===== Back to Top Button =====
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 300) {
-                backToTop.style.display = 'inline-block';
-            } else {
-                backToTop.style.display = 'none';
-            }
-        });
-
-        backToTop.addEventListener('click', () => {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-
-        // ===== Smooth Scrolling =====
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                const href = this.getAttribute('href');
-                
-                if (href === '#') return;
-                
-                e.preventDefault();
-                const targetElement = document.querySelector(href);
-                
-                if (targetElement) {
-                    // Close mobile menu if open
-                    navMenu.classList.remove('active');
-                    mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
-                    
-                    // Scroll to element
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-
-        // ===== File Download Simulation =====
-        document.querySelectorAll('.download-btn').forEach(btn => {
-            btn.addEventListener('click', function(e) {
-                e.preventDefault();
-                const filename = this.getAttribute('data-file');
-                const fileType = filename.split('.').pop().toUpperCase();
-                
-                // Create a simulated download
-                const blob = new Blob(['This is a simulated ' + fileType + ' file for ' + filename], 
-                                      { type: 'application/octet-stream' });
-                const url = window.URL.createObjectURL(blob);
-                const a = document.createElement('a');
-                
-                a.href = url;
-                a.download = filename;
-                document.body.appendChild(a);
-                a.click();
-                document.body.removeChild(a);
-                window.URL.revokeObjectURL(url);
-                
-                // Show download notification
-                showNotification('Downloading ' + filename + '...', 'success');
-            });
-        });
-
-        // ===== Helper Functions =====
-        function showMessage(element, message, type) {
-            element.textContent = message;
-            element.className = 'form-message ' + type;
-            element.style.display = 'block';
-            
-            // Auto-hide after 5 seconds
-            setTimeout(() => {
-                element.style.display = 'none';
-            }, 5000);
+        function showLogin() {
+            deactivateAll();
+            tabLogin.classList.add('active');
+            formLogin.classList.add('active-form');
         }
 
-        function showNotification(message, type) {
-            const notification = document.createElement('div');
-            notification.style.cssText = `
-                position: fixed;
-                top: 20px;
-                right: 20px;
-                background-color: ${type === 'success' ? 'var(--secondary)' : 'var(--warning)'};
-                color: white;
-                padding: 15px 20px;
-                border-radius: 5px;
-                z-index: 10000;
-                box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-                display: flex;
-                align-items: center;
-                gap: 10px;
-            `;
-            notification.innerHTML = `
-                <i class="fas fa-check-circle"></i>
-                <span>${message}</span>
-            `;
-            document.body.appendChild(notification);
-            
-            setTimeout(() => {
-                notification.remove();
-            }, 3000);
+        function showRegister() {
+            deactivateAll();
+            tabRegister.classList.add('active');
+            formRegister.classList.add('active-form');
         }
 
-        // ===== Initialize Demo Users =====
-        function initializeDemoUsers() {
-            const users = JSON.parse(localStorage.getItem('mtvc_users')) || [];
-            
-            // Add demo users if none exist
-            if (users.length === 0) {
-                const demoUsers = [
-                    {
-                        id: 1,
-                        fullName: 'John Doe',
-                        email: 'student@mtvc.ac.ke',
-                        studentId: 'MTVC/2024/001',
-                        department: 'ict',
-                        password: 'password123',
-                        status: 'Active',
-                        gpa: '3.75',
-                        credits: '45/120',
-                        semester: '2, 2024',
-                        nextExam: 'May 15, 2024',
-                        registeredAt: new Date().toISOString()
-                    },
-                    {
-                        id: 2,
-                        fullName: 'Jane Smith',
-                        email: 'jane@mtvc.ac.ke',
-                        studentId: 'MTVC/2024/002',
-                        department: 'business',
-                        password: 'password123',
-                        status: 'Active',
-                        gpa: '3.92',
-                        credits: '60/120',
-                        semester: '2, 2024',
-                        nextExam: 'May 20, 2024',
-                        registeredAt: new Date().toISOString()
-                    }
-                ];
-                
-                localStorage.setItem('mtvc_users', JSON.stringify(demoUsers));
-            }
+        function showReset() {
+            deactivateAll();
+            tabReset.classList.add('active');
+            formReset.classList.add('active-form');
         }
 
-        // Initialize demo users on page load
-        window.addEventListener('load', initializeDemoUsers);
-    </script>
+        tabLogin.addEventListener('click', showLogin);
+        tabRegister.addEventListener('click', showRegister);
+        tabReset.addEventListener('click', showReset);
+
+        const forgotLink = document.getElementById('forgot-link');
+        if (forgotLink) forgotLink.addEventListener('click', (e) => { e.preventDefault(); showReset(); });
+
+        const registerLink = document.getElementById('register-link');
+        if (registerLink) registerLink.addEventListener('click', (e) => { e.preventDefault(); showRegister(); });
+
+        const loginLink = document.getElementById('login-link');
+        if (loginLink) loginLink.addEventListener('click', (e) => { e.preventDefault(); showLogin(); });
+
+        const backToLogin = document.getElementById('back-to-login');
+        if (backToLogin) backToLogin.addEventListener('click', (e) => { e.preventDefault(); showLogin(); });
+    })();
+</script>
 </body>
 </html>
