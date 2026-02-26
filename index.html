@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MSAMBWENI TECHNICAL AND VOCATIONAL COLLLEGE</title>
+    <title>MSAMBWENI TECHNICAL AND VOCATIONAL COLLEGE</title>
     <!-- Font Awesome 6 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        /* ... (all existing styles, unchanged) ... */
+        /* ===== all existing styles (unchanged) ===== */
         * {
             margin: 0;
             padding: 0;
@@ -74,7 +74,7 @@
             font-style: italic;
         }
 
-        /* ----- BANNER BUTTONS (nav links) with active response and proper links ----- */
+        /* ----- BANNER BUTTONS (nav links) ----- */
         .nav-links {
             display: flex;
             gap: 0.3rem;
@@ -222,7 +222,7 @@
             opacity: 0.8;
         }
 
-        /* ----- DEPARTMENT CARDS (photo above each, PDF download links, no gallery) ----- */
+        /* ----- DEPARTMENT CARDS (photo + PDF link) ----- */
         #blogs {
             scroll-margin-top: 100px;
         }
@@ -595,7 +595,7 @@
 </head>
 <body>
 
-<!-- HEADER with functional navigation links -->
+<!-- HEADER -->
 <header>
     <div class="logo-area">
         <img src="logo.jpg" alt="Msambweni College Logo" onerror="this.src='https://via.placeholder.com/70?text=Logo'">
@@ -616,7 +616,7 @@
 
 <!-- MAIN CONTENT -->
 <div class="container" id="home">
-    <!-- About section (home) -->
+    <!-- About section -->
     <div id="about" class="welcome">
         <h2>About Msambweni TVC</h2>
         <p style="margin-top: 1rem; background: rgba(255,255,255,0.6); padding: 1rem 2rem; border-radius: 50px; display: inline-block; max-width: 800px;">
@@ -624,7 +624,7 @@
         </p>
     </div>
 
-    <!-- NEWS SECTION with countdown clock (15 days from now) -->
+    <!-- NEWS SECTION with countdown (now counts down day by day from a fixed 15-day deadline) -->
     <section id="news">
         <div class="news-header">
             <i class="fas fa-newspaper" style="font-size: 3rem; color: #003366;"></i>
@@ -633,7 +633,7 @@
         <div class="news-grid">
             <div class="news-item">
                 <h3>🎓 Application for May intake</h3>
-                <p>Applications are now open for the May 2025 intake. Deadline: 15 days from today.</p>
+                <p>Applications are now open for the May 2025 intake. Deadline is 15 days from today — watch the countdown!</p>
             </div>
             <div class="news-item">
                 <h3>🔧 Electrical workshop upgrade</h3>
@@ -645,7 +645,7 @@
             </div>
         </div>
 
-        <!-- Countdown clock for deadline - always 15 days from now -->
+        <!-- Countdown clock: now fixed 15 days from page load, counts down day by day -->
         <div class="countdown-container">
             <div class="countdown-title">
                 <i class="fas fa-hourglass-half"></i> Deadline countdown (15 days):
@@ -659,70 +659,125 @@
         </div>
     </section>
 
-    <!-- DEPARTMENT CARDS (Blogs / departments) with PDF download links (photo gallery removed) -->
+    <!-- DEPARTMENT CARDS – original + newly added: plumbing, masonry, mechanical, cosmetology, fashion & design, food & beverage, cultural day, announcement -->
     <div id="blogs">
         <h2 style="color: #003366; font-size: 2.2rem; margin-bottom: 1rem; border-left: 6px solid #ffaa00; padding-left: 1rem;">Our Departments & Activities</h2>
     </div>
     <div class="cards-grid">
-        <!-- ICT Department (updated with actual PDF link) -->
+        <!-- ICT Department (existing) -->
         <div class="card">
             <img class="dept-photo" src="wsp4.jpg" alt="ICT Department" onerror="this.src='https://via.placeholder.com/400x220?text=ICT+Lab'">
             <div class="card-content">
                 <h3><a href="#">COMMUNICATION & INFORMATION TECHNOLOGY</a></h3>
                 <p>ICT (information and communications technology) is the infrastructure and components that enable modern computing. Among the goals of IC technologies, tools and systems is to improve the way humans create, process and share data or information with each other.</p>
-                <!-- PDF Download link - now points to ICT.pdf -->
                 <a href="ICT.pdf" class="download-link" download><i class="fas fa-file-pdf"></i> Download Brochure (PDF)</a>
             </div>
         </div>
 
-        <!-- ELECTRICAL DEPARTMENT -->
+        <!-- ELECTRICAL DEPARTMENT (existing) -->
         <div class="card">
             <img class="dept-photo" src="wps1.jpg" alt="Electrical Department" onerror="this.src='https://via.placeholder.com/400x220?text=Electrical+Workshop'">
             <div class="card-content">
-                <h3><a href="#">ELECTRICAL DEPARTMENT</a></h3>
+                <h3><a href="#">ELECTRICAL ENGINEERING</a></h3>
                 <p>Students enrolled in the Electrical Engineering program gain skills in electrical installation, troubleshooting, maintenance, and instrumentation. They learn to diagnose faults, maintain equipment, and master measurement & control of electrical quantities in residential, commercial, and industrial settings.</p>
-                <a href="#" class="download-link" onclick="alert('Downloading Electrical brochure (PDF)'); return false;"><i class="fas fa-file-pdf"></i> Download Brochure (PDF)</a>
+                <a href="ELECTRICAL.pdf" class="download-link" download><i class="fas fa-file-pdf"></i> Download Brochure (PDF)</a>
             </div>
         </div>
 
-        <!-- PLUMBING DEPARTMENT -->
+        <!-- PLUMBING DEPARTMENT (existing, but keep) -->
         <div class="card">
             <img class="dept-photo" src="wsp2.jpg" alt="Plumbing Department" onerror="this.src='https://via.placeholder.com/400x220?text=Plumbing+Training'">
             <div class="card-content">
                 <h3><a href="#">PLUMBING</a></h3>
                 <p>The Diploma in Plumbing equips students with advanced knowledge in water supply, drainage systems, pipe fitting, sanitary installations, and safety standards. It includes modern technologies like renewable energy systems and building codes, preparing professionals for real-world challenges.</p>
-                <a href="#" class="download-link" onclick="alert('Downloading Plumbing brochure (PDF)'); return false;"><i class="fas fa-file-pdf"></i> Download Brochure (PDF)</a>
+                <a href="PLUMBING.pdf" class="download-link" download><i class="fas fa-file-pdf"></i> Download Brochure (PDF)</a>
             </div>
         </div>
 
-        <!-- TREE PLANTING DAY (activity) -->
+        <!-- MASONRY (new) -->
         <div class="card">
-            <img class="dept-photo" src="wsp3.jpg" alt="Tree planting event" onerror="this.src='https://via.placeholder.com/400x220?text=Tree+Planting'">
+            <img class="dept-photo" src="masonry.jpg" alt="Masonry Department" onerror="this.src='https://via.placeholder.com/400x220?text=Masonry+Workshop'">
             <div class="card-content">
-                <h3><a href="#">TREE PLANTING DAY</a></h3>
-                <p>This is a simple, safe, and effective way of protecting people against harmful diseases, before they come into contact — and a step toward a greener, healthier campus community. Join our environmental conservation efforts.</p>
-              <a href="MECHANICAL.pdf" class="download-link" download>
-<i class="fas fa-file-pdf"></i> Download Report (PDF)
-</a>
+                <h3><a href="#">MASONRY</a></h3>
+                <p>Our masonry program covers bricklaying, blockwork, concrete construction, plastering, and restoration techniques. Students gain hands-on experience in modern and traditional methods, preparing for careers in construction and building.</p>
+                <a href="MASONRY.pdf" class="download-link" download><i class="fas fa-file-pdf"></i> Download Brochure (PDF)</a>
+            </div>
+        </div>
+
+        <!-- MECHANICAL (new) -->
+        <div class="card">
+            <img class="dept-photo" src="mechanical.jpg" alt="Mechanical Department" onerror="this.src='https://via.placeholder.com/400x220?text=Mechanical+Workshop'">
+            <div class="card-content">
+                <h3><a href="#">MECHANICAL ENGINEERING</a></h3>
+                <p>This department offers training in fitting, machining, welding, fabrication, and automotive mechanics. Students work with lathes, mills, and CNC machines, learning to maintain and repair mechanical systems.</p>
+                <a href="MECHANICAL.pdf" class="download-link" download><i class="fas fa-file-pdf"></i> Download Brochure (PDF)</a>
+            </div>
+        </div>
+
+        <!-- COSMETOLOGY (new) -->
+        <div class="card">
+            <img class="dept-photo" src="cosmo.jpg" alt="Cosmetology Department" onerror="this.src='https://via.placeholder.com/400x220?text=Cosmetology+Salon'">
+            <div class="card-content">
+                <h3><a href="#">COSMETOLOGY</a></h3>
+                <p>Learn hair styling, skincare, makeup artistry, and salon management. Our cosmetology students practice in a fully equipped salon, preparing for state boards and careers in beauty and wellness.</p>
+                <a href="COSMETOLOGY.pdf" class="download-link" download><i class="fas fa-file-pdf"></i> Download Brochure (PDF)</a>
+            </div>
+        </div>
+
+        <!-- FASHION AND DESIGN (new) -->
+        <div class="card">
+            <img class="dept-photo" src="fashion.jpg" alt="Fashion and Design" onerror="this.src='https://via.placeholder.com/400x220?text=Fashion+Studio'">
+            <div class="card-content">
+                <h3><a href="#">FASHION & DESIGN</a></h3>
+                <p>From pattern making to garment construction and textile science, our fashion program nurtures creative designers. Students showcase their work in annual fashion events and gain entrepreneurial skills.</p>
+                <a href="FASHION.pdf" class="download-link" download><i class="fas fa-file-pdf"></i> Download Brochure (PDF)</a>
+            </div>
+        </div>
+
+        <!-- FOOD AND BEVERAGE (new) -->
+        <div class="card">
+            <img class="dept-photo" src="food.jpg" alt="Food and Beverage" onerror="this.src='https://via.placeholder.com/400x220?text=Kitchen+Lab'">
+            <div class="card-content">
+                <h3><a href="#">FOOD & BEVERAGE</a></h3>
+                <p>Production, presentation, and service – our students train in professional kitchens, learning culinary arts, bakery, beverage management, and hospitality skills for hotels and restaurants.</p>
+                <a href="FOOD.pdf" class="download-link" download><i class="fas fa-file-pdf"></i> Download Brochure (PDF)</a>
+            </div>
+        </div>
+
+        <!-- CULTURAL DAY (new - event) -->
+        <div class="card">
+            <img class="dept-photo" src="cultural.jpg" alt="Cultural Day" onerror="this.src='https://via.placeholder.com/400x220?text=Cultural+Day'">
+            <div class="card-content">
+                <h3><a href="#">CULTURAL DAY</a></h3>
+                <p>Annual celebration of diversity: traditional music, dance, cuisine, and attire from all regions. It's a day to embrace unity and showcase our rich heritage. Join us next month!</p>
+                <a href="CULTURAL.pdf" class="download-link" download><i class="fas fa-file-pdf"></i> Download Program (PDF)</a>
+            </div>
+        </div>
+
+        <!-- ANNOUNCEMENT (new - general) -->
+        <div class="card">
+            <img class="dept-photo" src="announce.jpg" alt="Announcement" onerror="this.src='https://via.placeholder.com/400x220?text=Important+Announcement'">
+            <div class="card-content">
+                <h3><a href="#">IMPORTANT ANNOUNCEMENT</a></h3>
+                <p>All students: The library will extend hours during exams. Also, new short courses in digital marketing and drone piloting start next month. Check portal for details.</p>
+                <a href="ANNOUNCEMENT.pdf" class="download-link" download><i class="fas fa-file-pdf"></i> Download Notice (PDF)</a>
             </div>
         </div>
     </div>
 
-    <!-- STUDENT PORTAL SECTION with school logo -->
+    <!-- STUDENT PORTAL SECTION -->
     <section id="portal" class="portal-section">
         <div class="portal-header">
             <img src="logo.jpg" alt="Msambweni TVC Logo" onerror="this.src='https://via.placeholder.com/80?text=Logo'">
             <h2>Student Portal</h2>
         </div>
 
-        <!-- Tab buttons -->
         <div class="portal-tabs">
             <button class="tab-btn active" id="tab-login">Login</button>
             <button class="tab-btn" id="tab-register">Create Account</button>
             <button class="tab-btn" id="tab-reset">Reset Password</button>
         </div>
 
-        <!-- Forms container -->
         <div class="portal-forms">
             <!-- Login Form -->
             <div id="login-form" class="form active-form">
@@ -800,7 +855,7 @@
     </section>
 </div>
 
-<!-- FOOTER (contact section) -->
+<!-- FOOTER -->
 <footer id="contact">
     <div class="footer-content">
         <div class="footer-section">
@@ -818,9 +873,14 @@
             <ul>
                 <li><a href="#">ICT & Computing</a></li>
                 <li><a href="#">Electrical Engineering</a></li>
-                <li><a href="#">Plumbing & Water Tech</a></li>
-                <li><a href="#">Building & Construction</a></li>
-                <li><a href="#">Business Studies</a></li>
+                <li><a href="#">Plumbing</a></li>
+                <li><a href="#">Masonry</a></li>
+                <li><a href="#">Mechanical</a></li>
+                <li><a href="#">Cosmetology</a></li>
+                <li><a href="#">Fashion & Design</a></li>
+                <li><a href="#">Food & Beverage</a></li>
+                <li><a href="#">Cultural Day</a></li>
+                <li><a href="#">Announcements</a></li>
             </ul>
         </div>
         <div class="footer-section">
@@ -854,26 +914,25 @@
     </div>
 </footer>
 
-<!-- JavaScript for countdown (15 days from now) and portal tabs -->
+<!-- JavaScript: updated countdown (fixed target, no reset) + portal tabs -->
 <script>
-    // Countdown Timer - always 15 days from current moment
-    function getTargetDate() {
-        const target = new Date();
-        target.setDate(target.getDate() + 15);
-        target.setHours(23, 59, 59, 999); // end of the 15th day
-        return target.getTime();
-    }
-
-    let targetTime = getTargetDate();
+    // ===== COUNTDOWN: fixed 15 days from page load, counts down day by day =====
+    const targetDate = new Date();
+    targetDate.setDate(targetDate.getDate() + 15);
+    targetDate.setHours(23, 59, 59, 999); // end of the 15th day
+    const targetTime = targetDate.getTime();
 
     function updateCountdown() {
         const now = new Date().getTime();
         let distance = targetTime - now;
 
-        // If target passed, reset to new 15 days from now (so it never stops)
+        // If deadline passed, just show 00:00:00:00
         if (distance < 0) {
-            targetTime = getTargetDate();
-            distance = targetTime - now;
+            document.getElementById('days').innerText = "00";
+            document.getElementById('hours').innerText = "00";
+            document.getElementById('minutes').innerText = "00";
+            document.getElementById('seconds').innerText = "00";
+            return;
         }
 
         const days = Math.floor(distance / (1000 * 60 * 60 * 24));
@@ -890,7 +949,7 @@
     updateCountdown();
     setInterval(updateCountdown, 1000);
 
-    // Portal tab switching (unchanged)
+    // ===== Portal tab switching (unchanged) =====
     (function() {
         const tabLogin = document.getElementById('tab-login');
         const tabRegister = document.getElementById('tab-register');
@@ -941,9 +1000,3 @@
 </script>
 </body>
 </html>
-
-
-
-
-
-
