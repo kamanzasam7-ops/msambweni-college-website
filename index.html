@@ -773,9 +773,9 @@
         </div>
 
         <div class="portal-tabs">
-            <button class="tab-btn active" id="tab-login">Login</button>
-            <button class="tab-btn" id="tab-register">Create Account</button>
-            <button class="tab-btn" id="tab-reset">Reset Password</button>
+            <button type="button" class="tab-btn active" id="tab-login">Login</button>
+            <button type="button" class="tab-btn" id="tab-register">Create Account</button>
+            <button type="button" class="tab-btn" id="tab-reset">Reset Password</button>
         </div>
 
         <div class="portal-forms">
@@ -914,90 +914,104 @@
     </div>
 </footer>
 
-<!-- JavaScript: countdown targets fixed date 01/05/2026 -->
+<!-- ROBUST JAVASCRIPT: PORTAL TABS + COUNTDOWN -->
 <script>
-    // ===== COUNTDOWN: fixed deadline: May 1, 2026 at 23:59:59 =====
-    // You can manually change this date (year, month, day, hour, minute, second)
-    // month is 0‑based: 4 = May
-    const targetDate = new Date(2026, 4, 1, 23, 59, 59, 999);
-    const targetTime = targetDate.getTime();
+(function() {
+    "use strict";
+    // Wait for the DOM to be fully loaded
+    document.addEventListener('DOMContentLoaded', function() {
 
-    function updateCountdown() {
-        const now = new Date().getTime();
-        let distance = targetTime - now;
-
-        // If deadline passed, show zeros
-        if (distance < 0) {
-            document.getElementById('days').innerText = "00";
-            document.getElementById('hours').innerText = "00";
-            document.getElementById('minutes').innerText = "00";
-            document.getElementById('seconds').innerText = "00";
-            return;
-        }
-
-        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-        document.getElementById('days').innerText = days < 10 ? "0" + days : days;
-        document.getElementById('hours').innerText = hours < 10 ? "0" + hours : hours;
-        document.getElementById('minutes').innerText = minutes < 10 ? "0" + minutes : minutes;
-        document.getElementById('seconds').innerText = seconds < 10 ? "0" + seconds : seconds;
-    }
-
-    updateCountdown();
-    setInterval(updateCountdown, 1000);
-
-    // ===== Portal tab switching (unchanged) =====
-    (function() {
+        // ---------- PORTAL TAB SWITCHING ----------
+        // Get all necessary elements (with null checks)
         const tabLogin = document.getElementById('tab-login');
         const tabRegister = document.getElementById('tab-register');
         const tabReset = document.getElementById('tab-reset');
         const formLogin = document.getElementById('login-form');
         const formRegister = document.getElementById('register-form');
         const formReset = document.getElementById('reset-form');
-        
+
+        // Helper: remove active class from all tabs and forms
         function deactivateAll() {
-            [tabLogin, tabRegister, tabReset].forEach(t => t.classList.remove('active'));
-            [formLogin, formRegister, formReset].forEach(f => f.classList.remove('active-form'));
+            if (tabLogin) tabLogin.classList.remove('active');
+            if (tabRegister) tabRegister.classList.remove('active');
+            if (tabReset) tabReset.classList.remove('active');
+            if (formLogin) formLogin.classList.remove('active-form');
+            if (formRegister) formRegister.classList.remove('active-form');
+            if (formReset) formReset.classList.remove('active-form');
         }
 
+        // Functions to show each form
         function showLogin() {
             deactivateAll();
-            tabLogin.classList.add('active');
-            formLogin.classList.add('active-form');
+            if (tabLogin) tabLogin.classList.add('active');
+            if (formLogin) formLogin.classList.add('active-form');
         }
-
         function showRegister() {
             deactivateAll();
-            tabRegister.classList.add('active');
-            formRegister.classList.add('active-form');
+            if (tabRegister) tabRegister.classList.add('active');
+            if (formRegister) formRegister.classList.add('active-form');
         }
-
         function showReset() {
             deactivateAll();
-            tabReset.classList.add('active');
-            formReset.classList.add('active-form');
+            if (tabReset) tabReset.classList.add('active');
+            if (formReset) formReset.classList.add('active-form');
         }
 
-        tabLogin.addEventListener('click', showLogin);
-        tabRegister.addEventListener('click', showRegister);
-        tabReset.addEventListener('click', showReset);
+        // Attach click events to tab buttons
+        if (tabLogin) tabLogin.addEventListener('click', function(e) { e.preventDefault(); showLogin(); });
+        if (tabRegister) tabRegister.addEventListener('click', function(e) { e.preventDefault(); showRegister(); });
+        if (tabReset) tabReset.addEventListener('click', function(e) { e.preventDefault(); showReset(); });
 
+        // Attach click events to internal links (inside forms)
         const forgotLink = document.getElementById('forgot-link');
-        if (forgotLink) forgotLink.addEventListener('click', (e) => { e.preventDefault(); showReset(); });
+        if (forgotLink) forgotLink.addEventListener('click', function(e) { e.preventDefault(); showReset(); });
 
         const registerLink = document.getElementById('register-link');
-        if (registerLink) registerLink.addEventListener('click', (e) => { e.preventDefault(); showRegister(); });
+        if (registerLink) registerLink.addEventListener('click', function(e) { e.preventDefault(); showRegister(); });
 
         const loginLink = document.getElementById('login-link');
-        if (loginLink) loginLink.addEventListener('click', (e) => { e.preventDefault(); showLogin(); });
+        if (loginLink) loginLink.addEventListener('click', function(e) { e.preventDefault(); showLogin(); });
 
         const backToLogin = document.getElementById('back-to-login');
-        if (backToLogin) backToLogin.addEventListener('click', (e) => { e.preventDefault(); showLogin(); });
-    })();
+        if (backToLogin) backToLogin.addEventListener('click', function(e) { e.preventDefault(); showLogin(); });
+
+        // ---------- COUNTDOWN TIMER (deadline: 1 May 2026 23:59:59) ----------
+        const targetDate = new Date(2026, 4, 1, 23, 59, 59, 999); // month 4 = May
+        const targetTime = targetDate.getTime();
+
+        const daysSpan = document.getElementById('days');
+        const hoursSpan = document.getElementById('hours');
+        const minutesSpan = document.getElementById('minutes');
+        const secondsSpan = document.getElementById('seconds');
+
+        function updateCountdown() {
+            const now = new Date().getTime();
+            let distance = targetTime - now;
+
+            if (distance < 0) {
+                if (daysSpan) daysSpan.innerText = "00";
+                if (hoursSpan) hoursSpan.innerText = "00";
+                if (minutesSpan) minutesSpan.innerText = "00";
+                if (secondsSpan) secondsSpan.innerText = "00";
+                return;
+            }
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            if (daysSpan) daysSpan.innerText = days < 10 ? "0" + days : days;
+            if (hoursSpan) hoursSpan.innerText = hours < 10 ? "0" + hours : hours;
+            if (minutesSpan) minutesSpan.innerText = minutes < 10 ? "0" + minutes : minutes;
+            if (secondsSpan) secondsSpan.innerText = seconds < 10 ? "0" + seconds : seconds;
+        }
+
+        // Run countdown immediately and set interval
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+    });
+})();
 </script>
 </body>
 </html>
-
