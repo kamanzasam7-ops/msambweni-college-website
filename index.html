@@ -8,7 +8,7 @@
     <!-- Font Awesome 6 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        /* ===== RESET & GLOBAL STYLES (unchanged) ===== */
+        /* ===== RESET & GLOBAL STYLES ===== */
         * {
             margin: 0;
             padding: 0;
@@ -33,7 +33,7 @@
             scroll-behavior: smooth;
         }
 
-        /* ----- MODERN CSS VARIABLES (added for portal) ----- */
+        /* ----- MODERN CSS VARIABLES (for portal) ----- */
         :root {
             --primary-color: #2563eb;
             --primary-dark: #1d4ed8;
@@ -333,7 +333,7 @@
             color: white;
         }
 
-        /* ----- MODERN STUDENT PORTAL SECTION (replaced with new CSS) ----- */
+        /* ----- MODERN STUDENT PORTAL SECTION ----- */
         #portal {
             scroll-margin-top: 100px;
         }
@@ -353,7 +353,6 @@
             box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1), 0 10px 10px -5px rgba(0,0,0,0.04);
         }
 
-        /* Header with logo */
         .portal-header {
             background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
             color: white;
@@ -377,7 +376,6 @@
             letter-spacing: -0.5px;
         }
 
-        /* Tabs navigation */
         .portal-tabs {
             display: flex;
             background: var(--light-bg);
@@ -410,7 +408,6 @@
             font-weight: 600;
         }
 
-        /* Forms container */
         .portal-forms {
             padding: 2rem 1.5rem;
         }
@@ -533,7 +530,6 @@
             display: none;
         }
 
-        /* Success/Error message styles (preserved from original) */
         .form-message.success {
             background-color: #d4edda;
             color: #155724;
@@ -547,7 +543,6 @@
             display: block;
         }
 
-        /* Dashboard view (hidden by default) */
         #dashboard-view {
             padding: 2rem 1.5rem;
             background: var(--card-bg);
@@ -642,38 +637,32 @@
             background: #475569;
         }
 
-        /* Responsive adjustments for portal */
         @media (max-width: 640px) {
             .portal-section {
                 margin: 1rem;
                 border-radius: var(--radius-md);
             }
-            
             .portal-tabs {
                 flex-direction: column;
                 padding: 0;
             }
-            
             .tab-btn {
                 border-bottom: 1px solid var(--border-color);
                 border-radius: 0;
             }
-            
             .tab-btn.active {
                 border-bottom-color: var(--primary-color);
             }
-            
             .portal-forms {
                 padding: 1.5rem 1rem;
             }
-            
             .student-details p {
                 flex-direction: column;
                 gap: 0.25rem;
             }
         }
 
-        /* ----- FOOTER (links at the bottom) ----- */
+        /* ----- FOOTER (enhanced with social and affiliate links) ----- */
         #contact {
             scroll-margin-top: 100px;
         }
@@ -726,23 +715,47 @@
             color: #ffaa00;
         }
 
+        .social-links {
+            display: flex;
+            gap: 0.8rem;
+            flex-wrap: wrap;
+            margin-top: 0.5rem;
+        }
+
         .social-links a {
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
             background: #003366;
             color: white;
             width: 40px;
             height: 40px;
             border-radius: 50%;
-            text-align: center;
-            line-height: 40px;
-            margin-right: 0.5rem;
             transition: 0.3s;
+            font-size: 1.2rem;
         }
 
         .social-links a:hover {
             background-color: #ffaa00;
             color: #002244;
             transform: scale(1.1);
+        }
+
+        .affiliate-links {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .affiliate-links a {
+            color: #cccccc;
+            text-decoration: none;
+            transition: 0.2s;
+        }
+
+        .affiliate-links a:hover {
+            color: #ffaa00;
+            padding-left: 5px;
         }
 
         .copyright {
@@ -777,7 +790,7 @@
 </head>
 <body>
 
-<!-- HEADER (unchanged) -->
+<!-- HEADER -->
 <header>
     <div class="logo-area">
         <img src="logo.jpg" alt="Msambweni College Logo" onerror="this.src='https://via.placeholder.com/70?text=Logo'">
@@ -796,7 +809,7 @@
     </div>
 </header>
 
-<!-- MAIN CONTENT (unchanged) -->
+<!-- MAIN CONTENT -->
 <div class="container" id="home">
     <!-- About section -->
     <div id="about" class="welcome">
@@ -841,16 +854,103 @@
         </div>
     </section>
 
-    <!-- DEPARTMENT CARDS -->
+    <!-- DEPARTMENT CARDS (9 departments) -->
     <div id="blogs">
         <h2 style="color: #003366; font-size: 2.2rem; margin-bottom: 1rem; border-left: 6px solid #ffaa00; padding-left: 1rem;">Our Departments & Activities</h2>
     </div>
     <div class="cards-grid">
-        <!-- (all cards unchanged – omitted for brevity, but they remain exactly as in your original code) -->
-        <!-- ... -->
+        <!-- Electrical Engineering -->
+        <div class="card">
+            <img class="dept-photo" src="https://via.placeholder.com/400x220?text=Electrical+Engineering" alt="Electrical Department" onerror="this.src='https://via.placeholder.com/400x220?text=Electrical'">
+            <div class="card-content">
+                <h3><a href="#">ELECTRICAL ENGINEERING</a></h3>
+                <p>Learn installation, maintenance, and repair of electrical systems. Our workshop is equipped with modern tools for hands‑on training in industrial and domestic wiring.</p>
+                <a href="#" class="download-link" download><i class="fas fa-file-pdf"></i> Download Brochure (PDF)</a>
+            </div>
+        </div>
+
+        <!-- Hospitality Management -->
+        <div class="card">
+            <img class="dept-photo" src="https://via.placeholder.com/400x220?text=Hospitality" alt="Hospitality Department" onerror="this.src='https://via.placeholder.com/400x220?text=Hospitality'">
+            <div class="card-content">
+                <h3><a href="#">HOSPITALITY MANAGEMENT</a></h3>
+                <p>Front office, housekeeping, food production, and event management. Students train in a simulated hotel environment to meet industry standards.</p>
+                <a href="#" class="download-link" download><i class="fas fa-file-pdf"></i> Download Brochure (PDF)</a>
+            </div>
+        </div>
+
+        <!-- Mechanical Engineering -->
+        <div class="card">
+            <img class="dept-photo" src="https://via.placeholder.com/400x220?text=Mechanical" alt="Mechanical Department" onerror="this.src='https://via.placeholder.com/400x220?text=Mechanical'">
+            <div class="card-content">
+                <h3><a href="#">MECHANICAL ENGINEERING</a></h3>
+                <p>Fitting, machining, welding, and fabrication. Our workshop features lathes, milling machines, and CNC equipment for real-world skills.</p>
+                <a href="#" class="download-link" download><i class="fas fa-file-pdf"></i> Download Brochure (PDF)</a>
+            </div>
+        </div>
+
+        <!-- Plumbing -->
+        <div class="card">
+            <img class="dept-photo" src="https://via.placeholder.com/400x220?text=Plumbing" alt="Plumbing Department" onerror="this.src='https://via.placeholder.com/400x220?text=Plumbing'">
+            <div class="card-content">
+                <h3><a href="#">PLUMBING</a></h3>
+                <p>Water supply, drainage, pipe fitting, and sanitary installations. Students learn modern techniques and safety standards for residential and commercial plumbing.</p>
+                <a href="#" class="download-link" download><i class="fas fa-file-pdf"></i> Download Brochure (PDF)</a>
+            </div>
+        </div>
+
+        <!-- Masonry -->
+        <div class="card">
+            <img class="dept-photo" src="https://via.placeholder.com/400x220?text=Masonry" alt="Masonry Department" onerror="this.src='https://via.placeholder.com/400x220?text=Masonry'">
+            <div class="card-content">
+                <h3><a href="#">MASONRY</a></h3>
+                <p>Bricklaying, blockwork, concrete construction, and plastering. Gain hands‑on experience in both traditional and modern building techniques.</p>
+                <a href="#" class="download-link" download><i class="fas fa-file-pdf"></i> Download Brochure (PDF)</a>
+            </div>
+        </div>
+
+        <!-- ICT -->
+        <div class="card">
+            <img class="dept-photo" src="https://via.placeholder.com/400x220?text=ICT" alt="ICT Department" onerror="this.src='https://via.placeholder.com/400x220?text=ICT'">
+            <div class="card-content">
+                <h3><a href="#">INFORMATION TECHNOLOGY</a></h3>
+                <p>Programming, networking, cybersecurity, and systems administration. Our computer labs are equipped with the latest hardware and software.</p>
+                <a href="#" class="download-link" download><i class="fas fa-file-pdf"></i> Download Brochure (PDF)</a>
+            </div>
+        </div>
+
+        <!-- Food and Beverage -->
+        <div class="card">
+            <img class="dept-photo" src="https://via.placeholder.com/400x220?text=Food+and+Beverage" alt="Food and Beverage Department" onerror="this.src='https://via.placeholder.com/400x220?text=Food+%26+Beverage'">
+            <div class="card-content">
+                <h3><a href="#">FOOD & BEVERAGE</a></h3>
+                <p>Culinary arts, bakery, beverage management, and service. Students train in a professional kitchen and restaurant setting.</p>
+                <a href="#" class="download-link" download><i class="fas fa-file-pdf"></i> Download Brochure (PDF)</a>
+            </div>
+        </div>
+
+        <!-- Cosmetology -->
+        <div class="card">
+            <img class="dept-photo" src="https://via.placeholder.com/400x220?text=Cosmetology" alt="Cosmetology Department" onerror="this.src='https://via.placeholder.com/400x220?text=Cosmetology'">
+            <div class="card-content">
+                <h3><a href="#">COSMETOLOGY</a></h3>
+                <p>Hair styling, skincare, makeup artistry, and salon management. Our salon is equipped for hands‑on practice and state board preparation.</p>
+                <a href="#" class="download-link" download><i class="fas fa-file-pdf"></i> Download Brochure (PDF)</a>
+            </div>
+        </div>
+
+        <!-- Hairdressing (separate from Cosmetology) -->
+        <div class="card">
+            <img class="dept-photo" src="https://via.placeholder.com/400x220?text=Hairdressing" alt="Hairdressing Department" onerror="this.src='https://via.placeholder.com/400x220?text=Hairdressing'">
+            <div class="card-content">
+                <h3><a href="#">HAIRDRESSING</a></h3>
+                <p>Specialized training in cutting, styling, coloring, and hair treatments. Learn the latest trends and techniques from industry professionals.</p>
+                <a href="#" class="download-link" download><i class="fas fa-file-pdf"></i> Download Brochure (PDF)</a>
+            </div>
+        </div>
     </div>
 
-    <!-- STUDENT PORTAL SECTION (now with modern CSS) -->
+    <!-- STUDENT PORTAL SECTION -->
     <section id="portal" class="portal-section">
         <div class="portal-header">
             <img src="logo.jpg" alt="Msambweni TVC Logo" onerror="this.src='https://via.placeholder.com/80?text=Logo'">
@@ -966,9 +1066,61 @@
     </section>
 </div>
 
-<!-- FOOTER (unchanged) -->
+<!-- FOOTER (enhanced) -->
 <footer id="contact">
-    <!-- ... (your existing footer content) ... -->
+    <div class="footer-content">
+        <div class="footer-section">
+            <h4>Quick Links</h4>
+            <ul>
+                <li><a href="#portal">Student Portal</a></li>
+                <li><a href="#">E-Learning</a></li>
+                <li><a href="#">Library</a></li>
+                <li><a href="#">Timetable</a></li>
+                <li><a href="#">Exam Results</a></li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h4>Our Departments</h4>
+            <ul>
+                <li><a href="#">Electrical Engineering</a></li>
+                <li><a href="#">Hospitality</a></li>
+                <li><a href="#">Mechanical</a></li>
+                <li><a href="#">Plumbing</a></li>
+                <li><a href="#">Masonry</a></li>
+                <li><a href="#">ICT</a></li>
+                <li><a href="#">Food & Beverage</a></li>
+                <li><a href="#">Cosmetology</a></li>
+                <li><a href="#">Hairdressing</a></li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h4>Contact & Info</h4>
+            <ul>
+                <li><i class="fas fa-map-marker-alt"></i> Msambweni, Kwale County</li>
+                <li><i class="fas fa-phone-alt"></i> +254 712 345 678</li>
+                <li><i class="fas fa-envelope"></i> info@msambwenitvc.ac.ke</li>
+                <li><i class="fas fa-clock"></i> Mon-Fri: 8am - 5pm</li>
+            </ul>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-whatsapp"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+        <div class="footer-section">
+            <h4>Affiliates</h4>
+            <div class="affiliate-links">
+                <a href="#" target="_blank">KUCCPS</a>
+                <a href="#" target="_blank">KNEC</a>
+                <a href="#" target="_blank">CDACC</a>
+                <a href="#" target="_blank">HELB</a>
+            </div>
+        </div>
+    </div>
+    <div class="copyright">
+        &copy; 2025 Msambweni Technical and Vocational College. All rights reserved.
+    </div>
 </footer>
 
 <!-- JAVASCRIPT (unchanged) -->
