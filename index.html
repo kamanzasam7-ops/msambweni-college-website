@@ -624,7 +624,7 @@
         </p>
     </div>
 
-    <!-- NEWS SECTION with countdown (now counts down day by day from a fixed 15-day deadline) -->
+    <!-- NEWS SECTION with countdown (fixed deadline: 01/05/2026) -->
     <section id="news">
         <div class="news-header">
             <i class="fas fa-newspaper" style="font-size: 3rem; color: #003366;"></i>
@@ -633,7 +633,7 @@
         <div class="news-grid">
             <div class="news-item">
                 <h3>🎓 Application for May intake</h3>
-                <p>Applications are now open for the May 2025 intake. Deadline is 15 days from today — watch the countdown!</p>
+                <p>Applications are now open for the May 2025 intake. Deadline is <strong>1st May 2026</strong> — watch the countdown!</p>
             </div>
             <div class="news-item">
                 <h3>🔧 Electrical workshop upgrade</h3>
@@ -645,10 +645,10 @@
             </div>
         </div>
 
-        <!-- Countdown clock: now fixed 15 days from page load, counts down day by day -->
+        <!-- Countdown clock: fixed deadline May 1, 2026 -->
         <div class="countdown-container">
             <div class="countdown-title">
-                <i class="fas fa-hourglass-half"></i> Deadline countdown (15 days):
+                <i class="fas fa-hourglass-half"></i> Deadline countdown (until 01/05/2026):
             </div>
             <div class="countdown-timer" id="countdownTimer">
                 <span id="days">00</span><small>days</small>
@@ -659,12 +659,12 @@
         </div>
     </section>
 
-    <!-- DEPARTMENT CARDS – original + newly added: plumbing, masonry, mechanical, cosmetology, fashion & design, food & beverage, cultural day, announcement -->
+    <!-- DEPARTMENT CARDS – original + newly added -->
     <div id="blogs">
         <h2 style="color: #003366; font-size: 2.2rem; margin-bottom: 1rem; border-left: 6px solid #ffaa00; padding-left: 1rem;">Our Departments & Activities</h2>
     </div>
     <div class="cards-grid">
-        <!-- ICT Department (existing) -->
+        <!-- ICT Department -->
         <div class="card">
             <img class="dept-photo" src="wsp4.jpg" alt="ICT Department" onerror="this.src='https://via.placeholder.com/400x220?text=ICT+Lab'">
             <div class="card-content">
@@ -674,7 +674,7 @@
             </div>
         </div>
 
-        <!-- ELECTRICAL DEPARTMENT (existing) -->
+        <!-- ELECTRICAL DEPARTMENT -->
         <div class="card">
             <img class="dept-photo" src="wps1.jpg" alt="Electrical Department" onerror="this.src='https://via.placeholder.com/400x220?text=Electrical+Workshop'">
             <div class="card-content">
@@ -684,7 +684,7 @@
             </div>
         </div>
 
-        <!-- PLUMBING DEPARTMENT (existing, but keep) -->
+        <!-- PLUMBING -->
         <div class="card">
             <img class="dept-photo" src="wsp2.jpg" alt="Plumbing Department" onerror="this.src='https://via.placeholder.com/400x220?text=Plumbing+Training'">
             <div class="card-content">
@@ -694,7 +694,7 @@
             </div>
         </div>
 
-        <!-- MASONRY (new) -->
+        <!-- MASONRY -->
         <div class="card">
             <img class="dept-photo" src="masonry.jpg" alt="Masonry Department" onerror="this.src='https://via.placeholder.com/400x220?text=Masonry+Workshop'">
             <div class="card-content">
@@ -704,7 +704,7 @@
             </div>
         </div>
 
-        <!-- MECHANICAL (new) -->
+        <!-- MECHANICAL -->
         <div class="card">
             <img class="dept-photo" src="mechanical.jpg" alt="Mechanical Department" onerror="this.src='https://via.placeholder.com/400x220?text=Mechanical+Workshop'">
             <div class="card-content">
@@ -714,7 +714,7 @@
             </div>
         </div>
 
-        <!-- COSMETOLOGY (new) -->
+        <!-- COSMETOLOGY -->
         <div class="card">
             <img class="dept-photo" src="cosmo.jpg" alt="Cosmetology Department" onerror="this.src='https://via.placeholder.com/400x220?text=Cosmetology+Salon'">
             <div class="card-content">
@@ -724,7 +724,7 @@
             </div>
         </div>
 
-        <!-- FASHION AND DESIGN (new) -->
+        <!-- FASHION AND DESIGN -->
         <div class="card">
             <img class="dept-photo" src="fashion.jpg" alt="Fashion and Design" onerror="this.src='https://via.placeholder.com/400x220?text=Fashion+Studio'">
             <div class="card-content">
@@ -734,7 +734,7 @@
             </div>
         </div>
 
-        <!-- FOOD AND BEVERAGE (new) -->
+        <!-- FOOD AND BEVERAGE -->
         <div class="card">
             <img class="dept-photo" src="food.jpg" alt="Food and Beverage" onerror="this.src='https://via.placeholder.com/400x220?text=Kitchen+Lab'">
             <div class="card-content">
@@ -744,7 +744,7 @@
             </div>
         </div>
 
-        <!-- CULTURAL DAY (new - event) -->
+        <!-- CULTURAL DAY -->
         <div class="card">
             <img class="dept-photo" src="cultural.jpg" alt="Cultural Day" onerror="this.src='https://via.placeholder.com/400x220?text=Cultural+Day'">
             <div class="card-content">
@@ -754,7 +754,7 @@
             </div>
         </div>
 
-        <!-- ANNOUNCEMENT (new - general) -->
+        <!-- ANNOUNCEMENT -->
         <div class="card">
             <img class="dept-photo" src="announce.jpg" alt="Announcement" onerror="this.src='https://via.placeholder.com/400x220?text=Important+Announcement'">
             <div class="card-content">
@@ -914,19 +914,19 @@
     </div>
 </footer>
 
-<!-- JavaScript: updated countdown (fixed target, no reset) + portal tabs -->
+<!-- JavaScript: countdown targets fixed date 01/05/2026 -->
 <script>
-    // ===== COUNTDOWN: fixed 15 days from page load, counts down day by day =====
-    const targetDate = new Date();
-    targetDate.setDate(targetDate.getDate() + 15);
-    targetDate.setHours(23, 59, 59, 999); // end of the 15th day
+    // ===== COUNTDOWN: fixed deadline: May 1, 2026 at 23:59:59 =====
+    // You can manually change this date (year, month, day, hour, minute, second)
+    // month is 0‑based: 4 = May
+    const targetDate = new Date(2026, 4, 1, 23, 59, 59, 999);
     const targetTime = targetDate.getTime();
 
     function updateCountdown() {
         const now = new Date().getTime();
         let distance = targetTime - now;
 
-        // If deadline passed, just show 00:00:00:00
+        // If deadline passed, show zeros
         if (distance < 0) {
             document.getElementById('days').innerText = "00";
             document.getElementById('hours').innerText = "00";
@@ -1000,4 +1000,3 @@
 </script>
 </body>
 </html>
-
