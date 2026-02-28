@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MSAMBWENI TECHNICAL AND VOCATIONAL COLLEGE</title>
+    <title>MSAMBWENI TVC – School events with video</title>
     <!-- Font Awesome 6 (free) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
@@ -138,7 +138,7 @@
             padding-bottom: 0.5rem;
         }
 
-        /* ----- NEWS SECTION ----- */
+        /* ----- NEWS SECTION (with video field) ----- */
         #news {
             scroll-margin-top: 100px;
             background: rgba(255,255,255,0.7);
@@ -165,7 +165,7 @@
 
         .news-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 1.5rem;
         }
 
@@ -174,6 +174,33 @@
             border-radius: 24px;
             padding: 1.5rem;
             box-shadow: 0 5px 12px rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .news-item h3 {
+            color: #003366;
+            margin-bottom: 0.5rem;
+        }
+
+        .news-item p {
+            color: #1e3a5f;
+        }
+
+        /* video field inside news item */
+        .news-video {
+            width: 100%;
+            border-radius: 16px;
+            margin: 1rem 0 0.5rem;
+            border: 2px solid #ffaa00;
+            background: #000;
+        }
+
+        .news-video video {
+            width: 100%;
+            height: auto;
+            border-radius: 14px;
+            display: block;
         }
 
         .countdown-container {
@@ -214,7 +241,7 @@
             opacity: 0.8;
         }
 
-        /* ----- DEPARTMENT CARDS (photos unchanged) ----- */
+        /* ----- DEPARTMENT CARDS (with MP4) ----- */
         #blogs {
             scroll-margin-top: 100px;
         }
@@ -268,6 +295,21 @@
             text-align: justify;
         }
 
+        .dept-video {
+            width: 100%;
+            border-radius: 16px;
+            margin: 0.5rem 0 1rem;
+            border: 2px solid #ffaa00;
+            background: #000;
+        }
+
+        .dept-video video {
+            width: 100%;
+            height: auto;
+            border-radius: 14px;
+            display: block;
+        }
+
         .download-link {
             display: inline-block;
             background: #e6eef9;
@@ -296,7 +338,7 @@
             color: white;
         }
 
-        /* ----- NEW: COMPREHENSIVE DEPARTMENT INFO SECTION (added) ----- */
+        /* ----- COMPREHENSIVE DEPARTMENT INFO SECTION (with MP4) ----- */
         #dept-info {
             scroll-margin-top: 100px;
             margin: 4rem 0 2rem;
@@ -327,6 +369,8 @@
             box-shadow: var(--shadow-md);
             border-left: 5px solid #ffaa00;
             transition: 0.2s;
+            display: flex;
+            flex-direction: column;
         }
 
         .dept-info-card:hover {
@@ -361,7 +405,21 @@
             margin-top: 0.8rem;
         }
 
-        /* ----- STUDENT PORTAL (unchanged from previous, with dropdowns) ----- */
+        .info-video {
+            width: 100%;
+            border-radius: 16px;
+            margin: 1rem 0 0.5rem;
+            border: 2px solid #ffaa00;
+            background: #000;
+        }
+
+        .info-video video {
+            width: 100%;
+            border-radius: 14px;
+            display: block;
+        }
+
+        /* ----- STUDENT PORTAL (unchanged) ----- */
         #portal {
             scroll-margin-top: 100px;
         }
@@ -485,7 +543,6 @@
             display: block;
         }
 
-        /* dashboard view (simplified) */
         #dashboard-view {
             padding: 2rem 1.5rem;
             background: var(--card-bg);
@@ -575,7 +632,7 @@
             border-radius: var(--radius-md);
         }
 
-        /* ----- FOOTER (ENHANCED with many social links) ----- */
+        /* ----- FOOTER (enhanced) ----- */
         #contact {
             scroll-margin-top: 100px;
         }
@@ -628,7 +685,6 @@
             color: #ffaa00;
         }
 
-        /* ----- SOCIAL LINKS (extended) ----- */
         .social-links {
             display: flex;
             gap: 1rem;
@@ -723,7 +779,7 @@
         </p>
     </div>
 
-    <!-- NEWS SECTION with countdown -->
+    <!-- NEWS SECTION with updated "School Events" item and video field -->
     <section id="news">
         <div class="news-header">
             <i class="fas fa-newspaper" style="font-size: 3rem; color: #003366;"></i>
@@ -733,14 +789,23 @@
             <div class="news-item">
                 <h3>🎓 Application for May intake</h3>
                 <p>Applications are now open for the May 2025 intake. Deadline is <strong>1st May 2026</strong> — watch the countdown!</p>
+                <!-- optional video can be added here if needed, but not requested -->
             </div>
             <div class="news-item">
                 <h3>🔧 Electrical workshop upgrade</h3>
                 <p>New equipment installed in the electrical engineering lab – thanks to partners.</p>
             </div>
+            <!-- Original tree planting changed to School Events and video field added -->
             <div class="news-item">
-                <h3>🌳 Tree planting day success</h3>
-                <p>Students planted 500 trees along the campus boundary. Well done!</p>
+                <h3>🎉 School Events: Annual Sports Day</h3>
+                <p>The annual sports day was a huge success with students competing in football, athletics, and netball. Great team spirit!</p>
+                <!-- MP4 video field added -->
+                <div class="news-video">
+                    <video controls poster="https://via.placeholder.com/400x200?text=Sports+Day+Video">
+                        <source src="sports_day.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
             </div>
         </div>
         <!-- Countdown clock -->
@@ -757,7 +822,7 @@
         </div>
     </section>
 
-    <!-- DEPARTMENT CARDS (photos untouched) with brief descriptions -->
+    <!-- DEPARTMENT CARDS (unchanged, with MP4 fields) -->
     <div id="blogs">
         <h2 style="color: #003366; font-size: 2.2rem; margin-bottom: 1rem; border-left: 6px solid #ffaa00; padding-left: 1rem;">Our Departments & Activities</h2>
     </div>
@@ -768,6 +833,11 @@
             <div class="card-content">
                 <h3>ELECTRICAL ENGINEERING</h3>
                 <p>Learn installation, maintenance, and repair of electrical systems. Modern workshop for industrial and domestic wiring.</p>
+                <div class="dept-video">
+                    <video controls poster="https://via.placeholder.com/400x200?text=Electrical+Video">
+                        <source src="electrical_demo.mp4" type="video/mp4">
+                    </video>
+                </div>
                 <a href="#" class="download-link" download><i class="fas fa-file-pdf"></i> Brochure (PDF)</a>
             </div>
         </div>
@@ -777,6 +847,11 @@
             <div class="card-content">
                 <h3>HOSPITALITY MANAGEMENT</h3>
                 <p>Front office, housekeeping, food production, event management. Simulated hotel environment.</p>
+                <div class="dept-video">
+                    <video controls poster="https://via.placeholder.com/400x200?text=Hospitality+Video">
+                        <source src="hospitality_demo.mp4" type="video/mp4">
+                    </video>
+                </div>
                 <a href="#" class="download-link" download><i class="fas fa-file-pdf"></i> Brochure (PDF)</a>
             </div>
         </div>
@@ -786,6 +861,11 @@
             <div class="card-content">
                 <h3>MECHANICAL ENGINEERING</h3>
                 <p>Fitting, machining, welding, fabrication. Lathes, milling machines, CNC equipment.</p>
+                <div class="dept-video">
+                    <video controls poster="https://via.placeholder.com/400x200?text=Mechanical+Video">
+                        <source src="mechanical_demo.mp4" type="video/mp4">
+                    </video>
+                </div>
                 <a href="#" class="download-link" download><i class="fas fa-file-pdf"></i> Brochure (PDF)</a>
             </div>
         </div>
@@ -795,6 +875,11 @@
             <div class="card-content">
                 <h3>PLUMBING</h3>
                 <p>Water supply, drainage, pipe fitting, sanitary installations. Modern techniques and safety.</p>
+                <div class="dept-video">
+                    <video controls poster="https://via.placeholder.com/400x200?text=Plumbing+Video">
+                        <source src="plumbing_demo.mp4" type="video/mp4">
+                    </video>
+                </div>
                 <a href="#" class="download-link" download><i class="fas fa-file-pdf"></i> Brochure (PDF)</a>
             </div>
         </div>
@@ -804,6 +889,11 @@
             <div class="card-content">
                 <h3>MASONRY</h3>
                 <p>Bricklaying, blockwork, concrete construction, plastering. Traditional & modern techniques.</p>
+                <div class="dept-video">
+                    <video controls poster="https://via.placeholder.com/400x200?text=Masonry+Video">
+                        <source src="masonry_demo.mp4" type="video/mp4">
+                    </video>
+                </div>
                 <a href="#" class="download-link" download><i class="fas fa-file-pdf"></i> Brochure (PDF)</a>
             </div>
         </div>
@@ -813,6 +903,11 @@
             <div class="card-content">
                 <h3>INFORMATION TECHNOLOGY</h3>
                 <p>Programming, networking, cybersecurity, systems administration. Latest hardware & software.</p>
+                <div class="dept-video">
+                    <video controls poster="https://via.placeholder.com/400x200?text=ICT+Video">
+                        <source src="ict_demo.mp4" type="video/mp4">
+                    </video>
+                </div>
                 <a href="#" class="download-link" download><i class="fas fa-file-pdf"></i> Brochure (PDF)</a>
             </div>
         </div>
@@ -822,6 +917,11 @@
             <div class="card-content">
                 <h3>FOOD & BEVERAGE</h3>
                 <p>Culinary arts, bakery, beverage management, service. Professional kitchen & restaurant.</p>
+                <div class="dept-video">
+                    <video controls poster="https://via.placeholder.com/400x200?text=F%26B+Video">
+                        <source src="food_demo.mp4" type="video/mp4">
+                    </video>
+                </div>
                 <a href="#" class="download-link" download><i class="fas fa-file-pdf"></i> Brochure (PDF)</a>
             </div>
         </div>
@@ -831,6 +931,11 @@
             <div class="card-content">
                 <h3>COSMETOLOGY</h3>
                 <p>Hair styling, skincare, makeup artistry, salon management. Hands‑on practice.</p>
+                <div class="dept-video">
+                    <video controls poster="https://via.placeholder.com/400x200?text=Cosmetology+Video">
+                        <source src="cosmo_demo.mp4" type="video/mp4">
+                    </video>
+                </div>
                 <a href="#" class="download-link" download><i class="fas fa-file-pdf"></i> Brochure (PDF)</a>
             </div>
         </div>
@@ -840,28 +945,51 @@
             <div class="card-content">
                 <h3>HAIRDRESSING</h3>
                 <p>Cutting, styling, coloring, hair treatments. Latest trends from industry professionals.</p>
+                <div class="dept-video">
+                    <video controls poster="https://via.placeholder.com/400x200?text=Hairdressing+Video">
+                        <source src="hair_demo.mp4" type="video/mp4">
+                    </video>
+                </div>
                 <a href="#" class="download-link" download><i class="fas fa-file-pdf"></i> Brochure (PDF)</a>
             </div>
         </div>
     </div>
 
-    <!-- ===== NEW COMPREHENSIVE DEPARTMENT INFORMATION SECTION ===== -->
+    <!-- COMPREHENSIVE DEPARTMENT INFO SECTION (unchanged) -->
     <section id="dept-info">
         <h2 class="section-title">📚 Comprehensive Department Details</h2>
         <div class="dept-grid">
-            <div class="dept-info-card"><h3><i class="fas fa-bolt"></i> Electrical</h3><p>Our electrical engineering program offers intensive training in domestic and industrial wiring, motor controls, renewable energy systems, and electrical machine maintenance. Students work on live projects and gain experience with modern test equipment. Graduates are prepared for licensing and immediate employment.</p><span class="highlight">→ Diploma & Certificate options</span></div>
-            <div class="dept-info-card"><h3><i class="fas fa-concierge-bell"></i> Hospitality</h3><p>Comprehensive training in front office operations, housekeeping, food production, and event planning. The department features a mock hotel and training restaurant. Students undertake internships in leading hotels and graduate with strong customer service skills.</p><span class="highlight">→ Industry partnerships</span></div>
-            <div class="dept-info-card"><h3><i class="fas fa-cogs"></i> Mechanical</h3><p>Fitting, machining, welding, and CNC operation are core areas. The workshop is equipped with lathes, milling machines, and modern fabrication tools. Students learn to read engineering drawings and produce precision components.</p><span class="highlight">→ Hands-on projects</span></div>
-            <div class="dept-info-card"><h3><i class="fas fa-wrench"></i> Plumbing</h3><p>From basic pipe fitting to advanced sanitary systems and water supply design. Training includes installation of solar water heaters, pump systems, and modern plumbing codes. Graduates are in high demand in construction and maintenance sectors.</p><span class="highlight">→ Certification by KNEC</span></div>
-            <div class="dept-info-card"><h3><i class="fas fa-hard-hat"></i> Masonry</h3><p>Comprehensive bricklaying, blockwork, plastering, and concrete construction. Students learn to interpret building plans and execute both traditional and modern finishing techniques. Safety and site management are emphasized.</p><span class="highlight">→ Practical site exposure</span></div>
-            <div class="dept-info-card"><h3><i class="fas fa-laptop-code"></i> ICT</h3><p>Programming (Python, Java), networking (Cisco), cybersecurity, and web development. Our labs run the latest software and hardware. Students can earn industry certifications alongside their diploma.</p><span class="highlight">→ CCNA & ethical hacking modules</span></div>
-            <div class="dept-info-card"><h3><i class="fas fa-utensils"></i> Food & Beverage</h3><p>Culinary arts, bakery, and beverage management. The training kitchen is equipped to industrial standards. Students learn menu planning, cost control, and international cuisine. Opportunities for internships in top restaurants.</p><span class="highlight">→ Professional chef training</span></div>
-            <div class="dept-info-card"><h3><i class="fas fa-spa"></i> Cosmetology</h3><p>Hair styling, skincare, makeup, and salon management. Students practice in a full-service salon environment. The curriculum includes product knowledge, sanitation, and client consultation. Preparation for state board exams.</p><span class="highlight">→ Latest beauty techniques</span></div>
-            <div class="dept-info-card"><h3><i class="fas fa-cut"></i> Hairdressing</h3><p>Specialized training in cutting, coloring, perming, and styling. Emphasis on creativity and trend awareness. Students work with mannequins and live models, building a portfolio for employment.</p><span class="highlight">→ Salon management skills</span></div>
+            <div class="dept-info-card"><h3><i class="fas fa-bolt"></i> Electrical</h3><p>Our electrical engineering program offers intensive training in domestic and industrial wiring, motor controls, renewable energy systems, and electrical machine maintenance. Students work on live projects and gain experience with modern test equipment. Graduates are prepared for licensing and immediate employment.</p><span class="highlight">→ Diploma & Certificate options</span>
+                <div class="info-video"><video controls poster="https://via.placeholder.com/320x180?text=Electrical+Promo"><source src="electrical_overview.mp4" type="video/mp4"></video></div>
+            </div>
+            <div class="dept-info-card"><h3><i class="fas fa-concierge-bell"></i> Hospitality</h3><p>Comprehensive training in front office operations, housekeeping, food production, and event planning. The department features a mock hotel and training restaurant. Students undertake internships in leading hotels and graduate with strong customer service skills.</p><span class="highlight">→ Industry partnerships</span>
+                <div class="info-video"><video controls poster="https://via.placeholder.com/320x180?text=Hospitality+Tour"><source src="hospitality_overview.mp4" type="video/mp4"></video></div>
+            </div>
+            <div class="dept-info-card"><h3><i class="fas fa-cogs"></i> Mechanical</h3><p>Fitting, machining, welding, and CNC operation are core areas. The workshop is equipped with lathes, milling machines, and modern fabrication tools. Students learn to read engineering drawings and produce precision components.</p><span class="highlight">→ Hands-on projects</span>
+                <div class="info-video"><video controls poster="https://via.placeholder.com/320x180?text=Mechanical+Shop"><source src="mechanical_overview.mp4" type="video/mp4"></video></div>
+            </div>
+            <div class="dept-info-card"><h3><i class="fas fa-wrench"></i> Plumbing</h3><p>From basic pipe fitting to advanced sanitary systems and water supply design. Training includes installation of solar water heaters, pump systems, and modern plumbing codes. Graduates are in high demand in construction and maintenance sectors.</p><span class="highlight">→ Certification by KNEC</span>
+                <div class="info-video"><video controls poster="https://via.placeholder.com/320x180?text=Plumbing+Lab"><source src="plumbing_overview.mp4" type="video/mp4"></video></div>
+            </div>
+            <div class="dept-info-card"><h3><i class="fas fa-hard-hat"></i> Masonry</h3><p>Comprehensive bricklaying, blockwork, plastering, and concrete construction. Students learn to interpret building plans and execute both traditional and modern finishing techniques. Safety and site management are emphasized.</p><span class="highlight">→ Practical site exposure</span>
+                <div class="info-video"><video controls poster="https://via.placeholder.com/320x180?text=Masonry+Works"><source src="masonry_overview.mp4" type="video/mp4"></video></div>
+            </div>
+            <div class="dept-info-card"><h3><i class="fas fa-laptop-code"></i> ICT</h3><p>Programming (Python, Java), networking (Cisco), cybersecurity, and web development. Our labs run the latest software and hardware. Students can earn industry certifications alongside their diploma.</p><span class="highlight">→ CCNA & ethical hacking modules</span>
+                <div class="info-video"><video controls poster="https://via.placeholder.com/320x180?text=ICT+Lab"><source src="ict_overview.mp4" type="video/mp4"></video></div>
+            </div>
+            <div class="dept-info-card"><h3><i class="fas fa-utensils"></i> Food & Beverage</h3><p>Culinary arts, bakery, and beverage management. The training kitchen is equipped to industrial standards. Students learn menu planning, cost control, and international cuisine. Opportunities for internships in top restaurants.</p><span class="highlight">→ Professional chef training</span>
+                <div class="info-video"><video controls poster="https://via.placeholder.com/320x180?text=Kitchen+in+Action"><source src="food_overview.mp4" type="video/mp4"></video></div>
+            </div>
+            <div class="dept-info-card"><h3><i class="fas fa-spa"></i> Cosmetology</h3><p>Hair styling, skincare, makeup, and salon management. Students practice in a full-service salon environment. The curriculum includes product knowledge, sanitation, and client consultation. Preparation for state board exams.</p><span class="highlight">→ Latest beauty techniques</span>
+                <div class="info-video"><video controls poster="https://via.placeholder.com/320x180?text=Salon+Studio"><source src="cosmo_overview.mp4" type="video/mp4"></video></div>
+            </div>
+            <div class="dept-info-card"><h3><i class="fas fa-cut"></i> Hairdressing</h3><p>Specialized training in cutting, coloring, perming, and styling. Emphasis on creativity and trend awareness. Students work with mannequins and live models, building a portfolio for employment.</p><span class="highlight">→ Salon management skills</span>
+                <div class="info-video"><video controls poster="https://via.placeholder.com/320x180?text=Hair+Studio"><source src="hair_overview.mp4" type="video/mp4"></video></div>
+            </div>
         </div>
     </section>
 
-    <!-- STUDENT PORTAL SECTION (with dropdowns, kept intact) -->
+    <!-- STUDENT PORTAL SECTION (unchanged) -->
     <section id="portal" class="portal-section">
         <div class="portal-header">
             <img src="logo.jpg" alt="Msambweni TVC Logo" onerror="this.src='https://via.placeholder.com/80?text=Logo'">
@@ -873,7 +1001,7 @@
             <button type="button" class="tab-btn" id="tab-register">Create Account</button>
             <button type="button" class="tab-btn" id="tab-reset">Reset Password</button>
         </div>
-        <!-- Forms container (simplified, but functional) -->
+        <!-- Forms container (simplified) -->
         <div class="portal-forms">
             <!-- Login Form -->
             <div id="login-form" class="form active-form">
@@ -949,7 +1077,7 @@
     </section>
 </div>
 
-<!-- ===== ENHANCED FOOTER with many social links ===== -->
+<!-- FOOTER (enhanced) -->
 <footer id="contact">
     <div class="footer-content">
         <div class="footer-section">
@@ -1012,7 +1140,7 @@
     </div>
 </footer>
 
-<!-- Simple JavaScript for tabs/dashboard (minimal to keep functionality) -->
+<!-- JavaScript (minimal, same as before) -->
 <script>
 (function() {
     document.addEventListener('DOMContentLoaded', function() {
@@ -1073,6 +1201,3 @@
 </script>
 </body>
 </html>
-
-
-
