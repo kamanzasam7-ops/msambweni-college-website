@@ -897,7 +897,7 @@
         </div>
     </section>
 
-    <!-- DEPARTMENT CARDS (shortened for brevity, but full list exists in original) -->
+    <!-- DEPARTMENT CARDS (shortened for brevity) -->
     <div id="blogs">
         <h2 style="color: #003366; font-size: 2.2rem; margin-bottom: 1rem; border-left: 6px solid #ffaa00; padding-left: 1rem;">Our Departments & Activities</h2>
     </div>
@@ -930,7 +930,7 @@
                 <a href="#" class="download-link" download><i class="fas fa-file-pdf"></i> Brochure (PDF)</a>
             </div>
         </div>
-        <!-- more departments ... (kept as in original) -->
+        <!-- more departments ... -->
     </div>
 
     <!-- COMPREHENSIVE DEPARTMENT INFO SECTION (abridged) -->
@@ -943,11 +943,10 @@
             <div class="dept-info-card"><h3><i class="fas fa-concierge-bell"></i> Hospitality</h3><p>Comprehensive training in front office operations, housekeeping, food production, and event planning. The department features a mock hotel and training restaurant. Students undertake internships in leading hotels and graduate with strong customer service skills.</p><span class="highlight">→ Industry partnerships</span>
                 <div class="info-video"><video controls poster="https://via.placeholder.com/320x180?text=Hospitality+Tour"><source src="hospitality_overview.mp4" type="video/mp4"></video></div>
             </div>
-            <!-- more cards... -->
         </div>
     </section>
 
-    <!-- ===== STUDENT PORTAL (FULLY RESTORED) ===== -->
+    <!-- ===== STUDENT PORTAL (with validation) ===== -->
     <section id="portal" class="portal-section">
         <div class="portal-header">
             <img src="logo.jpg" alt="Msambweni TVC Logo" onerror="this.src='https://via.placeholder.com/80?text=Logo'">
@@ -963,14 +962,14 @@
             <div id="login-form" class="form active-form">
                 <h3>Login</h3>
                 <form id="loginForm">
-                    <div class="form-group"><label><i class="far fa-envelope"></i> Email / Reg No.</label><input type="text" id="loginUser" placeholder="your@email.com or ADM001"></div>
+                    <div class="form-group"><label><i class="far fa-envelope"></i> Email / Reg No.</label><input type="text" id="loginUser" placeholder="student@msambweni.ac.ke or ADM001"></div>
                     <div class="form-group"><label><i class="fas fa-lock"></i> Password</label><input type="password" id="loginPass" placeholder="••••••••"></div>
                     <button type="button" class="btn-submit" id="loginBtn">Sign In</button>
                     <div class="form-footer"><a href="#" id="forgot-link">Forgot password?</a> · <a href="#" id="register-link">Create account</a></div>
                 </form>
                 <div id="loginMessage" class="form-message"></div>
             </div>
-            <!-- Register Form (with all original fields) -->
+            <!-- Register Form -->
             <div id="register-form" class="form">
                 <h3>Create Account</h3>
                 <form id="registerForm">
@@ -1028,7 +1027,7 @@
                 <div id="resetMessage" class="form-message"></div>
             </div>
         </div>
-        <!-- Student Dashboard view (original) -->
+        <!-- Student Dashboard view -->
         <div id="dashboard-view" class="dashboard-view">
             <div class="dashboard-header">
                 <h3>Welcome, <span id="studentName">John Mwambweni</span>!</h3>
@@ -1061,7 +1060,7 @@
         </div>
     </section>
 
-    <!-- ===== EXAMINATION DEPARTMENT PORTAL ===== -->
+    <!-- ===== EXAMINATION DEPARTMENT PORTAL (with validation) ===== -->
     <section id="exam-portal" class="portal-section">
         <div class="portal-header exam-header">
             <img src="logo.jpg" alt="Exam Dept" onerror="this.src='https://via.placeholder.com/80?text=Exam'">
@@ -1211,11 +1210,11 @@
     </div>
 </footer>
 
-<!-- JavaScript for both portals -->
+<!-- JavaScript for both portals with validation -->
 <script>
 (function() {
     document.addEventListener('DOMContentLoaded', function() {
-        // ----- STUDENT PORTAL (original) -----
+        // ----- STUDENT PORTAL -----
         const tabLogin = document.getElementById('tab-login');
         const tabRegister = document.getElementById('tab-register');
         const tabReset = document.getElementById('tab-reset');
@@ -1225,6 +1224,9 @@
         const portalTabs = document.getElementById('portalTabs');
         const portalForms = document.querySelector('#portal .portal-forms');
         const dashboardView = document.getElementById('dashboard-view');
+        const loginMessage = document.getElementById('loginMessage');
+        const registerMessage = document.getElementById('registerMessage');
+        const resetMessage = document.getElementById('resetMessage');
 
         function hideStudentDashboard() {
             if(dashboardView) dashboardView.style.display = 'none';
@@ -1241,6 +1243,10 @@
             [tabLogin, tabRegister, tabReset].forEach(t => t?.classList.remove('active'));
             [formLogin, formRegister, formReset].forEach(f => f?.classList.remove('active-form'));
             hideStudentDashboard();
+            // Clear any messages
+            if(loginMessage) loginMessage.style.display = 'none';
+            if(registerMessage) registerMessage.style.display = 'none';
+            if(resetMessage) resetMessage.style.display = 'none';
         }
         function showStudentLogin() { deactivateStudentAll(); tabLogin.classList.add('active'); formLogin.classList.add('active-form'); }
         function showStudentRegister() { deactivateStudentAll(); tabRegister.classList.add('active'); formRegister.classList.add('active-form'); }
@@ -1252,9 +1258,52 @@
             tabReset.addEventListener('click', (e) => { e.preventDefault(); showStudentReset(); });
         }
 
-        document.getElementById('loginBtn')?.addEventListener('click', function(){
-            // demo login: just show dashboard
-            showStudentDashboard();
+        // Login validation
+        document.getElementById('loginBtn')?.addEventListener('click', function() {
+            const username = document.getElementById('loginUser').value.trim();
+            const password = document.getElementById('loginPass').value.trim();
+            const msgDiv = document.getElementById('loginMessage');
+
+            // Demo credentials
+            if ((username === 'student@msambweni.ac.ke' || username === 'ADM001') && password === 'password123') {
+                msgDiv.className = 'form-message success';
+                msgDiv.innerText = 'Login successful! Redirecting...';
+                setTimeout(() => {
+                    showStudentDashboard();
+                }, 1000);
+            } else {
+                msgDiv.className = 'form-message error';
+                msgDiv.innerText = 'Invalid email/reg number or password.';
+            }
+        });
+
+        // Register validation (demo)
+        document.getElementById('registerBtn')?.addEventListener('click', function() {
+            const pass = document.getElementById('regPass').value;
+            const confirm = document.getElementById('regConfirmPass').value;
+            const msgDiv = document.getElementById('registerMessage');
+            if (pass !== confirm) {
+                msgDiv.className = 'form-message error';
+                msgDiv.innerText = 'Passwords do not match.';
+            } else {
+                msgDiv.className = 'form-message success';
+                msgDiv.innerText = 'Account created successfully! You can now login.';
+                // Optionally clear fields
+            }
+        });
+
+        // Reset validation (demo)
+        document.getElementById('resetBtn')?.addEventListener('click', function() {
+            const newPass = document.getElementById('resetNewPass').value;
+            const confirm = document.getElementById('resetConfirmPass').value;
+            const msgDiv = document.getElementById('resetMessage');
+            if (newPass !== confirm) {
+                msgDiv.className = 'form-message error';
+                msgDiv.innerText = 'Passwords do not match.';
+            } else {
+                msgDiv.className = 'form-message success';
+                msgDiv.innerText = 'Password reset successful. Please login with new password.';
+            }
         });
 
         document.getElementById('logoutBtn')?.addEventListener('click', function(){
@@ -1281,6 +1330,9 @@
         const examTabs = document.getElementById('examTabs');
         const examForms = document.getElementById('examForms');
         const examDashboard = document.getElementById('exam-dashboard-view');
+        const examLoginMessage = document.getElementById('examLoginMessage');
+        const examRegisterMessage = document.getElementById('examRegisterMessage');
+        const examResetMessage = document.getElementById('examResetMessage');
 
         function hideExamDashboard() {
             if(examDashboard) examDashboard.style.display = 'none';
@@ -1297,6 +1349,9 @@
             [examTabLogin, examTabRegister, examTabReset].forEach(t => t?.classList.remove('active'));
             [examFormLogin, examFormRegister, examFormReset].forEach(f => f?.classList.remove('active-form'));
             hideExamDashboard();
+            if(examLoginMessage) examLoginMessage.style.display = 'none';
+            if(examRegisterMessage) examRegisterMessage.style.display = 'none';
+            if(examResetMessage) examResetMessage.style.display = 'none';
         }
         function showExamLogin() { deactivateExamAll(); examTabLogin.classList.add('active'); examFormLogin.classList.add('active-form'); }
         function showExamRegister() { deactivateExamAll(); examTabRegister.classList.add('active'); examFormRegister.classList.add('active-form'); }
@@ -1308,8 +1363,50 @@
             examTabReset.addEventListener('click', (e) => { e.preventDefault(); showExamReset(); });
         }
 
-        document.getElementById('examLoginBtn')?.addEventListener('click', function(){
-            showExamDashboard();
+        // Exam login validation
+        document.getElementById('examLoginBtn')?.addEventListener('click', function() {
+            const username = document.getElementById('examLoginUser').value.trim();
+            const password = document.getElementById('examLoginPass').value.trim();
+            const msgDiv = document.getElementById('examLoginMessage');
+
+            if (username === 'examiner@msambweni.ac.ke' && password === 'exam123') {
+                msgDiv.className = 'form-message success';
+                msgDiv.innerText = 'Login successful! Redirecting...';
+                setTimeout(() => {
+                    showExamDashboard();
+                }, 1000);
+            } else {
+                msgDiv.className = 'form-message error';
+                msgDiv.innerText = 'Invalid examiner credentials.';
+            }
+        });
+
+        // Exam register (demo)
+        document.getElementById('examRegisterBtn')?.addEventListener('click', function() {
+            const pass = document.getElementById('examRegPass').value;
+            const confirm = document.getElementById('examRegConfirmPass').value;
+            const msgDiv = document.getElementById('examRegisterMessage');
+            if (pass !== confirm) {
+                msgDiv.className = 'form-message error';
+                msgDiv.innerText = 'Passwords do not match.';
+            } else {
+                msgDiv.className = 'form-message success';
+                msgDiv.innerText = 'Examiner account created successfully!';
+            }
+        });
+
+        // Exam reset (demo)
+        document.getElementById('examResetBtn')?.addEventListener('click', function() {
+            const newPass = document.getElementById('examResetNewPass').value;
+            const confirm = document.getElementById('examResetConfirmPass').value;
+            const msgDiv = document.getElementById('examResetMessage');
+            if (newPass !== confirm) {
+                msgDiv.className = 'form-message error';
+                msgDiv.innerText = 'Passwords do not match.';
+            } else {
+                msgDiv.className = 'form-message success';
+                msgDiv.innerText = 'Password reset successful.';
+            }
         });
 
         document.getElementById('examLogoutBtn')?.addEventListener('click', function(){
