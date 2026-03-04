@@ -139,7 +139,7 @@
             padding-bottom: 0.5rem;
         }
 
-        /* ----- ADMINISTRATION SLIDER (auto sliding) ----- */
+        /* ----- ADMINISTRATION SLIDER (auto sliding, rectangular photos) ----- */
         #administration {
             scroll-margin-top: 100px;
             margin: 4rem 0;
@@ -162,20 +162,20 @@
             will-change: transform;
         }
         .admin-card {
-            flex: 0 0 250px;
+            flex: 0 0 280px;               /* slightly wider for rectangular image */
             background: white;
             border-radius: 20px;
             box-shadow: var(--shadow-md);
-            padding: 1.5rem 1rem;
+            padding: 1rem 1rem 1.5rem;      /* adjusted padding */
             text-align: center;
             border: 1px solid var(--border-color);
         }
         .admin-card img {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            object-fit: cover;
+            width: 100%;
+            height: 200px;                   /* fixed height, rectangular */
+            object-fit: cover;                /* ensures image covers area without distortion */
             border: 4px solid #ffaa00;
+            border-radius: 16px;              /* slightly rounded corners, not oval */
             margin-bottom: 1rem;
         }
         .admin-card h4 {
@@ -211,11 +211,10 @@
         }
         @media (max-width: 600px) {
             .admin-card {
-                flex: 0 0 200px;
+                flex: 0 0 220px;
             }
             .admin-card img {
-                width: 120px;
-                height: 120px;
+                height: 150px;
             }
         }
 
@@ -938,21 +937,21 @@
         </p>
     </div>
 
-    <!-- ========== ADMINISTRATION SLIDER (AUTO SLIDING) ========== -->
+    <!-- ========== ADMINISTRATION SLIDER (AUTO SLIDING, RECTANGULAR PHOTOS) ========== -->
     <section id="administration">
         <h2 class="section-title">Our Administration</h2>
         <div class="admin-carousel-container" id="adminCarouselContainer">
             <button class="carousel-btn prev-btn" id="adminPrev" aria-label="Previous"><i class="fas fa-chevron-left"></i></button>
             <div class="admin-carousel-track-wrapper">
                 <div class="admin-carousel-track" id="adminTrack">
-                    <!-- admin cards – you can replace images and details later -->
+                    <!-- admin cards – replace .jpg files as needed, now rectangular -->
                     <div class="admin-card">
-                        <img src="https://via.placeholder.com/300x300?text=Principal" alt="Principal">
+                        <img src="https://via.placeholder.com/400x300?text=Principal" alt="Principal">
                         <h4>Dr. John Mwambweni</h4>
                         <p>Principal</p>
                     </div>
                     <div class="admin-card">
-                        <img src="https://via.placeholder.com/300x300?text=Deputy" alt="Deputy Principal">
+                        <img src="https://via.placeholder.com/400x300?text=Deputy" alt="Deputy Principal">
                         <h4>Ms. Jane Doe</h4>
                         <p>Deputy Principal (Academics)</p>
                     </div>
@@ -1056,7 +1055,7 @@
         </div>
         <!-- Mechanical Engineering (new) -->
         <div class="card">
-            <img class="eng10.jpg" alt="Mechanical Department">
+            <img class="dept-photo" src="eng10.jpg" alt="Mechanical Department" onerror="this.src='https://via.placeholder.com/400x220?text=Mechanical+Workshop'">
             <div class="card-content">
                 <h3>⚙️ MECHANICAL ENGINEERING</h3>
                 <p>Fitting, machining, welding, and fabrication. Work with lathe machines, CNC, and modern tools.</p>
@@ -1070,7 +1069,7 @@
         </div>
         <!-- Plumbing (new) -->
         <div class="card">
-            <img class="eng9.jpg" alt="Plumbing Department">
+            <img class="dept-photo" src="eng9.jpg" alt="Plumbing Department" onerror="this.src='https://via.placeholder.com/400x220?text=Plumbing'">
             <div class="card-content">
                 <h3>🔧 PLUMBING TECHNOLOGY</h3>
                 <p>Water supply, drainage, pipe fitting, sanitary systems. Hands-on training with real plumbing rigs.</p>
@@ -1084,7 +1083,7 @@
         </div>
         <!-- ICT (new) -->
         <div class="card">
-            <img class="com.jpg" src="https://via.placeholder.com/400x220?text=ICT+Lab" alt="ICT Department">
+            <img class="dept-photo" src="com.jpg" alt="ICT Department" onerror="this.src='https://via.placeholder.com/400x220?text=ICT+Lab'">
             <div class="card-content">
                 <h3>💻 INFORMATION TECHNOLOGY</h3>
                 <p>Programming, networking, cybersecurity, and hardware maintenance. Fully equipped computer labs.</p>
@@ -1098,7 +1097,7 @@
         </div>
         <!-- Masonry (new) -->
         <div class="card">
-            <img class="eng8.jpg" alt="Masonry Department">
+            <img class="dept-photo" src="eng8.jpg" alt="Masonry Department" onerror="this.src='https://via.placeholder.com/400x220?text=Masonry'">
             <div class="card-content">
                 <h3>🧱 MASONRY & CONSTRUCTION</h3>
                 <p>Bricklaying, concreting, plastering, tiling. Practical projects on campus structures.</p>
@@ -1112,7 +1111,7 @@
         </div>
         <!-- Library & Information Science (new) -->
         <div class="card">
-            <img class="eng7.jpg" src="https://via.placeholder.com/400x220?text=Library" alt="Library Department">
+            <img class="dept-photo" src="eng7.jpg" alt="Library Department" onerror="this.src='https://via.placeholder.com/400x220?text=Library'">
             <div class="card-content">
                 <h3>📚 LIBRARY & INFORMATION</h3>
                 <p>Library management, digital archiving, information systems. Training for modern information centres.</p>
@@ -1742,4 +1741,3 @@
 </script>
 </body>
 </html>
-
