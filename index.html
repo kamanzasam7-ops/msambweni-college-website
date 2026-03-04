@@ -139,6 +139,86 @@
             padding-bottom: 0.5rem;
         }
 
+        /* ----- ADMINISTRATION SLIDER (auto sliding) ----- */
+        #administration {
+            scroll-margin-top: 100px;
+            margin: 4rem 0;
+        }
+        .admin-carousel-container {
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 2rem;
+        }
+        .admin-carousel-track-wrapper {
+            overflow: hidden;
+            flex: 1;
+        }
+        .admin-carousel-track {
+            display: flex;
+            gap: 1.5rem;
+            transition: transform 0.5s ease;
+            will-change: transform;
+        }
+        .admin-card {
+            flex: 0 0 250px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: var(--shadow-md);
+            padding: 1.5rem 1rem;
+            text-align: center;
+            border: 1px solid var(--border-color);
+        }
+        .admin-card img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #ffaa00;
+            margin-bottom: 1rem;
+        }
+        .admin-card h4 {
+            color: #003366;
+            margin-bottom: 0.25rem;
+        }
+        .admin-card p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+        .carousel-btn {
+            background: #003366;
+            color: white;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: var(--shadow-sm);
+            transition: background 0.2s;
+            z-index: 2;
+        }
+        .carousel-btn:hover {
+            background: #ffaa00;
+            color: #003366;
+        }
+        .carousel-btn:disabled {
+            opacity: 0.4;
+            pointer-events: none;
+        }
+        @media (max-width: 600px) {
+            .admin-card {
+                flex: 0 0 200px;
+            }
+            .admin-card img {
+                width: 120px;
+                height: 120px;
+            }
+        }
+
         /* ----- NEWS SECTION (with video field) ----- */
         #news {
             scroll-margin-top: 100px;
@@ -858,6 +938,50 @@
         </p>
     </div>
 
+    <!-- ========== ADMINISTRATION SLIDER (AUTO SLIDING) ========== -->
+    <section id="administration">
+        <h2 class="section-title">Our Administration</h2>
+        <div class="admin-carousel-container" id="adminCarouselContainer">
+            <button class="carousel-btn prev-btn" id="adminPrev" aria-label="Previous"><i class="fas fa-chevron-left"></i></button>
+            <div class="admin-carousel-track-wrapper">
+                <div class="admin-carousel-track" id="adminTrack">
+                    <!-- admin cards – you can replace images and details later -->
+                    <div class="admin-card">
+                        <img src="https://via.placeholder.com/300x300?text=Principal" alt="Principal">
+                        <h4>Dr. John Mwambweni</h4>
+                        <p>Principal</p>
+                    </div>
+                    <div class="admin-card">
+                        <img src="https://via.placeholder.com/300x300?text=Deputy" alt="Deputy Principal">
+                        <h4>Ms. Jane Doe</h4>
+                        <p>Deputy Principal (Academics)</p>
+                    </div>
+                    <div class="admin-card">
+                        <img src="https://via.placeholder.com/300x300?text=Registrar" alt="Registrar">
+                        <h4>Mr. Peter Omondi</h4>
+                        <p>Registrar</p>
+                    </div>
+                    <div class="admin-card">
+                        <img src="https://via.placeholder.com/300x300?text=Finance" alt="Finance Officer">
+                        <h4>Mrs. Aisha Hassan</h4>
+                        <p>Finance Officer</p>
+                    </div>
+                    <div class="admin-card">
+                        <img src="https://via.placeholder.com/300x300?text=Dean" alt="Dean of Students">
+                        <h4>Mr. James Kimani</h4>
+                        <p>Dean of Students</p>
+                    </div>
+                    <div class="admin-card">
+                        <img src="https://via.placeholder.com/300x300?text=HOD+ICT" alt="HOD ICT">
+                        <h4>Eng. Lucy Wanjiku</h4>
+                        <p>HOD ICT</p>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-btn next-btn" id="adminNext" aria-label="Next"><i class="fas fa-chevron-right"></i></button>
+        </div>
+    </section>
+
     <!-- NEWS SECTION -->
     <section id="news">
         <div class="news-header">
@@ -1296,7 +1420,7 @@
     </div>
 </footer>
 
-<!-- JavaScript (unchanged, both portals validation) -->
+<!-- JavaScript (unchanged portals + auto sliding admin carousel) -->
 <script>
 (function() {
     document.addEventListener('DOMContentLoaded', function() {
@@ -1329,7 +1453,6 @@
             [tabLogin, tabRegister, tabReset].forEach(t => t?.classList.remove('active'));
             [formLogin, formRegister, formReset].forEach(f => f?.classList.remove('active-form'));
             hideStudentDashboard();
-            // Clear any messages
             if(loginMessage) loginMessage.style.display = 'none';
             if(registerMessage) registerMessage.style.display = 'none';
             if(resetMessage) resetMessage.style.display = 'none';
@@ -1344,13 +1467,10 @@
             tabReset.addEventListener('click', (e) => { e.preventDefault(); showStudentReset(); });
         }
 
-        // Login validation
         document.getElementById('loginBtn')?.addEventListener('click', function() {
             const username = document.getElementById('loginUser').value.trim();
             const password = document.getElementById('loginPass').value.trim();
             const msgDiv = document.getElementById('loginMessage');
-
-            // Demo credentials
             if ((username === 'student@msambweni.ac.ke' || username === 'ADM001') && password === 'password123') {
                 msgDiv.className = 'form-message success';
                 msgDiv.innerText = 'Login successful! Redirecting...';
@@ -1363,7 +1483,6 @@
             }
         });
 
-        // Register validation (demo)
         document.getElementById('registerBtn')?.addEventListener('click', function() {
             const pass = document.getElementById('regPass').value;
             const confirm = document.getElementById('regConfirmPass').value;
@@ -1374,11 +1493,9 @@
             } else {
                 msgDiv.className = 'form-message success';
                 msgDiv.innerText = 'Account created successfully! You can now login.';
-                // Optionally clear fields
             }
         });
 
-        // Reset validation (demo)
         document.getElementById('resetBtn')?.addEventListener('click', function() {
             const newPass = document.getElementById('resetNewPass').value;
             const confirm = document.getElementById('resetConfirmPass').value;
@@ -1396,7 +1513,6 @@
             showStudentLogin();
         });
 
-        // dropdown toggle for student
         const dropBtn = document.getElementById('dashboardDropdownBtn');
         const dropMenu = document.getElementById('dashboardDropdownMenu');
         if(dropBtn && dropMenu) {
@@ -1449,12 +1565,10 @@
             examTabReset.addEventListener('click', (e) => { e.preventDefault(); showExamReset(); });
         }
 
-        // Exam login validation
         document.getElementById('examLoginBtn')?.addEventListener('click', function() {
             const username = document.getElementById('examLoginUser').value.trim();
             const password = document.getElementById('examLoginPass').value.trim();
             const msgDiv = document.getElementById('examLoginMessage');
-
             if (username === 'examiner@msambweni.ac.ke' && password === 'exam123') {
                 msgDiv.className = 'form-message success';
                 msgDiv.innerText = 'Login successful! Redirecting...';
@@ -1467,7 +1581,6 @@
             }
         });
 
-        // Exam register (demo)
         document.getElementById('examRegisterBtn')?.addEventListener('click', function() {
             const pass = document.getElementById('examRegPass').value;
             const confirm = document.getElementById('examRegConfirmPass').value;
@@ -1481,7 +1594,6 @@
             }
         });
 
-        // Exam reset (demo)
         document.getElementById('examResetBtn')?.addEventListener('click', function() {
             const newPass = document.getElementById('examResetNewPass').value;
             const confirm = document.getElementById('examResetConfirmPass').value;
@@ -1499,7 +1611,6 @@
             showExamLogin();
         });
 
-        // dropdown toggle for exam
         const examDropBtn = document.getElementById('examDropdownBtn');
         const examDropMenu = document.getElementById('examDropdownMenu');
         if(examDropBtn && examDropMenu) {
@@ -1522,10 +1633,112 @@
         }
         updateCountdown();
         setInterval(updateCountdown, 1000);
+
+        // ========== ADMIN CAROUSEL (AUTO SLIDING) ==========
+        const track = document.getElementById('adminTrack');
+        const prevBtn = document.getElementById('adminPrev');
+        const nextBtn = document.getElementById('adminNext');
+        const carouselContainer = document.getElementById('adminCarouselContainer');
+
+        if (track && prevBtn && nextBtn) {
+            let currentIndex = 0;
+            let autoSlideInterval;
+            const slideIntervalTime = 3000; // 3 seconds
+
+            const cards = track.children;
+            if (cards.length > 0) {
+                const updateCarousel = () => {
+                    const card = cards[0];
+                    const cardWidth = card.offsetWidth;
+                    const gap = parseFloat(getComputedStyle(track).gap) || 24; // 1.5rem ≈ 24px
+                    const wrapper = track.parentElement;
+                    const wrapperWidth = wrapper.offsetWidth;
+                    const visibleCards = Math.floor(wrapperWidth / (cardWidth + gap));
+                    const maxIndex = Math.max(0, cards.length - visibleCards);
+                    if (currentIndex > maxIndex) currentIndex = maxIndex;
+                    if (currentIndex < 0) currentIndex = 0;
+                    track.style.transform = `translateX(-${currentIndex * (cardWidth + gap)}px)`;
+                    prevBtn.disabled = currentIndex === 0;
+                    nextBtn.disabled = currentIndex >= maxIndex;
+                };
+
+                const goToNext = () => {
+                    const card = cards[0];
+                    const cardWidth = card.offsetWidth;
+                    const gap = parseFloat(getComputedStyle(track).gap) || 24;
+                    const wrapper = track.parentElement;
+                    const wrapperWidth = wrapper.offsetWidth;
+                    const visibleCards = Math.floor(wrapperWidth / (cardWidth + gap));
+                    const maxIndex = Math.max(0, cards.length - visibleCards);
+                    if (currentIndex < maxIndex) {
+                        currentIndex++;
+                    } else {
+                        currentIndex = 0; // loop to start
+                    }
+                    updateCarousel();
+                };
+
+                const goToPrev = () => {
+                    const card = cards[0];
+                    const cardWidth = card.offsetWidth;
+                    const gap = parseFloat(getComputedStyle(track).gap) || 24;
+                    const wrapper = track.parentElement;
+                    const wrapperWidth = wrapper.offsetWidth;
+                    const visibleCards = Math.floor(wrapperWidth / (cardWidth + gap));
+                    const maxIndex = Math.max(0, cards.length - visibleCards);
+                    if (currentIndex > 0) {
+                        currentIndex--;
+                    } else {
+                        currentIndex = maxIndex; // loop to end
+                    }
+                    updateCarousel();
+                };
+
+                // Start auto slide
+                const startAutoSlide = () => {
+                    if (autoSlideInterval) clearInterval(autoSlideInterval);
+                    autoSlideInterval = setInterval(goToNext, slideIntervalTime);
+                };
+
+                // Stop auto slide
+                const stopAutoSlide = () => {
+                    if (autoSlideInterval) {
+                        clearInterval(autoSlideInterval);
+                        autoSlideInterval = null;
+                    }
+                };
+
+                // Event listeners for manual interaction
+                nextBtn.addEventListener('click', () => {
+                    goToNext();
+                    stopAutoSlide();
+                    // optionally restart after a while? we'll restart on mouse leave
+                });
+                prevBtn.addEventListener('click', () => {
+                    goToPrev();
+                    stopAutoSlide();
+                });
+
+                // Pause on hover, restart on mouse leave
+                carouselContainer.addEventListener('mouseenter', stopAutoSlide);
+                carouselContainer.addEventListener('mouseleave', startAutoSlide);
+
+                // Also restart when window is resized (after resize, continue auto)
+                window.addEventListener('resize', () => {
+                    updateCarousel();
+                    // no need to restart interval, it's already running if not stopped
+                });
+
+                // Initialize
+                updateCarousel();
+                startAutoSlide();
+
+                // Ensure images loaded don't shift layout
+                setTimeout(updateCarousel, 100);
+            }
+        }
     });
 })();
 </script>
 </body>
 </html>
-
-
