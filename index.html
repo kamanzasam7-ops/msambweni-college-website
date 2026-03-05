@@ -162,20 +162,20 @@
             will-change: transform;
         }
         .admin-card {
-            flex: 0 0 280px;               /* slightly wider for rectangular image */
+            flex: 0 0 280px;
             background: white;
             border-radius: 20px;
             box-shadow: var(--shadow-md);
-            padding: 1rem 1rem 1.5rem;      /* adjusted padding */
+            padding: 1rem 1rem 1.5rem;
             text-align: center;
             border: 1px solid var(--border-color);
         }
         .admin-card img {
             width: 100%;
-            height: 200px;                   /* fixed height, rectangular */
-            object-fit: cover;                /* ensures image covers area without distortion */
+            height: 200px;
+            object-fit: cover;
             border: 4px solid #ffaa00;
-            border-radius: 16px;              /* slightly rounded corners, not oval */
+            border-radius: 16px;
             margin-bottom: 1rem;
         }
         .admin-card h4 {
@@ -944,41 +944,48 @@
             <button class="carousel-btn prev-btn" id="adminPrev" aria-label="Previous"><i class="fas fa-chevron-left"></i></button>
             <div class="admin-carousel-track-wrapper">
                 <div class="admin-carousel-track" id="adminTrack">
-                    <!-- admin cards – replace .jpg files as needed, now rectangular -->
+                    <!-- admin cards with fixed structure -->
                     <div class="admin-card">
-                        <img class="dept-photo" src="eng1.jpg" alt="ICT Department" onerror="this.src='https://via.placeholder.com/400x220?text=ICT+Lab'">
-            <div class="card-content">
-                        <h4>Dr. John Mwambweni</h4>
-                        <p>Principal</p>
+                        <img src="eng1.jpg" alt="Dr. John Mwambweni - Principal" onerror="this.src='https://via.placeholder.com/280x200?text=Principal'">
+                        <div class="card-content">
+                            <h4>Dr. John Mwambweni</h4>
+                            <p>Principal</p>
+                        </div>
                     </div>
                     <div class="admin-card">
-                       <img class="dept-photo" src="eng2.jpg" alt="ICT Department" onerror="this.src='https://via.placeholder.com/400x220?text=ICT+Lab'">
-            <div class="card-content">
-                        <h4>MD NYAKAKO</h4>
-                        <p>Deputy Principal (Academics)</p>
+                        <img src="eng2.jpg" alt="MD NYAKAKO - Deputy Principal" onerror="this.src='https://via.placeholder.com/280x200?text=Deputy+Principal'">
+                        <div class="card-content">
+                            <h4>MD NYAKAKO</h4>
+                            <p>Deputy Principal (Academics)</p>
+                        </div>
                     </div>
                     <div class="admin-card">
-                        <img class="dept-photo" src="eng3.jpg" alt="ICT Department" onerror="this.src='https://via.placeholder.com/400x220?text=ICT+Lab'">
-            <div class="card-content">
-                        <h4>Mr. Peter Omondi</h4>
-                        <p>Registrar</p>
+                        <img src="eng3.jpg" alt="Mr. Peter Omondi - Registrar" onerror="this.src='https://via.placeholder.com/280x200?text=Registrar'">
+                        <div class="card-content">
+                            <h4>Mr. Peter Omondi</h4>
+                            <p>Registrar</p>
+                        </div>
                     </div>
                     <div class="admin-card">
-<img class="dept-photo" src="eng3.jpg" alt="ICT Department" onerror="this.src='https://via.placeholder.com/400x220?text=ICT+Lab'">
-            <div class="card-content">
-                        <h4>md fatuman</h4>
-                        <p>Finance Officer</p>
+                        <img src="eng3.jpg" alt="md fatuman - Finance Officer" onerror="this.src='https://via.placeholder.com/280x200?text=Finance+Officer'">
+                        <div class="card-content">
+                            <h4>md fatuman</h4>
+                            <p>Finance Officer</p>
+                        </div>
                     </div>
                     <div class="admin-card">
-                       <img class="dept-photo" src="eng4.jpg" alt="ICT Department" onerror="this.src='https://via.placeholder.com/400x220?text=ICT+Lab'">
-            <div class="card-content">
-                        <h4>Mr. ARON</h4>
-                        <p>Dean of Students</p>
+                        <img src="eng4.jpg" alt="Mr. ARON - Dean of Students" onerror="this.src='https://via.placeholder.com/280x200?text=Dean+of+Students'">
+                        <div class="card-content">
+                            <h4>Mr. ARON</h4>
+                            <p>Dean of Students</p>
+                        </div>
                     </div>
                     <div class="admin-card">
-                        <img src="eng5.jpg" alt="HOD ICT">
-                        <h4>Eng. Lucy Wanjiku</h4>
-                        <p>HOD ICT</p>
+                        <img src="eng5.jpg" alt="Eng. Lucy Wanjiku - HOD ICT" onerror="this.src='https://via.placeholder.com/280x200?text=HOD+ICT'">
+                        <div class="card-content">
+                            <h4>Eng. Lucy Wanjiku</h4>
+                            <p>HOD ICT</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1032,7 +1039,7 @@
     <div class="cards-grid">
         <!-- Electrical Engineering -->
         <div class="card">
-           <img class="dept-photo" src="eng6.jpg" alt="ICT Department" onerror="this.src='https://via.placeholder.com/400x220?text=ICT+Lab'">
+            <img class="dept-photo" src="eng6.jpg" alt="Electrical Engineering" onerror="this.src='https://via.placeholder.com/400x220?text=Electrical+Lab'">
             <div class="card-content">
                 <h3>⚡ ELECTRICAL ENGINEERING</h3>
                 <p>Learn installation, maintenance, and repair of electrical systems. Modern workshop for industrial and domestic wiring.</p>
@@ -1046,14 +1053,11 @@
         </div>
         <!-- Hospitality Management -->
         <div class="card">
-     <img class="dept-photo" src="eng7.jpg" alt="ICT Department" onerror="this.src='https://via.placeholder.com/400x220?text=ICT+Lab'">
-            <div class="card-content">
+            <img class="dept-photo" src="eng7.jpg" alt="Hospitality Management" onerror="this.src='https://via.placeholder.com/400x220?text=Hospitality'">
             <div class="card-content">
                 <h3>🍽️ HOSPITALITY MANAGEMENT</h3>
                 <p>Front office, housekeeping, food production, event management. Simulated hotel environment.</p>
                 <div class="dept-video">
-                    <img class="dept-photo" src="eng9.jpg" alt="ICT Department" onerror="this.src='https://via.placeholder.com/400x220?text=ICT+Lab'">
-            <div class="card-content">
                     <video controls poster="https://via.placeholder.com/400x200?text=Hospitality+Video">
                         <source src="FOOD.mp4" type="video/mp4">
                     </video>
@@ -1061,10 +1065,9 @@
                 <a href="#" class="download-link" download><i class="fas fa-file-pdf"></i> Brochure (PDF)</a>
             </div>
         </div>
-        <!-- Mechanical Engineering (new) -->
+        <!-- Mechanical Engineering -->
         <div class="card">
-         <img class="dept-photo" src="eng10.jpg" alt="ICT Department" onerror="this.src='https://via.placeholder.com/400x220?text=ICT+Lab'">
-            <div class="card-content">>
+            <img class="dept-photo" src="eng10.jpg" alt="Mechanical Engineering" onerror="this.src='https://via.placeholder.com/400x220?text=Mechanical+Engineering'">
             <div class="card-content">
                 <h3>⚙️ MECHANICAL ENGINEERING</h3>
                 <p>Fitting, machining, welding, and fabrication. Work with lathe machines, CNC, and modern tools.</p>
@@ -1076,10 +1079,9 @@
                 <a href="#" class="download-link" download><i class="fas fa-file-pdf"></i> Brochure (PDF)</a>
             </div>
         </div>
-        <!-- Plumbing (new) -->
+        <!-- Plumbing Technology -->
         <div class="card">
-            <img class="dept-photo" src="eng11.jpg" alt="ICT Department" onerror="this.src='https://via.placeholder.com/400x220?text=ICT+Lab'">
-            <div class="card-content">
+            <img class="dept-photo" src="eng11.jpg" alt="Plumbing Technology" onerror="this.src='https://via.placeholder.com/400x220?text=Plumbing'">
             <div class="card-content">
                 <h3>🔧 PLUMBING TECHNOLOGY</h3>
                 <p>Water supply, drainage, pipe fitting, sanitary systems. Hands-on training with real plumbing rigs.</p>
@@ -1091,8 +1093,7 @@
                 <a href="#" class="download-link" download><i class="fas fa-file-pdf"></i> Brochure (PDF)</a>
             </div>
         </div>
-        
-        <!-- ICT (new) -->
+        <!-- ICT -->
         <div class="card">
             <img class="dept-photo" src="com.jpg" alt="ICT Department" onerror="this.src='https://via.placeholder.com/400x220?text=ICT+Lab'">
             <div class="card-content">
@@ -1106,7 +1107,7 @@
                 <a href="#" class="download-link" download><i class="fas fa-file-pdf"></i> Brochure (PDF)</a>
             </div>
         </div>
-        <!-- Masonry (new) -->
+        <!-- Masonry -->
         <div class="card">
             <img class="dept-photo" src="eng8.jpg" alt="Masonry Department" onerror="this.src='https://via.placeholder.com/400x220?text=Masonry'">
             <div class="card-content">
@@ -1120,7 +1121,7 @@
                 <a href="#" class="download-link" download><i class="fas fa-file-pdf"></i> Brochure (PDF)</a>
             </div>
         </div>
-        <!-- Library & Information Science (new) -->
+        <!-- Library & Information Science -->
         <div class="card">
             <img class="dept-photo" src="eng7.jpg" alt="Library Department" onerror="this.src='https://via.placeholder.com/400x220?text=Library'">
             <div class="card-content">
@@ -1136,29 +1137,50 @@
         </div>
     </div>
 
-    <!-- COMPREHENSIVE DEPARTMENT INFO SECTION (expanded with new departments) -->
+    <!-- COMPREHENSIVE DEPARTMENT INFO SECTION (expanded) -->
     <section id="dept-info">
         <h2 class="section-title">📚 Comprehensive Department Details</h2>
         <div class="dept-grid">
-            <div class="dept-info-card"><h3><i class="fas fa-bolt"></i> Electrical</h3><p>Our electrical engineering program offers intensive training in domestic and industrial wiring, motor controls, renewable energy systems, and electrical machine maintenance. Students work on live projects and gain experience with modern test equipment. Graduates are prepared for licensing and immediate employment.</p><span class="highlight">→ Diploma & Certificate options</span>
+            <div class="dept-info-card">
+                <h3><i class="fas fa-bolt"></i> Electrical</h3>
+                <p>Our electrical engineering program offers intensive training in domestic and industrial wiring, motor controls, renewable energy systems, and electrical machine maintenance. Students work on live projects and gain experience with modern test equipment. Graduates are prepared for licensing and immediate employment.</p>
+                <span class="highlight">→ Diploma & Certificate options</span>
                 <div class="info-video"><video controls poster="https://via.placeholder.com/320x180?text=Electrical+Promo"><source src="electrical_overview.mp4" type="video/mp4"></video></div>
             </div>
-            <div class="dept-info-card"><h3><i class="fas fa-concierge-bell"></i> Hospitality</h3><p>Comprehensive training in front office operations, housekeeping, food production, and event planning. The department features a mock hotel and training restaurant. Students undertake internships in leading hotels and graduate with strong customer service skills.</p><span class="highlight">→ Industry partnerships</span>
+            <div class="dept-info-card">
+                <h3><i class="fas fa-concierge-bell"></i> Hospitality</h3>
+                <p>Comprehensive training in front office operations, housekeeping, food production, and event planning. The department features a mock hotel and training restaurant. Students undertake internships in leading hotels and graduate with strong customer service skills.</p>
+                <span class="highlight">→ Industry partnerships</span>
                 <div class="info-video"><video controls poster="https://via.placeholder.com/320x180?text=Hospitality+Tour"><source src="hospitality_overview.mp4" type="video/mp4"></video></div>
             </div>
-            <div class="dept-info-card"><h3><i class="fas fa-cogs"></i> Mechanical</h3><p>State-of-the-art workshop for fitting, machining, welding, and fabrication. Students learn to operate lathes, milling machines, and CNC equipment. Strong focus on industrial attachments and real-world projects.</p><span class="highlight">→ Diploma in Mechanical Engineering (Production)</span>
+            <div class="dept-info-card">
+                <h3><i class="fas fa-cogs"></i> Mechanical</h3>
+                <p>State-of-the-art workshop for fitting, machining, welding, and fabrication. Students learn to operate lathes, milling machines, and CNC equipment. Strong focus on industrial attachments and real-world projects.</p>
+                <span class="highlight">→ Diploma in Mechanical Engineering (Production)</span>
                 <div class="info-video"><video controls poster="https://via.placeholder.com/320x180?text=Mechanical+Workshop"><source src="mech_overview.mp4" type="video/mp4"></video></div>
             </div>
-            <div class="dept-info-card"><h3><i class="fas fa-wrench"></i> Plumbing</h3><p>Comprehensive plumbing technology covering water supply systems, drainage, sanitation, and pipe fitting. Practical sessions on rigs and community projects. Graduates ready for construction and maintenance sectors.</p><span class="highlight">→ Artisan, Certificate & Diploma</span>
+            <div class="dept-info-card">
+                <h3><i class="fas fa-wrench"></i> Plumbing</h3>
+                <p>Comprehensive plumbing technology covering water supply systems, drainage, sanitation, and pipe fitting. Practical sessions on rigs and community projects. Graduates ready for construction and maintenance sectors.</p>
+                <span class="highlight">→ Artisan, Certificate & Diploma</span>
                 <div class="info-video"><video controls poster="https://via.placeholder.com/320x180?text=Plumbing+Training"><source src="plumb_overview.mp4" type="video/mp4"></video></div>
             </div>
-            <div class="dept-info-card"><h3><i class="fas fa-laptop-code"></i> ICT</h3><p>Modern computing labs with networking, programming (Python, Java), web design, and hardware repair. Emphasis on industry certifications (Cisco, CompTIA) and innovation.</p><span class="highlight">→ Diploma in ICT, Certificate in Computer Packages</span>
+            <div class="dept-info-card">
+                <h3><i class="fas fa-laptop-code"></i> ICT</h3>
+                <p>Modern computing labs with networking, programming (Python, Java), web design, and hardware repair. Emphasis on industry certifications (Cisco, CompTIA) and innovation.</p>
+                <span class="highlight">→ Diploma in ICT, Certificate in Computer Packages</span>
                 <div class="info-video"><video controls poster="https://via.placeholder.com/320x180?text=ICT+Lab"><source src="ict_overview.mp4" type="video/mp4"></video></div>
             </div>
-            <div class="dept-info-card"><h3><i class="fas fa-hammer"></i> Masonry</h3><p>Hands-on bricklaying, blockwork, concreting, plastering, and tiling. Students construct actual campus structures under supervision. Strong linkage with construction companies.</p><span class="highlight">→ Certificate in Masonry, Artisan</span>
+            <div class="dept-info-card">
+                <h3><i class="fas fa-hammer"></i> Masonry</h3>
+                <p>Hands-on bricklaying, blockwork, concreting, plastering, and tiling. Students construct actual campus structures under supervision. Strong linkage with construction companies.</p>
+                <span class="highlight">→ Certificate in Masonry, Artisan</span>
                 <div class="info-video"><video controls poster="https://via.placeholder.com/320x180?text=Masonry+Training"><source src="masonry_overview.mp4" type="video/mp4"></video></div>
             </div>
-            <div class="dept-info-card"><h3><i class="fas fa-book"></i> Library & Info Science</h3><p>Training in library management, classification, digital archiving, and information systems. Prepares students for work in academic, public, and digital libraries.</p><span class="highlight">→ Diploma in Library and Information Science</span>
+            <div class="dept-info-card">
+                <h3><i class="fas fa-book"></i> Library & Info Science</h3>
+                <p>Training in library management, classification, digital archiving, and information systems. Prepares students for work in academic, public, and digital libraries.</p>
+                <span class="highlight">→ Diploma in Library and Information Science</span>
                 <div class="info-video"><video controls poster="https://via.placeholder.com/320x180?text=Library+Studies"><source src="library_overview.mp4" type="video/mp4"></video></div>
             </div>
         </div>
@@ -1187,7 +1209,7 @@
                 </form>
                 <div id="loginMessage" class="form-message"></div>
             </div>
-            <!-- Register Form (added Library option) -->
+            <!-- Register Form -->
             <div id="register-form" class="form">
                 <h3>Create Account</h3>
                 <form id="registerForm">
@@ -1279,7 +1301,7 @@
         </div>
     </section>
 
-    <!-- ===== EXAMINATION DEPARTMENT PORTAL (unchanged) ===== -->
+    <!-- ===== EXAMINATION DEPARTMENT PORTAL ===== -->
     <section id="exam-portal" class="portal-section">
         <div class="portal-header exam-header">
             <img src="logo.jpg" alt="Exam Dept" onerror="this.src='https://via.placeholder.com/80?text=Exam'">
@@ -1366,7 +1388,7 @@
     </section>
 </div>
 
-<!-- FOOTER (updated with Library) -->
+<!-- FOOTER -->
 <footer id="contact">
     <div class="footer-content">
         <div class="footer-section">
@@ -1653,14 +1675,14 @@
         if (track && prevBtn && nextBtn) {
             let currentIndex = 0;
             let autoSlideInterval;
-            const slideIntervalTime = 3000; // 3 seconds
+            const slideIntervalTime = 3000;
 
             const cards = track.children;
             if (cards.length > 0) {
                 const updateCarousel = () => {
                     const card = cards[0];
                     const cardWidth = card.offsetWidth;
-                    const gap = parseFloat(getComputedStyle(track).gap) || 24; // 1.5rem ≈ 24px
+                    const gap = parseFloat(getComputedStyle(track).gap) || 24;
                     const wrapper = track.parentElement;
                     const wrapperWidth = wrapper.offsetWidth;
                     const visibleCards = Math.floor(wrapperWidth / (cardWidth + gap));
@@ -1683,7 +1705,7 @@
                     if (currentIndex < maxIndex) {
                         currentIndex++;
                     } else {
-                        currentIndex = 0; // loop to start
+                        currentIndex = 0;
                     }
                     updateCarousel();
                 };
@@ -1699,18 +1721,16 @@
                     if (currentIndex > 0) {
                         currentIndex--;
                     } else {
-                        currentIndex = maxIndex; // loop to end
+                        currentIndex = maxIndex;
                     }
                     updateCarousel();
                 };
 
-                // Start auto slide
                 const startAutoSlide = () => {
                     if (autoSlideInterval) clearInterval(autoSlideInterval);
                     autoSlideInterval = setInterval(goToNext, slideIntervalTime);
                 };
 
-                // Stop auto slide
                 const stopAutoSlide = () => {
                     if (autoSlideInterval) {
                         clearInterval(autoSlideInterval);
@@ -1718,32 +1738,25 @@
                     }
                 };
 
-                // Event listeners for manual interaction
                 nextBtn.addEventListener('click', () => {
                     goToNext();
                     stopAutoSlide();
-                    // optionally restart after a while? we'll restart on mouse leave
                 });
                 prevBtn.addEventListener('click', () => {
                     goToPrev();
                     stopAutoSlide();
                 });
 
-                // Pause on hover, restart on mouse leave
                 carouselContainer.addEventListener('mouseenter', stopAutoSlide);
                 carouselContainer.addEventListener('mouseleave', startAutoSlide);
 
-                // Also restart when window is resized (after resize, continue auto)
                 window.addEventListener('resize', () => {
                     updateCarousel();
-                    // no need to restart interval, it's already running if not stopped
                 });
 
-                // Initialize
                 updateCarousel();
                 startAutoSlide();
 
-                // Ensure images loaded don't shift layout
                 setTimeout(updateCarousel, 100);
             }
         }
@@ -1752,8 +1765,3 @@
 </script>
 </body>
 </html>
-
-
-
-
-
