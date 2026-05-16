@@ -3,24 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MSAMBWENI TECHNICAL AND VOCATIONAL COLLEGE</title>
-    <!-- Font Awesome 6 (free) -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Msambweni TVC - CBT Exam (3 Attempts Only)</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        /* ===== RESET & GLOBAL STYLES ===== */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
             font-family: 'Segoe UI', Roboto, sans-serif;
         }
-
         body {
             background: #f0f4f8 url('gra.jpg') fixed center/cover;
             line-height: 1.6;
         }
-
         body::before {
             content: "";
             position: fixed;
@@ -28,31 +24,17 @@
             background-color: rgba(255, 255, 255, 0.88);
             z-index: -1;
         }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
         :root {
             --primary-color: #2563eb;
             --primary-dark: #1d4ed8;
-            --secondary-color: #64748b;
             --success-color: #10b981;
             --danger-color: #ef4444;
             --light-bg: #f8fafc;
             --card-bg: #ffffff;
             --border-color: #e2e8f0;
-            --text-primary: #0f172a;
-            --text-secondary: #475569;
-            --shadow-sm: 0 1px 3px rgba(0,0,0,0.1);
-            --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
-            --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
-            --radius-md: 0.375rem;
+            --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1);
             --radius-lg: 0.5rem;
-            --exam-accent: #b45309;
         }
-
-        /* ----- HEADER (sticky) ----- */
         header {
             background-color: #003366;
             color: white;
@@ -61,1717 +43,476 @@
             align-items: center;
             justify-content: space-between;
             flex-wrap: wrap;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
             position: sticky;
             top: 0;
             z-index: 1000;
         }
-
-        .logo-area {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .logo-area img {
-            width: 70px;
-            height: 70px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 2px solid #ffaa00;
-        }
-
-        .college-title h1 {
-            font-size: 1.8rem;
-            font-weight: 600;
-            letter-spacing: 0.5px;
-        }
-
-        .college-title p {
-            font-size: 0.9rem;
-            opacity: 0.9;
-            font-style: italic;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 0.3rem;
-            flex-wrap: wrap;
-        }
-
+        .logo-area { display: flex; align-items: center; gap: 1rem; }
+        .logo-area img { width: 70px; height: 70px; border-radius: 50%; border: 2px solid #ffaa00; object-fit: cover; }
+        .college-title h1 { font-size: 1.6rem; }
         .nav-links a {
             color: white;
             text-decoration: none;
             padding: 0.6rem 1.2rem;
-            font-weight: 500;
             border-radius: 30px;
-            transition: all 0.2s ease;
-            font-size: 1rem;
-            cursor: pointer;
-        }
-
-        .nav-links a:hover {
-            background-color: #ffaa00;
-            color: #003366;
-            transform: scale(1.05);
-        }
-
-        .container {
-            max-width: 1300px;
-            margin: 2rem auto;
-            padding: 0 1.5rem;
-        }
-
-        #about {
-            scroll-margin-top: 100px;
-        }
-
-        .welcome {
-            text-align: center;
-            margin-bottom: 2rem;
-        }
-
-        .welcome h2 {
-            font-size: 2.5rem;
-            color: #003366;
-            border-bottom: 4px solid #ffaa00;
-            display: inline-block;
-            padding-bottom: 0.5rem;
-        }
-
-        /* ----- ADMINISTRATION SLIDER (auto sliding, rectangular photos) ----- */
-        #administration {
-            scroll-margin-top: 100px;
-            margin: 4rem 0;
-        }
-        .admin-carousel-container {
-            position: relative;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            margin-top: 2rem;
-        }
-        .admin-carousel-track-wrapper {
-            overflow: hidden;
-            flex: 1;
-        }
-        .admin-carousel-track {
-            display: flex;
-            gap: 1.5rem;
-            transition: transform 0.5s ease;
-            will-change: transform;
-        }
-        .admin-card {
-            flex: 0 0 280px;
-            background: white;
-            border-radius: 20px;
-            box-shadow: var(--shadow-md);
-            padding: 1rem 1rem 1.5rem;
-            text-align: center;
-            border: 1px solid var(--border-color);
-        }
-        .admin-card img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            border: 4px solid #ffaa00;
-            border-radius: 16px;
-            margin-bottom: 1rem;
-        }
-        .admin-card h4 {
-            color: #003366;
-            margin-bottom: 0.25rem;
-        }
-        .admin-card p {
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-        }
-        .carousel-btn {
-            background: #003366;
-            color: white;
-            border: none;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            box-shadow: var(--shadow-sm);
-            transition: background 0.2s;
-            z-index: 2;
-        }
-        .carousel-btn:hover {
-            background: #ffaa00;
-            color: #003366;
-        }
-        .carousel-btn:disabled {
-            opacity: 0.4;
-            pointer-events: none;
-        }
-        @media (max-width: 600px) {
-            .admin-card {
-                flex: 0 0 220px;
-            }
-            .admin-card img {
-                height: 150px;
-            }
-        }
-
-        /* ----- NEWS SECTION (with video field) ----- */
-        #news {
-            scroll-margin-top: 100px;
-            background: rgba(255,255,255,0.7);
-            backdrop-filter: blur(3px);
-            border-radius: 40px;
-            padding: 2rem;
-            margin: 3rem 0;
-            box-shadow: 0 8px 20px rgba(0,51,102,0.1);
-        }
-
-        .news-header {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .news-header h2 {
-            font-size: 2.2rem;
-            color: #003366;
-            border-left: 6px solid #ffaa00;
-            padding-left: 1.2rem;
-        }
-
-        .news-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .news-item {
-            background: white;
-            border-radius: 24px;
-            padding: 1.5rem;
-            box-shadow: 0 5px 12px rgba(0,0,0,0.05);
-            display: flex;
-            flex-direction: column;
-        }
-
-        .news-item h3 {
-            color: #003366;
-            margin-bottom: 0.5rem;
-        }
-
-        .news-item p {
-            color: #1e3a5f;
-        }
-
-        .news-video {
-            width: 100%;
-            border-radius: 16px;
-            margin: 1rem 0 0.5rem;
-            border: 2px solid #ffaa00;
-            background: #000;
-        }
-
-        .news-video video {
-            width: 100%;
-            height: auto;
-            border-radius: 14px;
-            display: block;
-        }
-
-        .countdown-container {
-            background: #003366;
-            color: white;
-            border-radius: 50px;
-            padding: 1rem 2rem;
-            margin-top: 2rem;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 1rem;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-        }
-
-        .countdown-timer {
-            display: flex;
-            gap: 1.5rem;
-            font-size: 1.8rem;
-            font-weight: 700;
-            background: #ffaa00;
-            color: #003366;
-            padding: 0.5rem 1.5rem;
-            border-radius: 40px;
-        }
-
-        .countdown-timer span {
-            min-width: 60px;
-            text-align: center;
-        }
-
-        .countdown-timer small {
-            font-size: 1rem;
-            display: block;
-            font-weight: 400;
-            color: #003366;
-            opacity: 0.8;
-        }
-
-        /* ----- DEPARTMENT CARDS (with MP4) ----- */
-        #blogs {
-            scroll-margin-top: 100px;
-        }
-
-        .cards-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin: 3rem 0;
-        }
-
-        .card {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(2px);
-            border-radius: 24px;
-            overflow: hidden;
-            box-shadow: 0 12px 28px rgba(0,51,102,0.2);
-            transition: 0.25s;
-            display: flex;
-            flex-direction: column;
-            border: 1px solid rgba(255,255,255,0.6);
-        }
-
-        .card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 20px 30px rgba(0,51,102,0.3);
-        }
-
-        .card .dept-photo {
-            width: 100%;
-            height: 220px;
-            object-fit: cover;
-            border-bottom: 4px solid #ffaa00;
-            background-color: #ccc;
-        }
-
-        .card-content {
-            padding: 1.2rem 1.2rem 0.8rem;
-        }
-
-        .card h3 {
-            color: #003366;
-            font-size: 1.5rem;
-            margin-bottom: 0.75rem;
-        }
-
-        .card p {
-            color: #1a2b3c;
-            font-size: 0.95rem;
-            margin-bottom: 1rem;
-            text-align: justify;
-        }
-
-        .dept-video {
-            width: 100%;
-            border-radius: 16px;
-            margin: 0.5rem 0 1rem;
-            border: 2px solid #ffaa00;
-            background: #000;
-        }
-
-        .dept-video video {
-            width: 100%;
-            height: auto;
-            border-radius: 14px;
-            display: block;
-        }
-
-        .download-link {
-            display: inline-block;
-            background: #e6eef9;
-            color: #003366;
-            padding: 0.5rem 1.2rem;
-            border-radius: 30px;
-            text-decoration: none;
             font-weight: 500;
-            margin: 0.5rem 0 0.8rem;
             transition: 0.2s;
-            border: 1px solid #b0c4de;
         }
-
-        .download-link i {
-            margin-right: 0.3rem;
-            color: #ffaa00;
-        }
-
-        .download-link:hover {
-            background: #ffaa00;
-            color: white;
-            border-color: #ffaa00;
-        }
-
-        .download-link:hover i {
-            color: white;
-        }
-
-        /* ----- COMPREHENSIVE DEPARTMENT INFO SECTION (with MP4) ----- */
-        #dept-info {
-            scroll-margin-top: 100px;
-            margin: 4rem 0 2rem;
-        }
-
-        .section-title {
-            font-size: 2.5rem;
-            color: #003366;
-            text-align: center;
-            margin-bottom: 2rem;
-            border-bottom: 4px solid #ffaa00;
-            display: inline-block;
-            padding-bottom: 0.5rem;
-        }
-
-        .dept-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .dept-info-card {
-            background: white;
-            border-radius: 20px;
-            padding: 1.5rem;
-            box-shadow: var(--shadow-md);
-            border-left: 5px solid #ffaa00;
-            transition: 0.2s;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .dept-info-card:hover {
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .dept-info-card h3 {
-            color: #003366;
-            font-size: 1.6rem;
-            margin-bottom: 0.75rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .dept-info-card h3 i {
-            color: #ffaa00;
-            font-size: 1.8rem;
-        }
-
-        .dept-info-card p {
-            color: var(--text-secondary);
-            line-height: 1.7;
-            margin-bottom: 1rem;
-        }
-
-        .dept-info-card .highlight {
-            font-weight: 600;
-            color: var(--primary-color);
-            display: block;
-            margin-top: 0.8rem;
-        }
-
-        .info-video {
-            width: 100%;
-            border-radius: 16px;
-            margin: 1rem 0 0.5rem;
-            border: 2px solid #ffaa00;
-            background: #000;
-        }
-
-        .info-video video {
-            width: 100%;
-            border-radius: 14px;
-            display: block;
-        }
-
-        /* ----- PORTAL STYLES (shared) ----- */
+        .nav-links a:hover { background-color: #ffaa00; color: #003366; }
+        .container { max-width: 1300px; margin: 2rem auto; padding: 0 1.5rem; }
         .portal-section {
-            max-width: 700px;
+            max-width: 1100px;
             margin: 2rem auto;
             background: var(--card-bg);
             border-radius: var(--radius-lg);
             box-shadow: var(--shadow-lg);
             overflow: hidden;
         }
-
         .portal-header {
-            background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+            background: linear-gradient(135deg, #003366, #002244);
             color: white;
-            padding: 2rem 1.5rem;
+            padding: 1.5rem;
             text-align: center;
         }
-
-        .portal-header.exam-header {
-            background: linear-gradient(135deg, #b45309 0%, #92400e 100%);
-        }
-
-        .portal-header img {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 3px solid rgba(255,255,255,0.2);
-            margin-bottom: 0.75rem;
-        }
-
-        .portal-tabs {
-            display: flex;
-            background: var(--light-bg);
-            border-bottom: 1px solid var(--border-color);
-            padding: 0 1rem;
-        }
-
+        .portal-header img { width: 70px; border-radius: 50%; border: 2px solid #ffaa00; margin-bottom: 0.5rem; }
+        .portal-tabs { display: flex; background: var(--light-bg); border-bottom: 1px solid var(--border-color); }
         .tab-btn {
             flex: 1;
             background: none;
             border: none;
-            padding: 1rem 0.5rem;
-            font-size: 1rem;
-            font-weight: 500;
-            color: var(--text-secondary);
+            padding: 1rem;
+            font-weight: 600;
             cursor: pointer;
-            border-bottom: 2px solid transparent;
-            transition: all 0.2s;
+            transition: 0.2s;
         }
-
-        .tab-btn.active {
-            color: var(--primary-color);
-            border-bottom-color: var(--primary-color);
-        }
-
-        .exam-tab-btn.active {
-            color: #b45309 !important;
-            border-bottom-color: #b45309 !important;
-        }
-
-        .portal-forms {
-            padding: 2rem 1.5rem;
-        }
-
-        .form {
-            display: none;
-        }
-
-        .form.active-form {
-            display: block;
-        }
-
-        .form-group {
-            margin-bottom: 1.25rem;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 500;
-            color: var(--text-primary);
-            font-size: 0.9rem;
-        }
-
-        .form-group input,
-        .form-group select {
-            width: 100%;
-            padding: 0.75rem 1rem;
-            border: 1px solid var(--border-color);
-            border-radius: var(--radius-md);
-            font-size: 1rem;
-            background: var(--light-bg);
-            transition: border 0.2s;
-        }
-
-        .form-group input:focus,
-        .form-group select:focus {
-            outline: none;
-            border-color: var(--primary-color);
-        }
-
+        .tab-btn.active { color: var(--primary-color); border-bottom: 2px solid var(--primary-color); }
+        .portal-forms { padding: 2rem; }
+        .form { display: none; }
+        .form.active-form { display: block; }
+        .form-group { margin-bottom: 1rem; }
+        .form-group input, .form-group select { width: 100%; padding: 0.75rem; border: 1px solid var(--border-color); border-radius: 0.375rem; }
         .btn-submit {
             background: var(--primary-color);
             color: white;
             border: none;
-            padding: 0.875rem 1.5rem;
-            font-size: 1rem;
-            font-weight: 600;
-            border-radius: var(--radius-md);
-            cursor: pointer;
-            width: 100%;
-            transition: background 0.2s;
-        }
-
-        .btn-submit:hover {
-            background: var(--primary-dark);
-        }
-
-        .btn-submit.exam-btn {
-            background: #b45309;
-        }
-        .btn-submit.exam-btn:hover {
-            background: #92400e;
-        }
-
-        .form-footer {
-            margin-top: 1rem;
-            text-align: center;
-            font-size: 0.9rem;
-        }
-        .form-footer a {
-            color: var(--primary-color);
-            text-decoration: none;
-            margin: 0 0.3rem;
-        }
-        .form-footer a:hover {
-            text-decoration: underline;
-        }
-
-        .form-message {
-            margin-top: 1rem;
             padding: 0.75rem;
-            border-radius: var(--radius-md);
-            display: none;
-        }
-
-        .form-message.success {
-            background-color: #d4edda;
-            color: #155724;
-            border: 1px solid #c3e6cb;
-            display: block;
-        }
-        .form-message.error {
-            background-color: #f8d7da;
-            color: #721c24;
-            border: 1px solid #f5c6cb;
-            display: block;
-        }
-
-        .dashboard-view {
-            padding: 2rem 1.5rem;
-            background: var(--card-bg);
-            display: none;
-        }
-
-        .dashboard-header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 1rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .dropdown-container {
-            position: relative;
-            display: inline-block;
-        }
-
-        .dropdown-btn {
-            background: var(--primary-color);
-            color: white;
-            border: none;
-            padding: 0.6rem 1.2rem;
-            border-radius: var(--radius-md);
+            border-radius: 0.375rem;
+            width: 100%;
+            font-weight: bold;
             cursor: pointer;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
+            transition: 0.2s;
         }
-
-        .dropdown-menu {
-            position: absolute;
-            top: 100%;
-            right: 0;
-            min-width: 200px;
-            background: white;
-            border-radius: var(--radius-md);
-            box-shadow: var(--shadow-lg);
-            padding: 0.5rem 0;
-            display: none;
-            border: 1px solid var(--border-color);
-            z-index: 10;
-        }
-
-        .dropdown-menu.show {
-            display: block;
-        }
-
-        .dropdown-menu a {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            padding: 0.7rem 1rem;
-            color: var(--text-primary);
-            text-decoration: none;
-            transition: background 0.2s;
-        }
-
-        .dropdown-menu a:hover {
-            background: var(--light-bg);
-        }
-
-        /* Student dashboard specific */
+        .btn-submit.exam-btn { background: #b45309; }
+        .btn-submit:disabled { opacity: 0.6; cursor: not-allowed; }
+        .dashboard-view { padding: 2rem; display: none; }
         .student-details {
             background: var(--light-bg);
-            padding: 1.25rem;
-            border-radius: var(--radius-lg);
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 0.75rem 1.5rem;
-            margin-bottom: 2rem;
-        }
-
-        .important-info {
-            background: #f0f9ff;
-            border-left: 4px solid var(--primary-color);
-            padding: 1.25rem;
-            border-radius: var(--radius-md);
-            margin-bottom: 2rem;
-        }
-
-        .term-selector {
-            margin-top: 1.2rem;
-            padding-top: 1rem;
-            border-top: 1px dashed var(--border-color);
-        }
-
-        .term-selector select {
-            width: 100%;
-            padding: 0.7rem;
-            border: 1px solid var(--border-color);
-            border-radius: var(--radius-md);
-            background: white;
-        }
-
-        /* Exam dashboard tiles */
-        .exam-dashboard-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 1.2rem;
-            margin: 2rem 0;
-        }
-        .exam-dashboard-tile {
-            background: var(--light-bg);
-            border-radius: 1rem;
-            padding: 1.2rem 0.5rem;
-            text-align: center;
-            transition: 0.2s;
-            border: 1px solid var(--border-color);
-            cursor: pointer;
-            color: var(--text-primary);
-            text-decoration: none;
+            padding: 1rem;
+            border-radius: 0.5rem;
             display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 0.6rem;
-        }
-        .exam-dashboard-tile i {
-            font-size: 2rem;
-            color: #b45309;
-        }
-        .exam-dashboard-tile span {
-            font-weight: 500;
-            font-size: 0.9rem;
-        }
-        .exam-dashboard-tile:hover {
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-md);
-            border-color: #b45309;
-        }
-
-        /* ----- FOOTER (enhanced) ----- */
-        #contact {
-            scroll-margin-top: 100px;
-        }
-
-        footer {
-            background-color: #002244;
-            color: #e0e0e0;
-            padding: 3rem 2rem 2rem;
-            margin-top: 3rem;
-            border-top: 5px solid #ffaa00;
-        }
-
-        .footer-content {
-            max-width: 1300px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2.5rem;
-        }
-
-        .footer-section h4 {
-            color: white;
-            font-size: 1.3rem;
-            margin-bottom: 1.2rem;
-            border-left: 4px solid #ffaa00;
-            padding-left: 0.8rem;
-        }
-
-        .footer-section ul {
-            list-style: none;
-        }
-
-        .footer-section ul li {
-            margin-bottom: 0.7rem;
-        }
-
-        .footer-section ul li a {
-            color: #cccccc;
-            text-decoration: none;
-            transition: 0.2s;
-        }
-
-        .footer-section ul li a:hover {
-            color: #ffaa00;
-            padding-left: 5px;
-        }
-
-        .footer-section i {
-            width: 25px;
-            color: #ffaa00;
-        }
-
-        .social-links {
-            display: flex;
-            gap: 1rem;
+            gap: 1.5rem;
             flex-wrap: wrap;
-            margin: 1rem 0 0.5rem;
+            margin-bottom: 1.5rem;
         }
-
-        .social-links a {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            background: #003366;
-            color: white;
-            width: 42px;
-            height: 42px;
-            border-radius: 50%;
-            transition: 0.3s;
-            font-size: 1.3rem;
-        }
-
-        .social-links a:hover {
-            background-color: #ffaa00;
-            color: #002244;
-            transform: scale(1.1) rotate(3deg);
-        }
-
-        .affiliate-links {
+        .attempt-badge {
+            background: #ffedd5;
+            border-left: 5px solid #b45309;
+            padding: 0.8rem;
+            border-radius: 12px;
+            margin-bottom: 1.2rem;
+            font-weight: bold;
             display: flex;
-            flex-direction: column;
-            gap: 0.6rem;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
         }
-
-        .affiliate-links a {
-            color: #cccccc;
-            text-decoration: none;
-            transition: 0.2s;
+        .exam-module-card {
+            background: #fff7ed;
+            border-radius: 20px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border: 2px solid #fed7aa;
         }
-
-        .affiliate-links a:hover {
-            color: #ffaa00;
-            padding-left: 5px;
+        .exam-module-card h3 { color: #b45309; margin-bottom: 0.75rem; }
+        .question-block {
+            background: #f9fafb;
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            border-radius: 16px;
+            border-left: 5px solid #b45309;
         }
-
-        .copyright {
-            text-align: center;
-            border-top: 1px solid #224466;
-            margin-top: 2.5rem;
-            padding-top: 1.8rem;
-            color: #a0b8d0;
-        }
-
-        @media (max-width: 700px) {
-            header {
-                flex-direction: column;
-                text-align: center;
-            }
-            .dept-grid {
-                grid-template-columns: 1fr;
-            }
-        }
+        .question-text { font-weight: 700; margin-bottom: 0.75rem; color: #1e293b; }
+        .options { display: flex; flex-wrap: wrap; gap: 1rem; margin: 0.5rem 0; }
+        .options label { display: flex; align-items: center; gap: 0.4rem; cursor: pointer; }
+        .exam-actions { display: flex; gap: 1rem; margin-top: 1.5rem; flex-wrap: wrap; }
+        .result-card { background: #e6f7e6; padding: 1rem; border-radius: 16px; margin-top: 1rem; text-align: center; }
+        .locked-message { background: #fee2e2; padding: 1.5rem; border-radius: 20px; text-align: center; color: #991b1b; }
+        footer { background-color: #002244; color: #ccc; padding: 2rem; text-align: center; margin-top: 2rem; }
+        @media (max-width: 700px) { header { flex-direction: column; text-align: center; } }
     </style>
 </head>
 <body>
 
-<!-- HEADER -->
 <header>
     <div class="logo-area">
-        <img src="logo.jpg" alt="Msambweni College Logo" onerror="this.src='https://via.placeholder.com/70?text=Logo'">
-        <div class="college-title">
-            <h1>MSAMBWENI TECHNICAL <br><span style="font-size: 1.2rem;">AND VOCATIONAL COLLEGE</span></h1>
-            <p>Hands‑on skills · Innovation · Excellence</p>
-        </div>
+        <img src="logo.jpg" alt="Logo" onerror="this.src='https://via.placeholder.com/70?text=MSA'">
+        <div class="college-title"><h1>MSAMBWENI TECHNICAL AND VOCATIONAL COLLEGE</h1><p>CBT - Three Attempts Policy</p></div>
     </div>
     <div class="nav-links">
         <a href="#home">Home</a>
-        <a href="#contact">Contacts</a>
-        <a href="#news">News</a>
-        <a href="#about">About</a>
-        <a href="#blogs">Departments</a>
-        <a href="#dept-info">Dept Info</a>
-        <a href="#portal">Student Login</a>
-        <a href="#exam-portal">Exam Portal</a>
+        <a href="#portal">Student Portal</a>
+        <a href="#exam-portal">Exam Dept</a>
     </div>
 </header>
 
-<!-- MAIN CONTENT -->
 <div class="container" id="home">
-    <!-- About section -->
-    <div id="about" class="welcome">
-        <h2>About Msambweni TVC</h2>
-        <p style="margin-top: 1rem; background: rgba(255,255,255,0.6); padding: 1rem 2rem; border-radius: 50px; display: inline-block; max-width: 800px;">
-           Msambweni Technical and Vocational College is a center of excellence offering hands-on technical training in ICT, Electrical, Plumbing, and other technical fields. With modern workshops and highly skilled trainers, the college equips students with practical skills and knowledge needed to succeed in today’s competitive job market.
-        </p>
-    </div>
+    <div style="text-align:center; margin-bottom:1rem;"><h2 style="color:#003366">⚠️ Exam Rule: Each student gets ONLY 3 attempts. Best score is recorded.</h2></div>
 
-    <!-- ========== ADMINISTRATION SLIDER (AUTO SLIDING, RECTANGULAR PHOTOS) ========== -->
-    <section id="administration">
-        <h2 class="section-title">Our Administration</h2>
-        <div class="admin-carousel-container" id="adminCarouselContainer">
-            <button class="carousel-btn prev-btn" id="adminPrev" aria-label="Previous"><i class="fas fa-chevron-left"></i></button>
-            <div class="admin-carousel-track-wrapper">
-                <div class="admin-carousel-track" id="adminTrack">
-                    <!-- admin cards with fixed structure -->
-                    <div class="admin-card">
-                        <img src="eng1.jpeg" alt="MD MARIA KIMONYI - Principal" onerror="this.src='https://via.placeholder.com/280x200?text=Principal'">
-                        <div class="card-content">
-                            <h4>MD MARIA KIMONYI</h4>
-                            <p>Principal</p>
-                        </div>
-                    </div>
-                    <div class="admin-card">
-                        <img src="eng2.jpeg" alt="MD NYAKAKO - Deputy Principal" onerror="this.src='https://via.placeholder.com/280x200?text=Deputy+Principal'">
-                        <div class="card-content">
-                            <h4>MD NYAKAKO</h4>
-                            <p>DEPUTY  PRINCIPAL (ACADEMICS)</p>
-                        </div>
-                    </div>
-                    <div class="admin-card">
-                        <img src="aaa.jpg" alt="MD NEEMA - Registrar" onerror="this.src='https://via.placeholder.com/280x200?text=Registrar'">
-                        <div class="card-content">
-                            <h4>MD NEEMA</h4>
-                            <p>REGISTRA</p>
-                        </div>
-                    </div>
-                    <div class="admin-card">
-                        <img src="wsp1.jpg" alt="MD FATUMA - Finance Officer" onerror="this.src='https://via.placeholder.com/280x200?text=Finance+Officer'">
-                        <div class="card-content">
-                            <h4>MD FATUMA</h4>
-                            <p>ACCOUNTANT</p>
-                        </div>
-                    </div>
-                    <div class="admin-card">
-                        <img src="eng4.jpeg" alt="Mr. ARON - Dean of Students" onerror="this.src='https://via.placeholder.com/280x200?text=Dean+of+Students'">
-                        <div class="card-content">
-                            <h4>Mr. ARON</h4>
-                            <p>Dean of Students</p>
-                        </div>
-                    </div>
-                    <div class="admin-card">
-                        <img src="eng5.jpeg" alt="MR CYPRIAN- HOD ICT" onerror="this.src='https://via.placeholder.com/280x200?text=HOD+ICT'">
-                        <div class="card-content">
-                            <h4>MR CYPRIAN</h4>
-                            <p>HOD ICT</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <button class="carousel-btn next-btn" id="adminNext" aria-label="Next"><i class="fas fa-chevron-right"></i></button>
-        </div>
-    </section>
-
-    <!-- NEWS SECTION -->
-    <section id="news">
-        <div class="news-header">
-            <i class="fas fa-newspaper" style="font-size: 3rem; color: #003366;"></i>
-            <h2>Campus News</h2>
-        </div>
-        <div class="news-grid">
-            <div class="news-item">
-                <h3>🎓 Application for May intake</h3>
-                <p>Applications are now open for the May 2025 intake. Deadline is <strong>1st May 2026</strong> — watch the countdown!</p>
-            </div>
-            <div class="news-item">
-                <h3>🔧 Electrical workshop upgrade</h3>
-                <p>New equipment installed in the electrical engineering lab – thanks to partners.</p>
-            </div>
-            <div class="news-item">
-                <h3>🎉 School Events: Annual Sports Day</h3>
-                <p>The annual sports day was a huge success with students competing in football, athletics, and netball. Great team spirit!</p>
-                <div class="news-video">
-                    <video controls poster="https://via.placeholder.com/400x200?text=Sports+Day+Video">
-                        <source src="evidio.mp4" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
-                </div>
-            </div>
-        </div>
-        <div class="countdown-container">
-            <div class="countdown-title">
-                <i class="fas fa-hourglass-half"></i> MAY INTAKE DEADLINE IN :
-            </div>
-            <div class="countdown-timer" id="countdownTimer">
-                <span id="days">00</span><small>days</small>
-                <span id="hours">00</span><small>hrs</small>
-                <span id="minutes">00</span><small>min</small>
-                <span id="seconds">00</span><small>sec</small>
-            </div>
-        </div>
-    </section>
-
-    <!-- DEPARTMENT CARDS (expanded with Plumbing, Mechanical, ICT, Library, Masonry) -->
-    <div id="blogs">
-        <h2 style="color: #003366; font-size: 2.2rem; margin-bottom: 1rem; border-left: 6px solid #ffaa00; padding-left: 1rem;">Our Departments & Activities</h2>
-    </div>
-    <div class="cards-grid">
-        <!-- Electrical Engineering -->
-        <div class="card">
-            <img class="dept-photo" src="eng6.jpeg" alt="Electrical Engineering" onerror="this.src='https://via.placeholder.com/400x220?text=Electrical+Lab'">
-            <div class="card-content">
-                <h3>⚡ ELECTRICAL ENGINEERING</h3>
-                <p>Learn installation, maintenance, and repair of electrical systems. Modern workshop for industrial and domestic wiring.</p>
-                <div class="dept-video">
-                    <video controls poster="https://via.placeholder.com/400x200?text=Electrical+Video">
-                        <source src="electrical.mp4" type="video/mp4">
-                    </video>
-                </div>
-                <a href="#" class="download-link" download><i class="fas fa-file-pdf"></i> Brochure (PDF)</a>
-            </div>
-        </div>
-        <!-- Hospitality Management -->
-        <div class="card">
-            <img class="dept-photo" src="eng7.jpeg" alt="Hospitality Management" onerror="this.src='https://via.placeholder.com/400x220?text=Hospitality'">
-            <div class="card-content">
-                <h3>🍽️ HOSPITALITY MANAGEMENT</h3>
-                <p>The Hospitality Department at Msambweni Technical and Vocational College provides practical training in key areas of the hospitality industry, including Front Office Operations, Housekeeping, Food Production, and Event Management. Students gain hands-on experience in a simulated hotel environment that reflects real industry standards. Through this practical approach, trainees develop professional skills in customer service, hotel operations, food preparation, and event coordination, preparing them for rewarding careers in hotels, resorts, restaurants, and the tourism sector..</p>
-                <div class="dept-video">
-                    <video controls poster="https://via.placeholder.com/400x200?text=Hospitality+Video">
-                        <source src="FOOD.mp4" type="video/mp4">
-                    </video>
-                </div>
-                <a href="#" class="download-link" download><i class="fas fa-file-pdf"></i> Brochure (PDF)</a>
-            </div>
-        </div>
-        <!-- Mechanical Engineering -->
-        <div class="card">
-            <img class="dept-photo" src="eng10.jpeg" alt="Mechanical Engineering" onerror="this.src='https://via.placeholder.com/400x220?text=Mechanical+Engineering'">
-            <div class="card-content">
-                <h3>⚙️ MECHANICAL ENGINEERING</h3>
-                <p>The Mechanical Engineering Department offers hands-on training in fitting, machining, welding, and metal fabrication. Students gain practical experience using lathe machines, CNC equipment, and other modern engineering tools. The program equips trainees with the technical skills required for careers in manufacturing, engineering workshops, and industrial production.</p>
-                <div class="dept-video">
-                    <video controls poster="https://via.placeholder.com/400x200?text=Mechanical+Video">
-                        <source src="mech.mp4" type="video/mp4">
-                    </video>
-                </div>
-                <a href="#" class="download-link" download><i class="fas fa-file-pdf"></i> Brochure (PDF)</a>
-            </div>
-        </div>
-        <!-- Plumbing Technology -->
-        <div class="card">
-            <img class="dept-photo" src="eng11.jpeg" alt="Plumbing Technology" onerror="this.src='https://via.placeholder.com/400x220?text=Plumbing'">
-            <div class="card-content">
-                <h3>🔧 PLUMBING TECHNOLOGY</h3>
-                <p>Water supply, drainage, pipe fitting, sanitary systems. Hands-on training with real plumbing rigs.</p>
-                <div class="dept-video">
-                    <video controls poster="https://via.placeholder.com/400x200?text=Plumbing+Video">
-                        <source src="plumbing.mp4" type="video/mp4">
-                    </video>
-                </div>
-                <a href="#" class="download-link" download><i class="fas fa-file-pdf"></i> Brochure (PDF)</a>
-            </div>
-        </div>
-        <!-- ICT -->
-        <div class="card">
-            <img class="dept-photo" src="com.jpeg" alt="ICT Department" onerror="this.src='https://via.placeholder.com/400x220?text=ICT+Lab'">
-            <div class="card-content">
-                <h3>💻 INFORMATION TECHNOLOGY</h3>
-                <p>Programming, networking, cybersecurity, and hardware maintenance. Fully equipped computer labs.</p>
-                <div class="dept-video">
-                    <video controls poster="https://via.placeholder.com/400x200?text=ICT+Video">
-                        <source src="ICT.mp4" type="video/mp4">
-                    </video>
-                </div>
-                <a href="#" class="download-link" download><i class="fas fa-file-pdf"></i> Brochure (PDF)</a>
-            </div>
-        </div>
-        <!-- Masonry -->
-        <div class="card">
-            <img class="dept-photo" src="eng8.jpeg" alt="Masonry Department" onerror="this.src='https://via.placeholder.com/400x220?text=Masonry'">
-            <div class="card-content">
-                <h3>🧱 MASONRY & CONSTRUCTION</h3>
-                <p>The Building and Construction Department provides hands-on training in bricklaying, concreting, plastering, and tiling. Students participate in practical projects on campus structures, allowing them to gain real construction experience while developing essential skills required in the building and construction industry.</p>
-                <div class="dept-video">
-                    <video controls poster="https://via.placeholder.com/400x200?text=Masonry+Video">
-                        <source src="masonry.mp4" type="video/mp4">
-                    </video>
-                </div>
-                <a href="#" class="download-link" download><i class="fas fa-file-pdf"></i> Brochure (PDF)</a>
-            </div>
-        </div>
-        <!-- Library & Information Science -->
-        <div class="card">
-            <img class="dept-photo" src="eng7.jpeg" alt="Library Department" onerror="this.src='https://via.placeholder.com/400x220?text=Library'">
-            <div class="card-content">
-                <h3>📚 LIBRARY & INFORMATION</h3>
-                <p>The Library and Information Studies program provides training in library management, digital archiving, and information systems. Students develop the skills required to manage modern information centers, digital resources, and knowledge management systems in libraries, institutions, and organizations.</p>
-                <div class="dept-video">
-                    <video controls poster="https://via.placeholder.com/400x200?text=Library+Video">
-                        <source src="evidio.mp4" type="video/mp4">
-                    </video>
-                </div>
-                <a href="#" class="download-link" download><i class="fas fa-file-pdf"></i> Brochure (PDF)</a>
-            </div>
-        </div>
-    </div>
-
-    <!-- COMPREHENSIVE DEPARTMENT INFO SECTION (expanded) -->
-    <section id="dept-info">
-        <h2 class="section-title">📚 Comprehensive Department Details</h2>
-        <div class="dept-grid">
-            <div class="dept-info-card">
-                <h3><i class="fas fa-bolt"></i> Electrical</h3>
-                <p>Our electrical engineering program offers intensive training in domestic and industrial wiring, motor controls, renewable energy systems, and electrical machine maintenance. Students work on live projects and gain experience with modern test equipment. Graduates are prepared for licensing and immediate employment.</p>
-                <span class="highlight">→ Diploma & Certificate options</span>
-                <div class="info-video"><video controls poster="https://via.placeholder.com/320x180?text=Electrical+Promo"><source src="electrical_overview.mp4" type="video/mp4"></video></div>
-            </div>
-            <div class="dept-info-card">
-                <h3><i class="fas fa-concierge-bell"></i> Hospitality</h3>
-                <p>Comprehensive training in front office operations, housekeeping, food production, and event planning. The department features a mock hotel and training restaurant. Students undertake internships in leading hotels and graduate with strong customer service skills.</p>
-                <span class="highlight">→ Industry partnerships</span>
-                <div class="info-video"><video controls poster="https://via.placeholder.com/320x180?text=Hospitality+Tour"><source src="hospitality_overview.mp4" type="video/mp4"></video></div>
-            </div>
-            <div class="dept-info-card">
-                <h3><i class="fas fa-cogs"></i> Mechanical</h3>
-                <p>State-of-the-art workshop for fitting, machining, welding, and fabrication. Students learn to operate lathes, milling machines, and CNC equipment. Strong focus on industrial attachments and real-world projects.</p>
-                <span class="highlight">→ Diploma in Mechanical Engineering (Production)</span>
-                <div class="info-video"><video controls poster="https://via.placeholder.com/320x180?text=Mechanical+Workshop"><source src="mech_overview.mp4" type="video/mp4"></video></div>
-            </div>
-            <div class="dept-info-card">
-                <h3><i class="fas fa-wrench"></i> Plumbing</h3>
-                <p>Comprehensive plumbing technology covering water supply systems, drainage, sanitation, and pipe fitting. Practical sessions on rigs and community projects. Graduates ready for construction and maintenance sectors.</p>
-                <span class="highlight">→ Artisan, Certificate & Diploma</span>
-                <div class="info-video"><video controls poster="https://via.placeholder.com/320x180?text=Plumbing+Training"><source src="plumb_overview.mp4" type="video/mp4"></video></div>
-            </div>
-            <div class="dept-info-card">
-                <h3><i class="fas fa-laptop-code"></i> ICT</h3>
-                <p>Modern computing labs with networking, programming (Python, Java), web design, and hardware repair. Emphasis on industry certifications (Cisco, CompTIA) and innovation.</p>
-                <span class="highlight">→ Diploma in ICT, Certificate in Computer Packages</span>
-                <div class="info-video"><video controls poster="https://via.placeholder.com/320x180?text=ICT+Lab"><source src="ict_overview.mp4" type="video/mp4"></video></div>
-            </div>
-            <div class="dept-info-card">
-                <h3><i class="fas fa-hammer"></i> Masonry</h3>
-                <p>Hands-on bricklaying, blockwork, concreting, plastering, and tiling. Students construct actual campus structures under supervision. Strong linkage with construction companies.</p>
-                <span class="highlight">→ Certificate in Masonry, Artisan</span>
-                <div class="info-video"><video controls poster="https://via.placeholder.com/320x180?text=Masonry+Training"><source src="masonry_overview.mp4" type="video/mp4"></video></div>
-            </div>
-            <div class="dept-info-card">
-                <h3><i class="fas fa-book"></i> Library & Info Science</h3>
-                <p>Training in library management, classification, digital archiving, and information systems. Prepares students for work in academic, public, and digital libraries.</p>
-                <span class="highlight">→ Diploma in Library and Information Science</span>
-                <div class="info-video"><video controls poster="https://via.placeholder.com/320x180?text=Library+Studies"><source src="library_overview.mp4" type="video/mp4"></video></div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ===== STUDENT PORTAL (with validation) ===== -->
+    <!-- Student Portal with attempt tracker -->
     <section id="portal" class="portal-section">
-        <div class="portal-header">
-            <img src="logo.jpg" alt="Msambweni TVC Logo" onerror="this.src='https://via.placeholder.com/80?text=Logo'">
-            <h2>Student Portal</h2>
-        </div>
+        <div class="portal-header"><img src="logo.jpg" onerror="this.src='https://via.placeholder.com/70'"><h2>Student Portal - Network & Safety Exam (Set A)</h2><p>50 Questions | 2 Marks Each | Max 100%</p></div>
         <div class="portal-tabs" id="portalTabs">
-            <button type="button" class="tab-btn active" id="tab-login">Login</button>
-            <button type="button" class="tab-btn" id="tab-register">Create Account</button>
-            <button type="button" class="tab-btn" id="tab-reset">Reset Password</button>
+            <button class="tab-btn active" id="tab-login">Login</button>
+            <button class="tab-btn" id="tab-register">Register</button>
         </div>
         <div class="portal-forms">
-            <!-- Login Form -->
             <div id="login-form" class="form active-form">
-                <h3>Login</h3>
-                <form id="loginForm">
-                    <div class="form-group"><label><i class="far fa-envelope"></i> Email / Reg No.</label><input type="text" id="loginUser" placeholder="student@msambweni.ac.ke or ADM001"></div>
-                    <div class="form-group"><label><i class="fas fa-lock"></i> Password</label><input type="password" id="loginPass" placeholder="••••••••"></div>
-                    <button type="button" class="btn-submit" id="loginBtn">Sign In</button>
-                    <div class="form-footer"><a href="#" id="forgot-link">Forgot password?</a> · <a href="#" id="register-link">Create account</a></div>
-                </form>
-                <div id="loginMessage" class="form-message"></div>
+                <h3>Login to Access Exam</h3>
+                <div class="form-group"><label>Registration Number / Email</label><input type="text" id="loginUser" placeholder="ADM001 or student@msambweni.ac.ke"></div>
+                <div class="form-group"><label>Password</label><input type="password" id="loginPass" placeholder="password123"></div>
+                <button class="btn-submit" id="loginBtn">Login & Take Exam</button>
+                <div id="loginMessage" class="form-message" style="margin-top:1rem; display:none; padding:0.5rem; border-radius:8px;"></div>
             </div>
-            <!-- Register Form -->
             <div id="register-form" class="form">
-                <h3>Create Account</h3>
-                <form id="registerForm">
-                    <div class="form-group"><label>Full Name</label><input type="text" id="regName" required></div>
-                    <div class="form-group"><label>Email</label><input type="email" id="regEmail" required></div>
-                    <div class="form-group"><label>Reg Number</label><input type="text" id="regNumber" required></div>
-                    <div class="form-group"><label>Course</label>
-                        <select id="regCourse">
-                            <option>Electrical</option>
-                            <option>Hospitality</option>
-                            <option>ICT</option>
-                            <option>Mechanical</option>
-                            <option>Plumbing</option>
-                            <option>Masonry</option>
-                            <option>Library</option>
-                            <option>Food & Beverage</option>
-                            <option>Cosmetology</option>
-                            <option>Hairdressing</option>
-                        </select>
-                    </div>
-                    <div class="form-group"><label>Year</label>
-                        <select id="regYear">
-                            <option>2024</option>
-                            <option>2025</option>
-                            <option>2026</option>
-                        </select>
-                    </div>
-                    <div class="form-group"><label>Level</label>
-                        <select id="regLevel">
-                            <option>Certificate</option>
-                            <option>Diploma</option>
-                        </select>
-                    </div>
-                    <div class="form-group"><label>Cycle</label>
-                        <select id="regCycle">
-                            <option>January</option>
-                            <option>May</option>
-                            <option>September</option>
-                        </select>
-                    </div>
-                    <div class="form-group"><label>Password</label><input type="password" id="regPass" required></div>
-                    <div class="form-group"><label>Confirm Password</label><input type="password" id="regConfirmPass" required></div>
-                    <button type="button" class="btn-submit" id="registerBtn">Register</button>
-                </form>
-                <div id="registerMessage" class="form-message"></div>
-            </div>
-            <!-- Reset Form -->
-            <div id="reset-form" class="form">
-                <h3>Reset Password</h3>
-                <form id="resetForm">
-                    <div class="form-group"><label>Email/Reg No.</label><input type="text" id="resetUser"></div>
-                    <div class="form-group"><label>New Password</label><input type="password" id="resetNewPass"></div>
-                    <div class="form-group"><label>Confirm Password</label><input type="password" id="resetConfirmPass"></div>
-                    <button type="button" class="btn-submit" id="resetBtn">Reset</button>
-                </form>
-                <div id="resetMessage" class="form-message"></div>
+                <h3>Create Account (Demo)</h3>
+                <div class="form-group"><label>Full Name</label><input type="text" id="regName" value="Demo Student"></div>
+                <div class="form-group"><label>Email</label><input type="email" id="regEmail" value="student@msambweni.ac.ke"></div>
+                <div class="form-group"><label>Reg Number</label><input type="text" id="regNumber" value="ADM001"></div>
+                <div class="form-group"><label>Course</label><select id="regCourse"><option>ICT</option><option>Electrical</option></select></div>
+                <div class="form-group"><label>Password</label><input type="password" id="regPass" value="password123"></div>
+                <button class="btn-submit" id="registerBtn">Register</button>
+                <div id="registerMessage" style="margin-top:1rem; display:none;"></div>
             </div>
         </div>
-        <!-- Student Dashboard view -->
+
+        <!-- Dashboard with attempt tracking and exam interface -->
         <div id="dashboard-view" class="dashboard-view">
-            <div class="dashboard-header">
-                <h3>Welcome, <span id="studentName">John Mwambweni</span>!</h3>
-                <div class="dropdown-container">
-                    <button class="dropdown-btn" id="dashboardDropdownBtn">Quick Actions <i class="fas fa-chevron-down"></i></button>
-                    <div class="dropdown-menu" id="dashboardDropdownMenu">
-                        <a href="#"><i class="fas fa-user"></i> Profile</a>
-                        <a href="#"><i class="fas fa-graduation-cap"></i> Grades</a>
-                        <a href="#"><i class="fas fa-calendar-alt"></i> Schedule</a>
-                    </div>
-                </div>
-            </div>
             <div class="student-details">
-                <p><strong>Reg No.</strong> <span id="studentReg">TVC/2026/001</span></p>
-                <p><strong>Full Name</strong> <span id="studentFullName">John Mwambweni</span></p>
-                <p><strong>Course</strong> <span id="studentCourse">ICT</span></p>
+                <span><strong>👤 Name:</strong> <span id="studentName">John Mwambweni</span></span>
+                <span><strong>📘 Reg No:</strong> <span id="studentReg">ADM001</span></span>
+                <span><strong>📚 Course:</strong> <span id="studentCourse">ICT</span></span>
+                <span><strong>🏆 Best Score:</strong> <span id="bestScoreDisplay">--</span>%</span>
             </div>
-            <div class="important-info">
-                <h4>📌 Important</h4>
-                <div class="term-selector">
-                    <label for="termSelect"><i class="fas fa-calendar-week"></i> Select Term:</label>
-                    <select id="termSelect">
-                        <option>Term 1 2025</option>
-                        <option>Term 2 2025</option>
-                        <option selected>Term 1 2026</option>
-                    </select>
-                </div>
+            <div class="attempt-badge" id="attemptInfo">
+                <span><i class="fas fa-hourglass-half"></i> Remaining Attempts: <strong id="remainingAttemptsSpan">3</strong> / 3</span>
+                <span><i class="fas fa-chart-line"></i> Attempts used: <span id="attemptsUsedSpan">0</span></span>
             </div>
-            <button type="button" class="btn-submit" id="logoutBtn">Logout</button>
+            <div class="exam-module-card" id="examModule">
+                <h3><i class="fas fa-file-alt"></i> Computer Based Test: Network & Safety (Set A)</h3>
+                <div id="examArea"></div>
+                <div id="examResultArea"></div>
+            </div>
+            <button class="btn-submit" id="logoutBtn" style="background:#6c757d; margin-top:1rem;">Logout</button>
         </div>
     </section>
 
-    <!-- ===== EXAMINATION DEPARTMENT PORTAL ===== -->
-    <section id="exam-portal" class="portal-section">
-        <div class="portal-header exam-header">
-            <img src="logo.jpg" alt="Exam Dept" onerror="this.src='https://via.placeholder.com/80?text=Exam'">
-            <h2>Examination Department Portal</h2>
-        </div>
-        <!-- Exam Tabs -->
-        <div class="portal-tabs" id="examTabs">
-            <button type="button" class="tab-btn exam-tab-btn active" id="exam-tab-login">Exam Login</button>
-            <button type="button" class="tab-btn exam-tab-btn" id="exam-tab-register">Create Account</button>
-            <button type="button" class="tab-btn exam-tab-btn" id="exam-tab-reset">Reset Password</button>
-        </div>
-        <!-- Exam Forms Container -->
-        <div class="portal-forms" id="examForms">
-            <!-- Exam Login Form -->
-            <div id="exam-login-form" class="form active-form">
-                <h3>Examiner Login</h3>
-                <form id="examLoginForm">
-                    <div class="form-group"><label><i class="far fa-envelope"></i> Email / Staff ID</label><input type="text" id="examLoginUser" placeholder="examiner@msambweni.ac.ke"></div>
-                    <div class="form-group"><label><i class="fas fa-lock"></i> Password</label><input type="password" id="examLoginPass" placeholder="••••••••"></div>
-                    <button type="button" class="btn-submit exam-btn" id="examLoginBtn">Sign In</button>
-                    <div class="form-footer"><a href="#" id="exam-forgot-link">Forgot password?</a> · <a href="#" id="exam-register-link">Create account</a></div>
-                </form>
-                <div id="examLoginMessage" class="form-message"></div>
-            </div>
-            <!-- Exam Register Form -->
-            <div id="exam-register-form" class="form">
-                <h3>Create Examiner Account</h3>
-                <form id="examRegisterForm">
-                    <div class="form-group"><label>Full Name</label><input type="text" id="examRegName" required></div>
-                    <div class="form-group"><label>Email</label><input type="email" id="examRegEmail" required></div>
-                    <div class="form-group"><label>Staff ID</label><input type="text" id="examRegId" required></div>
-                    <div class="form-group"><label>Department</label>
-                        <select id="examRegDept">
-                            <option>Examinations</option>
-                            <option>Academic Registry</option>
-                        </select>
-                    </div>
-                    <div class="form-group"><label>Password</label><input type="password" id="examRegPass" required></div>
-                    <div class="form-group"><label>Confirm Password</label><input type="password" id="examRegConfirmPass" required></div>
-                    <button type="button" class="btn-submit exam-btn" id="examRegisterBtn">Register</button>
-                </form>
-                <div id="examRegisterMessage" class="form-message"></div>
-            </div>
-            <!-- Exam Reset Form -->
-            <div id="exam-reset-form" class="form">
-                <h3>Reset Examiner Password</h3>
-                <form id="examResetForm">
-                    <div class="form-group"><label>Email/Staff ID</label><input type="text" id="examResetUser"></div>
-                    <div class="form-group"><label>New Password</label><input type="password" id="examResetNewPass"></div>
-                    <div class="form-group"><label>Confirm Password</label><input type="password" id="examResetConfirmPass"></div>
-                    <button type="button" class="btn-submit exam-btn" id="examResetBtn">Reset</button>
-                </form>
-                <div id="examResetMessage" class="form-message"></div>
-            </div>
-        </div>
-        <!-- Exam Dashboard -->
-        <div id="exam-dashboard-view" class="dashboard-view">
-            <div class="dashboard-header">
-                <h3>Welcome, <span id="examinerName">Examiner</span>!</h3>
-                <div class="dropdown-container">
-                    <button class="dropdown-btn" id="examDropdownBtn">Exam Menu <i class="fas fa-chevron-down"></i></button>
-                    <div class="dropdown-menu" id="examDropdownMenu">
-                        <a href="#"><i class="fas fa-user"></i> Profile</a>
-                        <a href="#"><i class="fas fa-cog"></i> Settings</a>
-                    </div>
-                </div>
-            </div>
-            <div class="exam-dashboard-grid">
-                <a href="#" class="exam-dashboard-tile"><i class="fas fa-tachometer-alt"></i><span>Dashboard</span></a>
-                <a href="#" class="exam-dashboard-tile"><i class="fas fa-id-card"></i><span>Candidate Profiles</span></a>
-                <a href="#" class="exam-dashboard-tile"><i class="fas fa-user-plus"></i><span>Registrations</span></a>
-                <a href="#" class="exam-dashboard-tile"><i class="fas fa-credit-card"></i><span>Payments</span></a>
-                <a href="#" class="exam-dashboard-tile"><i class="fas fa-shopping-cart"></i><span>Purchase Catalogue</span></a>
-                <a href="#" class="exam-dashboard-tile"><i class="fas fa-exchange-alt"></i><span>Credit Transfer/Exemption</span></a>
-                <a href="#" class="exam-dashboard-tile"><i class="fas fa-tools"></i><span>Assessment Tools</span></a>
-                <a href="#" class="exam-dashboard-tile"><i class="fas fa-chart-line"></i><span>Marks Management</span></a>
-                <a href="#" class="exam-dashboard-tile"><i class="fas fa-clipboard-check"></i><span>Assessment Results</span></a>
-                <a href="#" class="exam-dashboard-tile"><i class="fas fa-file-alt"></i><span>Reports</span></a>
-                <a href="#" class="exam-dashboard-tile"><i class="fas fa-print"></i><span>Bulk Print</span></a>
-                <a href="#" class="exam-dashboard-tile"><i class="fas fa-headset"></i><span>Helpdesk</span></a>
-            </div>
-            <button type="button" class="btn-submit exam-btn" id="examLogoutBtn">Logout</button>
-        </div>
+    <!-- exam department demo section -->
+    <section id="exam-portal" class="portal-section" style="margin-top:2rem">
+        <div class="portal-header" style="background: #b45309"><img src="logo.jpg"><h2>Examination Department</h2></div>
+        <div style="padding:2rem; text-align:center"><p>Examiner can reset attempts if needed (demo).</p><button id="resetAttemptsDemoBtn" class="btn-submit exam-btn" style="width:auto; padding:0.5rem 1.2rem;">Reset Attempts for ADM001 (Demo)</button><div id="resetMsg" style="margin-top:0.5rem;"></div></div>
     </section>
 </div>
 
-<!-- FOOTER -->
-<footer id="contact">
-    <div class="footer-content">
-        <div class="footer-section">
-            <h4>Quick Links</h4>
-            <ul>
-                <li><a href="#portal">Student Portal</a></li>
-                <li><a href="#exam-portal">Exam Portal</a></li>
-                <li><a href="#">E-Learning</a></li>
-                <li><a href="#">Library</a></li>
-                <li><a href="#">Timetable</a></li>
-                <li><a href="#">Exam Results</a></li>
-            </ul>
-        </div>
-        <div class="footer-section">
-            <h4>Our Departments</h4>
-            <ul>
-                <li><a href="#">Electrical Engineering</a></li>
-                <li><a href="#">Hospitality</a></li>
-                <li><a href="#">Mechanical</a></li>
-                <li><a href="#">Plumbing</a></li>
-                <li><a href="#">Masonry</a></li>
-                <li><a href="#">ICT</a></li>
-                <li><a href="#">Library</a></li>
-                <li><a href="#">Food & Beverage</a></li>
-                <li><a href="#">Cosmetology</a></li>
-                <li><a href="#">Hairdressing</a></li>
-            </ul>
-        </div>
-        <div class="footer-section">
-            <h4>Contact & Info</h4>
-            <ul>
-                <li><i class="fas fa-map-marker-alt"></i> Msambweni, Kwale County</li>
-                <li><i class="fas fa-phone-alt"></i> +254 712 345 678</li>
-                <li><i class="fas fa-envelope"></i> info@msambwenitvc.ac.ke</li>
-                <li><i class="fas fa-clock"></i> Mon-Fri: 8am - 5pm</li>
-            </ul>
-            <div class="social-links">
-                <a href="https://www.facebook.com/100066613594933/posts/1177773157786460/?app=fbl" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
-                <a href="https://www.youtube.com/@MSAMBWENI-TVC" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
-                <a href="#" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
-                <a href="#" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
-                <a href="#" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                <a href="https://api.whatsapp.com/send?phone=%2B254702944524&token=eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjEyNSJ9.eyJleHAiOjE3NzI3OTUyNTEsInBob25lIjoiKzI1NDcwMjk0NDUyNCIsImNvbnRleHQiOiJBZmZHWWkyZXFnbFYxTXREMi1JaXRia2VOcE1tdnQ3TEkwNmhMc21HaUtrVkdxTEZ2M0hVNnNPaWdpNEpOLXB6N01XZVplUzFRZkxWU1ppdVdwRHhsRzJ5d0tKdTJZcGFXem83T1V5Y1FOTy12OFByTVdTcE5GeTYtclItc2JVV0FEMjdvNEdXc2VPUTZOc3kyVmFMVDBIb1Z3Iiwic291cmNlIjoiRkJfUGFnZSIsImFwcCI6ImZhY2Vib29rIiwiZW50cnlfcG9pbnQiOiJwYWdlX2N0YSJ9.lFPwTkyjYqpYY6fUS6nRziKAUJOwlqW2wSx5-yDsZxNwOP24BIchuS3A6ka54qwFzaqtOrWFIhjO03skDYN6hA" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-                <a href="#" target="_blank" title="TikTok"><i class="fab fa-tiktok"></i></a>
-                <a href="https://kwalepressclub.co.ke/2025/10/12/msambweni-tvc-kenya-navy-and-local-leaders-join-hands-to-mark-mazingira-day-with-tree-planting/" target="_blank" title="KWALE PRESS"><i class="fab fa-telegram-plane"></i></a>
-            </div>
-        </div>
-        <div class="footer-section">
-            <h4>Affiliates</h4>
-            <div class="affiliate-links">
-                <a href="#" target="_blank">KUCCPS</a>
-                <a href="#" target="_blank">KNEC</a>
-                <a href="#" target="_blank">CDACC</a>
-                <a href="#" target="_blank">HELB</a>
-                <a href="#" target="_blank">TVETA</a>
-            </div>
-        </div>
-    </div>
-    <div class="copyright">
-        &copy; 2025 Msambweni Technical and Vocational College. All rights reserved.
-    </div>
-</footer>
+<footer><p>© 2025 Msambweni TVC - Each student has exactly 3 attempts. Automatic marking & attempt tracking.</p></footer>
 
-<!-- JavaScript (unchanged portals + auto sliding admin carousel) -->
 <script>
-(function() {
-    document.addEventListener('DOMContentLoaded', function() {
-        // ----- STUDENT PORTAL -----
-        const tabLogin = document.getElementById('tab-login');
-        const tabRegister = document.getElementById('tab-register');
-        const tabReset = document.getElementById('tab-reset');
-        const formLogin = document.getElementById('login-form');
-        const formRegister = document.getElementById('register-form');
-        const formReset = document.getElementById('reset-form');
-        const portalTabs = document.getElementById('portalTabs');
-        const portalForms = document.querySelector('#portal .portal-forms');
-        const dashboardView = document.getElementById('dashboard-view');
-        const loginMessage = document.getElementById('loginMessage');
-        const registerMessage = document.getElementById('registerMessage');
-        const resetMessage = document.getElementById('resetMessage');
+// --------------------------------------------------------------
+// FULL EXAM (50 questions) based on user's provided Set A
+// --------------------------------------------------------------
+const FULL_EXAM = [
+    { text: "Which of the following is a Personal Protective Equipment (PPE)?", options: ["Router", "Gloves", "Switch", "Ethernet cable"], correct: "B" },
+    { text: "The main purpose of an antiglare screen is to:", options: ["Increase brightness", "Reduce eye strain", "Improve network speed", "Protect from dust"], correct: "B" },
+    { text: "Dust masks are mainly used to protect against:", options: ["Radiation", "Dust particles", "Electrical shock", "Heat"], correct: "B" },
+    { text: "Antistatic equipment is used to prevent:", options: ["Fire", "Data loss", "Electrostatic discharge", "Network failure"], correct: "C" },
+    { text: "Ergonomics focuses on:", options: ["Fire safety", "Comfortable working conditions", "Network design", "Software installation"], correct: "B" },
+    { text: "A First Aid kit is important because it:", options: ["Repairs computers", "Provides immediate medical help", "Connects networks", "Tests cables"], correct: "B" },
+    { text: "Proper cable routing helps to:", options: ["Increase cable length", "Reduce clutter and hazards", "Slow down networks", "Increase fire risk"], correct: "B" },
+    { text: "Labelling cables helps in:", options: ["Decorating cables", "Easy identification", "Increasing speed", "Encrypting data"], correct: "B" },
+    { text: "Insulated tools are used to:", options: ["Improve speed", "Prevent electric shock", "Increase voltage", "Clean devices"], correct: "B" },
+    { text: "Electrical equipment power ratings indicate:", options: ["Cable color", "Power consumption limits", "Network speed", "Device brand"], correct: "B" },
+    { text: "Fire Class A involves:", options: ["Electrical equipment", "Flammable solids", "Metals only", "Cooking oils"], correct: "B" },
+    { text: "Fire extinguishers are used to:", options: ["Start fires", "Control or put out fires", "Increase heat", "Store fuel"], correct: "B" },
+    { text: "Emergency contact numbers are used to:", options: ["Install software", "Call for help during emergencies", "Connect networks", "Label cables"], correct: "B" },
+    { text: "Contingency measures refer to:", options: ["Network speed", "Backup plans during failures", "Hardware design", "Cable types"], correct: "B" },
+    { text: "A router is used to:", options: ["Print documents", "Forward data between networks", "Store files", "Cut cables"], correct: "B" },
+    { text: "Transmission media refers to:", options: ["Software tools", "Communication channels", "Power supply", "Firewalls"], correct: "B" },
+    { text: "Wireless access points are used to:", options: ["Cut cables", "Provide Wi-Fi connectivity", "Store data", "Clean networks"], correct: "B" },
+    { text: "Servers are mainly used for:", options: ["Gaming only", "Providing services and data", "Printing only", "Cable management"], correct: "B" },
+    { text: "Cable crimpers are used to:", options: ["Test signals", "Attach connectors to cables", "Measure voltage", "Install software"], correct: "B" },
+    { text: "A multimeter measures:", options: ["Network speed", "Electrical values", "Cable length", "Internet traffic"], correct: "B" },
+    { text: "A tone generator is used to:", options: ["Detect cables", "Increase power", "Encrypt data", "Block signals"], correct: "A" },
+    { text: "RJ45 connectors are used in:", options: ["Fiber optics", "Ethernet networking", "Fire safety", "Wireless charging"], correct: "B" },
+    { text: "Cable trunking is used to:", options: ["Store files", "Protect and organize cables", "Increase voltage", "Encrypt data"], correct: "B" },
+    { text: "Network design layout helps to:", options: ["Increase cost", "Plan network structure", "Delete cables", "Reduce security"], correct: "B" },
+    { text: "Cable termination refers to:", options: ["Starting a network", "Ending cables with connectors", "Increasing speed", "Removing routers"], correct: "B" },
+    { text: "OSI model has:", options: ["3 layers", "5 layers", "7 layers", "10 layers"], correct: "C" },
+    { text: "IPv4 address is:", options: ["32-bit", "64-bit", "128-bit", "16-bit"], correct: "A" },
+    { text: "CIDR is used for:", options: ["Fire safety", "Subnetting and IP allocation", "Cable cutting", "Wireless encryption"], correct: "B" },
+    { text: "VLAN is used to:", options: ["Increase fire risk", "Segment networks logically", "Power devices", "Print reports"], correct: "B" },
+    { text: "NAT is used to:", options: ["Translate network addresses", "Cut cables", "Increase voltage", "Store data"], correct: "A" },
+    { text: "STP helps to:", options: ["Increase loops", "Prevent network loops", "Reduce cables", "Increase fire"], correct: "B" },
+    { text: "LACP is used for:", options: ["Cable aggregation", "Fire control", "Data deletion", "IP addressing"], correct: "A" },
+    { text: "SSID refers to:", options: ["Cable type", "Wireless network name", "Router brand", "IP address"], correct: "B" },
+    { text: "Firewall is used to:", options: ["Block unauthorized access", "Increase speed", "Store data", "Route cables"], correct: "A" },
+    { text: "DHCP is used to:", options: ["Assign IP addresses automatically", "Encrypt files", "Cut cables", "Power devices"], correct: "A" },
+    { text: "Privileged accounts are used for:", options: ["Guest access", "Admin control", "Cable routing", "Fire safety"], correct: "B" },
+    { text: "Network documentation is:", options: ["Cable installation", "Recording network information", "Firewall setup", "Router configuration"], correct: "B" },
+    { text: "Logical documentation shows:", options: ["Building structure", "Network design and IP layout", "Fire safety plan", "Cable color"], correct: "B" },
+    { text: "E-waste refers to:", options: ["Food waste", "Electronic waste", "Paper waste", "Water waste"], correct: "B" },
+    { text: "EMCA Act relates to:", options: ["Network security", "Environmental management", "Software installation", "Cable design"], correct: "B" },
+    { text: "Which device connects multiple networks and forwards packets?", options: ["Switch", "Router", "Hub", "Bridge"], correct: "B" },
+    { text: "What does UTP stand for?", options: ["Unshielded Twisted Pair", "Universal Transfer Protocol", "Unified Terminal Port", "Upper Transport Layer"], correct: "A" },
+    { text: "What is the default subnet mask for Class C IP?", options: ["255.0.0.0", "255.255.0.0", "255.255.255.0", "255.255.255.255"], correct: "C" },
+    { text: "Which protocol is used for web browsing?", options: ["HTTP", "FTP", "SMTP", "Telnet"], correct: "A" },
+    { text: "What does LAN stand for?", options: ["Large Area Network", "Local Area Network", "Long Access Node", "Link Adaptation Network"], correct: "B" },
+    { text: "Which cable is immune to electromagnetic interference?", options: ["Coaxial", "UTP", "Fiber optic", "STP"], correct: "C" },
+    { text: "Which device broadcasts data to all ports?", options: ["Switch", "Hub", "Router", "Modem"], correct: "B" },
+    { text: "What is the purpose of DNS?", options: ["Convert domain to IP", "Assign IP automatically", "Block threats", "Encrypt data"], correct: "A" },
+    { text: "Which wireless standard is 5GHz?", options: ["802.11b", "802.11g", "802.11ac", "802.11n"], correct: "C" },
+    { text: "What does MAC address represent?", options: ["Physical hardware address", "Logical IP", "Network ID", "Subnet mask"], correct: "A" }
+];
 
-        function hideStudentDashboard() {
-            if(dashboardView) dashboardView.style.display = 'none';
-            portalTabs.style.display = 'flex';
-            portalForms.style.display = 'block';
-        }
-        function showStudentDashboard() {
-            portalTabs.style.display = 'none';
-            portalForms.style.display = 'none';
-            dashboardView.style.display = 'block';
-        }
+const MARKS_PER_Q = 2;   // 50q *2 = 100%
+const TOTAL_QS = FULL_EXAM.length;
 
-        function deactivateStudentAll() {
-            [tabLogin, tabRegister, tabReset].forEach(t => t?.classList.remove('active'));
-            [formLogin, formRegister, formReset].forEach(f => f?.classList.remove('active-form'));
-            hideStudentDashboard();
-            if(loginMessage) loginMessage.style.display = 'none';
-            if(registerMessage) registerMessage.style.display = 'none';
-            if(resetMessage) resetMessage.style.display = 'none';
-        }
-        function showStudentLogin() { deactivateStudentAll(); tabLogin.classList.add('active'); formLogin.classList.add('active-form'); }
-        function showStudentRegister() { deactivateStudentAll(); tabRegister.classList.add('active'); formRegister.classList.add('active-form'); }
-        function showStudentReset() { deactivateStudentAll(); tabReset.classList.add('active'); formReset.classList.add('active-form'); }
+// ----- attempt & score storage (in-memory for demo, per student reg) -----
+let studentRecords = {};   // key: regNumber, value: { attemptsUsed: number, bestScore: number, attemptHistory: [] }
 
-        if(tabLogin) {
-            tabLogin.addEventListener('click', (e) => { e.preventDefault(); showStudentLogin(); });
-            tabRegister.addEventListener('click', (e) => { e.preventDefault(); showStudentRegister(); });
-            tabReset.addEventListener('click', (e) => { e.preventDefault(); showStudentReset(); });
-        }
+function getStudentRecord(reg) {
+    if (!studentRecords[reg]) {
+        studentRecords[reg] = { attemptsUsed: 0, bestScore: 0, attemptHistory: [] };
+    }
+    return studentRecords[reg];
+}
 
-        document.getElementById('loginBtn')?.addEventListener('click', function() {
-            const username = document.getElementById('loginUser').value.trim();
-            const password = document.getElementById('loginPass').value.trim();
-            const msgDiv = document.getElementById('loginMessage');
-            if ((username === 'student@msambweni.ac.ke' || username === 'ADM001') && password === 'password123') {
-                msgDiv.className = 'form-message success';
-                msgDiv.innerText = 'Login successful! Redirecting...';
-                setTimeout(() => {
-                    showStudentDashboard();
-                }, 1000);
-            } else {
-                msgDiv.className = 'form-message error';
-                msgDiv.innerText = 'Invalid email/reg number or password.';
-            }
-        });
+function updateStudentRecord(reg, newScore) {
+    const record = getStudentRecord(reg);
+    record.attemptsUsed += 1;
+    record.attemptHistory.push({ score: newScore, timestamp: new Date() });
+    if (newScore > record.bestScore) {
+        record.bestScore = newScore;
+    }
+    studentRecords[reg] = record;
+    return record;
+}
 
-        document.getElementById('registerBtn')?.addEventListener('click', function() {
-            const pass = document.getElementById('regPass').value;
-            const confirm = document.getElementById('regConfirmPass').value;
-            const msgDiv = document.getElementById('registerMessage');
-            if (pass !== confirm) {
-                msgDiv.className = 'form-message error';
-                msgDiv.innerText = 'Passwords do not match.';
-            } else {
-                msgDiv.className = 'form-message success';
-                msgDiv.innerText = 'Account created successfully! You can now login.';
-            }
-        });
+function canAttempt(reg) {
+    const rec = getStudentRecord(reg);
+    return rec.attemptsUsed < 3;
+}
 
-        document.getElementById('resetBtn')?.addEventListener('click', function() {
-            const newPass = document.getElementById('resetNewPass').value;
-            const confirm = document.getElementById('resetConfirmPass').value;
-            const msgDiv = document.getElementById('resetMessage');
-            if (newPass !== confirm) {
-                msgDiv.className = 'form-message error';
-                msgDiv.innerText = 'Passwords do not match.';
-            } else {
-                msgDiv.className = 'form-message success';
-                msgDiv.innerText = 'Password reset successful. Please login with new password.';
-            }
-        });
+function getRemainingAttempts(reg) {
+    const rec = getStudentRecord(reg);
+    return 3 - rec.attemptsUsed;
+}
 
-        document.getElementById('logoutBtn')?.addEventListener('click', function(){
-            showStudentLogin();
-        });
-
-        const dropBtn = document.getElementById('dashboardDropdownBtn');
-        const dropMenu = document.getElementById('dashboardDropdownMenu');
-        if(dropBtn && dropMenu) {
-            dropBtn.addEventListener('click', (e) => { e.stopPropagation(); dropMenu.classList.toggle('show'); });
-            document.addEventListener('click', (e) => {
-                if(!dropBtn.contains(e.target) && !dropMenu.contains(e.target)) dropMenu.classList.remove('show');
-            });
-        }
-
-        // ----- EXAMINATION PORTAL -----
-        const examTabLogin = document.getElementById('exam-tab-login');
-        const examTabRegister = document.getElementById('exam-tab-register');
-        const examTabReset = document.getElementById('exam-tab-reset');
-        const examFormLogin = document.getElementById('exam-login-form');
-        const examFormRegister = document.getElementById('exam-register-form');
-        const examFormReset = document.getElementById('exam-reset-form');
-        const examTabs = document.getElementById('examTabs');
-        const examForms = document.getElementById('examForms');
-        const examDashboard = document.getElementById('exam-dashboard-view');
-        const examLoginMessage = document.getElementById('examLoginMessage');
-        const examRegisterMessage = document.getElementById('examRegisterMessage');
-        const examResetMessage = document.getElementById('examResetMessage');
-
-        function hideExamDashboard() {
-            if(examDashboard) examDashboard.style.display = 'none';
-            examTabs.style.display = 'flex';
-            examForms.style.display = 'block';
-        }
-        function showExamDashboard() {
-            examTabs.style.display = 'none';
-            examForms.style.display = 'none';
-            examDashboard.style.display = 'block';
-        }
-
-        function deactivateExamAll() {
-            [examTabLogin, examTabRegister, examTabReset].forEach(t => t?.classList.remove('active'));
-            [examFormLogin, examFormRegister, examFormReset].forEach(f => f?.classList.remove('active-form'));
-            hideExamDashboard();
-            if(examLoginMessage) examLoginMessage.style.display = 'none';
-            if(examRegisterMessage) examRegisterMessage.style.display = 'none';
-            if(examResetMessage) examResetMessage.style.display = 'none';
-        }
-        function showExamLogin() { deactivateExamAll(); examTabLogin.classList.add('active'); examFormLogin.classList.add('active-form'); }
-        function showExamRegister() { deactivateExamAll(); examTabRegister.classList.add('active'); examFormRegister.classList.add('active-form'); }
-        function showExamReset() { deactivateExamAll(); examTabReset.classList.add('active'); examFormReset.classList.add('active-form'); }
-
-        if(examTabLogin) {
-            examTabLogin.addEventListener('click', (e) => { e.preventDefault(); showExamLogin(); });
-            examTabRegister.addEventListener('click', (e) => { e.preventDefault(); showExamRegister(); });
-            examTabReset.addEventListener('click', (e) => { e.preventDefault(); showExamReset(); });
-        }
-
-        document.getElementById('examLoginBtn')?.addEventListener('click', function() {
-            const username = document.getElementById('examLoginUser').value.trim();
-            const password = document.getElementById('examLoginPass').value.trim();
-            const msgDiv = document.getElementById('examLoginMessage');
-            if (username === 'examiner@msambweni.ac.ke' && password === 'exam123') {
-                msgDiv.className = 'form-message success';
-                msgDiv.innerText = 'Login successful! Redirecting...';
-                setTimeout(() => {
-                    showExamDashboard();
-                }, 1000);
-            } else {
-                msgDiv.className = 'form-message error';
-                msgDiv.innerText = 'Invalid examiner credentials.';
-            }
-        });
-
-        document.getElementById('examRegisterBtn')?.addEventListener('click', function() {
-            const pass = document.getElementById('examRegPass').value;
-            const confirm = document.getElementById('examRegConfirmPass').value;
-            const msgDiv = document.getElementById('examRegisterMessage');
-            if (pass !== confirm) {
-                msgDiv.className = 'form-message error';
-                msgDiv.innerText = 'Passwords do not match.';
-            } else {
-                msgDiv.className = 'form-message success';
-                msgDiv.innerText = 'Examiner account created successfully!';
-            }
-        });
-
-        document.getElementById('examResetBtn')?.addEventListener('click', function() {
-            const newPass = document.getElementById('examResetNewPass').value;
-            const confirm = document.getElementById('examResetConfirmPass').value;
-            const msgDiv = document.getElementById('examResetMessage');
-            if (newPass !== confirm) {
-                msgDiv.className = 'form-message error';
-                msgDiv.innerText = 'Passwords do not match.';
-            } else {
-                msgDiv.className = 'form-message success';
-                msgDiv.innerText = 'Password reset successful.';
-            }
-        });
-
-        document.getElementById('examLogoutBtn')?.addEventListener('click', function(){
-            showExamLogin();
-        });
-
-        const examDropBtn = document.getElementById('examDropdownBtn');
-        const examDropMenu = document.getElementById('examDropdownMenu');
-        if(examDropBtn && examDropMenu) {
-            examDropBtn.addEventListener('click', (e) => { e.stopPropagation(); examDropMenu.classList.toggle('show'); });
-            document.addEventListener('click', (e) => {
-                if(!examDropBtn.contains(e.target) && !examDropMenu.contains(e.target)) examDropMenu.classList.remove('show');
-            });
-        }
-
-        // Countdown
-        const target = new Date(2026,4,1,23,59,59).getTime();
-        function updateCountdown() {
-            const now = new Date().getTime();
-            const dist = target - now;
-            if(dist < 0) return;
-            document.getElementById('days').innerText = Math.floor(dist/(1000*60*60*24));
-            document.getElementById('hours').innerText = Math.floor((dist%(1000*60*60*24))/(1000*60*60));
-            document.getElementById('minutes').innerText = Math.floor((dist%(1000*60*60))/(1000*60));
-            document.getElementById('seconds').innerText = Math.floor((dist%(1000*60))/1000);
-        }
-        updateCountdown();
-        setInterval(updateCountdown, 1000);
-
-        // ========== ADMIN CAROUSEL (AUTO SLIDING) ==========
-        const track = document.getElementById('adminTrack');
-        const prevBtn = document.getElementById('adminPrev');
-        const nextBtn = document.getElementById('adminNext');
-        const carouselContainer = document.getElementById('adminCarouselContainer');
-
-        if (track && prevBtn && nextBtn) {
-            let currentIndex = 0;
-            let autoSlideInterval;
-            const slideIntervalTime = 3000;
-
-            const cards = track.children;
-            if (cards.length > 0) {
-                const updateCarousel = () => {
-                    const card = cards[0];
-                    const cardWidth = card.offsetWidth;
-                    const gap = parseFloat(getComputedStyle(track).gap) || 24;
-                    const wrapper = track.parentElement;
-                    const wrapperWidth = wrapper.offsetWidth;
-                    const visibleCards = Math.floor(wrapperWidth / (cardWidth + gap));
-                    const maxIndex = Math.max(0, cards.length - visibleCards);
-                    if (currentIndex > maxIndex) currentIndex = maxIndex;
-                    if (currentIndex < 0) currentIndex = 0;
-                    track.style.transform = `translateX(-${currentIndex * (cardWidth + gap)}px)`;
-                    prevBtn.disabled = currentIndex === 0;
-                    nextBtn.disabled = currentIndex >= maxIndex;
-                };
-
-                const goToNext = () => {
-                    const card = cards[0];
-                    const cardWidth = card.offsetWidth;
-                    const gap = parseFloat(getComputedStyle(track).gap) || 24;
-                    const wrapper = track.parentElement;
-                    const wrapperWidth = wrapper.offsetWidth;
-                    const visibleCards = Math.floor(wrapperWidth / (cardWidth + gap));
-                    const maxIndex = Math.max(0, cards.length - visibleCards);
-                    if (currentIndex < maxIndex) {
-                        currentIndex++;
-                    } else {
-                        currentIndex = 0;
-                    }
-                    updateCarousel();
-                };
-
-                const goToPrev = () => {
-                    const card = cards[0];
-                    const cardWidth = card.offsetWidth;
-                    const gap = parseFloat(getComputedStyle(track).gap) || 24;
-                    const wrapper = track.parentElement;
-                    const wrapperWidth = wrapper.offsetWidth;
-                    const visibleCards = Math.floor(wrapperWidth / (cardWidth + gap));
-                    const maxIndex = Math.max(0, cards.length - visibleCards);
-                    if (currentIndex > 0) {
-                        currentIndex--;
-                    } else {
-                        currentIndex = maxIndex;
-                    }
-                    updateCarousel();
-                };
-
-                const startAutoSlide = () => {
-                    if (autoSlideInterval) clearInterval(autoSlideInterval);
-                    autoSlideInterval = setInterval(goToNext, slideIntervalTime);
-                };
-
-                const stopAutoSlide = () => {
-                    if (autoSlideInterval) {
-                        clearInterval(autoSlideInterval);
-                        autoSlideInterval = null;
-                    }
-                };
-
-                nextBtn.addEventListener('click', () => {
-                    goToNext();
-                    stopAutoSlide();
-                });
-                prevBtn.addEventListener('click', () => {
-                    goToPrev();
-                    stopAutoSlide();
-                });
-
-                carouselContainer.addEventListener('mouseenter', stopAutoSlide);
-                carouselContainer.addEventListener('mouseleave', startAutoSlide);
-
-                window.addEventListener('resize', () => {
-                    updateCarousel();
-                });
-
-                updateCarousel();
-                startAutoSlide();
-
-                setTimeout(updateCarousel, 100);
-            }
-        }
+// render exam form (fresh)
+function renderExamForm() {
+    const examArea = document.getElementById('examArea');
+    if (!examArea) return;
+    let html = `<form id="examForm">`;
+    FULL_EXAM.forEach((q, idx) => {
+        html += `
+            <div class="question-block">
+                <div class="question-text">${idx+1}. ${q.text}</div>
+                <div class="options">
+                    ${q.options.map((opt, optIdx) => {
+                        const letter = String.fromCharCode(65+optIdx);
+                        return `<label><input type="radio" name="q${idx}" value="${letter}"> ${letter}. ${opt}</label>`;
+                    }).join('')}
+                </div>
+            </div>
+        `;
     });
-})();
+    html += `<div class="exam-actions">
+                <button type="button" class="btn-submit exam-btn" id="submitExamBtn">Submit Exam & Record Attempt</button>
+                <button type="button" class="btn-submit" id="resetExamAnswersBtn" style="background:#6c757d">Clear Answers</button>
+             </div>`;
+    html += `</form>`;
+    examArea.innerHTML = html;
+
+    document.getElementById('submitExamBtn')?.addEventListener('click', () => handleExamSubmission());
+    document.getElementById('resetExamAnswersBtn')?.addEventListener('click', () => {
+        document.querySelectorAll('#examForm input[type="radio"]').forEach(r => r.checked = false);
+        const resDiv = document.getElementById('examResultArea');
+        if(resDiv) resDiv.innerHTML = '';
+    });
+}
+
+function handleExamSubmission() {
+    const currentStudent = window._activeStudent;
+    if (!currentStudent) return;
+    const reg = currentStudent.reg;
+    // check attempts again before marking
+    if (!canAttempt(reg)) {
+        document.getElementById('examResultArea').innerHTML = `<div class="locked-message"><i class="fas fa-ban"></i> You have exhausted all 3 attempts. No further submissions allowed.</div>`;
+        return;
+    }
+    let score = 0;
+    for (let i = 0; i < TOTAL_QS; i++) {
+        const selected = document.querySelector(`input[name="q${i}"]:checked`);
+        if (selected) {
+            if (selected.value === FULL_EXAM[i].correct) score += MARKS_PER_Q;
+        }
+    }
+    const percentage = score; // out of 100
+    // update records
+    const updated = updateStudentRecord(reg, percentage);
+    const remaining = 3 - updated.attemptsUsed;
+    // update UI attempt display
+    document.getElementById('remainingAttemptsSpan').innerText = remaining;
+    document.getElementById('attemptsUsedSpan').innerText = updated.attemptsUsed;
+    document.getElementById('bestScoreDisplay').innerText = updated.bestScore;
+    
+    let message = `<div class="result-card">
+                    <h3>Attempt #${updated.attemptsUsed} Result</h3>
+                    <p><strong>Your Score:</strong> ${percentage} / 100 (${percentage}%)</p>
+                    <p><strong>Best Score so far:</strong> ${updated.bestScore}%</p>
+                    <p><strong>Remaining Attempts:</strong> ${remaining}</p>
+                   </div>`;
+    if (remaining === 0) {
+        message += `<div class="locked-message"><i class="fas fa-exclamation-triangle"></i> You have used all 3 attempts. Exam locked.</div>`;
+        // disable submit button visually
+        const subBtn = document.getElementById('submitExamBtn');
+        if(subBtn) subBtn.disabled = true;
+    }
+    document.getElementById('examResultArea').innerHTML = message;
+    
+    // optionally auto-clear answers after submission? we keep answers visible but user can retake only if attempts left
+    if (remaining > 0) {
+        // don't clear, user can review but they must click submit again. They can also reset answers manually
+    } else {
+        // lock entire exam inputs
+        document.querySelectorAll('#examForm input[type="radio"]').forEach(r => r.disabled = true);
+    }
+}
+
+function loadDashboardForStudent(student) {
+    window._activeStudent = student;
+    const reg = student.reg;
+    const record = getStudentRecord(reg);
+    document.getElementById('remainingAttemptsSpan').innerText = 3 - record.attemptsUsed;
+    document.getElementById('attemptsUsedSpan').innerText = record.attemptsUsed;
+    document.getElementById('bestScoreDisplay').innerText = record.bestScore;
+    document.getElementById('studentName').innerText = student.name;
+    document.getElementById('studentReg').innerText = student.reg;
+    document.getElementById('studentCourse').innerText = student.course;
+    
+    // render fresh exam form
+    renderExamForm();
+    // if attempts exhausted, disable all inputs and show lock
+    if (!canAttempt(reg)) {
+        setTimeout(() => {
+            const radios = document.querySelectorAll('#examForm input[type="radio"]');
+            radios.forEach(r => r.disabled = true);
+            const subBtn = document.getElementById('submitExamBtn');
+            if(subBtn) subBtn.disabled = true;
+            document.getElementById('examResultArea').innerHTML = `<div class="locked-message">🔒 Exam locked. Maximum attempts (3) reached. Best score: ${record.bestScore}%</div>`;
+        }, 100);
+    }
+}
+
+// UI Logic: student login & registration
+const loginBtn = document.getElementById('loginBtn');
+const registerBtn = document.getElementById('registerBtn');
+const logoutBtn = document.getElementById('logoutBtn');
+const dashboardDiv = document.getElementById('dashboard-view');
+const portalTabsDiv = document.getElementById('portalTabs');
+const portalForms = document.querySelector('#portal .portal-forms');
+
+function showDashboard(student) {
+    portalTabsDiv.style.display = 'none';
+    portalForms.style.display = 'none';
+    dashboardDiv.style.display = 'block';
+    loadDashboardForStudent(student);
+}
+function hideDashboard() {
+    portalTabsDiv.style.display = 'flex';
+    portalForms.style.display = 'block';
+    dashboardDiv.style.display = 'none';
+    window._activeStudent = null;
+}
+
+loginBtn?.addEventListener('click', () => {
+    const username = document.getElementById('loginUser').value.trim();
+    const pwd = document.getElementById('loginPass').value.trim();
+    const msgDiv = document.getElementById('loginMessage');
+    if ((username === 'ADM001' || username === 'student@msambweni.ac.ke') && pwd === 'password123') {
+        const student = { name: "John Mwambweni", reg: "ADM001", course: "ICT", email: username };
+        showDashboard(student);
+        msgDiv.style.display = 'none';
+    } else if (username === 'STU002' && pwd === 'pass123') {
+        const student2 = { name: "Aisha Hassan", reg: "STU002", course: "Electrical", email: username };
+        showDashboard(student2);
+        msgDiv.style.display = 'none';
+    } else {
+        msgDiv.style.display = 'block';
+        msgDiv.style.background = '#f8d7da';
+        msgDiv.style.color = '#721c24';
+        msgDiv.innerHTML = 'Invalid credentials. Use ADM001 / password123  or STU002 / pass123';
+    }
+});
+
+registerBtn?.addEventListener('click', () => {
+    const name = document.getElementById('regName').value.trim() || "New Student";
+    const reg = document.getElementById('regNumber').value.trim();
+    const course = document.getElementById('regCourse').value;
+    const pwd = document.getElementById('regPass').value;
+    const msg = document.getElementById('registerMessage');
+    if (!reg || pwd.length < 4) {
+        msg.style.display = 'block';
+        msg.style.background = '#f8d7da';
+        msg.innerHTML = 'Valid registration number and password required';
+        return;
+    }
+    msg.style.display = 'block';
+    msg.style.background = '#d4edda';
+    msg.innerHTML = 'Registration successful! You can now login.';
+    document.getElementById('loginUser').value = reg;
+    document.getElementById('loginPass').value = pwd;
+    document.getElementById('tab-login').click();
+});
+
+logoutBtn?.addEventListener('click', hideDashboard);
+
+// Tab switching
+const tabLogin = document.getElementById('tab-login');
+const tabRegister = document.getElementById('tab-register');
+const loginForm = document.getElementById('login-form');
+const registerForm = document.getElementById('register-form');
+tabLogin?.addEventListener('click', () => {
+    tabLogin.classList.add('active'); tabRegister.classList.remove('active');
+    loginForm.classList.add('active-form'); registerForm.classList.remove('active-form');
+});
+tabRegister?.addEventListener('click', () => {
+    tabRegister.classList.add('active'); tabLogin.classList.remove('active');
+    registerForm.classList.add('active-form'); loginForm.classList.remove('active-form');
+});
+
+// Demo reset attempts (examiner)
+document.getElementById('resetAttemptsDemoBtn')?.addEventListener('click', () => {
+    if (studentRecords['ADM001']) {
+        studentRecords['ADM001'] = { attemptsUsed: 0, bestScore: 0, attemptHistory: [] };
+        document.getElementById('resetMsg').innerHTML = '<span style="color:green;">✅ Attempts for ADM001 have been reset to 3.</span>';
+        if (window._activeStudent && window._activeStudent.reg === 'ADM001') {
+            loadDashboardForStudent(window._activeStudent);
+        }
+    } else {
+        studentRecords['ADM001'] = { attemptsUsed: 0, bestScore: 0, attemptHistory: [] };
+        document.getElementById('resetMsg').innerHTML = '<span style="color:green;">✅ Reset successful.</span>';
+        if (window._activeStudent && window._activeStudent.reg === 'ADM001') loadDashboardForStudent(window._activeStudent);
+    }
+});
 </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
