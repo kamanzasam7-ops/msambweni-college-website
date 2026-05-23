@@ -2,576 +2,392 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>Msambweni TVC - Dual CBT Exams (3 Attempts Each)</title>
+    <title>ICT Portal | Msambweni TVC - CBT Exams</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Roboto, sans-serif;
-        }
-        body {
-            background: #f0f4f8 url('gra.jpg') fixed center/cover;
-            line-height: 1.6;
-        }
-        body::before {
-            content: "";
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background-color: rgba(255, 255, 255, 0.88);
-            z-index: -1;
-        }
-        :root {
-            --primary-color: #2563eb;
-            --primary-dark: #1d4ed8;
-            --success-color: #10b981;
-            --danger-color: #ef4444;
-            --light-bg: #f8fafc;
-            --card-bg: #ffffff;
-            --border-color: #e2e8f0;
-            --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1);
-            --radius-lg: 0.5rem;
-        }
-        header {
-            background-color: #003366;
-            color: white;
-            padding: 0.8rem 2rem;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-        .logo-area { display: flex; align-items: center; gap: 1rem; }
-        .logo-area img { width: 70px; height: 70px; border-radius: 50%; border: 2px solid #ffaa00; object-fit: cover; }
-        .college-title h1 { font-size: 1.6rem; }
-        .nav-links a {
-            color: white;
-            text-decoration: none;
-            padding: 0.6rem 1.2rem;
-            border-radius: 30px;
-            font-weight: 500;
-            transition: 0.2s;
-        }
-        .nav-links a:hover { background-color: #ffaa00; color: #003366; }
-        .container { max-width: 1300px; margin: 2rem auto; padding: 0 1.5rem; }
-        .portal-section {
-            max-width: 1200px;
-            margin: 2rem auto;
-            background: var(--card-bg);
-            border-radius: var(--radius-lg);
-            box-shadow: var(--shadow-lg);
-            overflow: hidden;
-        }
-        .portal-header {
-            background: linear-gradient(135deg, #003366, #002244);
-            color: white;
-            padding: 1.5rem;
-            text-align: center;
-        }
-        /* BIGGER LOGO in portal header */
-        .portal-header img { 
-            width: 120px; 
-            height: 120px; 
-            border-radius: 50%; 
-            border: 4px solid #ffaa00; 
-            margin-bottom: 1rem;
-            object-fit: cover;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-            transition: transform 0.3s ease;
-        }
-        .portal-header img:hover {
-            transform: scale(1.05);
-        }
-        .portal-header h2 {
-            font-size: 1.8rem;
-            margin-top: 0.5rem;
-        }
-        .portal-tabs { display: flex; background: var(--light-bg); border-bottom: 1px solid var(--border-color); }
-        .tab-btn {
-            flex: 1;
-            background: none;
-            border: none;
-            padding: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: 0.2s;
-        }
-        .tab-btn.active { color: var(--primary-color); border-bottom: 2px solid var(--primary-color); }
-        .portal-forms { padding: 2rem; }
-        .form { display: none; }
-        .form.active-form { display: block; }
-        .form-group { margin-bottom: 1rem; }
-        .form-group input, .form-group select { width: 100%; padding: 0.75rem; border: 1px solid var(--border-color); border-radius: 0.375rem; }
-        .btn-submit {
-            background: var(--primary-color);
-            color: white;
-            border: none;
-            padding: 0.75rem;
-            border-radius: 0.375rem;
-            width: 100%;
-            font-weight: bold;
-            cursor: pointer;
-            transition: 0.2s;
-        }
-        .btn-submit.exam-btn { background: #b45309; }
-        .btn-submit:disabled { opacity: 0.6; cursor: not-allowed; }
-        .dashboard-view { padding: 2rem; display: none; }
-        .student-details {
-            background: var(--light-bg);
-            padding: 1rem;
-            border-radius: 0.5rem;
-            display: flex;
-            gap: 1.5rem;
-            flex-wrap: wrap;
-            margin-bottom: 1.5rem;
-            align-items: center;
-            justify-content: space-between;
-        }
-        .welcome-badge {
-            background: #003366;
-            color: white;
-            padding: 0.5rem 1rem;
-            border-radius: 30px;
-            font-weight: bold;
-        }
-        .exam-selector {
-            display: flex;
-            gap: 1rem;
-            margin-bottom: 1.5rem;
-            border-bottom: 2px solid #e2e8f0;
-            padding-bottom: 0.5rem;
-        }
-        .exam-tab {
-            background: none;
-            border: none;
-            padding: 0.8rem 1.5rem;
-            font-size: 1.1rem;
-            font-weight: 600;
-            cursor: pointer;
-            border-radius: 30px;
-            transition: 0.2s;
-        }
-        .exam-tab.active {
-            background: #003366;
-            color: white;
-        }
-        .attempt-badge {
-            background: #ffedd5;
-            border-left: 5px solid #b45309;
-            padding: 0.8rem;
-            border-radius: 12px;
-            margin-bottom: 1.2rem;
-            font-weight: bold;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-        }
-        .exam-module-card {
-            background: #fff7ed;
-            border-radius: 20px;
-            padding: 1.5rem;
-            margin: 1rem 0;
-            border: 2px solid #fed7aa;
-        }
-        .question-block {
-            background: #f9fafb;
-            margin-bottom: 1.5rem;
-            padding: 1rem;
-            border-radius: 16px;
-            border-left: 5px solid #b45309;
-        }
-        .question-text { font-weight: 700; margin-bottom: 0.75rem; color: #1e293b; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background: linear-gradient(135deg, #e8f5e9 0%, #e0f2f1 100%); color: #1b3b4f; }
+        .color-stripes { position: fixed; top: 0; left: 0; width: 100%; height: 6px; display: flex; z-index: 1000; }
+        .stripe { flex: 1; height: 100%; }
+        .stripe1 { background: #2ecc71; }
+        .stripe2 { background: #f1c40f; }
+        .stripe3 { background: #3498db; }
+        .stripe4 { background: #27ae60; }
+        .stripe5 { background: #f39c12; }
+        .portal-header { background: linear-gradient(105deg, #0a3b2f 0%, #1b6d5e 100%); padding: 1rem 2rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; box-shadow: 0 12px 28px rgba(0,0,0,0.15); }
+        .logo-badge { display: flex; align-items: center; gap: 15px; background: rgba(255,255,255,0.12); backdrop-filter: blur(8px); padding: 8px 24px; border-radius: 60px; }
+        .logo-circle { background: white; width: 55px; height: 55px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; color: #1b6d5e; }
+        .logo-text h3 { color: white; font-size: 1rem; }
+        .logo-text p { color: #e0f2e9; font-size: 0.7rem; }
+        .center-title h1 { color: white; font-size: 1.5rem; }
+        .center-title p { color: #f9e79f; }
+        .main-wrapper { max-width: 1400px; margin: 2rem auto; padding: 0 1.8rem; }
+        .glass-auth { background: white; border-radius: 42px; max-width: 520px; margin: 0 auto 2rem; padding: 2rem; box-shadow: 0 25px 40px -15px rgba(0,0,0,0.2); }
+        .auth-tabs { display: flex; gap: 0.8rem; margin-bottom: 1.8rem; border-bottom: 2px solid #c8e6df; }
+        .auth-tab { background: none; border: none; padding: 8px 20px; font-weight: 600; border-radius: 40px; cursor: pointer; color: #2c7a5e; }
+        .auth-tab.active { background: #2ecc71; color: white; }
+        .auth-panel { display: none; animation: fadeIn 0.25s; }
+        .auth-panel.active-panel { display: block; }
+        @keyframes fadeIn { from { opacity:0; transform:translateY(6px);} to { opacity:1; transform:translateY(0);} }
+        .input-group { margin-bottom: 1.2rem; }
+        .input-group input { width: 100%; padding: 12px 18px; border: 1.5px solid #cde6dc; border-radius: 60px; font-size: 0.95rem; }
+        .btn-primary { background: linear-gradient(95deg, #2ecc71, #27ae60); width: 100%; padding: 12px; border-radius: 60px; font-weight: bold; border: none; color: white; cursor: pointer; transition: 0.2s; }
+        .btn-primary:hover { transform: translateY(-2px); }
+        .message-box { border-radius: 40px; padding: 10px; margin-top: 1rem; text-align: center; font-size: 0.8rem; display: none; }
+        .error-msg { background: #fee2e2; color: #c0392b; }
+        .success-msg { background: #e0f5e8; color: #1e7e5c; }
+        .dashboard-modern { display: none; }
+        .clock-mega { background: linear-gradient(115deg, #0e4d3e, #1b6d5e); border-radius: 32px; padding: 1.2rem; text-align: center; margin-bottom: 2rem; position: relative; }
+        .big-clock { font-family: monospace; font-size: 4rem; font-weight: 800; background: #02261e; display: inline-block; padding: 0.3rem 2rem; border-radius: 70px; color: #f1c40f; letter-spacing: 4px; }
+        .date-large { color: #f9e79f; margin-top: 8px; }
+        .logout-top-btn { position: absolute; right: 20px; top: 20px; background: #f1c40f; border: none; padding: 8px 24px; border-radius: 40px; font-weight: bold; cursor: pointer; }
+        .info-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.8rem; margin-bottom: 2rem; }
+        .announce-card, .sports-card { background: white; border-radius: 28px; padding: 1.2rem 1.5rem; box-shadow: 0 10px 20px rgba(0,0,0,0.05); border-left: 6px solid #f1c40f; }
+        .sports-card { border-left-color: #2ecc71; }
+        .section-title { font-weight: 800; margin-bottom: 1rem; display: flex; gap: 8px; color: #0e4d3e; }
+        .announce-list li, .sports-list li { margin-bottom: 10px; border-bottom: 1px dashed #d0e6dd; padding-bottom: 6px; list-style: none; }
+        .exams-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(450px, 1fr)); gap: 2rem; margin: 2rem 0; }
+        .exam-card { background: white; border-radius: 32px; overflow: hidden; box-shadow: 0 12px 24px -10px rgba(0,0,0,0.1); }
+        .exam-header-color { background: linear-gradient(115deg, #eefbe6, #ffffff); padding: 1.2rem 1.5rem; border-bottom: 3px solid #f1c40f; text-align: center; }
+        .exam-header-color h2 { color: #1b6d5e; display: flex; align-items: center; justify-content: center; gap: 12px; }
+        .exam-photo { width: 100%; height: 180px; object-fit: cover; }
+        .exam-body { padding: 1.5rem; }
+        .attempt-badge { background: #ffedd5; border-left: 5px solid #b45309; padding: 0.8rem; border-radius: 12px; margin-bottom: 1.2rem; display: flex; justify-content: space-between; flex-wrap: wrap; font-weight: bold; }
+        .question-block { background: #f9fafb; margin-bottom: 1rem; padding: 0.8rem; border-radius: 16px; border-left: 4px solid #b45309; }
+        .question-text { font-weight: 700; margin-bottom: 0.5rem; font-size: 0.9rem; }
         .options { display: flex; flex-wrap: wrap; gap: 1rem; margin: 0.5rem 0; }
-        .options label { display: flex; align-items: center; gap: 0.4rem; cursor: pointer; }
-        .exam-actions { display: flex; gap: 1rem; margin-top: 1.5rem; flex-wrap: wrap; }
+        .options label { display: flex; align-items: center; gap: 0.4rem; cursor: pointer; font-size: 0.85rem; }
+        .btn-submit-exam { background: #2ecc71; border: none; padding: 8px 20px; border-radius: 40px; font-weight: bold; color: white; cursor: pointer; margin-top: 10px; margin-right: 10px; }
         .result-card { background: #e6f7e6; padding: 1rem; border-radius: 16px; margin-top: 1rem; text-align: center; }
-        .result-card.fail { background: #fee2e2; color: #991b1b; }
-        .result-card.pass { background: #d1fae5; color: #065f46; }
-        .locked-message { background: #fee2e2; padding: 1.5rem; border-radius: 20px; text-align: center; color: #991b1b; }
-        footer { background-color: #002244; color: #ccc; padding: 2rem; text-align: center; margin-top: 2rem; }
-        textarea { width: 100%; padding: 0.75rem; border: 1px solid var(--border-color); border-radius: 0.5rem; font-family: monospace; }
-        .feedback-message { font-size: 1.2rem; margin-top: 0.5rem; font-weight: bold; }
-        @media (max-width: 700px) { 
-            header { flex-direction: column; text-align: center; } 
-            .exam-tab { padding: 0.5rem 1rem; font-size: 0.9rem; }
-            .portal-header img { width: 90px; height: 90px; }
-        }
+        .locked-message { background: #fee2e2; padding: 1rem; border-radius: 20px; text-align: center; color: #991b1b; }
+        .designer-credit { text-align: center; margin: 1rem 0; padding: 0.8rem; background: linear-gradient(95deg, #f1c40f, #f39c12); border-radius: 60px; color: #0a3b2f; font-weight: bold; }
+        .modern-footer { background: #0a3b2f; border-radius: 2rem 2rem 0 0; margin-top: 2.5rem; padding: 2rem 2rem 1rem; color: #e0f2e9; }
+        .footer-flex { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 2rem; }
+        .social-icons a { background: rgba(255,255,255,0.12); width: 45px; height: 45px; display: inline-flex; align-items: center; justify-content: center; border-radius: 50%; margin-right: 12px; color: white; font-size: 1.3rem; transition: 0.2s; text-decoration: none; }
+        .social-icons a:hover { background: #f1c40f; color: #0a3b2f; transform: translateY(-4px); }
+        .footer-bottom { text-align: center; margin-top: 1.8rem; padding-top: 1rem; border-top: 1px solid #2c7a5e; }
+        @media (max-width: 860px) { .info-row { grid-template-columns: 1fr; } .big-clock { font-size: 2rem; } .logout-top-btn { position: static; margin-top: 12px; } .exams-grid { grid-template-columns: 1fr; } }
     </style>
 </head>
 <body>
+<div class="color-stripes"><div class="stripe stripe1"></div><div class="stripe stripe2"></div><div class="stripe stripe3"></div><div class="stripe stripe4"></div><div class="stripe stripe5"></div></div>
 
-<header>
-    <div class="logo-area">
-        <img src="logo.jpg" alt="Logo" onerror="this.src='https://via.placeholder.com/70?text=MSA'">
-        <div class="college-title"><h1>MSAMBWENI TECHNICAL AND VOCATIONAL COLLEGE</h1><p>CBT - Two Exams | 3 Attempts Each</p></div>
-    </div>
-    <div class="nav-links">
-        <a href="#home">Home</a>
-        <a href="#portal">Student Portal</a>
-        <a href="#exam-portal">Exam Dept</a>
-    </div>
-</header>
-
-<div class="container" id="home">
-    <div style="text-align:center; margin-bottom:1rem;"><h2 style="color:#003366">📚 Computer Based Tests: Each exam has 3 attempts. Best score recorded.</h2></div>
-
-    <section id="portal" class="portal-section">
-        <div class="portal-header">
-             <h2>MR SAMSON RUMBA </h2>
-            <img src="KIJANA.jpg" onerror="this.src='https://via.placeholder.com/120?text=MSA'">
-            <h2>STUDENT PORTAL ONLINE PRACTICE QUESTIONS</h2>
-            <p>ELEMENT TWO: INSTALL NETWORK | ELEMENT ONE: NETWORK DESIGN (MCQ + Theory)</p>
-        </div>
-        <div class="portal-tabs" id="portalTabs">
-            <button class="tab-btn active" id="tab-login">Login</button>
-            <button class="tab-btn" id="tab-register">Register</button>
-        </div>
-        <div class="portal-forms">
-            <div id="login-form" class="form active-form">
-                <h3>Login to Access Exams</h3>
-                <div class="form-group"><label><i class="fas fa-user"></i> Your Full Name</label><input type="text" id="studentFullName" placeholder="Enter your full name" required></div>
-                <div class="form-group"><label><i class="fas fa-id-card"></i> Registration Number</label><input type="text" id="loginUser" placeholder="ADM001 or student@msambweni.ac.ke"></div>
-                <div class="form-group"><label><i class="fas fa-lock"></i> Password</label><input type="password" id="loginPass" placeholder="password123"></div>
-                <button class="btn-submit" id="loginBtn">Login & Take Exams</button>
-                <div id="loginMessage" style="margin-top:1rem; display:none; padding:0.5rem; border-radius:8px;"></div>
-                <div class="form-footer" style="margin-top:1rem; text-align:center; font-size:0.85rem;">
-                    <p>Demo Credentials: ADM001 / password123  or  STU002 / pass123</p>
-                </div>
-            </div>
-            <div id="register-form" class="form">
-                <h3>Create Account (Demo)</h3>
-                <div class="form-group"><label><i class="fas fa-user"></i> Full Name</label><input type="text" id="regName" placeholder="Enter your full name"></div>
-                <div class="form-group"><label><i class="fas fa-envelope"></i> Email</label><input type="email" id="regEmail" value="student@msambweni.ac.ke"></div>
-                <div class="form-group"><label><i class="fas fa-id-card"></i> Reg Number</label><input type="text" id="regNumber" placeholder="ADM001"></div>
-                <div class="form-group"><label><i class="fas fa-graduation-cap"></i> Course</label><select id="regCourse"><option>ICT</option><option>Electrical</option><option>Business</option></select></div>
-                <div class="form-group"><label><i class="fas fa-lock"></i> Password</label><input type="password" id="regPass" placeholder="Create password"></div>
-                <button class="btn-submit" id="registerBtn">Register</button>
-                <div id="registerMessage" style="margin-top:1rem; display:none;"></div>
-            </div>
-        </div>
-
-        <!-- Dashboard with dual exams -->
-        <div id="dashboard-view" class="dashboard-view">
-            <div class="student-details">
-                <span><strong>👤 Student:</strong> <span id="studentNameDisplay">---</span></span>
-                <span><strong>📘 Reg No:</strong> <span id="studentReg">---</span></span>
-                <span><strong>📚 Course:</strong> <span id="studentCourse">---</span></span>
-                <span class="welcome-badge"><i class="fas fa-graduation-cap"></i> Welcome to CBT</span>
-            </div>
-            
-            <!-- Exam Selector Tabs -->
-            <div class="exam-selector">
-                <button class="exam-tab active" id="exam1Tab">📡 Exam 1: Network & Safety (50 MCQs)</button>
-                <button class="exam-tab" id="exam2Tab">🌐 Exam 2: Networking Principles (MCQ+Theory)</button>
-            </div>
-
-            <!-- Exam 1 Panel -->
-            <div id="exam1Panel">
-                <div class="attempt-badge">
-                    <span><i class="fas fa-hourglass-half"></i> Exam 1 Remaining: <strong id="exam1Remaining">3</strong> / 3</span>
-                    <span><i class="fas fa-chart-line"></i> Attempts used: <span id="exam1Used">0</span> | Best Score: <span id="exam1Best">--</span>%</span>
-                </div>
-                <div class="exam-module-card">
-                    <h3><i class="fas fa-file-alt"></i> Exam 1: Network & Safety (Set A) - 50 Questions x 2 = 100%</h3>
-                    <div id="exam1Area"></div>
-                    <div id="exam1Result"></div>
-                </div>
-            </div>
-
-            <!-- Exam 2 Panel (hidden initially) -->
-            <div id="exam2Panel" style="display:none;">
-                <div class="attempt-badge">
-                    <span><i class="fas fa-hourglass-half"></i> Exam 2 Remaining: <strong id="exam2Remaining">3</strong> / 3</span>
-                    <span><i class="fas fa-chart-line"></i> Attempts used: <span id="exam2Used">0</span> | Best Score: <span id="exam2Best">--</span>%</span>
-                </div>
-                <div class="exam-module-card">
-                    <h3><i class="fas fa-globe"></i> Exam 2: Networking Principles (20 MCQs + Theory = 100 Marks)</h3>
-                    <div id="exam2Area"></div>
-                    <div id="exam2Result"></div>
-                </div>
-            </div>
-
-            <button class="btn-submit" id="logoutBtn" style="background:#6c757d; margin-top:1rem;">Logout</button>
-        </div>
-    </section>
-
-    <section id="exam-portal" class="portal-section" style="margin-top:2rem">
-        <div class="portal-header" style="background: #b45309">
-            <img src="logo.jpg" onerror="this.src='https://via.placeholder.com/120?text=Exam'">
-            <h2>Examination Department</h2>
-        </div>
-        <div style="padding:2rem; text-align:center">
-            <button id="resetAllAttemptsBtn" class="btn-submit exam-btn" style="width:auto; padding:0.75rem 1.5rem;">🔄 Reset All Attempts for Current Student</button>
-            <div id="resetMsg" style="margin-top:0.5rem;"></div>
-        </div>
-    </section>
+<div class="portal-header">
+    <div class="logo-badge"><div class="logo-circle"><i class="fas fa-university"></i></div><div class="logo-text"><h3>Msambweni TVC</h3><p>ICT Centre of Excellence</p></div></div>
+    <div class="center-title"><h1><i class="fas fa-microchip"></i> ICT Student Portal</h1><p>CBT Exams: Network Design | Digital Literacy (Based on Official Notes)</p></div>
+    <div class="logo-badge"><div class="logo-circle"><i class="fas fa-building-columns"></i></div><div class="logo-text"><h3>Govt of Kenya</h3><p>TVET Accredited</p></div></div>
 </div>
 
-<footer><p>© 2025 Msambweni TVC - Each exam allows 3 attempts. Passing mark: 50%. Best score is recorded.</p></footer>
+<div class="main-wrapper">
+    <div id="authContainer" class="glass-auth">
+        <div class="auth-tabs"><button class="auth-tab active" data-tab="loginPanel">🔐 Login</button><button class="auth-tab" data-tab="registerPanel">📝 Create Account</button><button class="auth-tab" data-tab="resetPanel">🔄 Reset Password</button></div>
+        <div id="loginPanel" class="auth-panel active-panel">
+            <div class="input-group"><input type="text" id="loginEmail" placeholder="Email / Student ID" value="student@ict.com"></div>
+            <div class="input-group"><input type="password" id="loginPass" placeholder="Password" value="pass123"></div>
+            <button id="doLoginAction" class="btn-primary">🚀 Access Portal</button>
+            <div id="loginErrorMsg" class="message-box"></div>
+        </div>
+        <div id="registerPanel" class="auth-panel">
+            <div class="input-group"><input type="text" id="regName" placeholder="Full Name"></div>
+            <div class="input-group"><input type="text" id="regNumber" placeholder="Registration No."></div>
+            <div class="input-group"><input type="email" id="regEmailAddr" placeholder="Email"></div>
+            <div class="input-group"><input type="password" id="regPassword" placeholder="Password (min 6)"></div>
+            <div class="input-group"><input type="password" id="regConfirm" placeholder="Confirm Password"></div>
+            <button id="doRegisterAction" class="btn-primary">📝 Register</button>
+            <div id="regMessageBlock" class="message-box"></div>
+        </div>
+        <div id="resetPanel" class="auth-panel">
+            <div class="input-group"><input type="email" id="resetEmailAddr" placeholder="Registered Email"></div>
+            <div class="input-group"><input type="password" id="resetNewPass" placeholder="New Password"></div>
+            <div class="input-group"><input type="password" id="resetConfirmPass" placeholder="Confirm New Password"></div>
+            <button id="doResetAction" class="btn-primary">🔄 Reset Password</button>
+            <div id="resetMsgBlock" class="message-box"></div>
+        </div>
+        <div style="font-size: 0.7rem; text-align:center; margin-top:1rem;">Demo: student@ict.com / pass123 (or create new account)</div>
+    </div>
+
+    <div id="studentDashboard" class="dashboard-modern">
+        <div class="clock-mega"><div class="big-clock" id="giantClockDisplay">--:--:--</div><div class="date-large" id="fullDateText"></div><button id="logoutMainBtn" class="logout-top-btn"><i class="fas fa-sign-out-alt"></i> Logout</button></div>
+
+        <div class="info-row">
+            <div class="announce-card">
+                <div class="section-title"><i class="fas fa-bullhorn" style="color:#f1c40f;"></i> 📢 Announcements</div>
+                <ul class="announce-list"><li>📌 All exam dates and schedules will be communicated via official portal and notice boards.</li><li>📌 Supplementary examinations: Dates to be announced soon.</li><li>📌 Industrial attachment opportunities will be communicated per department.</li><li>📌 Guest lectures and workshops dates will be posted here.</li></ul>
+            </div>
+            <div class="sports-card">
+                <div class="section-title"><i class="fas fa-futbol" style="color:#2ecc71;"></i> 🏆 Sports</div>
+                <ul class="sports-list"><li>⚽ Inter-campus football fixtures: To be communicated.</li><li>🏃 Athletics championship dates: Will be announced.</li><li>🏐 Volleyball league schedule: Coming soon.</li><li>🎉 Sports day and cultural event dates: Pending communication.</li></ul>
+            </div>
+        </div>
+
+        <div class="exams-grid" id="examsContainer"></div>
+        <div class="designer-credit"><i class="fas fa-user-check"></i> Prepared by <strong>Mr. Samson Rumba</strong> – Senior ICT Instructor | CBT System Developer</div>
+        <footer class="modern-footer">
+            <div class="footer-flex">
+                <div><i class="fas fa-school"></i> <strong>ICT Department</strong><br>Msambweni TVC, Kwale County</div>
+                <div class="social-icons"><a href="#"><i class="fab fa-youtube"></i></a><a href="#"><i class="fab fa-facebook-f"></i></a><a href="#"><i class="fab fa-twitter"></i></a><a href="#"><i class="fab fa-tiktok"></i></a></div>
+                <div><i class="fas fa-futbol"></i> Sports: Football, Volleyball, Athletics<br><i class="fas fa-calendar-alt"></i> Schedules to be communicated</div>
+            </div>
+            <div class="footer-bottom">© 2026 Msambweni Technical & Vocational College | Designed by Mr. Samson – ICT Portal | 3 Attempts Each Exam</div>
+        </footer>
+    </div>
+</div>
 
 <script>
-// ======================= EXAM 1: 50 MCQs =======================
-const EXAM1_QUESTIONS = [
-    { text: "Which of the following is a Personal Protective Equipment (PPE)?", options: ["Router", "Gloves", "Switch", "Ethernet cable"], correct: "B" },
-    { text: "The main purpose of an antiglare screen is to:", options: ["Increase brightness", "Reduce eye strain", "Improve network speed", "Protect from dust"], correct: "B" },
-    { text: "Dust masks are mainly used to protect against:", options: ["Radiation", "Dust particles", "Electrical shock", "Heat"], correct: "B" },
-    { text: "Antistatic equipment is used to prevent:", options: ["Fire", "Data loss", "Electrostatic discharge", "Network failure"], correct: "C" },
-    { text: "Ergonomics focuses on:", options: ["Fire safety", "Comfortable working conditions", "Network design", "Software installation"], correct: "B" },
-    { text: "A First Aid kit is important because it:", options: ["Repairs computers", "Provides immediate medical help", "Connects networks", "Tests cables"], correct: "B" },
-    { text: "Proper cable routing helps to:", options: ["Increase cable length", "Reduce clutter and hazards", "Slow down networks", "Increase fire risk"], correct: "B" },
-    { text: "Labelling cables helps in:", options: ["Decorating cables", "Easy identification", "Increasing speed", "Encrypting data"], correct: "B" },
-    { text: "Insulated tools are used to:", options: ["Improve speed", "Prevent electric shock", "Increase voltage", "Clean devices"], correct: "B" },
-    { text: "Electrical equipment power ratings indicate:", options: ["Cable color", "Power consumption limits", "Network speed", "Device brand"], correct: "B" },
-    { text: "Fire Class A involves:", options: ["Electrical equipment", "Flammable solids", "Metals only", "Cooking oils"], correct: "B" },
-    { text: "Fire extinguishers are used to:", options: ["Start fires", "Control or put out fires", "Increase heat", "Store fuel"], correct: "B" },
-    { text: "Emergency contact numbers are used to:", options: ["Install software", "Call for help during emergencies", "Connect networks", "Label cables"], correct: "B" },
-    { text: "Contingency measures refer to:", options: ["Network speed", "Backup plans during failures", "Hardware design", "Cable types"], correct: "B" },
-    { text: "A router is used to:", options: ["Print documents", "Forward data between networks", "Store files", "Cut cables"], correct: "B" },
-    { text: "Transmission media refers to:", options: ["Software tools", "Communication channels", "Power supply", "Firewalls"], correct: "B" },
-    { text: "Wireless access points are used to:", options: ["Cut cables", "Provide Wi-Fi connectivity", "Store data", "Clean networks"], correct: "B" },
-    { text: "Servers are mainly used for:", options: ["Gaming only", "Providing services and data", "Printing only", "Cable management"], correct: "B" },
-    { text: "Cable crimpers are used to:", options: ["Test signals", "Attach connectors to cables", "Measure voltage", "Install software"], correct: "B" },
-    { text: "A multimeter measures:", options: ["Network speed", "Electrical values", "Cable length", "Internet traffic"], correct: "B" },
-    { text: "A tone generator is used to:", options: ["Detect cables", "Increase power", "Encrypt data", "Block signals"], correct: "A" },
-    { text: "RJ45 connectors are used in:", options: ["Fiber optics", "Ethernet networking", "Fire safety", "Wireless charging"], correct: "B" },
-    { text: "Cable trunking is used to:", options: ["Store files", "Protect and organize cables", "Increase voltage", "Encrypt data"], correct: "B" },
-    { text: "Network design layout helps to:", options: ["Increase cost", "Plan network structure", "Delete cables", "Reduce security"], correct: "B" },
-    { text: "Cable termination refers to:", options: ["Starting a network", "Ending cables with connectors", "Increasing speed", "Removing routers"], correct: "B" },
-    { text: "OSI model has:", options: ["3 layers", "5 layers", "7 layers", "10 layers"], correct: "C" },
-    { text: "IPv4 address is:", options: ["32-bit", "64-bit", "128-bit", "16-bit"], correct: "A" },
-    { text: "CIDR is used for:", options: ["Fire safety", "Subnetting and IP allocation", "Cable cutting", "Wireless encryption"], correct: "B" },
-    { text: "VLAN is used to:", options: ["Increase fire risk", "Segment networks logically", "Power devices", "Print reports"], correct: "B" },
-    { text: "NAT is used to:", options: ["Translate network addresses", "Cut cables", "Increase voltage", "Store data"], correct: "A" },
-    { text: "STP helps to:", options: ["Increase loops", "Prevent network loops", "Reduce cables", "Increase fire"], correct: "B" },
-    { text: "LACP is used for:", options: ["Cable aggregation", "Fire control", "Data deletion", "IP addressing"], correct: "A" },
-    { text: "SSID refers to:", options: ["Cable type", "Wireless network name", "Router brand", "IP address"], correct: "B" },
-    { text: "Firewall is used to:", options: ["Block unauthorized access", "Increase speed", "Store data", "Route cables"], correct: "A" },
-    { text: "DHCP is used to:", options: ["Assign IP addresses automatically", "Encrypt files", "Cut cables", "Power devices"], correct: "A" },
-    { text: "Privileged accounts are used for:", options: ["Guest access", "Admin control", "Cable routing", "Fire safety"], correct: "B" },
-    { text: "Network documentation is:", options: ["Cable installation", "Recording network information", "Firewall setup", "Router configuration"], correct: "B" },
-    { text: "Logical documentation shows:", options: ["Building structure", "Network design and IP layout", "Fire safety plan", "Cable color"], correct: "B" },
-    { text: "E-waste refers to:", options: ["Food waste", "Electronic waste", "Paper waste", "Water waste"], correct: "B" },
-    { text: "EMCA Act relates to:", options: ["Network security", "Environmental management", "Software installation", "Cable design"], correct: "B" },
-    { text: "Which device connects multiple networks and forwards packets?", options: ["Switch", "Router", "Hub", "Bridge"], correct: "B" },
-    { text: "What does UTP stand for?", options: ["Unshielded Twisted Pair", "Universal Transfer Protocol", "Unified Terminal Port", "Upper Transport Layer"], correct: "A" },
-    { text: "What is the default subnet mask for Class C IP?", options: ["255.0.0.0", "255.255.0.0", "255.255.255.0", "255.255.255.255"], correct: "C" },
-    { text: "Which protocol is used for web browsing?", options: ["HTTP", "FTP", "SMTP", "Telnet"], correct: "A" },
-    { text: "What does LAN stand for?", options: ["Large Area Network", "Local Area Network", "Long Access Node", "Link Adaptation Network"], correct: "B" },
-    { text: "Which cable is immune to electromagnetic interference?", options: ["Coaxial", "UTP", "Fiber optic", "STP"], correct: "C" },
-    { text: "Which device broadcasts data to all ports?", options: ["Switch", "Hub", "Router", "Modem"], correct: "B" },
-    { text: "What is the purpose of DNS?", options: ["Convert domain to IP", "Assign IP automatically", "Block threats", "Encrypt data"], correct: "A" },
-    { text: "Which wireless standard is 5GHz?", options: ["802.11b", "802.11g", "802.11ac", "802.11n"], correct: "C" },
-    { text: "What does MAC address represent?", options: ["Physical hardware address", "Logical IP", "Network ID", "Subnet mask"], correct: "A" }
-];
+    // ==================== AUTHENTICATION SYSTEM ====================
+    const USERS_KEY = 'tvc_ict_users_final';
+    const SESSION_KEY = 'tvc_ict_session';
+    const EXAM_RECORDS_KEY = 'tvc_exam_records_v2';
 
-// ======================= EXAM 2: 20 MCQs =======================
-const EXAM2_MCQ = [
-    { text: "A computer network is:", options: ["A single computer system", "Two or more connected computers", "A software package", "An operating system"], correct: "B" },
-    { text: "Which network covers a small geographical area?", options: ["WAN", "MAN", "LAN", "PAN"], correct: "C" },
-    { text: "Which topology uses a central connecting device?", options: ["Ring", "Star", "Mesh", "Bus"], correct: "B" },
-    { text: "Which device forwards packets between networks?", options: ["Switch", "Hub", "Router", "NIC"], correct: "C" },
-    { text: "PAN stands for:", options: ["Public Area Network", "Personal Area Network", "Private Access Network", "Packet Area Network"], correct: "B" },
-    { text: "Which transmission media uses light signals?", options: ["Coaxial cable", "UTP cable", "Fiber optic cable", "Twisted pair cable"], correct: "C" },
-    { text: "A switch operates mainly at:", options: ["Physical layer", "Data link layer", "Session layer", "Application layer"], correct: "B" },
-    { text: "Which topology provides high redundancy?", options: ["Star", "Ring", "Mesh", "Point-to-point"], correct: "C" },
-    { text: "A MAN network covers:", options: ["A room", "A building", "A city", "The whole world"], correct: "C" },
-    { text: "Which document contains gathered user requirements?", options: ["Financial report", "User requirement document", "Payroll report", "Network cable chart"], correct: "B" },
-    { text: "Which design allows easy expansion?", options: ["Scalability", "Security", "Availability", "Manageability"], correct: "A" },
-    { text: "A flat network design:", options: ["Uses many layers", "Has no hierarchy", "Uses only routers", "Uses only switches"], correct: "B" },
-    { text: "Greenfield site means:", options: ["Existing network site", "New network installation site", "Damaged network", "Wireless network"], correct: "B" },
-    { text: "Which device connects computers within a LAN?", options: ["Router", "Modem", "Switch", "Repeater"], correct: "C" },
-    { text: "A WAN connects:", options: ["Devices in one room", "Networks over large distances", "Only wireless devices", "Personal devices only"], correct: "B" },
-    { text: "Which topology connects devices directly to one another?", options: ["Ring", "Mesh", "Star", "Bus"], correct: "B" },
-    { text: "Which network component provides wireless access?", options: ["Hub", "Access point", "Repeater", "Bridge"], correct: "B" },
-    { text: "User requirements analysis helps to:", options: ["Ignore user needs", "Understand network needs", "Remove cables", "Install software only"], correct: "B" },
-    { text: "Which is NOT a network design goal?", options: ["Security", "Scalability", "Availability", "Decoration"], correct: "D" },
-    { text: "Ports on a switch are used to:", options: ["Print documents", "Connect devices", "Store data", "Scan viruses"], correct: "B" }
-];
-
-// Theory questions
-const THEORY_QUESTIONS = [
-    { id: "theory1", text: "Define the following terms (5 marks total):<br>a) Computer Network<br>b) Router<br>c) Switch<br>d) Topology<br>e) Transmission Media", maxMarks: 5 },
-    { id: "theory2", text: "Differentiate between LAN and WAN (4 marks) AND PAN and MAN (4 marks). Total 8 marks", maxMarks: 8 },
-    { id: "theory3", text: "State FOUR advantages of Star topology. (4 marks)", maxMarks: 4 },
-    { id: "theory4", text: "Explain FOUR user requirements in network design. (8 marks)", maxMarks: 8 },
-    { id: "theory5", text: "Identify FOUR components of a computer network and their functions. (8 marks)", maxMarks: 8 },
-    { id: "theory6", text: "Explain difference between Greenfield site and Brownfield site. (4 marks)", maxMarks: 4 },
-    { id: "theory7", text: "State THREE fundamental goals of network design. (3 marks)", maxMarks: 3 }
-];
-
-// Student records storage
-let studentExamRecords = {};
-
-function initStudentRecord(reg) {
-    if (!studentExamRecords[reg]) {
-        studentExamRecords[reg] = {
-            exam1: { attemptsUsed: 0, bestScore: 0 },
-            exam2: { attemptsUsed: 0, bestScore: 0 }
-        };
+    function initSystem() {
+        if (!localStorage.getItem(USERS_KEY)) {
+            localStorage.setItem(USERS_KEY, JSON.stringify([{ fullName: "ICT Student", regNo: "ICT001", email: "student@ict.com", password: "pass123" }]));
+        }
+        if (!localStorage.getItem(EXAM_RECORDS_KEY)) localStorage.setItem(EXAM_RECORDS_KEY, JSON.stringify({}));
     }
-}
 
-function canAttempt(reg, examId) { const rec = studentExamRecords[reg]; if(!rec) return true; return rec[examId].attemptsUsed < 3; }
-function updateRecord(reg, examId, scorePercent) {
-    initStudentRecord(reg);
-    const rec = studentExamRecords[reg][examId];
-    rec.attemptsUsed++;
-    if (scorePercent > rec.bestScore) rec.bestScore = scorePercent;
-    return rec;
-}
-
-function getFeedbackMessage(percentage, studentName, examName) {
-    if (percentage >= 50) {
-        return `<div class="feedback-message" style="color: #065f46; background: #d1fae5; padding: 1rem; border-radius: 12px; margin-top: 1rem;">
-            <i class="fas fa-trophy" style="font-size: 1.5rem;"></i> 🎉 <strong>CONGRATULATIONS ${studentName.toUpperCase()}!</strong> 🎉<br>
-            You have PASSED the ${examName} with ${percentage}%! Keep up the excellent work!
-        </div>`;
-    } else {
-        return `<div class="feedback-message" style="color: #991b1b; background: #fee2e2; padding: 1rem; border-radius: 12px; margin-top: 1rem;">
-            <i class="fas fa-frown" style="font-size: 1.5rem;"></i> <strong>FAILED</strong><br>
-            Dear ${studentName}, your score is ${percentage}%. You need at least 50% to pass. Please review your notes and try again. Better luck next time!
-        </div>`;
+    function getUsers() { return JSON.parse(localStorage.getItem(USERS_KEY) || '[]'); }
+    function findUserByEmail(email) { return getUsers().find(u => u.email.toLowerCase() === email.toLowerCase()); }
+    function loginUser(email, password) { const user = findUserByEmail(email); return (user && user.password === password) ? { success: true, user } : { success: false, message: "Invalid email or password. Use student@ict.com / pass123" }; }
+    function registerNewUser(fullName, regNo, email, password) {
+        if (findUserByEmail(email)) return { success: false, message: "Email already registered." };
+        if (password.length < 6) return { success: false, message: "Password must be at least 6 characters." };
+        const users = getUsers();
+        users.push({ fullName, regNo, email, password });
+        localStorage.setItem(USERS_KEY, JSON.stringify(users));
+        return { success: true, message: "Account created successfully! Please login." };
     }
-}
-
-// Render Exam 1
-function renderExam1() {
-    const container = document.getElementById('exam1Area');
-    let html = `<form id="exam1Form">`;
-    EXAM1_QUESTIONS.forEach((q, idx) => {
-        html += `<div class="question-block"><div class="question-text">${idx+1}. ${q.text}</div><div class="options">`;
-        q.options.forEach((opt, optIdx) => { const letter = String.fromCharCode(65+optIdx); html += `<label><input type="radio" name="q1_${idx}" value="${letter}"> ${letter}. ${opt}</label>`; });
-        html += `</div></div>`;
-    });
-    html += `<div class="exam-actions"><button type="button" class="btn-submit exam-btn" id="submitExam1Btn">Submit Exam 1</button><button type="button" class="btn-submit" id="resetExam1Btn">Clear Answers</button></div></form>`;
-    container.innerHTML = html;
-    document.getElementById('submitExam1Btn')?.addEventListener('click', () => submitExam1());
-    document.getElementById('resetExam1Btn')?.addEventListener('click', () => { document.querySelectorAll('#exam1Form input[type="radio"]').forEach(r=>r.checked=false); document.getElementById('exam1Result').innerHTML=''; });
-}
-
-function submitExam1() {
-    const student = window._activeStudent; if(!student) return; const reg = student.reg;
-    if(!canAttempt(reg, 'exam1')) { document.getElementById('exam1Result').innerHTML = `<div class="locked-message">❌ No attempts left for Exam 1.</div>`; return; }
-    let score=0; for(let i=0;i<EXAM1_QUESTIONS.length;i++){ const sel = document.querySelector(`input[name="q1_${i}"]:checked`); if(sel && sel.value===EXAM1_QUESTIONS[i].correct) score+=2; }
-    const percent = score; const updated = updateRecord(reg, 'exam1', percent);
-    document.getElementById('exam1Remaining').innerText = 3 - updated.attemptsUsed;
-    document.getElementById('exam1Used').innerText = updated.attemptsUsed;
-    document.getElementById('exam1Best').innerText = updated.bestScore;
-    const feedback = getFeedbackMessage(percent, student.name, "Exam 1 (Network & Safety)");
-    let msg = `<div class="result-card ${percent>=50?'pass':'fail'}"><h3>Exam 1 Result</h3><p>Score: ${percent}/100</p><p>Best: ${updated.bestScore}% | Attempts left: ${3-updated.attemptsUsed}</p>${feedback}</div>`;
-    if(3-updated.attemptsUsed===0){ msg+=`<div class="locked-message">Exam locked.</div>`; document.querySelectorAll('#exam1Form input').forEach(i=>i.disabled=true); document.getElementById('submitExam1Btn').disabled=true; }
-    document.getElementById('exam1Result').innerHTML = msg;
-}
-
-// Render Exam 2
-function renderExam2() {
-    const container = document.getElementById('exam2Area');
-    let html = `<form id="exam2Form"><h3>Part A: Multiple Choice (20 Questions x 1 = 20 Marks)</h3>`;
-    EXAM2_MCQ.forEach((q, idx) => {
-        html += `<div class="question-block"><div class="question-text">${idx+1}. ${q.text}</div><div class="options">`;
-        q.options.forEach((opt, optIdx) => { const letter = String.fromCharCode(65+optIdx); html += `<label><input type="radio" name="q2_mcq_${idx}" value="${letter}"> ${letter}. ${opt}</label>`; });
-        html += `</div></div>`;
-    });
-    html += `<h3>Part B: Theory Questions (40 Marks) - Answer each in text area</h3>`;
-    THEORY_QUESTIONS.forEach((tq, idx) => {
-        html += `<div class="question-block"><div class="question-text">${tq.text}</div><textarea rows="3" id="theory_${idx}" placeholder="Write your answer here..."></textarea><div class="small-text" style="font-size:0.8rem; color:gray;">Max marks: ${tq.maxMarks}</div></div>`;
-    });
-    html += `<div class="exam-actions"><button type="button" class="btn-submit exam-btn" id="submitExam2Btn">Submit Exam 2</button><button type="button" class="btn-submit" id="resetExam2Btn">Clear All</button></div></form>`;
-    container.innerHTML = html;
-    document.getElementById('submitExam2Btn')?.addEventListener('click', () => submitExam2());
-    document.getElementById('resetExam2Btn')?.addEventListener('click', () => { document.querySelectorAll('#exam2Form input[type="radio"]').forEach(r=>r.checked=false); document.querySelectorAll('#exam2Form textarea').forEach(t=>t.value=''); document.getElementById('exam2Result').innerHTML=''; });
-}
-
-function submitExam2() {
-    const student = window._activeStudent; if(!student) return; const reg = student.reg;
-    if(!canAttempt(reg, 'exam2')) { document.getElementById('exam2Result').innerHTML = `<div class="locked-message">❌ No attempts left for Exam 2.</div>`; return; }
-    let mcqScore = 0; EXAM2_MCQ.forEach((q, idx) => { const sel = document.querySelector(`input[name="q2_mcq_${idx}"]:checked`); if(sel && sel.value===q.correct) mcqScore+=1; });
-    let theoryScore = 0; let theoryKeywords = ["network","router","switch","topology","media","LAN","WAN","star","scalability","security","greenfield","brownfield"];
-    for(let i=0;i<THEORY_QUESTIONS.length;i++){ const answer = document.getElementById(`theory_${i}`)?.value.trim() || ""; if(answer.length>10) { let match=0; theoryKeywords.forEach(kw=>{ if(answer.toLowerCase().includes(kw)) match++; }); let earned = Math.min(THEORY_QUESTIONS[i].maxMarks, Math.floor(match/2)+1); if(earned>THEORY_QUESTIONS[i].maxMarks) earned=THEORY_QUESTIONS[i].maxMarks; theoryScore += earned; } }
-    const totalRaw = mcqScore + theoryScore; const percent = Math.round((totalRaw / 60) * 100);
-    const updated = updateRecord(reg, 'exam2', percent);
-    document.getElementById('exam2Remaining').innerText = 3 - updated.attemptsUsed;
-    document.getElementById('exam2Used').innerText = updated.attemptsUsed;
-    document.getElementById('exam2Best').innerText = updated.bestScore;
-    const feedback = getFeedbackMessage(percent, student.name, "Exam 2 (Networking Principles)");
-    let msg = `<div class="result-card ${percent>=50?'pass':'fail'}"><h3>Exam 2 Result</h3><p>MCQ: ${mcqScore}/20 | Theory: ${theoryScore}/40 | Total: ${totalRaw}/60 → ${percent}%</p><p>Best: ${updated.bestScore}% | Attempts left: ${3-updated.attemptsUsed}</p>${feedback}</div>`;
-    if(3-updated.attemptsUsed===0){ msg+=`<div class="locked-message">Exam locked.</div>`; document.querySelectorAll('#exam2Form input, #exam2Form textarea').forEach(i=>i.disabled=true); document.getElementById('submitExam2Btn').disabled=true; }
-    document.getElementById('exam2Result').innerHTML = msg;
-}
-
-let currentStudent = null;
-function loadDashboard(student) {
-    currentStudent = student; window._activeStudent = student; const reg = student.reg;
-    initStudentRecord(reg);
-    document.getElementById('studentNameDisplay').innerText = student.name;
-    document.getElementById('studentReg').innerText = student.reg;
-    document.getElementById('studentCourse').innerText = student.course;
-    const e1 = studentExamRecords[reg].exam1, e2 = studentExamRecords[reg].exam2;
-    document.getElementById('exam1Remaining').innerText = 3 - e1.attemptsUsed; document.getElementById('exam1Used').innerText = e1.attemptsUsed; document.getElementById('exam1Best').innerText = e1.bestScore;
-    document.getElementById('exam2Remaining').innerText = 3 - e2.attemptsUsed; document.getElementById('exam2Used').innerText = e2.attemptsUsed; document.getElementById('exam2Best').innerText = e2.bestScore;
-    renderExam1(); renderExam2();
-    if(!canAttempt(reg,'exam1')) { setTimeout(()=>{ if(document.getElementById('submitExam1Btn')) document.getElementById('submitExam1Btn').disabled=true; document.querySelectorAll('#exam1Form input')?.forEach(i=>i.disabled=true); },100); }
-    if(!canAttempt(reg,'exam2')) { setTimeout(()=>{ if(document.getElementById('submitExam2Btn')) document.getElementById('submitExam2Btn').disabled=true; document.querySelectorAll('#exam2Form input, #exam2Form textarea')?.forEach(i=>i.disabled=true); },100); }
-}
-
-// Login Logic
-const loginBtn = document.getElementById('loginBtn'), registerBtn = document.getElementById('registerBtn'), logoutBtn = document.getElementById('logoutBtn');
-const dashboardDiv = document.getElementById('dashboard-view'), portalTabsDiv = document.getElementById('portalTabs'), portalForms = document.querySelector('#portal .portal-forms');
-function showDashboard(student) { portalTabsDiv.style.display='none'; portalForms.style.display='none'; dashboardDiv.style.display='block'; loadDashboard(student); }
-function hideDashboard() { portalTabsDiv.style.display='flex'; portalForms.style.display='block'; dashboardDiv.style.display='none'; currentStudent=null; }
-
-loginBtn?.addEventListener('click',()=>{
-    const fullName = document.getElementById('studentFullName').value.trim();
-    const username = document.getElementById('loginUser').value.trim();
-    const pwd = document.getElementById('loginPass').value.trim();
-    const msgDiv = document.getElementById('loginMessage');
-    if(!fullName){ msgDiv.style.display='block'; msgDiv.style.background='#f8d7da'; msgDiv.innerHTML='❌ Please enter your full name!'; return; }
-    if((username === 'ADM001' || username === 'student@msambweni.ac.ke') && pwd === 'password123'){
-        showDashboard({ name: fullName, reg: "ADM001", course: "ICT" });
-        msgDiv.style.display='none';
-    } else if(username === 'STU002' && pwd === 'pass123'){
-        showDashboard({ name: fullName, reg: "STU002", course: "Electrical" });
-        msgDiv.style.display='none';
-    } else {
-        msgDiv.style.display='block'; msgDiv.style.background='#f8d7da'; msgDiv.innerHTML='❌ Invalid credentials. Use ADM001/password123 or STU002/pass123';
+    function resetUserPassword(email, newPass, confirm) {
+        if (newPass !== confirm) return { success: false, message: "Passwords do not match." };
+        if (newPass.length < 6) return { success: false, message: "Password too short." };
+        const users = getUsers();
+        const idx = users.findIndex(u => u.email.toLowerCase() === email.toLowerCase());
+        if (idx === -1) return { success: false, message: "Email not found." };
+        users[idx].password = newPass;
+        localStorage.setItem(USERS_KEY, JSON.stringify(users));
+        return { success: true, message: "Password reset successful! Please login." };
     }
-});
 
-registerBtn?.addEventListener('click',()=>{
-    const name = document.getElementById('regName').value.trim();
-    const reg = document.getElementById('regNumber').value.trim();
-    const pwd = document.getElementById('regPass').value;
-    const msg = document.getElementById('registerMessage');
-    if(!name || !reg || pwd.length<4){ msg.style.display='block'; msg.style.background='#f8d7da'; msg.innerHTML='❌ Name, Reg number and valid password required'; return; }
-    msg.style.display='block'; msg.style.background='#d4edda'; msg.innerHTML='✅ Registration successful! Please login.';
-    document.getElementById('studentFullName').value = name;
-    document.getElementById('loginUser').value = reg;
-    document.getElementById('loginPass').value = pwd;
-    document.getElementById('tab-login').click();
-});
+    function getExamRecords(regNo) {
+        const all = JSON.parse(localStorage.getItem(EXAM_RECORDS_KEY) || '{}');
+        if (!all[regNo]) all[regNo] = { networkDesign: { attemptsUsed: 0, bestScore: 0 }, digitalLiteracy: { attemptsUsed: 0, bestScore: 0 } };
+        localStorage.setItem(EXAM_RECORDS_KEY, JSON.stringify(all));
+        return all[regNo];
+    }
+    function updateExamRecord(regNo, examKey, scorePercent) {
+        const all = JSON.parse(localStorage.getItem(EXAM_RECORDS_KEY) || '{}');
+        if (!all[regNo]) all[regNo] = { networkDesign: { attemptsUsed: 0, bestScore: 0 }, digitalLiteracy: { attemptsUsed: 0, bestScore: 0 } };
+        all[regNo][examKey].attemptsUsed++;
+        if (scorePercent > all[regNo][examKey].bestScore) all[regNo][examKey].bestScore = scorePercent;
+        localStorage.setItem(EXAM_RECORDS_KEY, JSON.stringify(all));
+        return all[regNo][examKey];
+    }
+    function canAttempt(regNo, examKey) { return getExamRecords(regNo)[examKey].attemptsUsed < 3; }
 
-logoutBtn?.addEventListener('click',hideDashboard);
-document.getElementById('resetAllAttemptsBtn')?.addEventListener('click',()=>{
-    if(currentStudent && studentExamRecords[currentStudent.reg]){
-        studentExamRecords[currentStudent.reg]={exam1:{attemptsUsed:0,bestScore:0},exam2:{attemptsUsed:0,bestScore:0}};
-        document.getElementById('resetMsg').innerHTML='✅ Attempts reset successfully!';
-        loadDashboard(currentStudent);
-    } else { document.getElementById('resetMsg').innerHTML='⚠️ No active student or record found.'; }
-});
-// Tab switching
-document.getElementById('tab-login')?.addEventListener('click',()=>{ document.getElementById('tab-login').classList.add('active'); document.getElementById('tab-register').classList.remove('active'); document.getElementById('login-form').classList.add('active-form'); document.getElementById('register-form').classList.remove('active-form'); });
-document.getElementById('tab-register')?.addEventListener('click',()=>{ document.getElementById('tab-register').classList.add('active'); document.getElementById('tab-login').classList.remove('active'); document.getElementById('register-form').classList.add('active-form'); document.getElementById('login-form').classList.remove('active-form'); });
-// Exam tabs
-const exam1Tab=document.getElementById('exam1Tab'), exam2Tab=document.getElementById('exam2Tab'), exam1Panel=document.getElementById('exam1Panel'), exam2Panel=document.getElementById('exam2Panel');
-exam1Tab?.addEventListener('click',()=>{ exam1Tab.classList.add('active'); exam2Tab.classList.remove('active'); exam1Panel.style.display='block'; exam2Panel.style.display='none'; });
-exam2Tab?.addEventListener('click',()=>{ exam2Tab.classList.add('active'); exam1Tab.classList.remove('active'); exam2Panel.style.display='block'; exam1Panel.style.display='none'; });
+    // ========== EXAM 1: NETWORK DESIGN & MANAGEMENT (30 MCQs) ==========
+    const networkDesignQuestions = [
+        { text: "What does LAN stand for?", options: ["Local Area Network", "Large Area Network", "Long Access Node", "Link Adaptation Network"], correct: 0 },
+        { text: "Which device connects multiple networks and forwards packets?", options: ["Switch", "Router", "Hub", "Bridge"], correct: 1 },
+        { text: "Which topology uses a central hub/switch?", options: ["Ring", "Bus", "Star", "Mesh"], correct: 2 },
+        { text: "What is the default subnet mask for Class C?", options: ["255.0.0.0", "255.255.0.0", "255.255.255.0", "255.255.255.255"], correct: 2 },
+        { text: "Which protocol is used for web browsing?", options: ["HTTP", "FTP", "SMTP", "Telnet"], correct: 0 },
+        { text: "What does WAN stand for?", options: ["Wide Area Network", "Wireless Area Network", "Wired Access Node", "Web Access Network"], correct: 0 },
+        { text: "Which cable is immune to EMI?", options: ["Coaxial", "UTP", "Fiber optic", "STP"], correct: 2 },
+        { text: "What does DNS do?", options: ["Converts domain to IP", "Assigns IP automatically", "Blocks threats", "Encrypts data"], correct: 0 },
+        { text: "Which device broadcasts data to all ports?", options: ["Switch", "Router", "Hub", "Modem"], correct: 2 },
+        { text: "What is the purpose of a firewall?", options: ["Block unauthorized access", "Increase speed", "Store data", "Route packets"], correct: 0 },
+        { text: "What does DHCP do?", options: ["Assigns IP addresses automatically", "Encrypts files", "Routes traffic", "Manages cables"], correct: 0 },
+        { text: "Which wireless standard uses 5GHz?", options: ["802.11b", "802.11g", "802.11ac", "802.11n"], correct: 2 },
+        { text: "What does MAC address represent?", options: ["Physical hardware address", "Logical IP", "Network ID", "Subnet mask"], correct: 0 },
+        { text: "Which topology provides highest redundancy?", options: ["Star", "Ring", "Mesh", "Bus"], correct: 2 },
+        { text: "What does VLAN stand for?", options: ["Virtual Local Area Network", "Very Large Area Network", "Visual LAN", "Voice LAN"], correct: 0 },
+        { text: "Which OSI layer does a switch operate on?", options: ["Physical", "Data Link", "Network", "Transport"], correct: 1 },
+        { text: "What is the purpose of STP?", options: ["Prevent network loops", "Increase speed", "Encrypt data", "Manage cables"], correct: 0 },
+        { text: "What does NAT do?", options: ["Translates network addresses", "Filters packets", "Encrypts traffic", "Assigns IPs"], correct: 0 },
+        { text: "Which cable type uses light signals?", options: ["Coaxial", "UTP", "Fiber optic", "STP"], correct: 2 },
+        { text: "What is a greenfield site?", options: ["New network installation", "Existing network", "Damaged network", "Wireless network"], correct: 0 },
+        { text: "Which network covers a city?", options: ["LAN", "MAN", "WAN", "PAN"], correct: 1 },
+        { text: "What does QoS stand for?", options: ["Quality of Service", "Quick Output Signal", "Query of Server", "Queue System"], correct: 0 },
+        { text: "Which device connects computers within same LAN?", options: ["Router", "Modem", "Switch", "Gateway"], correct: 2 },
+        { text: "What is the purpose of SSID?", options: ["Wireless network name", "IP address", "MAC address", "Password"], correct: 0 },
+        { text: "Which protocol is used for email sending?", options: ["SMTP", "POP3", "IMAP", "HTTP"], correct: 0 },
+        { text: "What does SNMP manage?", options: ["Network devices", "User accounts", "Files", "Printers"], correct: 0 },
+        { text: "What is subnetting used for?", options: ["Divide networks", "Increase speed", "Encrypt data", "Backup data"], correct: 0 },
+        { text: "Which device amplifies signals?", options: ["Repeater", "Switch", "Router", "Bridge"], correct: 0 },
+        { text: "What does ISP stand for?", options: ["Internet Service Provider", "Internal Service Protocol", "International Server Provider", "Integrated Service Point"], correct: 0 },
+        { text: "Which topology connects devices in a closed loop?", options: ["Star", "Bus", "Ring", "Mesh"], correct: 2 }
+    ];
+
+    // ========== DIGITAL LITERACY EXAM - BASED ON ELEMENT ONE NOTES.pdf ==========
+    const digitalLiteracyQuestions = [
+        // MCQs from the document
+        { text: "What is digital literacy?", options: ["Ability to use digital devices effectively and safely", "Ability to write computer programs", "Ability to repair computers", "Ability to design websites"], correct: 0, custom: false },
+        { text: "Which of the following is NOT a benefit of digital literacy according to the notes?", options: ["Improves communication", "Enhances learning", "Decreases employment opportunities", "Promotes efficiency"], correct: 2, custom: false },
+        { text: "A computer is an electronic device that accepts data, processes it, and produces ____________.", options: ["Information", "Electricity", "Noise", "Heat"], correct: 0, custom: false },
+        { text: "Which of the following is a basic function of a computer?", options: ["Input", "Processing", "Storage", "All of the above"], correct: 3, custom: false },
+        { text: "Which type of computer is the most powerful and used for weather forecasting?", options: ["Supercomputer", "Mainframe", "Minicomputer", "Microcomputer"], correct: 0, custom: false },
+        { text: "Which computer is designed for individual use (e.g., desktop, laptop)?", options: ["Supercomputer", "Mainframe", "Minicomputer", "Microcomputer"], correct: 3, custom: false },
+        { text: "Which type of computer processes continuous data (e.g., scientific measurements)?", options: ["Analog computer", "Digital computer", "Hybrid computer", "Personal computer"], correct: 0, custom: false },
+        { text: "The 'brain' of the computer that performs calculations is the:", options: ["RAM", "CPU", "Hard disk", "Motherboard"], correct: 1, custom: false },
+        { text: "Which memory is temporary and stores data currently in use?", options: ["ROM", "RAM", "Hard disk", "SSD"], correct: 1, custom: false },
+        { text: "Which of the following is an input device?", options: ["Monitor", "Printer", "Keyboard", "Speaker"], correct: 2, custom: false },
+        { text: "Which device is used to produce hard copy output on paper?", options: ["Monitor", "Printer", "Projector", "Speaker"], correct: 1, custom: false },
+        { text: "Which of the following is a storage device?", options: ["CPU", "RAM", "Flash disk", "Motherboard"], correct: 2, custom: false },
+        { text: "The main circuit board that connects all computer components is the:", options: ["CPU", "Motherboard", "Power supply", "Hard disk"], correct: 1, custom: false },
+        { text: "Which output device displays images on a large screen for presentations?", options: ["Monitor", "Printer", "Projector", "Speaker"], correct: 2, custom: false },
+        // Theory / short answer questions based on the notes
+        { text: "Explain FOUR importance of computers as outlined in the notes. (8 Marks)", options: [], custom: true, marks: 8, expectedKeywords: ["speed", "accuracy", "storage", "communication", "automation", "education", "business", "healthcare"] },
+        { text: "Differentiate between supercomputers and microcomputers (personal computers). (4 Marks)", options: [], custom: true, marks: 4, expectedKeywords: ["supercomputer powerful", "microcomputer personal", "supercomputer expensive", "microcomputer individual", "weather forecasting", "desktop"] },
+        { text: "List FOUR input devices and explain their functions. (8 Marks)", options: [], custom: true, marks: 8, expectedKeywords: ["keyboard typing", "mouse pointing", "scanner digitize", "microphone sound", "webcam video", "joystick gaming"] },
+        { text: "List FOUR output devices and explain their functions. (8 Marks)", options: [], custom: true, marks: 8, expectedKeywords: ["monitor display", "printer hard copy", "speakers sound", "projector large screen"] },
+        { text: "Describe the functions of the following hardware components: CPU, RAM, Hard Disk, and Motherboard. (8 Marks)", options: [], custom: true, marks: 8, expectedKeywords: ["cpu brain calculations", "ram temporary memory", "hard disk permanent storage", "motherboard connects components"] },
+        { text: "Explain the difference between analog computers and digital computers. (4 Marks)", options: [], custom: true, marks: 4, expectedKeywords: ["analog continuous data", "digital discrete binary", "analog measurements", "digital common computers"] }
+    ];
+
+    let currentUser = null, clockInterval = null;
+
+    function renderExams(studentReg, studentName) {
+        const container = document.getElementById('examsContainer');
+        if (!container) return;
+        const netRecords = getExamRecords(studentReg).networkDesign;
+        const digRecords = getExamRecords(studentReg).digitalLiteracy;
+        container.innerHTML = `
+            <div class="exam-card"><div class="exam-header-color"><h2><i class="fas fa-network-wired"></i> Network Design & Management</h2></div><img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&auto=format" class="exam-photo" onerror="this.src='https://via.placeholder.com/800x180?text=Network+Design'"><div class="exam-body"><div class="attempt-badge"><span>📊 Attempts left: <strong id="netAttemptsLeft">${3 - netRecords.attemptsUsed}</strong>/3</span><span>🏆 Best Score: <strong id="netBestScore">${netRecords.bestScore}</strong>%</span></div><div id="netExamArea"></div><div id="netResultArea"></div></div></div>
+            <div class="exam-card"><div class="exam-header-color"><h2><i class="fas fa-laptop-code"></i> Digital Literacy (Based on Official Notes)</h2></div><img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=800&auto=format" class="exam-photo" onerror="this.src='https://via.placeholder.com/800x180?text=Digital+Literacy'"><div class="exam-body"><div class="attempt-badge"><span>📊 Attempts left: <strong id="digAttemptsLeft">${3 - digRecords.attemptsUsed}</strong>/3</span><span>🏆 Best Score: <strong id="digBestScore">${digRecords.bestScore}</strong>%</span></div><div id="digExamArea"></div><div id="digResultArea"></div></div></div>
+        `;
+        renderNetworkExam();
+        renderDigitalExam();
+        if (netRecords.attemptsUsed >= 3) disableExamArea('netExamArea', 'submitNetExam');
+        if (digRecords.attemptsUsed >= 3) disableExamArea('digExamArea', 'submitDigExam');
+    }
+
+    function renderNetworkExam() {
+        const container = document.getElementById('netExamArea');
+        if (!container) return;
+        let html = `<form id="netForm">`;
+        networkDesignQuestions.forEach((q, idx) => {
+            html += `<div class="question-block"><div class="question-text">${idx+1}. ${q.text}</div><div class="options">`;
+            q.options.forEach((opt, optIdx) => { html += `<label><input type="radio" name="net_q${idx}" value="${optIdx}"> ${String.fromCharCode(65+optIdx)}. ${opt}</label>`; });
+            html += `</div></div>`;
+        });
+        html += `<button type="button" id="submitNetExam" class="btn-submit-exam">✅ Submit Exam</button><button type="button" class="btn-submit-exam" style="background:#95a5a6;" onclick="clearExamAnswers('netForm')">🗑️ Clear All</button></form>`;
+        container.innerHTML = html;
+        document.getElementById('submitNetExam')?.addEventListener('click', () => submitNetworkExam());
+    }
+
+    function renderDigitalExam() {
+        const container = document.getElementById('digExamArea');
+        if (!container) return;
+        let html = `<form id="digForm">`;
+        digitalLiteracyQuestions.forEach((q, idx) => {
+            if (q.custom) {
+                html += `<div class="question-block"><div class="question-text">${idx+1}. ${q.text}</div><textarea rows="4" id="dig_essay_${idx}" style="width:100%; padding:8px; border-radius:12px; border:1px solid #ccc;" placeholder="Write your answer in full sentences..."></textarea><div class="small-text" style="font-size:0.7rem; color:gray;">Max marks: ${q.marks || 4}</div></div>`;
+            } else {
+                html += `<div class="question-block"><div class="question-text">${idx+1}. ${q.text}</div><div class="options">`;
+                q.options.forEach((opt, optIdx) => { html += `<label><input type="radio" name="dig_q${idx}" value="${optIdx}"> ${String.fromCharCode(65+optIdx)}. ${opt}</label>`; });
+                html += `</div></div>`;
+            }
+        });
+        html += `<button type="button" id="submitDigExam" class="btn-submit-exam">✅ Submit Digital Literacy Exam</button><button type="button" class="btn-submit-exam" style="background:#95a5a6;" onclick="clearExamAnswers('digForm')">🗑️ Clear All</button></form>`;
+        container.innerHTML = html;
+        document.getElementById('submitDigExam')?.addEventListener('click', () => submitDigitalExam());
+    }
+
+    function submitNetworkExam() {
+        const reg = currentUser.regNo;
+        if (!canAttempt(reg, 'networkDesign')) { document.getElementById('netResultArea').innerHTML = `<div class="locked-message">No attempts left.</div>`; return; }
+        let score = 0;
+        for (let i = 0; i < networkDesignQuestions.length; i++) {
+            const selected = document.querySelector(`input[name="net_q${i}"]:checked`);
+            if (selected && parseInt(selected.value) === networkDesignQuestions[i].correct) score++;
+        }
+        const percent = Math.round((score / networkDesignQuestions.length) * 100);
+        const updated = updateExamRecord(reg, 'networkDesign', percent);
+        document.getElementById('netAttemptsLeft').innerText = 3 - updated.attemptsUsed;
+        document.getElementById('netBestScore').innerText = updated.bestScore;
+        const passMsg = percent >= 50 ? `<div style="color:#065f46; background:#d1fae5; padding:0.8rem; border-radius:16px;">🎉 PASSED! ${percent}%</div>` : `<div style="color:#991b1b; background:#fee2e2; padding:0.8rem; border-radius:16px;">❌ FAILED: ${percent}%. Need 50%.</div>`;
+        document.getElementById('netResultArea').innerHTML = `<div class="result-card"><h3>Result</h3><p>Score: ${score}/${networkDesignQuestions.length} (${percent}%)</p><p>Attempts left: ${3-updated.attemptsUsed} | Best: ${updated.bestScore}%</p>${passMsg}</div>`;
+        if (updated.attemptsUsed >= 3) disableExamArea('netExamArea', 'submitNetExam');
+    }
+
+    function submitDigitalExam() {
+        const reg = currentUser.regNo;
+        if (!canAttempt(reg, 'digitalLiteracy')) { document.getElementById('digResultArea').innerHTML = `<div class="locked-message">No attempts left.</div>`; return; }
+        let totalMarks = 0, maxMarks = 0;
+        for (let i = 0; i < digitalLiteracyQuestions.length; i++) {
+            const q = digitalLiteracyQuestions[i];
+            if (q.custom) {
+                maxMarks += (q.marks || 4);
+                const answer = document.getElementById(`dig_essay_${i}`)?.value.trim() || "";
+                let earned = 0;
+                if (answer.length > 20) {
+                    const keywords = q.expectedKeywords || [];
+                    let matchCount = 0;
+                    keywords.forEach(kw => { if (answer.toLowerCase().includes(kw.toLowerCase())) matchCount++; });
+                    earned = Math.min(q.marks || 4, Math.floor(matchCount / 2) + 1);
+                    if (earned < 1 && answer.length > 30) earned = 1;
+                } else if (answer.length > 10) { earned = 1; }
+                totalMarks += earned;
+            } else {
+                maxMarks += 1;
+                const selected = document.querySelector(`input[name="dig_q${i}"]:checked`);
+                if (selected && parseInt(selected.value) === q.correct) totalMarks += 1;
+            }
+        }
+        const percent = Math.round((totalMarks / maxMarks) * 100);
+        const updated = updateExamRecord(reg, 'digitalLiteracy', percent);
+        document.getElementById('digAttemptsLeft').innerText = 3 - updated.attemptsUsed;
+        document.getElementById('digBestScore').innerText = updated.bestScore;
+        const passMsg = percent >= 50 ? `<div style="color:#065f46; background:#d1fae5; padding:0.8rem; border-radius:16px;">🎉 PASSED! ${percent}%</div>` : `<div style="color:#991b1b; background:#fee2e2; padding:0.8rem; border-radius:16px;">❌ FAILED: ${percent}%. Need 50%.</div>`;
+        document.getElementById('digResultArea').innerHTML = `<div class="result-card"><h3>Result</h3><p>Score: ${totalMarks}/${maxMarks} (${percent}%)</p><p>Attempts left: ${3-updated.attemptsUsed} | Best: ${updated.bestScore}%</p>${passMsg}</div>`;
+        if (updated.attemptsUsed >= 3) disableExamArea('digExamArea', 'submitDigExam');
+    }
+
+    function disableExamArea(areaId, btnId) {
+        const area = document.getElementById(areaId);
+        if (area) area.querySelectorAll('input, textarea').forEach(i => i.disabled = true);
+        const btn = document.getElementById(btnId);
+        if (btn) btn.disabled = true;
+    }
+    window.clearExamAnswers = function(formId) {
+        const form = document.getElementById(formId);
+        if (form) { form.querySelectorAll('input[type="radio"]').forEach(r => r.checked = false); form.querySelectorAll('textarea').forEach(t => t.value = ''); }
+    };
+
+    function startGiantClock() {
+        if (clockInterval) clearInterval(clockInterval);
+        function update() {
+            const now = new Date();
+            document.getElementById('giantClockDisplay').innerText = now.toLocaleTimeString('en-GB', { hour12: false });
+            document.getElementById('fullDateText').innerText = now.toLocaleDateString('en-GB', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+        }
+        update(); clockInterval = setInterval(update, 1000);
+    }
+
+    function showDashboard(user) {
+        currentUser = user;
+        document.getElementById('authContainer').style.display = 'none';
+        document.getElementById('studentDashboard').style.display = 'block';
+        startGiantClock();
+        renderExams(user.regNo, user.fullName);
+        localStorage.setItem(SESSION_KEY, JSON.stringify({ email: user.email, regNo: user.regNo, name: user.fullName }));
+    }
+    function logout() { localStorage.removeItem(SESSION_KEY); document.getElementById('authContainer').style.display = 'block'; document.getElementById('studentDashboard').style.display = 'none'; if(clockInterval) clearInterval(clockInterval); clearMessages(); }
+    function clearMessages() { ['loginErrorMsg','regMessageBlock','resetMsgBlock'].forEach(id=>{ let el=document.getElementById(id); if(el) el.style.display='none'; }); }
+    function showMessage(element, text, isError=true) { element.innerText = text; element.style.display='block'; element.className=`message-box ${isError?'error-msg':'success-msg'}`; setTimeout(()=>{ if(element.style.display==='block') element.style.display='none'; },4000); }
+    function checkAutoLogin() { const session = localStorage.getItem(SESSION_KEY); if(session){ try{ const sess=JSON.parse(session); const user=findUserByEmail(sess.email); if(user) showDashboard(user); else logout(); }catch(e){ logout(); } } }
+
+    // Event listeners
+    document.getElementById('doLoginAction').addEventListener('click', () => { const email=document.getElementById('loginEmail').value.trim(); const pass=document.getElementById('loginPass').value.trim(); const res=loginUser(email,pass); if(res.success) showDashboard(res.user); else showMessage(document.getElementById('loginErrorMsg'),res.message,true); });
+    document.getElementById('doRegisterAction').addEventListener('click', () => { const name=document.getElementById('regName').value.trim(); const reg=document.getElementById('regNumber').value.trim(); const email=document.getElementById('regEmailAddr').value.trim(); const pwd=document.getElementById('regPassword').value.trim(); const conf=document.getElementById('regConfirm').value.trim(); if(!name||!reg||!email){ showMessage(document.getElementById('regMessageBlock'),"All fields required",true); return; } if(pwd!==conf){ showMessage(document.getElementById('regMessageBlock'),"Passwords mismatch",true); return; } const res=registerNewUser(name,reg,email,pwd); if(res.success){ showMessage(document.getElementById('regMessageBlock'),res.message,false); setTimeout(()=>{ document.querySelector('[data-tab="loginPanel"]').click(); document.getElementById('loginEmail').value=email; document.getElementById('loginPass').value=''; },1500); } else showMessage(document.getElementById('regMessageBlock'),res.message,true); });
+    document.getElementById('doResetAction').addEventListener('click', () => { const email=document.getElementById('resetEmailAddr').value.trim(); const np=document.getElementById('resetNewPass').value.trim(); const cp=document.getElementById('resetConfirmPass').value.trim(); const res=resetUserPassword(email,np,cp); if(res.success){ showMessage(document.getElementById('resetMsgBlock'),res.message,false); setTimeout(()=>document.querySelector('[data-tab="loginPanel"]').click(),1500); } else showMessage(document.getElementById('resetMsgBlock'),res.message,true); });
+    document.getElementById('logoutMainBtn')?.addEventListener('click',logout);
+    document.querySelectorAll('.auth-tab').forEach(tab=>{ tab.addEventListener('click',()=>{ const target=tab.getAttribute('data-tab'); document.querySelectorAll('.auth-panel').forEach(p=>p.classList.remove('active-panel')); document.getElementById(target).classList.add('active-panel'); document.querySelectorAll('.auth-tab').forEach(t=>t.classList.remove('active')); tab.classList.add('active'); clearMessages(); }); });
+    initSystem(); checkAutoLogin();
 </script>
 </body>
 </html>
